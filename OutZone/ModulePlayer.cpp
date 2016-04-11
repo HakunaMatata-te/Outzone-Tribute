@@ -24,7 +24,7 @@ bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
 	bool ret = true;
 
-	character = App->textures->Load("Game/playermove.png");
+	character = App->textures->Load("playermove.png");
 	return ret;
 };
 

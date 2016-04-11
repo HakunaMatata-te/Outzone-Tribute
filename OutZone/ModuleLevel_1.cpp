@@ -25,8 +25,8 @@ bool ModuleLevel_1::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	lvl_texture = App->textures->Load("Game/lvl_1.png");
-	lvl_music = App->audios->LoadMusic("Game/lvl_1.wav");
+	lvl_texture = App->textures->Load("lvl_1.png");
+	lvl_music = App->audios->LoadMusic("lvl_1.wav");
 	Mix_PlayMusic(lvl_music, -1);
 	return ret;
 }
