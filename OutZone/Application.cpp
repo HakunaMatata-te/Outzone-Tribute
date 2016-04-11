@@ -3,7 +3,8 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
-#include "ModuleBackground.h"
+#include "ModuleLevel_1.h"
+#include "ModuleLevel_2.h"
 
 
 Application::Application()
@@ -12,7 +13,8 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = textures = new ModuleTextures();
 	modules[3] = input = new ModuleInput();
-	modules[4] = background = new ModuleBackground();
+	modules[4] = level_1 = new ModuleLevel_1();
+	modules[5] = level_2 = new ModuleLevel_2();
 }	
 
 Application::~Application()
