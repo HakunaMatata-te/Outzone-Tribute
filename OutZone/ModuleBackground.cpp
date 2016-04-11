@@ -21,7 +21,7 @@ bool ModuleBackground::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("level1.png");
+	graphics = App->textures->Load("Game/level1.png");
 	return ret;
 }
 
