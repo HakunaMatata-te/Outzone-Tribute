@@ -43,7 +43,7 @@ bool ModuleAudio::CleanUp(){
 	return true;
 }
 
-Mix_Music* const ModuleAudio::Load(const char* path)
+Mix_Music* const ModuleAudio::LoadMusic(const char* path)
 {
 	Mix_Music* music = Mix_LoadMUS(path);
 
@@ -54,7 +54,7 @@ Mix_Music* const ModuleAudio::Load(const char* path)
 	else
 	{
 		musics[last_music++] = music;
-		Mix_PlayMusic(music, -1);
 	}
+
 	return music;
 }
