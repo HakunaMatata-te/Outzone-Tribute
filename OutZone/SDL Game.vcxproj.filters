@@ -47,10 +47,14 @@
     <ClInclude Include="ModuleFadeToBlack.h">
       <Filter>Modules</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="p2Point.h">
       <Filter>Containers</Filter>
     </ClInclude>
     <ClInclude Include="ModulePlayer.h">
+=======
+    <ClInclude Include="ModuleAudio.h">
+>>>>>>> origin/master
       <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
@@ -85,7 +89,11 @@
     <ClCompile Include="ModuleFadeToBlack.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="ModulePlayer.cpp">
+=======
+    <ClCompile Include="ModuleAudio.cpp">
+>>>>>>> origin/master
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
