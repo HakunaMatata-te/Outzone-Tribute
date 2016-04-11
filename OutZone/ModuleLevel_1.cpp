@@ -2,8 +2,9 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
-#include "ModuleLevel_1.h"
 #include "ModuleInput.h"
+#include "ModuleLevel_1.h"
+#include "ModuleLevel_2.h"
 
 
 ModuleLevel_1::ModuleLevel_1()
@@ -32,7 +33,8 @@ update_status ModuleLevel_1::Update()
 	App->render->Blit(lvl_texture, 0, -4756 + SCREEN_HEIGHT, &background, 0.75f); //Negative value to start rendering from the bottom og the image
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
-
+		App->level_2->Enable();
+		App->level_1->Disable();
 	}
 
 	return UPDATE_CONTINUE;
