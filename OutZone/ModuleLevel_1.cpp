@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
+#include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleLevel_1.h"
@@ -25,6 +26,8 @@ bool ModuleLevel_1::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	lvl_texture = App->textures->Load("Game/lvl_1.png");
+	lvl_music = App->audios->LoadMusic("Game/lvl_1.wav");
+	Mix_PlayMusic(lvl_music, -1);
 	return ret;
 }
 

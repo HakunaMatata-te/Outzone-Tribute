@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 
+#include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
 
 class ModuleLevel_1 : public Module
@@ -19,6 +20,7 @@ public:
 	
 	SDL_Texture* lvl_texture = nullptr;
 	SDL_Rect background;
+	Mix_Music* lvl_music = nullptr;
 
 };
 

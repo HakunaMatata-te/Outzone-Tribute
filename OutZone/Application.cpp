@@ -3,6 +3,7 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
+#include "ModuleAudio.h"
 #include "ModuleLevel_1.h"
 #include "ModuleLevel_2.h"
 #include "ModulePlayer.h"
@@ -14,11 +15,12 @@ Application::Application()
 	modules[0] = window = new ModuleWindow();
 	modules[1] = render = new ModuleRender();
 	modules[2] = textures = new ModuleTextures();
-	modules[3] = input = new ModuleInput();
-	modules[4] = level_1 = new ModuleLevel_1();
-	modules[5] = level_2 = new ModuleLevel_2();
-	modules[6] = player = new ModulePlayer();
-	modules[7] = fade = new ModuleFadeToBlack();
+	modules[3] = audios = new ModuleAudio();
+	modules[4] = input = new ModuleInput();
+	modules[5] = level_1 = new ModuleLevel_1();
+	modules[6] = level_2 = new ModuleLevel_2();
+	modules[7] = player = new ModulePlayer();
+	modules[8] = fade = new ModuleFadeToBlack();
 }	
 
 Application::~Application()
