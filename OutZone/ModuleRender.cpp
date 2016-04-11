@@ -3,6 +3,7 @@
 #include "ModuleRender.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
+#include "ModulePlayer.h"
 #include "SDL/include/SDL.h"
 
 ModuleRender::ModuleRender() : Module()
@@ -49,15 +50,11 @@ update_status ModuleRender::PreUpdate()
 
 update_status ModuleRender::Update()	
 {
-	int speed = 3;
-
-	if (App->input->keyboard[SDL_SCANCODE_UP] == 1)
-		camera.y += speed;
-
-	if(App->input->keyboard[SDL_SCANCODE_DOWN] == 1)
-		camera.y -= speed;
-
-
+	if (App->player->position.y < ((App->player->screenlowheight - 240) + App->player->screenlowheight) / 2){
+		camera.y += SCREEN_SPEED*SCREEN_SIZE;
+		App->player->screenlowheight -= SCREEN_SPEED;
+		App->player->position.y -= 1;
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }

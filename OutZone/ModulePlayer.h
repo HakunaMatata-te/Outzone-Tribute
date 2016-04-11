@@ -19,9 +19,18 @@ public:
 	update_status Update();
 
 public:
+	
+	int height = 0;
+	int width = 0;
+	int screenlowheight = 320;
+	SDL_Texture* character = nullptr;
+	SDL_Rect stand;
+	Animation upward;
+	Animation downward;
+	Animation leftward;
+	Animation rightward;
 	iPoint position;
-	SDL_Texture* character;
-	SDL_Rect idle;
+
 };
 
 #endif // !__ModulePlayer_H__
