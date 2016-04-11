@@ -28,6 +28,7 @@ public:
 
 	void Disable(){
 		if (enabled == true){
+			CleanUp();
 			enabled = false;
 		}
 	}

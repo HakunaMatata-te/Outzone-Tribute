@@ -5,6 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleLevel_1.h"
 #include "ModuleLevel_2.h"
+#include "ModuleFadeToBlack.h"
 
 
 Application::Application()
@@ -15,6 +16,7 @@ Application::Application()
 	modules[3] = input = new ModuleInput();
 	modules[4] = level_1 = new ModuleLevel_1();
 	modules[5] = level_2 = new ModuleLevel_2();
+	modules[6] = fade = new ModuleFadeToBlack();
 }	
 
 Application::~Application()

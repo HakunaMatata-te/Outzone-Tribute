@@ -3,6 +3,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
+#include "ModuleFadeToBlack.h"
 #include "ModuleLevel_2.h"
 #include "ModuleLevel_1.h"
 
@@ -33,8 +34,7 @@ update_status ModuleLevel_2::Update()
 	App->render->Blit(lvl_texture, 0, -5777 + SCREEN_HEIGHT, &background, 0.75f); //Negative value to start rendering from the bottom og the image
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
-		App->level_1->Enable();
-		App->level_2->Disable();
+		App->fade->FadeToBlack(App->level_2, App->level_1, 3);
 	}
 
 	return UPDATE_CONTINUE;

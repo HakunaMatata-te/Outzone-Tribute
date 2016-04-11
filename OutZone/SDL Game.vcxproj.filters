@@ -44,6 +44,9 @@
     <ClInclude Include="ModuleLevel_2.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -71,6 +74,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleLevel_2.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
