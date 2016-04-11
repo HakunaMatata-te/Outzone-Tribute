@@ -17,7 +17,7 @@ public:
 	bool Start();
 	bool CleanUp();
 
-	Mix_Music* const Load(const char* path);
+	Mix_Music* const LoadMusic(const char* path);
 
 public:
 	Mix_Music* musics[MAX_MUSIC];
