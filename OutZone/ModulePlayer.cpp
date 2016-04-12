@@ -24,7 +24,7 @@ ModulePlayer::ModulePlayer(){
 	leftward.PushBack({ 84, 360, 31, 38 });
 	leftward.PushBack({ 84, 405, 31, 38 });
 	leftward.PushBack({ 84, 448, 31, 38 });
-	upward.speed = 0.2f;
+	leftward.speed = 0.1f;
 
 	//walk rightward animation
 	rightward.PushBack({ 354, 118, 31, 38 });
@@ -32,25 +32,23 @@ ModulePlayer::ModulePlayer(){
 	rightward.PushBack({ 354, 212, 31, 38 });
 	rightward.PushBack({ 354, 257, 31, 38 });
 	rightward.PushBack({ 354, 304, 31, 38 });
-	upward.speed = 0.2f;
+	rightward.speed = 0.1f;
 
 	// walk upward animation (arcade sprite sheet)
-
 	upward.PushBack({ 517, 151, 31, 38 });
 	upward.PushBack({ 517, 197, 31, 38 });
 	upward.PushBack({ 517, 240, 31, 38 });
 	upward.PushBack({ 517, 287, 31, 38 });
 	upward.PushBack({ 517, 334, 31, 38 });
-	upward.speed = 0.2f;
+	upward.speed = 0.1f;
 
-	// TODO 4: Make ryu walk backwards with the correct animations
-
+	//walk downward animation
 	downward.PushBack({ 434, 252, 31, 38 });
 	downward.PushBack({ 434, 302, 31, 38 });
 	downward.PushBack({ 434, 352, 31, 38 });
 	downward.PushBack({ 434, 400, 31, 38 });
 	downward.PushBack({ 434, 450, 31, 38 });
-	downward.speed = 0.3f;
+	downward.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer(){};
