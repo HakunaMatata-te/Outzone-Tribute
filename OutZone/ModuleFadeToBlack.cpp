@@ -40,16 +40,12 @@ update_status ModuleFadeToBlack::Update()
 		{
 			if(now >= total_time)
 			{
-				// TODO 2: enable / disable the modules received when FadeToBlacks() gets called
-				if (App->level_1->IsEnabled()){
-					App->level_1->Disable();
-					App->level_2->Enable();
+				//Enabling and disabling modules
+				if (to_disable->IsEnabled()){
+					to_disable->Disable();
+					to_enable->Enable();
 				}
-				else if (App->level_2->IsEnabled()){
-					App->level_2->Disable();
-					App->level_1->Enable();
-				}
-				
+								
 				// ---
 				total_time += total_time;
 				start_time = SDL_GetTicks();
@@ -66,7 +62,7 @@ update_status ModuleFadeToBlack::Update()
 		} break;
 	}
 
-	// Finally render the black square with alpha on the screen
+	// Render the black square with alpha on the screen
 	SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, (Uint8)(normalized * 255.0f));
 	SDL_RenderFillRect(App->render->renderer, &screen);
 
@@ -83,6 +79,8 @@ bool ModuleFadeToBlack::FadeToBlack(Module* module_off, Module* module_on, float
 		current_step = fade_step::fade_to_black;
 		start_time = SDL_GetTicks();
 		total_time = (Uint32)(time * 0.5f * 1000.0f);
+		to_enable = module_on;
+		to_disable = module_off;
 		ret = true;
 	}
 
