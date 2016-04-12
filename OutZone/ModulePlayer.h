@@ -29,6 +29,10 @@ public:
 	Animation downward;
 	Animation leftward;
 	Animation rightward;
+	Animation upward_big_gun;
+	Animation downward_big_gun;
+	Animation rightward_big_gun;
+	Animation leftward_big_gun;
 	iPoint position;
 
 };

@@ -49,6 +49,34 @@ ModulePlayer::ModulePlayer(){
 	downward.PushBack({ 434, 400, 31, 38 });
 	downward.PushBack({ 434, 450, 31, 38 });
 	downward.speed = 0.1f;
+
+	//BIG GUN ANIMATIONS!!
+	rightward_big_gun.PushBack({ 41, 51, 30, 36 });
+	rightward_big_gun.PushBack({ 41, 96, 30, 37 });
+	rightward_big_gun.PushBack({ 41, 142, 30, 37 });
+	rightward_big_gun.PushBack({ 41, 188, 30, 37 });
+	rightward_big_gun.PushBack({ 41, 234, 30, 37 });
+	rightward_big_gun.speed = 0.1f;
+
+	leftward_big_gun.PushBack({ 120, 51, 30, 37 });
+	leftward_big_gun.PushBack({ 120, 96, 31, 37 });
+	leftward_big_gun.PushBack({ 120, 141, 30, 37 });
+	leftward_big_gun.PushBack({ 120, 188, 30, 37 });
+	leftward_big_gun.PushBack({ 120, 234, 30, 36 });
+	leftward_big_gun.speed = 0.1f;
+
+	downward_big_gun.PushBack({ 278, 50, 30, 37 });
+	downward_big_gun.PushBack({ 278, 97, 30, 36 });
+	downward_big_gun.PushBack({ 278, 143, 30, 37 });
+	downward_big_gun.PushBack({ 278, 190, 30, 37 });
+	downward_big_gun.PushBack({ 278, 233, 31, 37 });
+	downward_big_gun.speed = 0.1f;
+
+	upward_big_gun.PushBack({ 199, 51, 30, 37 });
+	upward_big_gun.PushBack({ 199, 96, 30, 37 });
+	upward_big_gun.PushBack({ 199, 142, 30, 36 });
+	upward_big_gun.PushBack({ 199, 187, 30, 37 }); //only uses 4 animations, not 5 like previous movements
+	upward_big_gun.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer(){};
