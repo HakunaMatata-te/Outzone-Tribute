@@ -93,7 +93,7 @@ update_status ModulePlayer::Update(){
 	
 	Animation* current_animation = &upward;
 	
-	int speed = 5;
+	int speed = 2;
 
 	if (App->input->keyboard[SDL_SCANCODE_W] || App->input->keyboard[SDL_SCANCODE_S] || App->input->keyboard[SDL_SCANCODE_D] || App->input->keyboard[SDL_SCANCODE_A]){
 		if (App->input->keyboard[SDL_SCANCODE_W] == 1)

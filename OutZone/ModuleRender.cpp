@@ -53,7 +53,6 @@ update_status ModuleRender::Update()
 	if (App->player->position.y < ((App->player->screenlowheight - 240) + App->player->screenlowheight) / 2){
 		camera.y += SCREEN_SPEED*SCREEN_SIZE;
 		App->player->screenlowheight -= SCREEN_SPEED;
-		App->player->position.y -= 1;
 	}
 
 	return update_status::UPDATE_CONTINUE;
