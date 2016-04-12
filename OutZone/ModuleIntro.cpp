@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleIntro.h"
 #include "ModuleLevel_1.h"
+#include "ModulePlayer.h"
 
 
 ModuleIntro::ModuleIntro()
@@ -27,6 +28,7 @@ bool ModuleIntro::Start()
 	bool ret = true;
 	lvl_texture = App->textures->Load("Intro/background.png");
 	lvl_texture2 = App->textures->Load("Intro/intro_scree_blue_guy.png");
+	App->player->Disable();
 	return ret;
 }
 
