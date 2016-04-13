@@ -24,11 +24,13 @@ bool ModuleParticles::Start()
 
 	// Minigun particle
 	minigun_shot_lv1.anim.PushBack({ 55, 244, 4, 16 });
-	minigun_shot_lv1.speed.y = 5;
+	minigun_shot_lv1.speed.y = -4;
+	minigun_shot_lv1.life = 1000;
 
 	// Triple shot particle
 	triple_shot_lv1.anim.PushBack({ 137, 246, 6, 14 });
-	minigun_shot_lv1.speed.y = 5;
+	triple_shot_lv1.speed.y = -4;
+	triple_shot_lv1.life = 1000;
 
 	return true;
 }

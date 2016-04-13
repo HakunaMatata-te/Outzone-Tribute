@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleParticles.h"
 
 
 ModulePlayer::ModulePlayer(){
@@ -96,7 +97,7 @@ update_status ModulePlayer::Update(){
 	int speed = 2;
 
 	if (App->input->keyboard[SDL_SCANCODE_W] || App->input->keyboard[SDL_SCANCODE_S] || App->input->keyboard[SDL_SCANCODE_D] || App->input->keyboard[SDL_SCANCODE_A]){
-		if (App->input->keyboard[SDL_SCANCODE_W] == 1)
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT)
 		{
 			current_animation = &upward;
 			if (position.y - height > (screenlowheight - 320)){
@@ -104,21 +105,21 @@ update_status ModulePlayer::Update(){
 			}
 			//screenlowheight -= SCREEN_SPEED;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_S] == 1)
+		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
 		{
 			current_animation = &downward;
 			if (position.y < (screenlowheight)){
 				position.y += speed;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == 1)
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
 		{
 			current_animation = &leftward;
 			if (position.x >= 0){
 				position.x -= speed;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_D] == 1)
+		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
 		{
 			current_animation = &rightward;
 			if (position.x < SCREEN_WIDTH - width){
@@ -132,6 +133,15 @@ update_status ModulePlayer::Update(){
 	else
 		App->render->Blit(character, position.x, position.y - stand.h, &stand);
 
+
+	//Player shoting
+	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
+		App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x, position.y);
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN){
+		App->particles->AddParticle(App->particles->triple_shot_lv1, position.x, position.y);
+	}
 
 	return UPDATE_CONTINUE;
 }
