@@ -28,9 +28,21 @@ bool ModuleParticles::Start()
 	minigun_shot_lv1.life = 1000;
 
 	// Triple shot particle
-	triple_shot_lv1.anim.PushBack({ 137, 246, 6, 14 });
-	triple_shot_lv1.speed.y = -4;
-	triple_shot_lv1.life = 1000;
+	triple_shot_lv1_center.anim.PushBack({ 137, 246, 6, 14 });
+	triple_shot_lv1_center.speed.y = -4;
+	triple_shot_lv1_center.life = 1000;
+
+	//Triple right
+	triple_shot_lv1_right.anim.PushBack({ 137, 246, 6, 14 });
+	triple_shot_lv1_right.speed.y = -4;
+	triple_shot_lv1_right.speed.x = -2.5f;
+	triple_shot_lv1_right.life = 1000;
+
+	//Triple left
+	triple_shot_lv1_left.anim.PushBack({ 137, 246, 6, 14 });
+	triple_shot_lv1_left.speed.y = -4;
+	triple_shot_lv1_left.speed.x = +2.5f;
+	triple_shot_lv1_left.life = 1000;
 
 	return true;
 }

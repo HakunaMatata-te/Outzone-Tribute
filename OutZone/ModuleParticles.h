@@ -46,7 +46,9 @@ private:
 public:
 
 	Particle minigun_shot_lv1;
-	Particle triple_shot_lv1;
+	Particle triple_shot_lv1_center;
+	Particle triple_shot_lv1_right;
+	Particle triple_shot_lv1_left;
 };
 
 #endif // !__MODULEPARTICLES_H__
