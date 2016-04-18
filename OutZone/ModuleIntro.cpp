@@ -16,6 +16,16 @@ ModuleIntro::ModuleIntro()
 	background.y = 19;
 	background.w = 240;
 	background.h = 381;
+
+	//title animation
+	title.PushBack({ 0, 0, 416, 112});
+	title.PushBack({ 0, 417, 416, 112});
+	title.PushBack({ 0, 834, 416, 112 });
+	title.PushBack({ 0, 1251, 416, 112 });
+	title.PushBack({ 0, 1668, 416, 112 });
+	title.PushBack({ 0, 2085, 416, 112 });
+	title.PushBack({ 0, 2501, 416, 112 });
+
 }
 
 ModuleIntro::~ModuleIntro()
@@ -28,7 +38,9 @@ bool ModuleIntro::Start()
 	bool ret = true;
 	lvl_texture = App->textures->Load("Intro/background.png");
 	lvl_texture2 = App->textures->Load("Intro/intro_scree_blue_guy.png");
+	lvl_title = App->textures->Load("Intro/title.png");
 	App->player->Disable();
+	title.loop = false;
 	return ret;
 }
 

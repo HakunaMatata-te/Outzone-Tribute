@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "Animation.h"
 
 #include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
@@ -20,6 +21,8 @@ public:
 	
 	SDL_Texture* lvl_texture = nullptr;
 	SDL_Texture* lvl_texture2 = nullptr;
+	SDL_Texture* lvl_title = nullptr;
+	Animation title;
 	SDL_Rect background;
 	Mix_Music* lvl_music = nullptr;
 
