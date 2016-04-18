@@ -8,6 +8,8 @@ ModuleAudio::ModuleAudio() : Module()
 {
 	for (uint i = 0; i < MAX_MUSIC; ++i)
 		musics[i] = nullptr;
+	for (uint i = 0; i < MAX_FX; ++i)
+		fxs[i] = nullptr;
 }
 
 ModuleAudio::~ModuleAudio()
@@ -38,6 +40,10 @@ bool ModuleAudio::CleanUp(){
 		if (musics[i] != nullptr)
 			Mix_FreeMusic(musics[i]);
 
+	for (uint i = 0; i < MAX_MUSIC; ++i)
+		if (fxs[i] != nullptr)
+			Mix_FreeChunk(fxs[i]);
+
 	Mix_Quit();
 
 	return true;
@@ -57,4 +63,20 @@ Mix_Music* const ModuleAudio::LoadMusic(const char* path)
 	}
 
 	return music;
+}
+
+Mix_Chunk* const ModuleAudio::LoadFX(const char* path)
+{
+	Mix_Chunk* fx = Mix_LoadWAV(path);
+
+	if (fx == NULL)
+	{
+		LOG("Could not load fx with path: %s. Mix_LoadWAV: %s", path, Mix_GetError());
+	}
+	else
+	{
+		fxs[last_fx++] = fx;
+	}
+
+	return fx;
 }
