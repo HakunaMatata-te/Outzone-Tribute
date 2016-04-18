@@ -1,6 +1,12 @@
 #ifndef __MODULE_H__
 #define __MODULE_H__
 
+
+#include "SDL\include\SDL_rect.h"
+#include "Globals.h"
+
+struct Collider;
+
 class Module
 {
 private:
@@ -32,6 +38,8 @@ public:
 			enabled = false;
 		}
 	}
+
+	virtual void OnCollision(Collider*, Collider*) {}
 
 };
 
