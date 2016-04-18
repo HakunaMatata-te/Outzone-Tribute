@@ -6,7 +6,9 @@
 #include "p2Point.h"
 #include "Animation.h"
 
+#include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
+
 
 class ModulePlayer : public Module
 {
@@ -34,6 +36,8 @@ public:
 	Animation rightward_big_gun;
 	Animation leftward_big_gun;
 	iPoint position;
+	Mix_Chunk* triple_shot;
+	Mix_Chunk* minigun_shot;
 
 };
 

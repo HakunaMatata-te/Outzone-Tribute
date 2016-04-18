@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
+#include "ModuleAudio.h"
 
 
 ModulePlayer::ModulePlayer(){
@@ -87,6 +88,8 @@ bool ModulePlayer::Start(){
 	bool ret = true;
 
 	character = App->textures->Load("playermove.png");
+	minigun_shot = App->audios->LoadFX("minigun_shot.wav");
+	triple_shot = App->audios->LoadFX("triple_shot.wav");
 	return ret;
 };
 
@@ -137,12 +140,14 @@ update_status ModulePlayer::Update(){
 	//Player shoting
 	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
 		App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x+(3*width/4), position.y-height);
+		Mix_PlayChannel(-1, minigun_shot, -1);
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN){
 		App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width/2, position.y - height);
 		App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 2 + width / 2, position.y - height);
 		App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 2 + width / 2, position.y - height);
+		Mix_PlayChannel(-1, triple_shot, -1);
 
 	}
 
