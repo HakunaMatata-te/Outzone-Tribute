@@ -10,6 +10,7 @@
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleCollider.h"
 
 
 Application::Application()
@@ -22,9 +23,10 @@ Application::Application()
 	modules[5] = intro = new ModuleIntro();
 	modules[6] = level_1 = new ModuleLevel_1();
 	modules[7] = level_2 = new ModuleLevel_2();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = particles = new ModuleParticles();
-	modules[10] = fade = new ModuleFadeToBlack();
+	modules[8] = collision = new ModuleCollision();
+	modules[9] = player = new ModulePlayer();
+	modules[10] = particles = new ModuleParticles();
+	modules[11] = fade = new ModuleFadeToBlack();
 }	
 
 Application::~Application()

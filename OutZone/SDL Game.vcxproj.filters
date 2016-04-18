@@ -43,6 +43,9 @@
     <ClCompile Include="ModuleParticles.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleCollider.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -95,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollider.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

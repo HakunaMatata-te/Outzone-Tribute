@@ -8,7 +8,7 @@
 #include "ModuleLevel_1.h"
 #include "ModuleLevel_2.h"
 #include "ModulePlayer.h"
-
+#include "ModuleCollider.h"
 
 ModuleLevel_1::ModuleLevel_1()
 {
@@ -29,6 +29,13 @@ bool ModuleLevel_1::Start()
 	lvl_texture = App->textures->Load("lvl_1.png");
 	lvl_music = App->audios->LoadMusic("lvl_1.wav");
 	Mix_PlayMusic(lvl_music, -1);
+
+	//Colliders
+	App->collision->AddCollider({ 1, 4506, 25, 275}, COLLIDER_WALL);
+	App->collision->AddCollider({ 26, 4496, 52, 250 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 77, 4491, 26, 232 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 160, 4415, 97, 136 }, COLLIDER_WALL);
+
 
 	App->player->Enable();
 	return ret;
