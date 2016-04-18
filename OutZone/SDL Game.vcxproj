@@ -73,7 +73,6 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="MemLeaks.h" />
-    <ClInclude Include="ModuleCollider.h" />
     <ClInclude Include="ModuleIntro.h" />
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer.h" />
@@ -93,7 +92,6 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
-    <ClCompile Include="ModuleCollider.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleIntro.cpp" />
     <ClCompile Include="ModuleLevel_1.cpp" />
