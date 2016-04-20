@@ -7,19 +7,16 @@
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 #include "ModuleCollider.h"
-
+#include "ModuleLevel_1.h"
 
 ModulePlayer::ModulePlayer(){
-	position.x = 88;
-	position.y = 282;
-	width = 31;
-	height = 36;
 
 	//player stand same place;
 	stand.x = 517;
 	stand.y = 287;
 	stand.w = 31;
 	stand.h = 36;
+
 
 	//walk leftward animation
 	leftward.PushBack({ 84, 274, 31, 38 });
@@ -87,6 +84,12 @@ ModulePlayer::~ModulePlayer(){};
 bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
 
+	position.x = 88;
+	position.y = 282;
+	width = 31;
+	height = 36;
+	screenlowheight = 320;
+	
 	character = App->textures->Load("playermove.png");
 	minigun_shot = App->audios->LoadFX("minigun_shot.wav");
 	triple_shot = App->audios->LoadFX("triple_shot.wav");
@@ -110,7 +113,7 @@ update_status ModulePlayer::Update(){
 	current_animation = &upward;
 	
 	int speed = 2;
-
+	
 	if (App->input->keyboard[SDL_SCANCODE_W] || App->input->keyboard[SDL_SCANCODE_S] || App->input->keyboard[SDL_SCANCODE_D] || App->input->keyboard[SDL_SCANCODE_A]){
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT)
 		{
@@ -126,6 +129,7 @@ update_status ModulePlayer::Update(){
 			if (position.y < (screenlowheight)){
 				position.y += speed;
 			}
+
 		}
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
 		{
@@ -133,6 +137,7 @@ update_status ModulePlayer::Update(){
 			if (position.x >= 0){
 				position.x -= speed;
 			}
+			
 		}
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
 		{
@@ -140,6 +145,7 @@ update_status ModulePlayer::Update(){
 			if (position.x < SCREEN_WIDTH - width){
 				position.x += speed;
 			}
+
 		}
 		
 		SDL_Rect r = current_animation->GetCurrentFrame();
@@ -149,24 +155,52 @@ update_status ModulePlayer::Update(){
 	}
 	else
 		App->render->Blit(character, position.x, position.y - stand.h, &stand);
-
-
+	
+	
 	//Player shoting
 	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
 		App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x+(3*width/4), position.y-height);
-		Mix_PlayChannel(-1, minigun_shot, -1);
+		Mix_PlayChannel(-1, minigun_shot, 0);
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN){
 		App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width/2, position.y - height);
 		App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 2 + width / 2, position.y - height);
 		App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 2 + width / 2, position.y - height);
-		Mix_PlayChannel(-1, triple_shot, -1);
+		Mix_PlayChannel(-1, triple_shot, 0);
 
 	}
 
+	/*
+	uint colliders = lvl_collision->size();
 	
+	for (uint i = 0; i < colliders; i++)
+	{
+		if (playercollider->CheckCollision(lvl_collision[i].))
+	}*/
 
+	uint colliders = App->level_1->lvl_collider.size();
+
+	for (uint i = 0; i < colliders; i++)
+	{
+
+		if (playercollider->CheckCollision(App->level_1->lvl_collider[i]->rect))
+		{
+			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
+				position.x -= speed;
+			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
+				position.x += speed;
+			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT)
+				position.y += speed;
+			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
+				position.y -= speed;
+		}
+			
+
+
+	}
+	
 
 	return UPDATE_CONTINUE;
 }
+

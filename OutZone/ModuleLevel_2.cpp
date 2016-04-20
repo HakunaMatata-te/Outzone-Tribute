@@ -47,6 +47,8 @@ bool ModuleLevel_2::CleanUp()
 // Update: draw background
 update_status ModuleLevel_2::Update()
 {
+	
+
 	App->render->Blit(lvl_texture, 0, -5777 + SCREEN_HEIGHT, &background, 0.75f); //Negative value to start rendering from the bottom of the image
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){

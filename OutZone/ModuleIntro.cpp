@@ -51,7 +51,6 @@ bool ModuleIntro::CleanUp()
 	LOG("Unloading Intro scene");
 
 	App->textures->Unload(lvl_texture);
-	App->player->Disable();
 
 	return true;
 }

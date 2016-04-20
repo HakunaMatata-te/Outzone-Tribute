@@ -50,11 +50,12 @@ update_status ModuleRender::PreUpdate()
 
 update_status ModuleRender::Update()	
 {
+	
 	if (App->player->position.y < ((App->player->screenlowheight - 240) + App->player->screenlowheight) / 2){
 		camera.y += SCREEN_SPEED*SCREEN_SIZE;
 		App->player->screenlowheight -= SCREEN_SPEED;
 	}
-
+	
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -112,7 +113,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, f
 bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
 {
 	bool ret = true;
-
+	
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
@@ -133,4 +134,3 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 
 	return ret;
 }
-

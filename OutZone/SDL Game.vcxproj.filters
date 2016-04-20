@@ -102,6 +102,9 @@
     <ClInclude Include="ModuleCollider.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="VectorDynamic.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">

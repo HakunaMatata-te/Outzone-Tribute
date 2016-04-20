@@ -5,6 +5,7 @@
 #include "Globals.h"
 #include "p2Point.h"
 #include "Animation.h"
+#include "VectorDynamic.h"
 
 #include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
@@ -21,11 +22,12 @@ public:
 	update_status Update();
 	bool CleanUp();
 
+
 public:
 	
 	int height = 0;
 	int width = 0;
-	int screenlowheight = 320;
+	int screenlowheight;
 	SDL_Texture* character = nullptr;
 	SDL_Rect stand;
 	Animation* current_animation = nullptr;
@@ -42,6 +44,7 @@ public:
 	Mix_Chunk* minigun_shot;
 
 	Collider* playercollider = nullptr;
+	//Vector<Collider*>* lvl_collision;
 };
 
 #endif // !__ModulePlayer_H__

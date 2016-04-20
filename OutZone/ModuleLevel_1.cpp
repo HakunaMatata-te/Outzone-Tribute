@@ -9,6 +9,7 @@
 #include "ModuleLevel_2.h"
 #include "ModulePlayer.h"
 #include "ModuleCollider.h"
+#include "ModuleParticles.h"
 
 ModuleLevel_1::ModuleLevel_1()
 {
@@ -27,7 +28,7 @@ ModuleLevel_1::~ModuleLevel_1()
 bool ModuleLevel_1::Start()
 {
 	LOG("Loading background assets");
-	
+
 	lvl_texture = App->textures->Load("lvl_1.png");
 	lvl_music = App->audios->LoadMusic("lvl_1.wav");
 	Mix_PlayMusic(lvl_music, -1);
@@ -36,9 +37,17 @@ bool ModuleLevel_1::Start()
 	App->player->Enable();
 	App->collision->Enable();
 
+	//App->player->lvl_collision = &lvl_collider;
 	//Colliders
+
 	
-	App->collision->AddCollider({ 126, 4506, 50, 40 }, COLLIDER_WALL);
+	lvl_collider.push_back(App->collision->AddCollider({ 100, -100, 100, 100 }, COLLIDER_WALL));
+	/*
+	lvl_collider.push_back(App->collision->AddCollider({ 100, 60, 10, 10 }, COLLIDER_WALL));
+	lvl_collider.push_back(App->collision->AddCollider({ 100, -140, 10, 10 }, COLLIDER_WALL));
+	lvl_collider.push_back(App->collision->AddCollider({ 100, SCREEN_HEIGHT - 300, 10, 10 }, COLLIDER_WALL));
+	lvl_collider.push_back(App->collision->AddCollider({ 100, SCREEN_HEIGHT - 500, 10, 10 }, COLLIDER_WALL));
+	*/
 	
 	/*
 	App->collision->AddCollider({ 1, 4506, 25, 275}, COLLIDER_WALL);
@@ -46,9 +55,6 @@ bool ModuleLevel_1::Start()
 	App->collision->AddCollider({ 77, 4491, 26, 232 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 160, 4415, 97, 136 }, COLLIDER_WALL);
 	*/
-	
-	
-
 	
 	return true;
 }
@@ -72,5 +78,10 @@ update_status ModuleLevel_1::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
 		App->fade->FadeToBlack(App->level_1, App->level_2, 3);
 	}
+	/*
+	if (App->player->playercollider->CheckCollision(lvl_collider[0]->rect))
+		exit(0);
+		*/
+
 	return UPDATE_CONTINUE;
 }

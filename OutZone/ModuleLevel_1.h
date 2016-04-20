@@ -3,10 +3,11 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "VectorDynamic.h"
 
 #include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
-
+struct Collider;
 class ModuleLevel_1 : public Module
 {
 public:
@@ -22,6 +23,7 @@ public:
 	SDL_Texture* lvl_texture = nullptr;
 	SDL_Rect background;
 	Mix_Music* lvl_music = nullptr;
+	Vector<Collider*> lvl_collider;
 
 };
 
