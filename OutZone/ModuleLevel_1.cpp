@@ -81,12 +81,13 @@ update_status ModuleLevel_1::Update()
 
 	int num_colliders = lvl_collider.size();
 
+	/*
 	for (uint i = 0; i < num_colliders; i++)
 		lvl_collider[i]->SetPos(lvl_collider[i]->rect.x, lvl_collider[i]->rect.y -= App->render->camera.y);
-	/*
+	
 	if (App->player->playercollider->CheckCollision(lvl_collider[0]->rect))
 		exit(0);
-		*/
+	*/
 
 	return UPDATE_CONTINUE;
 }

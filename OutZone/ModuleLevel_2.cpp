@@ -8,7 +8,7 @@
 #include "ModuleLevel_2.h"
 #include "ModuleIntro.h"
 #include "ModulePlayer.h"
-
+#include "ModuleCollider.h"
 
 ModuleLevel_2::ModuleLevel_2()
 {
@@ -31,6 +31,8 @@ bool ModuleLevel_2::Start()
 	Mix_PlayMusic(lvl_music, -1);
 
 	App->player->Enable();
+	App->collision->Enable();
+
 	return true;
 }
 
@@ -40,6 +42,7 @@ bool ModuleLevel_2::CleanUp()
 
 	App->textures->Unload(lvl_texture);
 	App->player->Disable();
+	App->collision->Disable();
 
 	return true;
 }
