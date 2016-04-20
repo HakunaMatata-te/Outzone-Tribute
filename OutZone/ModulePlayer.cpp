@@ -195,8 +195,6 @@ update_status ModulePlayer::Update(){
 			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
 				position.y -= speed;
 		}
-			
-
 
 	}
 	
