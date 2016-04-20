@@ -12,10 +12,12 @@
 
 ModuleLevel_1::ModuleLevel_1()
 {
+	
 	background.x = 1;
 	background.y = 0;
 	background.w = 240;
-	background.h = 4756;
+	background.h = 4760;
+	
 }
 
 ModuleLevel_1::~ModuleLevel_1()
@@ -25,26 +27,47 @@ ModuleLevel_1::~ModuleLevel_1()
 bool ModuleLevel_1::Start()
 {
 	LOG("Loading background assets");
-	bool ret = true;
+	
 	lvl_texture = App->textures->Load("lvl_1.png");
 	lvl_music = App->audios->LoadMusic("lvl_1.wav");
 	Mix_PlayMusic(lvl_music, -1);
 
+	//Enable modules
+	App->player->Enable();
+	App->collision->Enable();
+
 	//Colliders
+	
+	App->collision->AddCollider({ 126, 4506, 50, 40 }, COLLIDER_WALL);
+	
+	/*
 	App->collision->AddCollider({ 1, 4506, 25, 275}, COLLIDER_WALL);
 	App->collision->AddCollider({ 26, 4496, 52, 250 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 77, 4491, 26, 232 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 160, 4415, 97, 136 }, COLLIDER_WALL);
+	*/
+	
+	
 
+	
+	return true;
+}
 
-	App->player->Enable();
-	return ret;
+bool ModuleLevel_1::CleanUp()
+{
+	LOG("Unloading lvl1 scene");
+
+	App->textures->Unload(lvl_texture);
+	App->player->Disable();
+	App->collision->Disable();
+
+	return true;
 }
 
 // Update: draw background
 update_status ModuleLevel_1::Update()
 {
-	App->render->Blit(lvl_texture, 0, -4756 + SCREEN_HEIGHT, &background, 0.75f); //Negative value to start rendering from the bottom og the image
+	App->render->Blit(lvl_texture, 0, -4760 + SCREEN_HEIGHT, &background, 0.75f); //Negative value to start rendering from the bottom og the image
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
 		App->fade->FadeToBlack(App->level_1, App->level_2, 3);

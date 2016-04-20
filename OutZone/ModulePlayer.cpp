@@ -6,6 +6,7 @@
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
+#include "ModuleCollider.h"
 
 
 ModulePlayer::ModulePlayer(){
@@ -85,17 +86,28 @@ ModulePlayer::~ModulePlayer(){};
 
 bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
-	bool ret = true;
 
 	character = App->textures->Load("playermove.png");
 	minigun_shot = App->audios->LoadFX("minigun_shot.wav");
 	triple_shot = App->audios->LoadFX("triple_shot.wav");
-	return ret;
+
+	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER);
+
+	return true;
 };
+
+bool ModulePlayer::CleanUp()
+{
+	LOG("Unloading player");
+
+	App->textures->Unload(character);
+
+	return true;
+}
 
 update_status ModulePlayer::Update(){
 	
-	Animation* current_animation = &upward;
+	current_animation = &upward;
 	
 	int speed = 2;
 
@@ -129,9 +141,11 @@ update_status ModulePlayer::Update(){
 				position.x += speed;
 			}
 		}
+		
 		SDL_Rect r = current_animation->GetCurrentFrame();
+		playercollider->SetPos(position.x, position.y - r.h);
 		App->render->Blit(character, position.x, position.y - r.h, &r);
-
+		
 	}
 	else
 		App->render->Blit(character, position.x, position.y - stand.h, &stand);
@@ -150,6 +164,9 @@ update_status ModulePlayer::Update(){
 		Mix_PlayChannel(-1, triple_shot, -1);
 
 	}
+
+	
+
 
 	return UPDATE_CONTINUE;
 }

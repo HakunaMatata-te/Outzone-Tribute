@@ -12,11 +12,12 @@
 
 ModuleIntro::ModuleIntro()
 {
+	
 	background.x = 0;
 	background.y = 19;
 	background.w = 240;
 	background.h = 381;
-
+	
 	//title animation
 	title.PushBack({ 0, 0, 416, 112});
 	title.PushBack({ 0, 417, 416, 112});
@@ -35,19 +36,30 @@ ModuleIntro::~ModuleIntro()
 bool ModuleIntro::Start()
 {
 	LOG("Loading background assets");
-	bool ret = true;
-	lvl_texture = App->textures->Load("Intro/background.png");
+
 	lvl_texture2 = App->textures->Load("Intro/intro_scree_blue_guy.png");
 	lvl_title = App->textures->Load("Intro/title.png");
-	App->player->Disable();
+
 	title.loop = false;
-	return ret;
+
+
+	return true;
+}
+
+bool ModuleIntro::CleanUp()
+{
+	LOG("Unloading Intro scene");
+
+	App->textures->Unload(lvl_texture);
+	App->player->Disable();
+
+	return true;
 }
 
 // Update: draw background
 update_status ModuleIntro::Update()
 {
-	App->render->Blit(lvl_texture, 0, 0, &background, 0.75f); //Negative value to start rendering from the bottom og the image
+	//Negative value to start rendering from the bottom og the image
 	App->render->Blit(lvl_texture2, 0, 0, &background, 0.75f);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){

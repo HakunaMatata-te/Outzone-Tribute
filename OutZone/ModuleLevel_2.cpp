@@ -25,13 +25,23 @@ ModuleLevel_2::~ModuleLevel_2()
 bool ModuleLevel_2::Start()
 {
 	LOG("Loading background assets");
-	bool ret = true;
+
 	lvl_texture = App->textures->Load("lvl_2.png");
 	lvl_music = App->audios->LoadMusic("lvl_2.wav");
 	Mix_PlayMusic(lvl_music, -1);
 
 	App->player->Enable();
-	return ret;
+	return true;
+}
+
+bool ModuleLevel_2::CleanUp()
+{
+	LOG("Unloading lvl2 scene");
+
+	App->textures->Unload(lvl_texture);
+	App->player->Disable();
+
+	return true;
 }
 
 // Update: draw background
