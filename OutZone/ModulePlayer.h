@@ -28,6 +28,7 @@ public:
 	int height = 0;
 	int width = 0;
 	int screenlowheight;
+	uint lvl;
 	Weapon current_weapon;
 	SDL_Texture* character = nullptr;
 	SDL_Rect idle;

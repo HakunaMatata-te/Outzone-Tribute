@@ -93,6 +93,7 @@ bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
 
 	current_weapon = MINIGUN;
+	lvl = 1;
 	
 	character = App->textures->Load("playermove.png");
 	minigun_shot = App->audios->LoadFX("minigun_shot.wav");
@@ -163,10 +164,20 @@ update_status ModulePlayer::Update(){
 	
 	//Player shoting
 	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
-		if (current_weapon == MINIGUN){
-			App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x + (3 * width / 4), position.y - height);
-			Mix_PlayChannel(-1, minigun_shot, 0);
+
+		if (current_weapon == MINIGUN){		
+			if (lvl == 1){
+				App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x + (3 * width / 4), position.y - height);
+				Mix_PlayChannel(-1, minigun_shot, 0);
+			}
+			else if (lvl == 2){
+				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y - height);
+				Mix_PlayChannel(-1, minigun_shot, 0);
+			}
+
 		}
+
+
 		if (current_weapon == TRIPLE_GUN){
 			App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y - height);
 			App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 2 + width / 2, position.y - height);
@@ -176,6 +187,7 @@ update_status ModulePlayer::Update(){
 
 	}
 
+	//Weapon change
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN){
 
 		if (current_weapon == MINIGUN)
@@ -183,6 +195,17 @@ update_status ModulePlayer::Update(){
 		else if (current_weapon == TRIPLE_GUN)
 			current_weapon = MINIGUN;
 	}
+
+
+	//LVL up weapons
+
+	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN) { 
+		if (lvl < 3)
+			lvl++;
+		else
+			lvl = 1;		//Reset the lvl allowing loop, for testing purposes only
+	}
+
 
 	/*
 	uint colliders = lvl_collision->size();

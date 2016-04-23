@@ -48,6 +48,8 @@ private:
 public:
 
 	Particle minigun_shot_lv1;
+	Particle minigun_shot_lv2;
+	Particle minigun_shot_lv3;
 	Particle triple_shot_lv1_center;
 	Particle triple_shot_lv1_right;
 	Particle triple_shot_lv1_left;

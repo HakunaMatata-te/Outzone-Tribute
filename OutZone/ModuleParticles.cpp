@@ -46,6 +46,14 @@ bool ModuleParticles::Start()
 	triple_shot_lv1_left.speed.x = +2;
 	triple_shot_lv1_left.life = 1000;
 
+
+	//LVL 2 particles
+
+	//Minigun
+	minigun_shot_lv2.anim.PushBack({ 52, 219, 10, 16 });
+	minigun_shot_lv2.speed.y = -4;
+	minigun_shot_lv2.life = 1000;
+
 	return true;
 }
 
