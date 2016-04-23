@@ -11,12 +11,18 @@
 
 ModulePlayer::ModulePlayer(){
 
+	position.x = 88;
+	position.y = 282;
+	width = 31;
+	height = 36;
+	screenlowheight = 320;
+
 	//player stand same place;
 	stand.x = 517;
 	stand.y = 287;
 	stand.w = 31;
 	stand.h = 36;
-
+	
 
 	//walk leftward animation
 	leftward.PushBack({ 84, 274, 31, 38 });
@@ -84,11 +90,7 @@ ModulePlayer::~ModulePlayer(){};
 bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
 
-	position.x = 88;
-	position.y = 282;
-	width = 31;
-	height = 36;
-	screenlowheight = 320;
+
 	
 	character = App->textures->Load("playermove.png");
 	minigun_shot = App->audios->LoadFX("minigun_shot.wav");
