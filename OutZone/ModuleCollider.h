@@ -55,6 +55,16 @@ public:
 	bool EraseCollider(Collider* collider);
 	void DebugDraw();
 
+	int returny(int posy, int max_map)
+	{
+		return ((posy - (max_map - SCREEN_HEIGHT)) - 70 - 40);
+	}
+
+	int returnh(int h)
+	{
+		return h + 70;
+	}
+
 private:
 
 	Collider* colliders[MAX_COLLIDERS];

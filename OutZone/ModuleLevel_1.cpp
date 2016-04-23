@@ -41,7 +41,9 @@ bool ModuleLevel_1::Start()
 	//Colliders
 
 	
-	lvl_collider.push_back(App->collision->AddCollider({ 100, -100, 100, 100 }, COLLIDER_WALL));
+	lvl_collider.push_back(App->collision->AddCollider({ 1, App->collision->returny(4247, background.h), 95, App->collision->returnh(240) }, COLLIDER_WALL)); //-127 |4313 || 1,-167,95,174 || 0,-70, 0,+70 ||4487
+	
+	//lvl_collider.push_back(App->collision->AddCollider({ 1, App->collision->returny(4313, background.h), 95, App->collision->returnh(174) }, COLLIDER_WALL));
 	/*
 	lvl_collider.push_back(App->collision->AddCollider({ 100, 60, 10, 10 }, COLLIDER_WALL));
 	lvl_collider.push_back(App->collision->AddCollider({ 100, -140, 10, 10 }, COLLIDER_WALL));
