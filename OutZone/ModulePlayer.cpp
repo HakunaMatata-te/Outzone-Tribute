@@ -179,14 +179,28 @@ update_status ModulePlayer::Update(){
 			else if (lvl == 2){
 				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y - height);
 			}
-
+			else if (lvl == 3){
+				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y - height);
+			}
 		}
 
 
 		if (current_weapon == TRIPLE_GUN){
-			App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y - height);
-			App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 2 + width / 2, position.y - height);
-			App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 2 + width / 2, position.y - height);
+			if (lvl == 1){
+				App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y - height);
+			}
+			else if (lvl == 2){
+				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y - height);
+			}
+			else if (lvl == 3){
+				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y - height);
+			}
 		}
 
 	}

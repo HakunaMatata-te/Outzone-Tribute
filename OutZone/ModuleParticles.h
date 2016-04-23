@@ -50,9 +50,17 @@ public:
 	Particle minigun_shot_lv1;
 	Particle minigun_shot_lv2;
 	Particle minigun_shot_lv3;
+
+
 	Particle triple_shot_lv1_center;
 	Particle triple_shot_lv1_right;
 	Particle triple_shot_lv1_left;
+	Particle triple_shot_lv2_center;
+	Particle triple_shot_lv2_right;
+	Particle triple_shot_lv2_left;
+	Particle triple_shot_lv3_center;
+	Particle triple_shot_lv3_right;
+	Particle triple_shot_lv3_left;
 };
 
 #endif // !__MODULEPARTICLES_H__

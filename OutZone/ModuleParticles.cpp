@@ -36,17 +36,15 @@ bool ModuleParticles::Start()
 	triple_shot_lv1_center.speed.y = -4;
 	triple_shot_lv1_center.life = 1000;
 	triple_shot_lv1_center.fx = App->audios->LoadFX("triple_shot.wav");
-
 	//Triple right
-	triple_shot_lv1_right.anim.PushBack({ 137, 246, 6, 14 });
+	triple_shot_lv1_right.anim.PushBack({ 155, 247, 9, 13 });
 	triple_shot_lv1_right.speed.y = -4;
-	triple_shot_lv1_right.speed.x = -2;
+	triple_shot_lv1_right.speed.x = +2;
 	triple_shot_lv1_right.life = 1000;
-
 	//Triple left
-	triple_shot_lv1_left.anim.PushBack({ 137, 246, 6, 14 });
+	triple_shot_lv1_left.anim.PushBack({ 116, 247, 9, 13 });
 	triple_shot_lv1_left.speed.y = -4;
-	triple_shot_lv1_left.speed.x = +2;
+	triple_shot_lv1_left.speed.x = -2;
 	triple_shot_lv1_left.life = 1000;
 
 
@@ -57,6 +55,49 @@ bool ModuleParticles::Start()
 	minigun_shot_lv2.speed.y = -4;
 	minigun_shot_lv2.life = 1000;
 	minigun_shot_lv2.fx = minigun_shot_lv1.fx;
+
+	// Triple shot particle
+	triple_shot_lv2_center.anim.PushBack({ 135, 221, 10, 18 });
+	triple_shot_lv2_center.speed.y = -4;
+	triple_shot_lv2_center.life = 1000;
+	triple_shot_lv2_center.fx = App->audios->LoadFX("triple_shot.wav");
+	//Triple right
+	triple_shot_lv2_right.anim.PushBack({ 165, 224, 12, 17 });
+	triple_shot_lv2_right.speed.y = -4;
+	triple_shot_lv2_right.speed.x = +2;
+	triple_shot_lv2_right.life = 1000;
+	//Triple left
+	triple_shot_lv2_left.anim.PushBack({ 103, 224, 12, 17 });
+	triple_shot_lv2_left.speed.y = -4;
+	triple_shot_lv2_left.speed.x = -2;
+	triple_shot_lv2_left.life = 1000;
+
+
+	//LVL 3 particles
+
+	//Minigun
+	minigun_shot_lv3.anim.PushBack({ 45, 128, 24, 24 });
+	minigun_shot_lv3.anim.PushBack({45, 100, 24, 24});
+	minigun_shot_lv3.anim.speed = 0.25f;
+	minigun_shot_lv3.speed.y = -4;
+	minigun_shot_lv3.life = 1000;
+	minigun_shot_lv3.fx = minigun_shot_lv1.fx;
+
+	// Triple shot particle
+	triple_shot_lv3_center.anim.PushBack({ 133, 130, 14, 23 });
+	triple_shot_lv3_center.speed.y = -4;
+	triple_shot_lv3_center.life = 1000;
+	triple_shot_lv3_center.fx = App->audios->LoadFX("triple_shot.wav");
+	//Triple right
+	triple_shot_lv3_right.anim.PushBack({ 155, 130, 17, 22 });
+	triple_shot_lv3_right.speed.y = -4;
+	triple_shot_lv3_right.speed.x = +2;
+	triple_shot_lv3_right.life = 1000;
+	//Triple left
+	triple_shot_lv3_left.anim.PushBack({ 108, 130, 17, 22 });
+	triple_shot_lv3_left.speed.y = -4;
+	triple_shot_lv3_left.speed.x = -2;
+	triple_shot_lv3_left.life = 1000;
 
 	return true;
 }
