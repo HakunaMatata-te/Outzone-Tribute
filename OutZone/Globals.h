@@ -20,6 +20,12 @@ enum update_status
 	UPDATE_ERROR
 };
 
+enum Weapon
+{
+	MINIGUN,
+	TRIPLE_GUN,
+};
+
 // Useful typedefs ---------
 typedef unsigned int uint;
 

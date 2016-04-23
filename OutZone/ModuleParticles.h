@@ -10,6 +10,8 @@
 
 struct SDL_Texture;
 
+
+
 struct Particle
 {
 	Animation anim;

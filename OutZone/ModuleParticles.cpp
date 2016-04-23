@@ -22,6 +22,8 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	particles_texture = App->textures->Load("weapon_shots.png");
 
+	//LVL 1 particles --------------------------------------------------------------
+
 	// Minigun particle
 	minigun_shot_lv1.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1.speed.y = -4;
@@ -35,13 +37,13 @@ bool ModuleParticles::Start()
 	//Triple right
 	triple_shot_lv1_right.anim.PushBack({ 137, 246, 6, 14 });
 	triple_shot_lv1_right.speed.y = -4;
-	triple_shot_lv1_right.speed.x = -2.5f;
+	triple_shot_lv1_right.speed.x = -2;
 	triple_shot_lv1_right.life = 1000;
 
 	//Triple left
 	triple_shot_lv1_left.anim.PushBack({ 137, 246, 6, 14 });
 	triple_shot_lv1_left.speed.y = -4;
-	triple_shot_lv1_left.speed.x = +2.5f;
+	triple_shot_lv1_left.speed.x = +2;
 	triple_shot_lv1_left.life = 1000;
 
 	return true;

@@ -9,6 +9,8 @@
 #include "ModuleCollider.h"
 #include "ModuleLevel_1.h"
 
+
+
 ModulePlayer::ModulePlayer(){
 
 	position.x = 88;
@@ -18,10 +20,10 @@ ModulePlayer::ModulePlayer(){
 	screenlowheight = 320;
 
 	//player stand same place;
-	stand.x = 517;
-	stand.y = 287;
-	stand.w = 31;
-	stand.h = 36;
+	idle.x = 517;
+	idle.y = 287;
+	idle.w = 31;
+	idle.h = 36;
 	
 
 	//walk leftward animation
@@ -57,32 +59,32 @@ ModulePlayer::ModulePlayer(){
 	downward.speed = 0.1f;
 
 	//BIG GUN ANIMATIONS!!
-	rightward_big_gun.PushBack({ 41, 51, 30, 36 });
-	rightward_big_gun.PushBack({ 41, 96, 30, 37 });
-	rightward_big_gun.PushBack({ 41, 142, 30, 37 });
-	rightward_big_gun.PushBack({ 41, 188, 30, 37 });
-	rightward_big_gun.PushBack({ 41, 234, 30, 37 });
-	rightward_big_gun.speed = 0.1f;
+	rightward_triple_gun.PushBack({ 41, 51, 30, 36 });
+	rightward_triple_gun.PushBack({ 41, 96, 30, 37 });
+	rightward_triple_gun.PushBack({ 41, 142, 30, 37 });
+	rightward_triple_gun.PushBack({ 41, 188, 30, 37 });
+	rightward_triple_gun.PushBack({ 41, 234, 30, 37 });
+	rightward_triple_gun.speed = 0.1f;
 
-	leftward_big_gun.PushBack({ 120, 51, 30, 37 });
-	leftward_big_gun.PushBack({ 120, 96, 31, 37 });
-	leftward_big_gun.PushBack({ 120, 141, 30, 37 });
-	leftward_big_gun.PushBack({ 120, 188, 30, 37 });
-	leftward_big_gun.PushBack({ 120, 234, 30, 36 });
-	leftward_big_gun.speed = 0.1f;
+	leftward_triple_gun.PushBack({ 120, 51, 30, 37 });
+	leftward_triple_gun.PushBack({ 120, 96, 31, 37 });
+	leftward_triple_gun.PushBack({ 120, 141, 30, 37 });
+	leftward_triple_gun.PushBack({ 120, 188, 30, 37 });
+	leftward_triple_gun.PushBack({ 120, 234, 30, 36 });
+	leftward_triple_gun.speed = 0.1f;
 
-	downward_big_gun.PushBack({ 278, 50, 30, 37 });
-	downward_big_gun.PushBack({ 278, 97, 30, 36 });
-	downward_big_gun.PushBack({ 278, 143, 30, 37 });
-	downward_big_gun.PushBack({ 278, 190, 30, 37 });
-	downward_big_gun.PushBack({ 278, 233, 31, 37 });
-	downward_big_gun.speed = 0.1f;
+	downward_triple_gun.PushBack({ 278, 50, 30, 37 });
+	downward_triple_gun.PushBack({ 278, 97, 30, 36 });
+	downward_triple_gun.PushBack({ 278, 143, 30, 37 });
+	downward_triple_gun.PushBack({ 278, 190, 30, 37 });
+	downward_triple_gun.PushBack({ 278, 233, 31, 37 });
+	downward_triple_gun.speed = 0.1f;
 
-	upward_big_gun.PushBack({ 199, 51, 30, 37 });
-	upward_big_gun.PushBack({ 199, 96, 30, 37 });
-	upward_big_gun.PushBack({ 199, 142, 30, 36 });
-	upward_big_gun.PushBack({ 199, 187, 30, 37 }); //only uses 4 animations, not 5 like previous movements
-	upward_big_gun.speed = 0.1f;
+	upward_triple_gun.PushBack({ 199, 51, 30, 37 });
+	upward_triple_gun.PushBack({ 199, 96, 30, 37 });
+	upward_triple_gun.PushBack({ 199, 142, 30, 36 });
+	upward_triple_gun.PushBack({ 199, 187, 30, 37 }); //only uses 4 animations, not 5 like previous movements
+	upward_triple_gun.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer(){};
@@ -90,7 +92,7 @@ ModulePlayer::~ModulePlayer(){};
 bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
 
-
+	current_weapon = MINIGUN;
 	
 	character = App->textures->Load("playermove.png");
 	minigun_shot = App->audios->LoadFX("minigun_shot.wav");
@@ -156,21 +158,30 @@ update_status ModulePlayer::Update(){
 		
 	}
 	else
-		App->render->Blit(character, position.x, position.y - stand.h, &stand);
+		App->render->Blit(character, position.x, position.y - idle.h, &idle);
 	
 	
 	//Player shoting
 	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
-		App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x+(3*width/4), position.y-height);
-		Mix_PlayChannel(-1, minigun_shot, 0);
+		if (current_weapon == MINIGUN){
+			App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x + (3 * width / 4), position.y - height);
+			Mix_PlayChannel(-1, minigun_shot, 0);
+		}
+		if (current_weapon == TRIPLE_GUN){
+			App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y - height);
+			App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 2 + width / 2, position.y - height);
+			App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 2 + width / 2, position.y - height);
+			Mix_PlayChannel(-1, triple_shot, 0);
+		}
+
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN){
-		App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width/2, position.y - height);
-		App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 2 + width / 2, position.y - height);
-		App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 2 + width / 2, position.y - height);
-		Mix_PlayChannel(-1, triple_shot, 0);
 
+		if (current_weapon == MINIGUN)
+			current_weapon = TRIPLE_GUN;
+		else if (current_weapon == TRIPLE_GUN)
+			current_weapon = MINIGUN;
 	}
 
 	/*
