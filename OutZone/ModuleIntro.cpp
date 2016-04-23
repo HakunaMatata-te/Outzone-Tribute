@@ -42,6 +42,8 @@ bool ModuleIntro::Start()
 
 	title.loop = false;
 
+	App->render->camera.y = 0;
+
 
 	return true;
 }

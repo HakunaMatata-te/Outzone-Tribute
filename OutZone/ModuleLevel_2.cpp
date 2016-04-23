@@ -32,6 +32,7 @@ bool ModuleLevel_2::Start()
 
 	App->player->Enable();
 	App->collision->Enable();
+	App->render->camera.y = 0;
 
 	return true;
 }

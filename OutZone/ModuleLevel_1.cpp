@@ -37,6 +37,8 @@ bool ModuleLevel_1::Start()
 	App->player->Enable();
 	App->collision->Enable();
 
+	App->render->camera.y = 0;
+
 	//App->player->lvl_collision = &lvl_collider;
 	//Colliders
 

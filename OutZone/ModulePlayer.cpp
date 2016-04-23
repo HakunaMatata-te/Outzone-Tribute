@@ -15,9 +15,11 @@ ModulePlayer::ModulePlayer(){
 
 	position.x = 88;
 	position.y = 282;
+	screenlowheight = 320;
+
 	width = 31;
 	height = 36;
-	screenlowheight = 320;
+	
 
 	//player stand same place;
 	idle.x = 517;
@@ -92,6 +94,8 @@ ModulePlayer::~ModulePlayer(){};
 bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
 
+	
+
 	current_weapon = MINIGUN;
 	lvl = 1;
 	
@@ -107,6 +111,10 @@ bool ModulePlayer::Start(){
 bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
+
+	position.x = 88;
+	position.y = 282;
+	screenlowheight = 320;
 
 	App->textures->Unload(character);
 
