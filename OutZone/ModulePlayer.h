@@ -42,8 +42,6 @@ public:
 	Animation rightward_triple_gun;
 	Animation leftward_triple_gun;
 	iPoint position;
-	Mix_Chunk* triple_shot;
-	Mix_Chunk* minigun_shot;
 
 	Collider* playercollider = nullptr;
 	//Vector<Collider*>* lvl_collision;

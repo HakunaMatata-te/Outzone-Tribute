@@ -4,8 +4,8 @@
 #include "Module.h"
 #include "Globals.h"
 
-#define MAX_MUSIC 10
-#define MAX_FX 10
+#define DEFAULT_MUSIC_FADE_TIME 2.0f
+#define MAX_FX 200
 
 #include "SDL_mixer/include/SDL_mixer.h"
 
@@ -18,14 +18,16 @@ public:
 	bool Start();
 	bool CleanUp();
 
-	Mix_Music* const LoadMusic(const char* path);
-	Mix_Chunk* const LoadFX(const char* path);
+	bool PlayMusic(const char* path, float fade_time = DEFAULT_MUSIC_FADE_TIME);
+
+	uint LoadFX(const char* path);
+	bool UnLoadFx(uint id);
+	bool PlayFx(unsigned int fx, int repeat = 0);
 
 public:
-	Mix_Music* musics[MAX_MUSIC];
-	Mix_Chunk* fxs[MAX_FX];
-	uint last_music = 0;
-	uint last_fx = 0;
+	Mix_Music* music = nullptr;
+	Mix_Chunk* fx[MAX_FX];
+	uint last_fx = 1;
 };
 
 #endif

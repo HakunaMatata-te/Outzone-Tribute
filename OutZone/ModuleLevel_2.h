@@ -20,7 +20,6 @@ public:
 public:
 	SDL_Texture* lvl_texture = nullptr;
 	SDL_Rect background;
-	Mix_Music* lvl_music = nullptr;
 
 };
 

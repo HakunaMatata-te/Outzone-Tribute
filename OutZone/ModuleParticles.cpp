@@ -4,6 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
+#include "ModuleAudio.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -28,11 +29,13 @@ bool ModuleParticles::Start()
 	minigun_shot_lv1.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1.speed.y = -4;
 	minigun_shot_lv1.life = 1000;
+	minigun_shot_lv1.fx = App->audios->LoadFX("minigun_shot.wav");
 
 	// Triple shot particle
 	triple_shot_lv1_center.anim.PushBack({ 137, 246, 6, 14 });
 	triple_shot_lv1_center.speed.y = -4;
 	triple_shot_lv1_center.life = 1000;
+	triple_shot_lv1_center.fx = App->audios->LoadFX("triple_shot.wav");
 
 	//Triple right
 	triple_shot_lv1_right.anim.PushBack({ 137, 246, 6, 14 });
@@ -53,6 +56,7 @@ bool ModuleParticles::Start()
 	minigun_shot_lv2.anim.PushBack({ 52, 219, 10, 16 });
 	minigun_shot_lv2.speed.y = -4;
 	minigun_shot_lv2.life = 1000;
+	minigun_shot_lv2.fx = minigun_shot_lv1.fx;
 
 	return true;
 }
@@ -96,7 +100,7 @@ update_status ModuleParticles::Update()
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
-				// Play particle fx here
+				App->audios->PlayFx(p->fx);
 			}
 		}
 	}

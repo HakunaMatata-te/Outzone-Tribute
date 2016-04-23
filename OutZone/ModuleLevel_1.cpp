@@ -30,8 +30,7 @@ bool ModuleLevel_1::Start()
 	LOG("Loading background assets");
 
 	lvl_texture = App->textures->Load("lvl_1.png");
-	lvl_music = App->audios->LoadMusic("lvl_1.wav");
-	Mix_PlayMusic(lvl_music, -1);
+	App->audios->PlayMusic("lvl_1.wav", -1.0f);
 
 	//Enable modules
 	App->player->Enable();

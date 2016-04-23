@@ -100,8 +100,7 @@ bool ModulePlayer::Start(){
 	lvl = 1;
 	
 	character = App->textures->Load("playermove.png");
-	minigun_shot = App->audios->LoadFX("minigun_shot.wav");
-	triple_shot = App->audios->LoadFX("triple_shot.wav");
+
 
 	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER);
 
@@ -176,11 +175,9 @@ update_status ModulePlayer::Update(){
 		if (current_weapon == MINIGUN){		
 			if (lvl == 1){
 				App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x + (3 * width / 4), position.y - height);
-				Mix_PlayChannel(-1, minigun_shot, 0);
 			}
 			else if (lvl == 2){
 				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y - height);
-				Mix_PlayChannel(-1, minigun_shot, 0);
 			}
 
 		}
@@ -190,7 +187,6 @@ update_status ModulePlayer::Update(){
 			App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y - height);
 			App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 2 + width / 2, position.y - height);
 			App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 2 + width / 2, position.y - height);
-			Mix_PlayChannel(-1, triple_shot, 0);
 		}
 
 	}

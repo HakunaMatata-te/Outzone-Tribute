@@ -27,8 +27,7 @@ bool ModuleLevel_2::Start()
 	LOG("Loading background assets");
 
 	lvl_texture = App->textures->Load("lvl_2.png");
-	lvl_music = App->audios->LoadMusic("lvl_2.wav");
-	Mix_PlayMusic(lvl_music, -1);
+	App->audios->PlayMusic("lvl_2.wav", -1.0f);
 
 	App->player->Enable();
 	App->collision->Enable();
