@@ -128,6 +128,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::FOOT_SOLIDER_GREEN:
 			enemies[i] = new Enemy_Solider_Green(info.x,info.y);
 			break;
+		case ENEMY_TYPES::FOOT_SOLIDER_RED:
+			enemies[i] = new Enemy_Solider_Red(info.x, info.y);
+			break;
 		}
 	}
 }

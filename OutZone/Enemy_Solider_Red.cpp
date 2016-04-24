@@ -1,11 +1,11 @@
 #include "Application.h"
-#include "Enemy_Solider_Green.h"
+#include "Enemy_Solider_Red.h"
 #include "ModuleCollider.h"
 
 
-Enemy_Solider_Green::Enemy_Solider_Green(int x, int y) : Enemy(x, y)
+Enemy_Solider_Red::Enemy_Solider_Red(int x, int y) : Enemy(x, y)
 {
-	move.PushBack({ 133, 255, 27, 31 });
+	move.PushBack({ 474, 254, 27, 31 });
 	move.speed = 0.0f;
 
 	animation = &move;
@@ -14,7 +14,7 @@ Enemy_Solider_Green::Enemy_Solider_Green(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_Solider_Green::Move()
+void Enemy_Solider_Red::Move()
 {
 
 }

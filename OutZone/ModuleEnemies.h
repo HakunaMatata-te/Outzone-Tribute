@@ -7,6 +7,7 @@
 
 //Type of enemies.h
 #include "Enemy_Solider_Green.h"
+#include "Enemy_Solider_Red.h"
 
 
 enum ENEMY_TYPES

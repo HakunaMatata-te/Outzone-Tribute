@@ -55,6 +55,9 @@
     <ClCompile Include="Enemy_Solider_Green.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Solider_Red.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -125,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="Path.h">
       <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Solider_Red.h">
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
