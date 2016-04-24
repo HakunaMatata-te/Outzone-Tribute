@@ -145,30 +145,32 @@ update_status ModulePlayer::Update(){
 	
 	//Set direction
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
-		position.y -= speed;
+		if (position.y - height > (screenlowheight - 320))
+			position.y -= speed;
 		if (player_dir <= 8 && player_dir != 0)
 			player_dir--;
 		if (player_dir > 8 && player_dir != 0)
 			player_dir++;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT){
-		position.y += speed;
+		if (position.y < (screenlowheight)-height)
+			position.y += speed;
 		if (player_dir < 8)
 			player_dir++;
 		if (player_dir > 8)
 			player_dir--;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT){
-		position.x -= speed;
-		
+		if (position.x >= 0)
+			position.x -= speed;		
 		if (player_dir < 12 && player_dir>4)
 			player_dir++;
 		if (player_dir > 12 || player_dir<=4)
 			player_dir--;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT){
-		position.x += speed;
-
+		if (position.x < SCREEN_WIDTH - width)
+			position.x += speed;
 		if (player_dir < 12 && player_dir>4)
 			player_dir--;
 		if (player_dir >= 12 || player_dir < 4)
@@ -176,9 +178,9 @@ update_status ModulePlayer::Update(){
 	}
 	
 	//Reseting position to 0 making a loop with directions
-	if (player_dir==16)
+	if (player_dir > 15)
 		player_dir = 0;
-	if (player_dir == -1)
+	if (player_dir < 0)
 		player_dir = 15;
 
 	
@@ -199,7 +201,7 @@ update_status ModulePlayer::Update(){
 			current_animation = &downward_left;
 		if (player_dir == 12)
 			current_animation = &leftward;
-		if (player_dir > 12)
+		if (player_dir > 12&&player_dir<=15)
 			current_animation = &upward_left;
 	}
 
@@ -220,12 +222,21 @@ update_status ModulePlayer::Update(){
 
 	//Player shoting
 	if (current_weapon == MINIGUN){
-		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
+		if (App->input->keyboard[SDL_SCANCODE_0] == KEY_REPEAT){
 			if (lvl == 1){
 				if (player_dir == 0)
 				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y);
 				if (player_dir == 1)
 					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_right, position.x + (3 * width / 4), position.y);
+				if (player_dir == 2)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_right, position.x + (3 * width / 4), position.y);
+				if (player_dir == 3)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_righter, position.x + (3 * width / 4), position.y);
+				if (player_dir == 4)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_right, position.x + (3 * width / 4), position.y);
+				if (player_dir == 15)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_left, position.x + (3 * width / 4), position.y);
+
 			}
 			else if (lvl == 2){
 				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y);

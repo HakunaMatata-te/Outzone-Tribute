@@ -21,7 +21,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-	uint player_dir;
+	int player_dir;
 
 
 public:

@@ -6,7 +6,7 @@
 #include "Globals.h"
 #include "p2Point.h"
 
-#define MAX_ACTIVE_PARTICLES 200
+#define MAX_ACTIVE_PARTICLES 2000
 
 struct SDL_Texture;
 
@@ -49,6 +49,10 @@ public:
 
 	Particle minigun_shot_lv1_up;
 	Particle minigun_shot_lv1_upper_right;
+	Particle minigun_shot_lv1_upper_left;
+	Particle minigun_shot_lv1_up_right;
+	Particle minigun_shot_lv1_up_righter;
+	Particle minigun_shot_lv1_right;
 	Particle minigun_shot_lv2;
 	Particle minigun_shot_lv3;
 

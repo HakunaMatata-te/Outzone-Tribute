@@ -35,6 +35,25 @@ bool ModuleParticles::Start()
 	minigun_shot_lv1_upper_right.speed.x = +4;
 	minigun_shot_lv1_upper_right.speed.y = -8;
 	minigun_shot_lv1_upper_right.life = 1000;
+	//upper left
+	minigun_shot_lv1_upper_left.anim.PushBack({ 55, 244, 4, 16 });
+	minigun_shot_lv1_upper_left.speed.x = -4;
+	minigun_shot_lv1_upper_left.speed.y = -8;
+	minigun_shot_lv1_upper_left.life = 1000;
+	//up rigth
+	minigun_shot_lv1_up_right.anim.PushBack({ 55, 244, 4, 16 });
+	minigun_shot_lv1_up_right.speed.x = +8;
+	minigun_shot_lv1_up_right.speed.y = -8;
+	minigun_shot_lv1_up_right.life = 1000;
+	//up rigther
+	minigun_shot_lv1_up_righter.anim.PushBack({ 55, 244, 4, 16 });
+	minigun_shot_lv1_up_righter.speed.x = +8;
+	minigun_shot_lv1_up_righter.speed.y = -4;
+	minigun_shot_lv1_up_righter.life = 1000;
+	//up rigth
+	minigun_shot_lv1_right.anim.PushBack({ 55, 244, 4, 16 });
+	minigun_shot_lv1_right.speed.x = +8;
+	minigun_shot_lv1_right.life = 1000;
 
 
 	// Triple shot particle
