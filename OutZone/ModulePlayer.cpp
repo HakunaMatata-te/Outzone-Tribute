@@ -219,11 +219,13 @@ update_status ModulePlayer::Update(){
 	playercollider->SetPos(position.x, position.y);
 
 	//Player shoting
-	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
-
-		if (current_weapon == MINIGUN){		
+	if (current_weapon == MINIGUN){
+		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
 			if (lvl == 1){
-				App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x + (3 * width / 4), position.y);
+				if (player_dir == 0)
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y);
+				if (player_dir == 1)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_right, position.x + (3 * width / 4), position.y);
 			}
 			else if (lvl == 2){
 				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y);
@@ -232,23 +234,25 @@ update_status ModulePlayer::Update(){
 				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y);
 			}
 		}
+	}
 
 
-		if (current_weapon == TRIPLE_GUN){
+	if (current_weapon == TRIPLE_GUN){
+		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
 			if (lvl == 1){
-				App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y );
-				App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y );
-				App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y );
+					App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y);
+					App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y);
+					App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y);
 			}
 			else if (lvl == 2){
-				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y );
-				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y );
-				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y);
 			}
 			else if (lvl == 3){
-				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y );
-				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y );
-				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y);
 			}
 		}
 

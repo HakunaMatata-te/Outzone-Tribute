@@ -26,10 +26,16 @@ bool ModuleParticles::Start()
 	//LVL 1 particles --------------------------------------------------------------
 
 	// Minigun particle
-	minigun_shot_lv1.anim.PushBack({ 55, 244, 4, 16 });
-	minigun_shot_lv1.speed.y = -4;
-	minigun_shot_lv1.life = 1000;
-	minigun_shot_lv1.fx = App->audios->LoadFX("Sounds/minigun_shot.wav");
+	minigun_shot_lv1_up.anim.PushBack({ 55, 244, 4, 16 });
+	minigun_shot_lv1_up.speed.y = -8;
+	minigun_shot_lv1_up.life = 1000;
+	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.wav");
+	//upper rigth
+	minigun_shot_lv1_upper_right.anim.PushBack({ 55, 244, 4, 16 });
+	minigun_shot_lv1_upper_right.speed.x = +4;
+	minigun_shot_lv1_upper_right.speed.y = -8;
+	minigun_shot_lv1_upper_right.life = 1000;
+
 
 	// Triple shot particle
 	triple_shot_lv1_center.anim.PushBack({ 137, 246, 6, 14 });
@@ -54,7 +60,7 @@ bool ModuleParticles::Start()
 	minigun_shot_lv2.anim.PushBack({ 52, 219, 10, 16 });
 	minigun_shot_lv2.speed.y = -4;
 	minigun_shot_lv2.life = 1000;
-	minigun_shot_lv2.fx = minigun_shot_lv1.fx;
+	minigun_shot_lv2.fx = minigun_shot_lv1_up.fx;
 
 	// Triple shot particle
 	triple_shot_lv2_center.anim.PushBack({ 135, 221, 10, 18 });
@@ -81,7 +87,7 @@ bool ModuleParticles::Start()
 	minigun_shot_lv3.anim.speed = 0.25f;
 	minigun_shot_lv3.speed.y = -4;
 	minigun_shot_lv3.life = 1000;
-	minigun_shot_lv3.fx = minigun_shot_lv1.fx;
+	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
 
 	// Triple shot particle
 	triple_shot_lv3_center.anim.PushBack({ 133, 130, 14, 23 });
