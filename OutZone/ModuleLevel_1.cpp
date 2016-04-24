@@ -44,22 +44,8 @@ bool ModuleLevel_1::Start()
 	//Colliders
 
 	
-	lvl_collider.push_back(App->collision->AddCollider({ 1, App->collision->returny(4247, background.h), 95, App->collision->returnh(240) }, COLLIDER_WALL)); //-127 |4313 || 1,-167,95,174 || 0,-70, 0,+70 ||4487
+	lvl_collider.push_back(App->collision->AddCollider({ 1, App->collision->returny(4247, background.h), 95, 240}, COLLIDER_WALL)); //
 	
-	//lvl_collider.push_back(App->collision->AddCollider({ 1, App->collision->returny(4313, background.h), 95, App->collision->returnh(174) }, COLLIDER_WALL));
-	/*
-	lvl_collider.push_back(App->collision->AddCollider({ 100, 60, 10, 10 }, COLLIDER_WALL));
-	lvl_collider.push_back(App->collision->AddCollider({ 100, -140, 10, 10 }, COLLIDER_WALL));
-	lvl_collider.push_back(App->collision->AddCollider({ 100, SCREEN_HEIGHT - 300, 10, 10 }, COLLIDER_WALL));
-	lvl_collider.push_back(App->collision->AddCollider({ 100, SCREEN_HEIGHT - 500, 10, 10 }, COLLIDER_WALL));
-	*/
-	
-	/*
-	App->collision->AddCollider({ 1, 4506, 25, 275}, COLLIDER_WALL);
-	App->collision->AddCollider({ 26, 4496, 52, 250 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 77, 4491, 26, 232 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 160, 4415, 97, 136 }, COLLIDER_WALL);
-	*/
 
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 153, 4410);
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 153, -30);
