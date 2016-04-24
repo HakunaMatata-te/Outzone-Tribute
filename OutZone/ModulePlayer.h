@@ -36,7 +36,10 @@ public:
 	Animation* current_animation = nullptr;
 	Animation upward;
 	Animation upward_right;
+	Animation upward_left;
 	Animation downward;
+	Animation downward_right;
+	Animation downward_left;
 	Animation leftward;
 	Animation rightward;
 	Animation upward_triple_gun;

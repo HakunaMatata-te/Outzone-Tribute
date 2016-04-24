@@ -34,10 +34,16 @@ ModulePlayer::ModulePlayer(){
 	upward.PushBack({ 517, 334, 31, 38 });
 	upward.speed = 0.1f;
 
-	//upward left animation
+	//upward right animation
 	upward_right.PushBack({600, 293, 25, 36});
-	upward_right.PushBack({ 358, 73, 27, 36 });
+	upward_right.PushBack({358, 73, 27, 36 });
 	upward_right.speed == 0.1f;
+
+	//upward left animation
+	upward_left.PushBack({435, 61, 28, 36 });
+	upward_left.PushBack({ 437, 108, 28, 36 });
+	upward_left.speed == 0.1f;
+	
 
 	//walk downward animation
 	downward.PushBack({ 434, 252, 31, 38 });
@@ -46,6 +52,16 @@ ModulePlayer::ModulePlayer(){
 	downward.PushBack({ 434, 400, 31, 38 });
 	downward.PushBack({ 434, 450, 31, 38 });
 	downward.speed = 0.1f;
+
+	//downward right animation
+	downward_right.PushBack({248, 403, 28, 37});
+	downward_right.PushBack({ 248, 448, 27, 37 });
+	downward_right.speed = 0.1f;
+	
+	//downward left animation
+	downward_left.PushBack({248, 326, 30, 37});
+	downward_left.PushBack({ 162, 405, 30, 37 });
+	downward_left.speed = 0.1f;
 
 	//walk rightward animation
 	rightward.PushBack({ 354, 118, 31, 38 });
@@ -130,7 +146,7 @@ update_status ModulePlayer::Update(){
 	//Set direction
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
 		position.y -= speed;
-		if (player_dir < 8 && player_dir != 0)
+		if (player_dir <= 8 && player_dir != 0)
 			player_dir--;
 		if (player_dir > 8 && player_dir != 0)
 			player_dir++;
@@ -147,7 +163,7 @@ update_status ModulePlayer::Update(){
 		
 		if (player_dir < 12 && player_dir>4)
 			player_dir++;
-		if (player_dir > 12 && player_dir<=4)
+		if (player_dir > 12 || player_dir<=4)
 			player_dir--;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT){
@@ -155,7 +171,7 @@ update_status ModulePlayer::Update(){
 
 		if (player_dir < 12 && player_dir>4)
 			player_dir--;
-		if (player_dir > 12 && player_dir <= 4)
+		if (player_dir >= 12 || player_dir < 4)
 			player_dir++;
 	}
 	
@@ -169,11 +185,27 @@ update_status ModulePlayer::Update(){
 	
 	//Dir check
 	if (player_dir == 0)
-		App->render->Blit(character, position.x, position.y, &idle);
+		current_animation = &upward;
 	if (player_dir < 4 && player_dir>0)
-		App->render->Blit(character, position.x, position.y, &upward_right.GetCurrentFrame());
-	
+		current_animation = &upward_right;
+	if (player_dir == 4)
+		current_animation = &rightward;
+	if (player_dir < 8 && player_dir>4)
+		current_animation = &downward_right;
+	if (player_dir == 8)
+		current_animation = &downward;
+	if (player_dir < 12 && player_dir>8)
+		current_animation = &downward_left;
+	if (player_dir == 12)
+		current_animation = &leftward;
+	if (player_dir > 12)
+		current_animation = &upward_left;
 
+
+
+	//Print player
+	App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
+	playercollider->SetPos(position.x, position.y);
 
 	//Player shoting
 	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
