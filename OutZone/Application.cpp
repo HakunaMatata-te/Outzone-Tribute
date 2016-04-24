@@ -41,7 +41,6 @@ bool Application::Init()
 {
 	bool ret = true;
 
-
 	//Disabled modules
 	player->Disable();
 	level_1->Disable();

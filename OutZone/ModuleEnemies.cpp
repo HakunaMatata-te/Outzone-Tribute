@@ -5,6 +5,7 @@
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "Enemy.h"
+#include "Enemy_Truck.h"
 
 #define SPAWN_MARGIN 50
 
@@ -130,6 +131,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::FOOT_SOLIDER_RED:
 			enemies[i] = new Enemy_Solider_Red(info.x, info.y);
+			break;
+		case ENEMY_TYPES::TRUCK:
+			enemies[i] = new Enemy_Truck(info.x, info.y);
 			break;
 		}
 	}
