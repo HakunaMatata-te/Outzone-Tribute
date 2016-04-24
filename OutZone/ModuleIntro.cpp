@@ -46,10 +46,6 @@ bool ModuleIntro::Start()
 
 	App->render->camera.y = 0;
 
-	App->enemies->Enable();
-
-	App->enemies->AddEnemy(TRUCK, 20, 0);
-
 	return true;
 }
 
@@ -58,8 +54,6 @@ bool ModuleIntro::CleanUp()
 	LOG("Unloading Intro scene");
 
 	App->textures->Unload(lvl_texture);
-
-	App->enemies->Disable();
 
 
 	return true;
