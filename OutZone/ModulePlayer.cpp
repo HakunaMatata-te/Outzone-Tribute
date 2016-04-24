@@ -79,32 +79,32 @@ ModulePlayer::ModulePlayer(){
 	leftward.PushBack({ 84, 448, 31, 38 });
 	leftward.speed = 0.1f;
 
-	//BIG GUN ANIMATIONS!!
-	rightward_triple_gun.PushBack({ 41, 51, 30, 36 });
-	rightward_triple_gun.PushBack({ 41, 96, 30, 37 });
-	rightward_triple_gun.PushBack({ 41, 142, 30, 37 });
-	rightward_triple_gun.PushBack({ 41, 188, 30, 37 });
-	rightward_triple_gun.PushBack({ 41, 234, 30, 37 });
+	//TRIPLE GUN ANIMATIONS!!
+	rightward_triple_gun.PushBack({ 41, 36, 30, 36 });
+	rightward_triple_gun.PushBack({ 41, 81, 30, 37 });
+	rightward_triple_gun.PushBack({ 41, 127, 30, 37 });
+	rightward_triple_gun.PushBack({ 41, 173, 30, 37 });
+	rightward_triple_gun.PushBack({ 41, 219, 30, 37 });
 	rightward_triple_gun.speed = 0.1f;
 
-	leftward_triple_gun.PushBack({ 120, 51, 30, 37 });
-	leftward_triple_gun.PushBack({ 120, 96, 31, 37 });
-	leftward_triple_gun.PushBack({ 120, 141, 30, 37 });
-	leftward_triple_gun.PushBack({ 120, 188, 30, 37 });
-	leftward_triple_gun.PushBack({ 120, 234, 30, 36 });
+	leftward_triple_gun.PushBack({ 120, 36, 30, 37 });
+	leftward_triple_gun.PushBack({ 120, 81, 31, 37 });
+	leftward_triple_gun.PushBack({ 120, 127, 30, 37 });
+	leftward_triple_gun.PushBack({ 120, 173, 30, 37 });
+	leftward_triple_gun.PushBack({ 120, 219, 30, 36 });
 	leftward_triple_gun.speed = 0.1f;
 
-	downward_triple_gun.PushBack({ 278, 50, 30, 37 });
-	downward_triple_gun.PushBack({ 278, 97, 30, 36 });
-	downward_triple_gun.PushBack({ 278, 143, 30, 37 });
-	downward_triple_gun.PushBack({ 278, 190, 30, 37 });
-	downward_triple_gun.PushBack({ 278, 233, 31, 37 });
+	downward_triple_gun.PushBack({ 278, 35, 30, 37 });
+	downward_triple_gun.PushBack({ 278, 82, 30, 36 });
+	downward_triple_gun.PushBack({ 278, 128, 30, 37 });
+	downward_triple_gun.PushBack({ 278, 175, 30, 37 });
+	downward_triple_gun.PushBack({ 278, 218, 31, 37 });
 	downward_triple_gun.speed = 0.1f;
 
-	upward_triple_gun.PushBack({ 199, 51, 30, 37 });
-	upward_triple_gun.PushBack({ 199, 96, 30, 37 });
-	upward_triple_gun.PushBack({ 199, 142, 30, 36 });
-	upward_triple_gun.PushBack({ 199, 187, 30, 37 }); //only uses 4 animations, not 5 like previous movements
+	upward_triple_gun.PushBack({ 199, 36, 30, 37 });
+	upward_triple_gun.PushBack({ 199, 81, 30, 37 });
+	upward_triple_gun.PushBack({ 199, 127, 30, 37 });
+	upward_triple_gun.PushBack({ 199, 172, 30, 37 }); //only uses 4 animations, not 5 like previous movements
 	upward_triple_gun.speed = 0.1f;
 }
 
@@ -184,24 +184,35 @@ update_status ModulePlayer::Update(){
 	
 	
 	//Dir check
-	if (player_dir == 0)
-		current_animation = &upward;
-	if (player_dir < 4 && player_dir>0)
-		current_animation = &upward_right;
-	if (player_dir == 4)
-		current_animation = &rightward;
-	if (player_dir < 8 && player_dir>4)
-		current_animation = &downward_right;
-	if (player_dir == 8)
-		current_animation = &downward;
-	if (player_dir < 12 && player_dir>8)
-		current_animation = &downward_left;
-	if (player_dir == 12)
-		current_animation = &leftward;
-	if (player_dir > 12)
-		current_animation = &upward_left;
+	if (current_weapon == MINIGUN){
+		if (player_dir == 0)
+			current_animation = &upward;
+		if (player_dir < 4 && player_dir>0)
+			current_animation = &upward_right;
+		if (player_dir == 4)
+			current_animation = &rightward;
+		if (player_dir < 8 && player_dir>4)
+			current_animation = &downward_right;
+		if (player_dir == 8)
+			current_animation = &downward;
+		if (player_dir < 12 && player_dir>8)
+			current_animation = &downward_left;
+		if (player_dir == 12)
+			current_animation = &leftward;
+		if (player_dir > 12)
+			current_animation = &upward_left;
+	}
 
-
+	if (current_weapon == TRIPLE_GUN) {
+		if (player_dir > 12 || player_dir < 4)
+			current_animation = &upward_triple_gun;
+		if (player_dir == 12)
+			current_animation = &leftward_triple_gun;
+		if (player_dir == 4)
+			current_animation = &rightward_triple_gun;
+		if (player_dir < 12 && player_dir>4)
+			current_animation = &downward_triple_gun;
+	}
 
 	//Print player
 	App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
@@ -212,32 +223,32 @@ update_status ModulePlayer::Update(){
 
 		if (current_weapon == MINIGUN){		
 			if (lvl == 1){
-				App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x + (3 * width / 4), position.y - height);
+				App->particles->AddParticle(App->particles->minigun_shot_lv1, position.x + (3 * width / 4), position.y);
 			}
 			else if (lvl == 2){
-				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y - height);
+				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y);
 			}
 			else if (lvl == 3){
-				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y - height);
+				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y);
 			}
 		}
 
 
 		if (current_weapon == TRIPLE_GUN){
 			if (lvl == 1){
-				App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y - height);
-				App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y - height);
-				App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y );
 			}
 			else if (lvl == 2){
-				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y - height);
-				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y - height);
-				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y );
 			}
 			else if (lvl == 3){
-				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y - height);
-				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y - height);
-				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y - height);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y );
+				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y );
 			}
 		}
 
