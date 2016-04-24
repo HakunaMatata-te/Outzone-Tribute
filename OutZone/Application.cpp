@@ -11,6 +11,7 @@
 #include "ModuleParticles.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleCollider.h"
+#include "ModuleEnemies.h"
 
 
 Application::Application()
@@ -24,9 +25,10 @@ Application::Application()
 	modules[6] = level_1 = new ModuleLevel_1();
 	modules[7] = level_2 = new ModuleLevel_2();
 	modules[8] = collision = new ModuleCollision();
-	modules[9] = player = new ModulePlayer();
-	modules[10] = particles = new ModuleParticles();
-	modules[11] = fade = new ModuleFadeToBlack();
+	modules[9] = enemies = new ModuleEnemies();
+	modules[10] = player = new ModulePlayer();
+	modules[11] = particles = new ModuleParticles();
+	modules[12] = fade = new ModuleFadeToBlack();
 }	
 
 Application::~Application()
@@ -45,6 +47,7 @@ bool Application::Init()
 	level_1->Disable();
 	level_2->Disable();
 	collision->Disable();
+	enemies->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

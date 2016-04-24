@@ -99,7 +99,7 @@ bool ModulePlayer::Start(){
 	current_weapon = MINIGUN;
 	lvl = 1;
 	
-	character = App->textures->Load("playermove.png");
+	character = App->textures->Load("Animation/playermove.png");
 
 
 	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER);

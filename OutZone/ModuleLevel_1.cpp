@@ -10,6 +10,7 @@
 #include "ModulePlayer.h"
 #include "ModuleCollider.h"
 #include "ModuleParticles.h"
+#include "ModuleEnemies.h"
 
 ModuleLevel_1::ModuleLevel_1()
 {
@@ -29,12 +30,13 @@ bool ModuleLevel_1::Start()
 {
 	LOG("Loading background assets");
 
-	lvl_texture = App->textures->Load("lvl_1.png");
-	App->audios->PlayMusic("lvl_1.wav", -1.0f);
+	lvl_texture = App->textures->Load("Maps/lvl_1.png");
+	App->audios->PlayMusic("Sounds/lvl_1.wav", -1.0f);
 
 	//Enable modules
 	App->player->Enable();
 	App->collision->Enable();
+	App->enemies->Enable();
 
 	App->render->camera.y = 0;
 
@@ -58,6 +60,10 @@ bool ModuleLevel_1::Start()
 	App->collision->AddCollider({ 77, 4491, 26, 232 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 160, 4415, 97, 136 }, COLLIDER_WALL);
 	*/
+
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 153, 4410);
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 153, -30);
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, 100);
 	
 	return true;
 }
@@ -69,6 +75,7 @@ bool ModuleLevel_1::CleanUp()
 	App->textures->Unload(lvl_texture);
 	App->player->Disable();
 	App->collision->Disable();
+	App->enemies->Disable();
 
 	return true;
 }

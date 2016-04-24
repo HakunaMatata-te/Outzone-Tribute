@@ -46,6 +46,15 @@
     <ClCompile Include="ModuleCollider.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleEnemies.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Solider_Green.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -105,6 +114,18 @@
     <ClInclude Include="VectorDynamic.h">
       <Filter>Containers</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleEnemies.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Solider_Green.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -118,6 +139,9 @@
     </Filter>
     <Filter Include="Modules\Scenes">
       <UniqueIdentifier>{fee47c62-5593-41ed-9ba5-d89a3770474c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies">
+      <UniqueIdentifier>{859b360f-4d49-49fb-a317-d6edc9501225}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
