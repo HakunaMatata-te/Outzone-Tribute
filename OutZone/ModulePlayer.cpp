@@ -16,7 +16,6 @@ ModulePlayer::ModulePlayer(){
 	position.x = 88;
 	position.y = 282;
 	screenlowheight = 320;
-
 	width = 31;
 	height = 36;
 	
@@ -27,14 +26,26 @@ ModulePlayer::ModulePlayer(){
 	idle.w = 31;
 	idle.h = 36;
 	
+	// walk upward animation (arcade sprite sheet)
+	upward.PushBack({ 517, 151, 31, 38 });
+	upward.PushBack({ 517, 197, 31, 38 });
+	upward.PushBack({ 517, 240, 31, 38 });
+	upward.PushBack({ 517, 287, 31, 38 });
+	upward.PushBack({ 517, 334, 31, 38 });
+	upward.speed = 0.1f;
 
-	//walk leftward animation
-	leftward.PushBack({ 84, 274, 31, 38 });
-	leftward.PushBack({ 84, 316, 31, 38 });
-	leftward.PushBack({ 84, 360, 31, 38 });
-	leftward.PushBack({ 84, 405, 31, 38 });
-	leftward.PushBack({ 84, 448, 31, 38 });
-	leftward.speed = 0.1f;
+	//upward left animation
+	upward_right.PushBack({600, 293, 25, 36});
+	upward_right.PushBack({ 358, 73, 27, 36 });
+	upward_right.speed == 0.1f;
+
+	//walk downward animation
+	downward.PushBack({ 434, 252, 31, 38 });
+	downward.PushBack({ 434, 302, 31, 38 });
+	downward.PushBack({ 434, 352, 31, 38 });
+	downward.PushBack({ 434, 400, 31, 38 });
+	downward.PushBack({ 434, 450, 31, 38 });
+	downward.speed = 0.1f;
 
 	//walk rightward animation
 	rightward.PushBack({ 354, 118, 31, 38 });
@@ -44,21 +55,13 @@ ModulePlayer::ModulePlayer(){
 	rightward.PushBack({ 354, 304, 31, 38 });
 	rightward.speed = 0.1f;
 
-	// walk upward animation (arcade sprite sheet)
-	upward.PushBack({ 517, 151, 31, 38 });
-	upward.PushBack({ 517, 197, 31, 38 });
-	upward.PushBack({ 517, 240, 31, 38 });
-	upward.PushBack({ 517, 287, 31, 38 });
-	upward.PushBack({ 517, 334, 31, 38 });
-	upward.speed = 0.1f;
-
-	//walk downward animation
-	downward.PushBack({ 434, 252, 31, 38 });
-	downward.PushBack({ 434, 302, 31, 38 });
-	downward.PushBack({ 434, 352, 31, 38 });
-	downward.PushBack({ 434, 400, 31, 38 });
-	downward.PushBack({ 434, 450, 31, 38 });
-	downward.speed = 0.1f;
+	//walk leftward animation
+	leftward.PushBack({ 84, 274, 31, 38 });
+	leftward.PushBack({ 84, 316, 31, 38 });
+	leftward.PushBack({ 84, 360, 31, 38 });
+	leftward.PushBack({ 84, 405, 31, 38 });
+	leftward.PushBack({ 84, 448, 31, 38 });
+	leftward.speed = 0.1f;
 
 	//BIG GUN ANIMATIONS!!
 	rightward_triple_gun.PushBack({ 41, 51, 30, 36 });
@@ -94,11 +97,13 @@ ModulePlayer::~ModulePlayer(){};
 bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
 
-	
+	position.x = 88;
+	position.y = 282;
+	screenlowheight = 320;	
 
 	current_weapon = MINIGUN;
 	lvl = 1;
-	
+	player_dir = 0;
 	character = App->textures->Load("Animation/playermove.png");
 
 
@@ -111,64 +116,65 @@ bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
 
-	position.x = 88;
-	position.y = 282;
-	screenlowheight = 320;
-
 	App->textures->Unload(character);
 
 	return true;
 }
 
 update_status ModulePlayer::Update(){
+
 	
-	current_animation = &upward;
 	
 	int speed = 2;
 	
-	if (App->input->keyboard[SDL_SCANCODE_W] || App->input->keyboard[SDL_SCANCODE_S] || App->input->keyboard[SDL_SCANCODE_D] || App->input->keyboard[SDL_SCANCODE_A]){
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT)
-		{
-			current_animation = &upward;
-			if (position.y - height > (screenlowheight - 320)){
-				position.y -= speed;
-			}
-			//screenlowheight -= SCREEN_SPEED;
-		}
-		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
-		{
-			current_animation = &downward;
-			if (position.y < (screenlowheight)){
-				position.y += speed;
-			}
-
-		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
-		{
-			current_animation = &leftward;
-			if (position.x >= 0){
-				position.x -= speed;
-			}
-			
-		}
-		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
-		{
-			current_animation = &rightward;
-			if (position.x < SCREEN_WIDTH - width){
-				position.x += speed;
-			}
-
-		}
-		
-		SDL_Rect r = current_animation->GetCurrentFrame();
-		playercollider->SetPos(position.x, position.y - r.h);
-		App->render->Blit(character, position.x, position.y - r.h, &r);
-		
+	//Set direction
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
+		position.y -= speed;
+		if (player_dir < 8 && player_dir != 0)
+			player_dir--;
+		if (player_dir > 8 && player_dir != 0)
+			player_dir++;
 	}
-	else
-		App->render->Blit(character, position.x, position.y - idle.h, &idle);
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT){
+		position.y += speed;
+		if (player_dir < 8)
+			player_dir++;
+		if (player_dir > 8)
+			player_dir--;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT){
+		position.x -= speed;
+		
+		if (player_dir < 12 && player_dir>4)
+			player_dir++;
+		if (player_dir > 12 && player_dir<=4)
+			player_dir--;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT){
+		position.x += speed;
+
+		if (player_dir < 12 && player_dir>4)
+			player_dir--;
+		if (player_dir > 12 && player_dir <= 4)
+			player_dir++;
+	}
+	
+	//Reseting position to 0 making a loop with directions
+	if (player_dir==16)
+		player_dir = 0;
+	if (player_dir == -1)
+		player_dir = 15;
+
 	
 	
+	//Dir check
+	if (player_dir == 0)
+		App->render->Blit(character, position.x, position.y, &idle);
+	if (player_dir < 4 && player_dir>0)
+		App->render->Blit(character, position.x, position.y, &upward_right.GetCurrentFrame());
+	
+
+
 	//Player shoting
 	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
 

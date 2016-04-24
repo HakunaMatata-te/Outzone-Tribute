@@ -21,6 +21,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	uint player_dir;
 
 
 public:
@@ -34,6 +35,7 @@ public:
 	SDL_Rect idle;
 	Animation* current_animation = nullptr;
 	Animation upward;
+	Animation upward_right;
 	Animation downward;
 	Animation leftward;
 	Animation rightward;

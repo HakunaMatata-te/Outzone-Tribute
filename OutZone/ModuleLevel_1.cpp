@@ -83,7 +83,7 @@ bool ModuleLevel_1::CleanUp()
 // Update: draw background
 update_status ModuleLevel_1::Update()
 {
-	App->render->Blit(lvl_texture, 0, -4760 + SCREEN_HEIGHT, &background, 0.75f); //Negative value to start rendering from the bottom og the image
+	App->render->Blit(lvl_texture, 0, -4760 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom og the image
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
 		App->fade->FadeToBlack(App->level_1, App->level_2, 3);
