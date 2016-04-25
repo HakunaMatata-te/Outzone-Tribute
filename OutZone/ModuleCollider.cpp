@@ -193,3 +193,27 @@ bool Collider::CheckCollision(const SDL_Rect& r) const
 		rect.y < r.y + r.h &&
 		rect.h + rect.y > r.y);
 }
+
+CollisionSide Collider::CheckCollisionSide(const SDL_Rect& r) const
+{
+	if (rect.x < r.x + r.w)
+		return LEFT;
+	if (rect.x + rect.w > r.x)
+		return RIGHT;
+	if (rect.y < r.y + r.h)
+		return TOP;
+
+		return IDLE;
+	
+	/*
+	if ()
+		return DOWN;
+		
+	if (rect.y < r.y + r.h)
+		return LEFT;
+		
+	if (rect.h + rect.y > r.y)
+		return RIGHT;
+	*/
+	
+}

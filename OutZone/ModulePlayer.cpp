@@ -196,17 +196,19 @@ update_status ModulePlayer::Update(){
 
 	//Set direction
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
-		if (position.y - height > (screenlowheight - 320))
-			position.y -= speed;
-		if (player_dir <= 8 && player_dir != 0)
-			player_dir--;
-		if (player_dir > 8 && player_dir != 0)
-			player_dir++;
+			if (position.y - height > (screenlowheight - 320))
+				if (side_wall != TOP)
+					position.y -= speed;
+			if (player_dir <= 8 && player_dir != 0)
+				player_dir--;
+			if (player_dir > 8 && player_dir != 0)
+				player_dir++;
 	}
 	
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT){
 		if (position.y < (screenlowheight)-height)
-			position.y += speed;
+			if (side_wall != DOWN)
+				position.y += speed;
 		if (player_dir < 8)
 			player_dir++;
 		if (player_dir > 8)
@@ -214,7 +216,8 @@ update_status ModulePlayer::Update(){
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT){
 		if (position.x >= 0)
-			position.x -= speed;		
+			if (side_wall != LEFT)
+				position.x -= speed;		
 		if (player_dir < 12 && player_dir>4)
 			player_dir++;
 		if (player_dir > 12 || player_dir<=4)
@@ -222,7 +225,8 @@ update_status ModulePlayer::Update(){
 	}
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT){
 		if (position.x < SCREEN_WIDTH - width)
-			position.x += speed;
+			if (side_wall != RIGHT)
+				position.x += speed;
 		if (player_dir < 12 && player_dir>4)
 			player_dir--;
 		if (player_dir >= 12 || player_dir < 4)
@@ -430,15 +434,23 @@ update_status ModulePlayer::Update(){
 	if (destroyed == false)
 		App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
 	
+	
 
 	return UPDATE_CONTINUE;
 }
+
+update_status ModulePlayer::PostUpdate()
+{
+	side_wall = IDLE;
+	return UPDATE_CONTINUE;
+}
+
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == playercollider && c2->type == COLLIDER_WALL)
 	{
-		
+		side_wall = c1->CheckCollisionSide(c2->rect);
 	}
 	//Lose_Condition
 	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)

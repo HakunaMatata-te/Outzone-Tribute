@@ -19,6 +19,7 @@ public:
 
 	bool Start();
 	update_status Update();
+	update_status PostUpdate();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
@@ -32,6 +33,7 @@ public:
 	int sp_time = 0;
 	int spbombmunition = 3;
 	bool sp_bombthroun = false;
+	CollisionSide side_wall = IDLE;
 
 	uint lvl;
 	Uint32 lastShot;
