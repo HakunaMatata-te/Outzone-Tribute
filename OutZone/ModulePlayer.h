@@ -29,19 +29,16 @@ public:
 	int width = 0;
 	int speed;
 	int screenlowheight;
-	int sp_time = 0;
 	int spbombmunition = 3;
-	bool sp_bombthroun = false;
+
 
 	uint lvl;
 	Uint32 lastShot;
 	Weapon current_weapon;
 	SDL_Texture* character = nullptr;
-	SDL_Texture* spbombtext = nullptr;
 	//SDL_Rect idle;
-	SDL_Rect Spbombrect;
+
 	Animation* current_animation = nullptr;
-	Animation* Bomb_animation = nullptr;
 	Animation idle_up;
 	Animation idle_right;
 	Animation idle_down;
@@ -60,7 +57,6 @@ public:
 	Animation downward_triple_gun;
 	Animation rightward_triple_gun;
 	Animation leftward_triple_gun;
-	Animation ScreenBomb;
 
 	iPoint position;
 	uint fx_lvlup_weapon = 0;

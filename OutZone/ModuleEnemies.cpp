@@ -150,14 +150,14 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER) && enemies[i]->death == false)
+		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB) && enemies[i]->death == false)
 		{
 			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;
 		} 
-		else if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER) && enemies[i]->death == true)
+		else if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB) && enemies[i]->death == true)
 		{
 			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
 			enemies[i]->ChangeDeath();

@@ -28,10 +28,6 @@ ModulePlayer::ModulePlayer(){
 	idle.y = 287;
 	idle.w = 31;
 	idle.h = 36; */
-	Spbombrect.x = 1;
-	Spbombrect.y = 0;
-	Spbombrect.w = SCREEN_WIDTH;
-	Spbombrect.h = SCREEN_HEIGHT;
 
 	//idle sprites
 	idle_up.PushBack({ 521, 197, 27, 37 });
@@ -50,12 +46,12 @@ ModulePlayer::ModulePlayer(){
 	//upward right animation
 	upward_right.PushBack({600, 293, 25, 36});
 	upward_right.PushBack({358, 73, 27, 36 });
-	upward_right.speed == 0.1f;
+	upward_right.speed = 0.1f;
 
 	//upward left animation
 	upward_left.PushBack({435, 61, 28, 36 });
 	upward_left.PushBack({ 437, 108, 28, 36 });
-	upward_left.speed == 0.1f;
+	upward_left.speed = 0.1f;
 	
 
 	//walk downward animation
@@ -120,22 +116,6 @@ ModulePlayer::ModulePlayer(){
 	upward_triple_gun.PushBack({ 199, 172, 30, 37 }); //only uses 4 animations, not 5 like previous movements
 	upward_triple_gun.speed = 0.1f;
 
-	//special bomb animation
-	ScreenBomb.PushBack({ 0, 0, 240, 320 });
-	ScreenBomb.PushBack({ 240, 0, 240, 320 });
-	ScreenBomb.PushBack({ 480, 0, 240, 320 });
-	ScreenBomb.PushBack({ 720, 0, 240, 320 });
-	ScreenBomb.PushBack({ 960, 0, 240, 320 });
-	ScreenBomb.PushBack({ 0, 320, 240, 320 });
-	ScreenBomb.PushBack({ 240, 320, 240, 320 });
-	ScreenBomb.PushBack({ 480, 320, 240, 320 });
-	ScreenBomb.PushBack({ 720, 320, 240, 320 });
-	ScreenBomb.PushBack({ 960, 320, 240, 320 });
-	ScreenBomb.PushBack({ 0, 640, 240, 320 });
-	ScreenBomb.PushBack({ 240, 640, 240, 320 });
-	ScreenBomb.PushBack({ 480, 640, 240, 320 });
-	ScreenBomb.PushBack({ 720, 640, 240, 320 });
-	ScreenBomb.speed = 0.2f;
 }
 
 ModulePlayer::~ModulePlayer(){};
@@ -147,13 +127,12 @@ bool ModulePlayer::Start(){
 	position.y = 282;
 	screenlowheight = 320;	
 	destroyed = false;
+	spbombmunition = 3;
 
 	current_weapon = MINIGUN;
 	lvl = 1;
 	player_dir = 0;
 	character = App->textures->Load("Animation/playermove.png");
-	spbombtext = App->textures->Load("Animation/Bomb animation.png");
-
 
 
 	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER, App->player);
@@ -166,7 +145,6 @@ bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
 
-	App->textures->Unload(spbombtext);
 	App->textures->Unload(character);
 
 	return true;
@@ -177,23 +155,12 @@ update_status ModulePlayer::Update(){
 	speed = 2;
 	
 	//Special Screen bomb
-	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_DOWN && spbombmunition >= 0)
 	{
-		Bomb_animation = &ScreenBomb;
-		sp_time = 0;
-		sp_bombthroun = true;
+		App->particles->AddParticle(App->particles->screen_bomb, 0, screenlowheight - SCREEN_HEIGHT, COLLIDER_SCREEN_BOMB, 0);
 		spbombmunition--;
 	}
-	if (sp_time < 70 && sp_bombthroun == true && spbombmunition >= 0){
-		Spbombrect = Bomb_animation->GetCurrentFrame();
-		App->render->Blit(spbombtext, App->render->camera.x, App->render->camera.y, &Spbombrect);
-		sp_time++;
-		if (sp_time == 70)
-		{
-			sp_bombthroun = false;
-		}
-	}
-
+	
 	//Set direction
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
 		if (position.y - height > (screenlowheight - 320))
