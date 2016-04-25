@@ -15,6 +15,7 @@ protected:
 
 public:
 	iPoint position;
+	bool death = false;
 
 public:
 	Enemy(int x, int y);
@@ -24,6 +25,8 @@ public:
 
 	virtual void Move() {};
 	virtual void Draw(SDL_Texture* sprites);
+	virtual void ChangeDeath() {};
+
 };
 
 #endif // __ENEMY_H__

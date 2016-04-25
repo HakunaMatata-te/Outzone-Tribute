@@ -8,6 +8,8 @@
 //Type of enemies.h
 #include "Enemy_Solider_Green.h"
 #include "Enemy_Solider_Red.h"
+#include "Enemy_Truck.h"
+#include "Enemy_Minor_Turret.h"
 
 
 enum ENEMY_TYPES
@@ -43,6 +45,8 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
+
+	void ShotPlayer(int x, int y,int shot = 0);
 
 private:
 

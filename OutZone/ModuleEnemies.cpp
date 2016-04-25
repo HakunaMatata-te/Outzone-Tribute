@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <time.h>
+
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
@@ -5,8 +8,8 @@
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
 #include "Enemy.h"
-#include "Enemy_Truck.h"
 #include "ModuleCollider.h"
+#include "ModulePlayer.h"
 
 #define SPAWN_MARGIN 50
 
@@ -136,6 +139,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::TRUCK:
 			enemies[i] = new Enemy_Truck(info.x, info.y);
 			break;
+		case ENEMY_TYPES::MINOR_TURRET:
+			enemies[i] = new Enemy_Minor_Turret(info.x, info.y);
+			break;
 		}
 	}
 }
@@ -144,12 +150,30 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER))
+		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER) && enemies[i]->death == false)
 		{
 			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;
+		} 
+		else if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER) && enemies[i]->death == true)
+		{
+			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
+			enemies[i]->ChangeDeath();
+			break;
 		}
 	}
+}
+
+void ShotPlayer(int x, int y, int shot = 0)
+{
+	srand(time(NULL));
+
+	//in the range: center player -  (center player + 50)
+	int dir_x = rand() % 50 + ((App->player->width / 2) + App->player->position.x);
+
+	int dir_y = rand() % 50 + ((App->player->height / 2) + App->player->position.y);
+
+	App->particles->AddParticle(App->particles->minigun_shot_lv1_right, x, y, COLLIDER_ENEMY_SHOT);
 }
