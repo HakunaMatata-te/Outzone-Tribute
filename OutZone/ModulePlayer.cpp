@@ -286,14 +286,80 @@ update_status ModulePlayer::Update(){
 			}
 			else if (lvl == 2){
 				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				lastShot = SDL_GetTicks();
 			}
 			else if (lvl == 3){
-				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 0){
+					App->particles->minigun_shot_lv3.speed.x = 0;
+					App->particles->minigun_shot_lv3.speed.y = -8;
+				}
+				if (player_dir == 1){
+					App->particles->minigun_shot_lv3.speed.x = +4;
+					App->particles->minigun_shot_lv3.speed.y = -8;
+				}
+				if (player_dir == 2){
+					App->particles->minigun_shot_lv3.speed.x = +8;
+					App->particles->minigun_shot_lv3.speed.y = -8;
+				}
+				if (player_dir == 3){
+					App->particles->minigun_shot_lv3.speed.x = +8;
+					App->particles->minigun_shot_lv3.speed.y = -4;
+				}
+				if (player_dir == 4){
+					App->particles->minigun_shot_lv3.speed.x = +8;
+					App->particles->minigun_shot_lv3.speed.y = 0;
+				}
+				if (player_dir == 5){
+					App->particles->minigun_shot_lv3.speed.x = +8;
+					App->particles->minigun_shot_lv3.speed.y = +4;
+				}
+				if (player_dir == 6){
+					App->particles->minigun_shot_lv3.speed.x = +8;
+					App->particles->minigun_shot_lv3.speed.y = +8;
+				}
+				if (player_dir == 7){
+					App->particles->minigun_shot_lv3.speed.x = +4;
+					App->particles->minigun_shot_lv3.speed.y = +8;
+				}
+				if (player_dir == 8){
+					App->particles->minigun_shot_lv3.speed.x = 0;
+					App->particles->minigun_shot_lv3.speed.y = +8;
+				}
+				if (player_dir == 9){
+					App->particles->minigun_shot_lv3.speed.x = -4;
+					App->particles->minigun_shot_lv3.speed.y = +8;
+				}
+				if (player_dir == 10){
+					App->particles->minigun_shot_lv3.speed.x = -8;
+					App->particles->minigun_shot_lv3.speed.y = +8;
+				}
+				if (player_dir == 11){
+					App->particles->minigun_shot_lv3.speed.x = -8;
+					App->particles->minigun_shot_lv3.speed.y = +4;
+				}
+				if (player_dir == 12){
+					App->particles->minigun_shot_lv3.speed.x = -8;
+					App->particles->minigun_shot_lv3.speed.y = 0;
+				}
+				if (player_dir == 13){
+					App->particles->minigun_shot_lv3.speed.x = -8;
+					App->particles->minigun_shot_lv3.speed.y = -4;
+				}
+				if (player_dir == 14){
+					App->particles->minigun_shot_lv3.speed.x = -8;
+					App->particles->minigun_shot_lv3.speed.y = -8;
+				}
+				if (player_dir == 15){
+					App->particles->minigun_shot_lv3.speed.x = -4;
+					App->particles->minigun_shot_lv3.speed.y = -8;
+				}
+				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x +  width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				lastShot = SDL_GetTicks();
 			}
 	}
 
 
-	if (current_weapon == TRIPLE_GUN && (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN) || (App->input->keyboard[SDL_SCANCODE_E] == KEY_REPEAT && SDL_GetTicks() - lastShot > 700)){
+	if (current_weapon == TRIPLE_GUN && (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN || App->input->keyboard[SDL_SCANCODE_E] == KEY_REPEAT && SDL_GetTicks() - lastShot > 700)){
 			if (lvl == 1){
 				App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
@@ -316,7 +382,6 @@ update_status ModulePlayer::Update(){
 
 	//Weapon change
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN){
-
 		if (current_weapon == MINIGUN)
 			current_weapon = TRIPLE_GUN;
 		else if (current_weapon == TRIPLE_GUN)

@@ -25,7 +25,7 @@ bool ModuleParticles::Start()
 
 	//LVL 1 particles --------------------------------------------------------------
 
-	int life_shots = 1500;
+	int life_shots = 1200;
 
 	// Minigun particle
 	minigun_shot_lv1_up.anim.PushBack({ 55, 244, 4, 16 });
@@ -79,7 +79,7 @@ bool ModuleParticles::Start()
 
 	//Minigun
 	minigun_shot_lv2.anim.PushBack({ 52, 219, 10, 16 });
-	minigun_shot_lv2.speed.y = -4;
+	minigun_shot_lv2.speed.y = -8;
 	minigun_shot_lv2.life = life_shots;
 	minigun_shot_lv2.fx = minigun_shot_lv1_up.fx;
 
@@ -104,9 +104,7 @@ bool ModuleParticles::Start()
 
 	//Minigun
 	minigun_shot_lv3.anim.PushBack({ 45, 128, 24, 24 });
-	minigun_shot_lv3.anim.PushBack({45, 100, 24, 24});
-	minigun_shot_lv3.anim.speed = 0.25f;
-	minigun_shot_lv3.speed.y = -4;
+	minigun_shot_lv3.speed.y = -8;
 	minigun_shot_lv3.life = life_shots;
 	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
 
