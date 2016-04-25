@@ -43,10 +43,19 @@ bool ModuleLevel_1::Start()
 	//App->player->lvl_collision = &lvl_collider;
 	//Colliders
 
-	
+	//First two colliders, left and right
 	App->collision->AddCollider({ 0, App->collision->returny(4247, background.h), 95, 240}, COLLIDER_WALL); 
 	App->collision->AddCollider({ 161, App->collision->returny(4284, background.h), 85, 98 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 180, App->collision->returny(4382, background.h), 77, 32 }, COLLIDER_WALL);
+
+	//Columns
+	App->collision->AddCollider({ 130, App->collision->returny(3706, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 193, App->collision->returny(3642, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 1, App->collision->returny(3514, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 161, App->collision->returny(3355, background.h), 32, 64 }, COLLIDER_WALL);
+
+	//
+
 	
 	App->enemies->AddEnemy(TRUCK, 150, App->collision->returny(4420, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 60, App->collision->returny(4570, background.h));
