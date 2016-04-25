@@ -283,8 +283,29 @@ update_status ModulePlayer::Update(){
 					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 4)
 					App->particles->AddParticle(App->particles->minigun_shot_lv1_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 5)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_down_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 6)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_down_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 7)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_downer_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 8)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_down, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 9)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_downer_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 10)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_down_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 11)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_down_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 12)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 13)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 14)
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 15)
 					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+
 				lastShot = SDL_GetTicks();
 			}
 			else if (lvl == 2){

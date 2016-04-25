@@ -55,8 +55,19 @@ public:
 	Particle minigun_shot_lv1_upper_right;
 	Particle minigun_shot_lv1_upper_left;
 	Particle minigun_shot_lv1_up_right;
+	Particle minigun_shot_lv1_up_left;
 	Particle minigun_shot_lv1_up_righter;
+	Particle minigun_shot_lv1_up_lefter;
 	Particle minigun_shot_lv1_right;
+	Particle minigun_shot_lv1_left;
+	Particle minigun_shot_lv1_down_righter;
+	Particle minigun_shot_lv1_down_right;
+	Particle minigun_shot_lv1_downer_right;
+	Particle minigun_shot_lv1_down;
+	Particle minigun_shot_lv1_down_left;
+	Particle minigun_shot_lv1_downer_left;
+	Particle minigun_shot_lv1_down_lefter;
+
 	Particle minigun_shot_lv2;
 	Particle minigun_shot_lv3;
 
