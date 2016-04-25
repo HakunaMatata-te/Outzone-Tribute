@@ -203,6 +203,7 @@ update_status ModulePlayer::Update(){
 		if (player_dir > 8 && player_dir != 0)
 			player_dir++;
 	}
+	
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT){
 		if (position.y < (screenlowheight)-height)
 			position.y += speed;
@@ -227,6 +228,8 @@ update_status ModulePlayer::Update(){
 		if (player_dir >= 12 || player_dir < 4)
 			player_dir++;
 	}
+
+	//if (App->input->keyboard[SDL_SCANCODE_D] == KEY_IDLE && App->input->keyboard[SDL_SCANCODE_A] == KEY_IDLE && App->input->keyboard[SDL_SCANCODE_S] == KEY_IDLE)
 	
 	//Reseting position to 0 making a loop with directions
 	if (player_dir > 15)

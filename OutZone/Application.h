@@ -13,6 +13,7 @@ class ModuleParticles;
 class ModuleIntro;
 class ModuleLevel_1;
 class ModuleLevel_2;
+class ModuleLeaderboard;
 class ModuleCollision;
 class ModulePlayer;
 class ModuleInput;
@@ -34,6 +35,7 @@ public:
 	ModuleIntro* intro;
 	ModuleLevel_1* level_1;
 	ModuleLevel_2* level_2;
+	ModuleLeaderboard* leaderboard;
 	ModuleCollision* collision;
 	ModulePlayer* player;
 	ModuleFadeToBlack* fade;
