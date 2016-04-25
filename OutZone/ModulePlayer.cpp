@@ -141,8 +141,6 @@ bool ModulePlayer::CleanUp()
 }
 
 update_status ModulePlayer::Update(){
-
-	
 	
 	speed = 2;
 	
@@ -185,8 +183,6 @@ update_status ModulePlayer::Update(){
 		player_dir = 0;
 	if (player_dir < 0)
 		player_dir = 15;
-
-	
 	
 	//Dir check
 	if (current_weapon == MINIGUN){
@@ -305,14 +301,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == playercollider && c2->type == COLLIDER_WALL)
 	{
-		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
-			position.x -= speed;
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
-			position.x += speed;
-		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT)
-			position.y += speed;
-		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
-			position.y -= speed;
+		
 	}
 	//Lose_Condition
 	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
@@ -324,6 +313,4 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		destroyed = true;
 
 	}
-
-
 }
