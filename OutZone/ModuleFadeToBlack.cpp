@@ -86,3 +86,8 @@ bool ModuleFadeToBlack::FadeToBlack(Module* module_off, Module* module_on, float
 
 	return ret;
 }
+
+bool ModuleFadeToBlack::IsFading() const
+{
+	return current_step != fade_step::none;
+}

@@ -8,6 +8,7 @@
 #include "ModuleAudio.h"
 #include "ModuleCollider.h"
 #include "ModuleLevel_1.h"
+#include "ModuleFadeToBlack.h"
 
 
 
@@ -116,6 +117,7 @@ bool ModulePlayer::Start(){
 	position.x = 88;
 	position.y = 282;
 	screenlowheight = 320;	
+	destroyed = false;
 
 	current_weapon = MINIGUN;
 	lvl = 1;
@@ -217,9 +219,7 @@ update_status ModulePlayer::Update(){
 			current_animation = &downward_triple_gun;
 	}
 
-	//Print player
-	App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
-	playercollider->SetPos(position.x, position.y);
+	
 
 	//Player shoting
 	if (current_weapon == MINIGUN){
@@ -291,12 +291,19 @@ update_status ModulePlayer::Update(){
 		App->audios->PlayFx(fx_lvlup_weapon);
 	}
 
+	playercollider->SetPos(position.x, position.y);
+
+	//Print player
+	if (destroyed == false)
+		App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
+	
+
 	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (playercollider == c1 && c2->type == COLLIDER_WALL)
+	if (c1 == playercollider && c2->type == COLLIDER_WALL)
 	{
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
 			position.x -= speed;
@@ -307,8 +314,16 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
 			position.y -= speed;
 	}
-	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT)
+	//Lose_Condition
+	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
+	{
+		App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->intro);
+
 		App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
+	
+		destroyed = true;
+
+	}
 
 
 }

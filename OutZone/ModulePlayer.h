@@ -50,6 +50,8 @@ public:
 	uint fx_lvlup_weapon = 0;
 
 	Collider* playercollider = nullptr;
+
+	bool destroyed = false;
 };
 
 #endif // !__ModulePlayer_H__
