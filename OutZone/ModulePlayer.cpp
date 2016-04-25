@@ -123,7 +123,8 @@ bool ModulePlayer::Start(){
 	character = App->textures->Load("Animation/playermove.png");
 
 
-	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER);
+	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER, App->player);
+	fx_lvlup_weapon = App->audios->LoadFX("Sounds/power_up_weapon.wav");
 
 	return true;
 };
@@ -141,7 +142,7 @@ update_status ModulePlayer::Update(){
 
 	
 	
-	int speed = 2;
+	speed = 2;
 	
 	//Set direction
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
@@ -225,24 +226,24 @@ update_status ModulePlayer::Update(){
 		if (App->input->keyboard[SDL_SCANCODE_0] == KEY_REPEAT){
 			if (lvl == 1){
 				if (player_dir == 0)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y);
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 1)
-					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_right, position.x + (3 * width / 4), position.y);
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 2)
-					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_right, position.x + (3 * width / 4), position.y);
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 3)
-					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_righter, position.x + (3 * width / 4), position.y);
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_up_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 4)
-					App->particles->AddParticle(App->particles->minigun_shot_lv1_right, position.x + (3 * width / 4), position.y);
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 15)
-					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_left, position.x + (3 * width / 4), position.y);
+					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 
 			}
 			else if (lvl == 2){
-				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y);
+				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 			}
 			else if (lvl == 3){
-				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y);
+				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 			}
 		}
 	}
@@ -251,19 +252,19 @@ update_status ModulePlayer::Update(){
 	if (current_weapon == TRIPLE_GUN){
 		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
 			if (lvl == 1){
-					App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y);
-					App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y);
-					App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y);
+				App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 			}
 			else if (lvl == 2){
-				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y);
-				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y);
-				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 			}
 			else if (lvl == 3){
-				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y);
-				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y);
-				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 			}
 		}
 
@@ -286,37 +287,28 @@ update_status ModulePlayer::Update(){
 			lvl++;
 		else
 			lvl = 1;		//Reset the lvl allowing loop, for testing purposes only
+
+		App->audios->PlayFx(fx_lvlup_weapon);
 	}
-
-
-	/*
-	uint colliders = lvl_collision->size();
-	
-	for (uint i = 0; i < colliders; i++)
-	{
-		if (playercollider->CheckCollision(lvl_collision[i].))
-	}*/
-
-	uint colliders = App->level_1->lvl_collider.size();
-
-	for (uint i = 0; i < colliders; i++)
-	{
-
-		if (playercollider->CheckCollision(App->level_1->lvl_collider[i]->rect))
-		{
-			if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
-				position.x -= speed;
-			if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
-				position.x += speed;
-			if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT)
-				position.y += speed;
-			if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
-				position.y -= speed;
-		}
-
-	}
-	
 
 	return UPDATE_CONTINUE;
 }
 
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
+{
+	if (playercollider == c1 && c2->type == COLLIDER_WALL)
+	{
+		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
+			position.x -= speed;
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
+			position.x += speed;
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT)
+			position.y += speed;
+		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT)
+			position.y -= speed;
+	}
+	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT)
+		App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
+
+
+}

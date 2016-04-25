@@ -117,9 +117,6 @@
     <ClInclude Include="ModuleCollider.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="VectorDynamic.h">
-      <Filter>Containers</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>

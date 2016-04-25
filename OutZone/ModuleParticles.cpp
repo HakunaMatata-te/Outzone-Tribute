@@ -21,7 +21,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	particles_texture = App->textures->Load("Animation/weapon_shots.png");
+	particles_texture = App->textures->Load("Animation/particles.png");
 
 	//LVL 1 particles --------------------------------------------------------------
 
@@ -124,6 +124,33 @@ bool ModuleParticles::Start()
 	triple_shot_lv3_left.speed.x = -2;
 	triple_shot_lv3_left.life = 1000;
 
+	//Normal explosion
+	normal_explosion.anim.PushBack({ 71, 537, 38, 38});
+	normal_explosion.anim.PushBack({ 124, 537, 39, 38 });
+	normal_explosion.anim.PushBack({ 182, 534, 44, 43});
+	normal_explosion.anim.PushBack({ 245, 536, 39, 37 });
+	normal_explosion.anim.PushBack({ 303, 539, 30, 36 });
+	normal_explosion.anim.PushBack({ 352, 536, 24, 29 });
+	normal_explosion.anim.PushBack({ 395, 536, 16, 19 });
+	normal_explosion.anim.PushBack({ 436, 534, 9, 11 });
+	normal_explosion.anim.loop = false;
+	normal_explosion.anim.speed = 0.3f;
+	normal_explosion.fx = App->audios->LoadFX("Sounds/death_small_enemies.wav");
+
+	//Player explosion
+	player_explosion.anim.PushBack({127,625,16,16});
+	player_explosion.anim.PushBack({ 228, 617, 32, 31 });
+	player_explosion.anim.PushBack({ 313, 605, 64, 69 });
+	player_explosion.anim.PushBack({ 68, 696, 86, 90 });
+	player_explosion.anim.PushBack({ 185, 690, 117, 115 });
+	player_explosion.anim.PushBack({ 320, 696, 113, 113 });
+	player_explosion.anim.PushBack({ 48, 820, 112, 113 });
+	player_explosion.anim.PushBack({ 118, 829, 114, 104 });
+	player_explosion.anim.PushBack({ 328, 845, 113, 91 });
+	player_explosion.anim.loop = false;
+	player_explosion.anim.speed = 0.3f;
+	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.wav");
+
 	return true;
 }
 
@@ -174,14 +201,38 @@ update_status ModuleParticles::Update()
 	return UPDATE_CONTINUE;
 }
 
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32 delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
-	Particle* p = new Particle(particle);
-	p->born = SDL_GetTicks() + delay;
-	p->position.x = x;
-	p->position.y = y;
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active[i] == nullptr)
+		{
+			Particle* p = new Particle(particle);
+			p->born = SDL_GetTicks() + delay;
+			p->position.x = x;
+			p->position.y = y;
+			if (collider_type != COLLIDER_NONE)
+				if (collider_type == COLLIDER_PLAYER_SHOT)
+					p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+			active[i] = p;
+			break;
+		}
+	}
+}
 
-	active[last_particle++] = p;
+void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
+{
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		// Always destroy particles that collide
+		if (active[i] != nullptr && active[i]->collider == c1)
+		{
+			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+			delete active[i];
+			active[i] = nullptr;
+			break;
+		}
+	}
 }
 
 // Particle sruct methods-------------------------------------------------------------
@@ -190,6 +241,12 @@ Particle::Particle()
 {
 	position.SetToZero();
 	speed.SetToZero();
+}
+
+Particle::~Particle()
+{
+	if (collider != nullptr)
+		App->collision->EraseCollider(collider);
 }
 
 Particle::Particle(const Particle& p) :
@@ -212,6 +269,9 @@ bool Particle::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
 
 	return ret;
 }

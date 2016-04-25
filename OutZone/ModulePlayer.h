@@ -5,7 +5,6 @@
 #include "Globals.h"
 #include "p2Point.h"
 #include "Animation.h"
-#include "VectorDynamic.h"
 
 #include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
@@ -21,13 +20,14 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-	int player_dir;
-
+	void OnCollision(Collider* c1, Collider* c2);
 
 public:
-	
+
+	int player_dir;
 	int height = 0;
 	int width = 0;
+	int speed;
 	int screenlowheight;
 	uint lvl;
 	Weapon current_weapon;
@@ -47,9 +47,9 @@ public:
 	Animation rightward_triple_gun;
 	Animation leftward_triple_gun;
 	iPoint position;
+	uint fx_lvlup_weapon = 0;
 
 	Collider* playercollider = nullptr;
-	//Vector<Collider*>* lvl_collision;
 };
 
 #endif // !__ModulePlayer_H__

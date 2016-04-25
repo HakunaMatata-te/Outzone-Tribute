@@ -168,13 +168,16 @@ Collider* ModuleCollision::AddCollider(SDL_Rect rect, COLLIDER_TYPE type, Module
 
 bool ModuleCollision::EraseCollider(Collider* collider)
 {
-	for (uint i = 0; i < MAX_COLLIDERS; ++i)
+	if (collider != nullptr)
 	{
-		if (colliders[i] == collider)
+		// we still search for it in case we received a dangling pointer
+		for (uint i = 0; i < MAX_COLLIDERS; ++i)
 		{
-			delete colliders[i];
-			colliders[i] = nullptr;
-			return true;
+			if (colliders[i] == collider)
+			{
+				collider->to_delete = true;
+				break;
+			}
 		}
 	}
 

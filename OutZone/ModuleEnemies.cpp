@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 #include "Enemy_Truck.h"
+#include "ModuleCollider.h"
 
 #define SPAWN_MARGIN 50
 
@@ -143,9 +144,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_PLAYER_SHOT)
 		{
-			//App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;

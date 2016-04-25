@@ -3,7 +3,6 @@
 
 #include "Module.h"
 #include "Globals.h"
-#include "VectorDynamic.h"
 
 #include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
@@ -22,7 +21,6 @@ public:
 	
 	SDL_Texture* lvl_texture = nullptr;
 	SDL_Rect background;
-	Vector<Collider*> lvl_collider;
 
 };
 

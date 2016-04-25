@@ -5,6 +5,7 @@
 #include "Animation.h"
 #include "Globals.h"
 #include "p2Point.h"
+#include "ModuleCollider.h"
 
 #define MAX_ACTIVE_PARTICLES 2000
 
@@ -14,6 +15,7 @@ struct SDL_Texture;
 
 struct Particle
 {
+	Collider* collider = nullptr;
 	Animation anim;
 	uint fx = 0;
 	iPoint position;
@@ -24,6 +26,7 @@ struct Particle
 
 	Particle();
 	Particle(const Particle& p);
+	~Particle();
 	bool Update();
 };
 
@@ -36,8 +39,9 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	void OnCollision(Collider* c1, Collider* c2);
 
-	void AddParticle(const Particle& particle, int x, int y, Uint32 delay = 0);
+	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay = 0);
 
 private:
 
@@ -66,6 +70,10 @@ public:
 	Particle triple_shot_lv3_center;
 	Particle triple_shot_lv3_right;
 	Particle triple_shot_lv3_left;
+
+	Particle normal_explosion;
+
+	Particle player_explosion;
 };
 
 #endif // !__MODULEPARTICLES_H__
