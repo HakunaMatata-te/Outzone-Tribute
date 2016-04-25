@@ -200,6 +200,34 @@ bool ModuleParticles::Start()
 	player_explosion.anim.speed = 0.3f;
 	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.wav");
 
+	//special bomb animation
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 287, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 527, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 767, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 1007, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 1247, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 1487, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 1527, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 1767, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 2007, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 2247, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 2487, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 2727, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 2967, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 3207, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 3447, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 3687, 957, 240, 320 });
+	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
+	screen_bomb.anim.speed = 0.5f;
+
 	return true;
 }
 
@@ -246,7 +274,7 @@ update_status ModuleParticles::Update()
 			}
 		}
 	}
-
+	
 	return UPDATE_CONTINUE;
 }
 

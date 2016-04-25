@@ -85,6 +85,8 @@ public:
 	Particle normal_explosion;
 
 	Particle player_explosion;
+
+	Particle screen_bomb;
 };
 
 #endif // !__MODULEPARTICLES_H__
