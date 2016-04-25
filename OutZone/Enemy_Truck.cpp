@@ -18,6 +18,7 @@ Enemy_Truck::Enemy_Truck(int x, int y) : Enemy(x, y)
 	collider = App->collision->AddCollider({ 0, 0, 80, 125 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 	count_add = 0;
 	count_max_spawn = 0;
+	stop = false;
 }
 
 void Enemy_Truck::Move()
@@ -36,5 +37,12 @@ void Enemy_Truck::Move()
 		++count_add;
 	}
 
-	position.y += 1;
+	if (count_max_spawn == 5)
+	{
+		stop = true;
+		move.loop = false;
+	}
+
+	if (stop == false)
+		position.y += 1;
 }

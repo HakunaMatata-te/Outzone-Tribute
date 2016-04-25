@@ -20,6 +20,7 @@ private:
 	SDL_Rect animation_count;
 	uint count_add;
 	uint count_max_spawn;
+	bool stop;
 
 public:
 

@@ -25,10 +25,12 @@ bool ModuleParticles::Start()
 
 	//LVL 1 particles --------------------------------------------------------------
 
+	int life_shots = 1500;
+
 	// Minigun particle
 	minigun_shot_lv1_up.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1_up.speed.y = -8;
-	minigun_shot_lv1_up.life = 1000;
+	minigun_shot_lv1_up.life = life_shots;
 	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.wav");
 	//upper rigth
 	minigun_shot_lv1_upper_right.anim.PushBack({ 55, 244, 4, 16 });
@@ -39,38 +41,38 @@ bool ModuleParticles::Start()
 	minigun_shot_lv1_upper_left.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1_upper_left.speed.x = -4;
 	minigun_shot_lv1_upper_left.speed.y = -8;
-	minigun_shot_lv1_upper_left.life = 1000;
+	minigun_shot_lv1_upper_left.life = life_shots;
 	//up rigth
 	minigun_shot_lv1_up_right.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1_up_right.speed.x = +8;
 	minigun_shot_lv1_up_right.speed.y = -8;
-	minigun_shot_lv1_up_right.life = 1000;
+	minigun_shot_lv1_up_right.life = life_shots;
 	//up rigther
 	minigun_shot_lv1_up_righter.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1_up_righter.speed.x = +8;
 	minigun_shot_lv1_up_righter.speed.y = -4;
-	minigun_shot_lv1_up_righter.life = 1000;
+	minigun_shot_lv1_up_righter.life = life_shots;
 	//up rigth
 	minigun_shot_lv1_right.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1_right.speed.x = +8;
-	minigun_shot_lv1_right.life = 1000;
+	minigun_shot_lv1_right.life = life_shots;
 
 
 	// Triple shot particle
 	triple_shot_lv1_center.anim.PushBack({ 137, 246, 6, 14 });
 	triple_shot_lv1_center.speed.y = -4;
-	triple_shot_lv1_center.life = 1000;
+	triple_shot_lv1_center.life = life_shots;
 	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.wav");
 	//Triple right
 	triple_shot_lv1_right.anim.PushBack({ 155, 247, 9, 13 });
 	triple_shot_lv1_right.speed.y = -4;
 	triple_shot_lv1_right.speed.x = +2;
-	triple_shot_lv1_right.life = 1000;
+	triple_shot_lv1_right.life = life_shots;
 	//Triple left
 	triple_shot_lv1_left.anim.PushBack({ 116, 247, 9, 13 });
 	triple_shot_lv1_left.speed.y = -4;
 	triple_shot_lv1_left.speed.x = -2;
-	triple_shot_lv1_left.life = 1000;
+	triple_shot_lv1_left.life = life_shots;
 
 
 	//LVL 2 particles
@@ -78,24 +80,24 @@ bool ModuleParticles::Start()
 	//Minigun
 	minigun_shot_lv2.anim.PushBack({ 52, 219, 10, 16 });
 	minigun_shot_lv2.speed.y = -4;
-	minigun_shot_lv2.life = 1000;
+	minigun_shot_lv2.life = life_shots;
 	minigun_shot_lv2.fx = minigun_shot_lv1_up.fx;
 
 	// Triple shot particle
 	triple_shot_lv2_center.anim.PushBack({ 135, 221, 10, 18 });
 	triple_shot_lv2_center.speed.y = -4;
-	triple_shot_lv2_center.life = 1000;
+	triple_shot_lv2_center.life = life_shots;
 	triple_shot_lv2_center.fx = triple_shot_lv1_center.fx;
 	//Triple right
 	triple_shot_lv2_right.anim.PushBack({ 165, 224, 12, 17 });
 	triple_shot_lv2_right.speed.y = -4;
 	triple_shot_lv2_right.speed.x = +2;
-	triple_shot_lv2_right.life = 1000;
+	triple_shot_lv2_right.life = life_shots;
 	//Triple left
 	triple_shot_lv2_left.anim.PushBack({ 103, 224, 12, 17 });
 	triple_shot_lv2_left.speed.y = -4;
 	triple_shot_lv2_left.speed.x = -2;
-	triple_shot_lv2_left.life = 1000;
+	triple_shot_lv2_left.life = life_shots;
 
 
 	//LVL 3 particles
@@ -105,24 +107,24 @@ bool ModuleParticles::Start()
 	minigun_shot_lv3.anim.PushBack({45, 100, 24, 24});
 	minigun_shot_lv3.anim.speed = 0.25f;
 	minigun_shot_lv3.speed.y = -4;
-	minigun_shot_lv3.life = 1000;
+	minigun_shot_lv3.life = life_shots;
 	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
 
 	// Triple shot particle
 	triple_shot_lv3_center.anim.PushBack({ 133, 130, 14, 23 });
 	triple_shot_lv3_center.speed.y = -4;
-	triple_shot_lv3_center.life = 1000;
+	triple_shot_lv3_center.life = life_shots;
 	triple_shot_lv3_center.fx = triple_shot_lv1_center.fx;
 	//Triple right
 	triple_shot_lv3_right.anim.PushBack({ 155, 130, 17, 22 });
 	triple_shot_lv3_right.speed.y = -4;
 	triple_shot_lv3_right.speed.x = +2;
-	triple_shot_lv3_right.life = 1000;
+	triple_shot_lv3_right.life = life_shots;
 	//Triple left
 	triple_shot_lv3_left.anim.PushBack({ 108, 130, 17, 22 });
 	triple_shot_lv3_left.speed.y = -4;
 	triple_shot_lv3_left.speed.x = -2;
-	triple_shot_lv3_left.life = 1000;
+	triple_shot_lv3_left.life = life_shots;
 
 	//Normal explosion
 	normal_explosion.anim.PushBack({ 71, 537, 38, 38});
