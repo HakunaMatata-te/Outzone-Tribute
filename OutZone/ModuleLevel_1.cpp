@@ -51,10 +51,27 @@ bool ModuleLevel_1::Start()
 	//Columns
 	App->collision->AddCollider({ 130, App->collision->returny(3706, background.h), 32, 64 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 193, App->collision->returny(3642, background.h), 32, 64 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 1, App->collision->returny(3514, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(3514, background.h), 32, 64 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 161, App->collision->returny(3355, background.h), 32, 64 }, COLLIDER_WALL);
 
-	//
+	//Big stone blocks
+	App->collision->AddCollider({ 0, App->collision->returny(3220, background.h), 32, 37 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(3075, background.h), 127, 146 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 200, App->collision->returny(3075, background.h), 58, 147 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(2790, background.h), 62, 147 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 135, App->collision->returny(2790, background.h), 122, 147 }, COLLIDER_WALL);
+
+	//More columns
+	App->collision->AddCollider({ 65, App->collision->returny(2682, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 194, App->collision->returny(2650, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(2618, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 97, App->collision->returny(2522, background.h), 32, 64 }, COLLIDER_WALL);
+
+	//End walls
+	App->collision->AddCollider({ 0, App->collision->returny(1301, background.h), 32, 82 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 32, App->collision->returny(1313, background.h), 63, 65 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 161, App->collision->returny(1313, background.h), 63, 65 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 220, App->collision->returny(1301, background.h), 32, 82 }, COLLIDER_WALL);
 
 	
 	App->enemies->AddEnemy(TRUCK, 150, App->collision->returny(4420, background.h));
