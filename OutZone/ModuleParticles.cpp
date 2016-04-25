@@ -127,10 +127,82 @@ bool ModuleParticles::Start()
 	//LVL 2 particles
 
 	//Minigun
-	minigun_shot_lv2.anim.PushBack({ 52, 219, 10, 16 });
-	minigun_shot_lv2.speed.y = -8;
-	minigun_shot_lv2.life = life_shots;
-	minigun_shot_lv2.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up.anim.PushBack({ 52, 219, 10, 16 });
+	minigun_shot_lv2_up.speed.y = -8;
+	minigun_shot_lv2_up.life = life_shots;
+	minigun_shot_lv2_up.fx = minigun_shot_lv1_up.fx;
+	//upper rigth
+	minigun_shot_lv2_upper_right.anim.PushBack({ 169, 272, 13, 17 });
+	minigun_shot_lv2_upper_right.speed.x = +4;
+	minigun_shot_lv2_upper_right.speed.y = -8;
+	minigun_shot_lv2_upper_right.life = 1000;
+	//upper left
+	minigun_shot_lv2_upper_left.anim.PushBack({ 122, 273, 13, 17 });
+	minigun_shot_lv2_upper_left.speed.x = -4;
+	minigun_shot_lv2_upper_left.speed.y = -8;
+	minigun_shot_lv2_upper_left.life = life_shots;
+	//up rigth
+	minigun_shot_lv2_up_right.anim.PushBack({ 202, 287, 15, 16 });
+	minigun_shot_lv2_up_right.speed.x = +8;
+	minigun_shot_lv2_up_right.speed.y = -8;
+	minigun_shot_lv2_up_right.life = life_shots;
+	//up left
+	minigun_shot_lv2_up_left.anim.PushBack({ 81, 277, 15, 16 });
+	minigun_shot_lv2_up_left.speed.x = -8;
+	minigun_shot_lv2_up_left.speed.y = -8;
+	minigun_shot_lv2_up_left.life = life_shots;
+	//up rigther
+	minigun_shot_lv2_up_righter.anim.PushBack({ 240, 299, 16, 10 });
+	minigun_shot_lv2_up_righter.speed.x = +8;
+	minigun_shot_lv2_up_righter.speed.y = -4;
+	minigun_shot_lv2_up_righter.life = life_shots;
+	//up lefter
+	minigun_shot_lv2_up_lefter.anim.PushBack({ 50, 299, 16, 13 });
+	minigun_shot_lv2_up_lefter.speed.x = -8;
+	minigun_shot_lv2_up_lefter.speed.y = -4;
+	minigun_shot_lv2_up_lefter.life = life_shots;
+	//rigth
+	minigun_shot_lv2_right.anim.PushBack({ 246, 339, 16, 10 });
+	minigun_shot_lv2_right.speed.x = +8;
+	minigun_shot_lv2_right.life = life_shots;
+	//left
+	minigun_shot_lv2_left.anim.PushBack({ 45, 339, 16, 10 });
+	minigun_shot_lv2_left.speed.x = -8;
+	minigun_shot_lv2_left.life = life_shots;
+	//Down righter
+	minigun_shot_lv2_down_righter.anim.PushBack({ 246, 371, 17, 13 });
+	minigun_shot_lv2_down_righter.speed.x = +8;
+	minigun_shot_lv2_down_righter.speed.y = +4;
+	minigun_shot_lv2_down_righter.life = life_shots;
+	//Down lefter
+	minigun_shot_lv2_down_lefter.anim.PushBack({ 47, 371, 17, 13 });
+	minigun_shot_lv2_down_lefter.speed.x = -8;
+	minigun_shot_lv2_down_lefter.speed.y = +4;
+	minigun_shot_lv2_down_lefter.life = life_shots;
+	//Down right
+	minigun_shot_lv2_down_right.anim.PushBack({ 220, 391, 15, 16 });
+	minigun_shot_lv2_down_right.speed.x = +8;
+	minigun_shot_lv2_down_right.speed.y = +8;
+	minigun_shot_lv2_down_right.life = life_shots;
+	//Down left
+	minigun_shot_lv2_down_left.anim.PushBack({ 79, 393, 15, 16 });
+	minigun_shot_lv2_down_left.speed.x = -8;
+	minigun_shot_lv2_down_left.speed.y = +8;
+	minigun_shot_lv2_down_left.life = life_shots;
+	//Downer right
+	minigun_shot_lv2_downer_right.anim.PushBack({ 189, 406, 13, 17 });
+	minigun_shot_lv2_downer_right.speed.x = +4;
+	minigun_shot_lv2_downer_right.speed.y = +8;
+	minigun_shot_lv2_downer_right.life = life_shots;
+	//Downer left
+	minigun_shot_lv2_downer_left.anim.PushBack({ 115, 407, 13, 17 });
+	minigun_shot_lv2_downer_left.speed.x = -4;
+	minigun_shot_lv2_downer_left.speed.y = +8;
+	minigun_shot_lv2_downer_left.life = life_shots;
+	//Down
+	minigun_shot_lv2_down.anim.PushBack({ 151, 409, 10, 16 });
+	minigun_shot_lv2_down.speed.y = +8;
+	minigun_shot_lv2_down.life = life_shots;
 
 	// Triple shot particle
 	triple_shot_lv2_center.anim.PushBack({ 135, 221, 10, 18 });

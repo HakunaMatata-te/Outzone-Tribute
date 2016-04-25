@@ -280,7 +280,39 @@ update_status ModulePlayer::Update(){
 				lastShot = SDL_GetTicks();
 			}
 			else if (lvl == 2){
-				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 0)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_up, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 1)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_upper_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 2)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_up_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 3)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_up_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 4)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 5)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_down_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 6)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_down_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 7)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_downer_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 8)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_down, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 9)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_downer_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 10)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_down_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 11)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_down_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 12)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 13)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_up_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 14)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_up_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+				if (player_dir == 15)
+					App->particles->AddParticle(App->particles->minigun_shot_lv2_upper_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+
 				lastShot = SDL_GetTicks();
 			}
 			else if (lvl == 3){
