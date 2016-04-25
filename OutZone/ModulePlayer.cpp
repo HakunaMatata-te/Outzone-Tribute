@@ -10,6 +10,8 @@
 #include "ModuleLevel_1.h"
 #include "ModuleFadeToBlack.h"
 
+#include "SDL\include\SDL.h"
+
 
 
 ModulePlayer::ModulePlayer(){
@@ -218,8 +220,7 @@ update_status ModulePlayer::Update(){
 	
 
 	//Player shoting
-	if (current_weapon == MINIGUN){
-		if (App->input->keyboard[SDL_SCANCODE_0] == KEY_REPEAT){
+	if (current_weapon == MINIGUN && App->input->keyboard[SDL_SCANCODE_0] == KEY_REPEAT && SDL_GetTicks()-lastShot > 100){
 			if (lvl == 1){
 				if (player_dir == 0)
 				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
@@ -233,7 +234,7 @@ update_status ModulePlayer::Update(){
 					App->particles->AddParticle(App->particles->minigun_shot_lv1_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 				if (player_dir == 15)
 					App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-
+				lastShot = SDL_GetTicks();
 			}
 			else if (lvl == 2){
 				App->particles->AddParticle(App->particles->minigun_shot_lv2, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
@@ -241,29 +242,28 @@ update_status ModulePlayer::Update(){
 			else if (lvl == 3){
 				App->particles->AddParticle(App->particles->minigun_shot_lv3, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
 			}
-		}
 	}
 
 
-	if (current_weapon == TRIPLE_GUN){
-		if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN){
+	if (current_weapon == TRIPLE_GUN && (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN) || (App->input->keyboard[SDL_SCANCODE_E] == KEY_REPEAT && SDL_GetTicks() - lastShot > 700)){
 			if (lvl == 1){
 				App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				lastShot = SDL_GetTicks();
 			}
 			else if (lvl == 2){
 				App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				lastShot = SDL_GetTicks();
 			}
 			else if (lvl == 3){
 				App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+				lastShot = SDL_GetTicks();
 			}
-		}
-
 	}
 
 	//Weapon change

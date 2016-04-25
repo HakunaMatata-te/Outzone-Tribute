@@ -30,6 +30,7 @@ public:
 	int speed;
 	int screenlowheight;
 	uint lvl;
+	Uint32 lastShot;
 	Weapon current_weapon;
 	SDL_Texture* character = nullptr;
 	SDL_Rect idle;
