@@ -422,7 +422,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	//Lose_Condition
 	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
 	{
-		App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->intro, 3);
+		App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->leaderboard, 3);
+
+		/*if (App->input->keyboard[SDL_SCANCODE_SPACE])
+		{
+			App->fade->FadeToBlack((Module*)App->leaderboard, (Module*)App->intro, 3);
+		} */
 
 		App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
 	
