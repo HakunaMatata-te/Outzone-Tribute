@@ -33,8 +33,14 @@ public:
 	Uint32 lastShot;
 	Weapon current_weapon;
 	SDL_Texture* character = nullptr;
-	SDL_Rect idle;
+	//SDL_Rect idle;
 	Animation* current_animation = nullptr;
+
+	Animation idle_up;
+	Animation idle_right;
+	Animation idle_down;
+	Animation idle_left;
+
 	Animation upward;
 	Animation upward_right;
 	Animation upward_left;
@@ -43,10 +49,12 @@ public:
 	Animation downward_left;
 	Animation leftward;
 	Animation rightward;
+
 	Animation upward_triple_gun;
 	Animation downward_triple_gun;
 	Animation rightward_triple_gun;
 	Animation leftward_triple_gun;
+
 	iPoint position;
 	uint fx_lvlup_weapon = 0;
 

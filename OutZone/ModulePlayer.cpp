@@ -23,11 +23,17 @@ ModulePlayer::ModulePlayer(){
 	height = 36;
 	
 
-	//player stand same place;
+	/* //player idle
 	idle.x = 517;
 	idle.y = 287;
 	idle.w = 31;
-	idle.h = 36;
+	idle.h = 36; */
+
+	//idle sprites
+	idle_up.PushBack({ 521, 197, 27, 37 });
+	idle_down.PushBack({ 346, 252, 28, 39 });
+	idle_right.PushBack({360, 305, 29, 35});
+	idle_left.PushBack({86, 362, 29, 35});
 	
 	// walk upward animation (arcade sprite sheet)
 	upward.PushBack({ 517, 151, 31, 38 });
