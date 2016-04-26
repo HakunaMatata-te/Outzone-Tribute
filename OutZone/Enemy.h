@@ -6,7 +6,6 @@
 
 struct SDL_Texture;
 struct Collider;
-struct SDL_Rect;
 
 class Enemy
 {
@@ -28,8 +27,6 @@ public:
 	virtual void Move() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void ChangeDeath() {};
-
-	int SeePlayer(const SDL_Rect& r);
 
 };
 
