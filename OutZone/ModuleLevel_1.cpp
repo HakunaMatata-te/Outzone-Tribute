@@ -72,8 +72,16 @@ bool ModuleLevel_1::Start()
 	App->collision->AddCollider({ 161, App->collision->returny(1313, background.h), 63, 65 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 220, App->collision->returny(1301, background.h), 32, 82 }, COLLIDER_WALL);
 	
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 137, App->collision->returny(4000, background.h));
-	
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(4350, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(4300, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(4250, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(4200, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(4180, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 85, App->collision->returny(4120, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(4000, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 127, App->collision->returny(4020, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 154, App->collision->returny(4000, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 25, App->collision->returny(4090, background.h));
 	return true;
 }
 

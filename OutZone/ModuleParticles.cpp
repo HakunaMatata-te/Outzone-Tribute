@@ -294,7 +294,7 @@ ModuleParticles::ModuleParticles()
 	screen_bomb.anim.speed = 0.5f;
 
 	//Test bullet
-	test.anim.PushBack({ 55, 244, 4, 16 });
+	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;
 	test.speed = 1.5f;
 

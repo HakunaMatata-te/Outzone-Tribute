@@ -22,7 +22,7 @@ void Enemy_Solider_Green::Move()
 
 	if (SDL_GetTicks() - lastShot > 1000 && shot == true)
 	{
-		App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x, position.y, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + 13, position.y +15, COLLIDER_ENEMY_SHOT);
 		lastShot = SDL_GetTicks();
 	}
 }

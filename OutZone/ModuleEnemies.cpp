@@ -64,24 +64,12 @@ update_status ModuleEnemies::PreUpdate()
 // Called before render is available
 update_status ModuleEnemies::Update()
 {
-
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	{
-		if (enemies[i] != nullptr)
-		{
-			if (enemies[i]->position.y * SCREEN_SIZE > -1 * (App->render->camera.y - (App->render->camera.h * SCREEN_SIZE)))
-			{
-				enemies[i]->shot = false;
-			}
-		}
-	}
-
-	for(uint i = 0; i < MAX_ENEMIES; ++i)
-		if(enemies[i] != nullptr) enemies[i]->Move();
+		if (enemies[i] != nullptr && enemies[i]->position.y > App->player->screenlowheight - 340 && enemies[i]->position.y < App->player->screenlowheight)
+			enemies[i]->Move();
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 		if(enemies[i] != nullptr) enemies[i]->Draw(sprites);
-
 
 	return UPDATE_CONTINUE;
 }
