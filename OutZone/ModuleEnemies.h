@@ -46,8 +46,6 @@ public:
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
 
-	void ShotPlayer(int x, int y,int shot = 0);
-
 private:
 
 	void SpawnEnemy(const EnemyInfo& info);

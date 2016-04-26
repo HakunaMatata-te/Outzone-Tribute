@@ -1,6 +1,10 @@
 #include <math.h>
+#include <stdlib.h>
+#include <time.h>
+
 #include "Globals.h"
 #include "Application.h"
+#include "ModulePlayer.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
@@ -8,10 +12,16 @@
 
 #include "SDL/include/SDL_timer.h"
 
+#define PI 3.14159265f
+
 ModuleParticles::ModuleParticles()
 {
+
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
 		active[i] = nullptr;
+		active_b[i] = nullptr;
+	}	
 }
 
 ModuleParticles::~ModuleParticles()
@@ -300,6 +310,11 @@ bool ModuleParticles::Start()
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.speed = 0.5f;
 
+	//Test bullet
+	test.anim.PushBack({ 45, 128, 24, 24 });
+	test.life = 5000;
+	test.speed = 1.5f;
+
 	return true;
 }
 
@@ -315,6 +330,15 @@ bool ModuleParticles::CleanUp()
 		{
 			delete active[i];
 			active[i] = nullptr;
+		}
+	}
+
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active_b[i] != nullptr)
+		{
+			delete active_b[i];
+			active_b[i] = nullptr;
 		}
 	}
 
@@ -347,6 +371,29 @@ update_status ModuleParticles::Update()
 		}
 	}
 	
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		Particle_Bullet* b = active_b[i];
+
+		if (b == nullptr)
+			continue;
+
+		if (b->Update() == false)
+		{
+			delete b;
+			active_b[i] = nullptr;
+		}
+		else if (SDL_GetTicks() >= b->born)
+		{
+			App->render->Blit(particles_texture, b->position.x, b->position.y, &(b->anim.GetCurrentFrame()));
+			if (b->fx_played == false)
+			{
+				b->fx_played = true;
+				App->audios->PlayFx(b->fx);
+			}
+		}
+	}
+
 	return UPDATE_CONTINUE;
 }
 
@@ -369,6 +416,29 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 	}
 }
 
+void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
+{
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active_b[i] == nullptr)
+		{
+			Particle_Bullet* p = new Particle_Bullet(particle);
+			p->born = SDL_GetTicks() + delay;
+			p->position.x = x;
+			p->position.y = y;
+			//in the range: center player -  (center player + 50)
+			p->player.x = rand() % 50 + ((App->player->width / 2) + App->player->position.x);
+			p->player.y = rand() % 50 + ((App->player->height / 2) + App->player->position.y);
+			p->angle = atan((p->player.y - p->position.y) / (p->player.x - p->position.x)) * 180 / PI;
+			if (collider_type != COLLIDER_NONE)
+				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+
+			active_b[i] = p;
+			break;
+		}
+	}
+}
+
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -379,6 +449,20 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
 			delete active[i];
 			active[i] = nullptr;
+			break;
+		}
+
+		
+
+	}
+
+	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	{
+		if (active_b[i] != nullptr && active_b[i]->collider == c1)
+		{
+			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+			delete active_b[i];
+			active_b[i] = nullptr;
 			break;
 		}
 	}
@@ -418,6 +502,44 @@ bool Particle::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+
+	if (collider != nullptr)
+		collider->SetPos(position.x, position.y);
+
+	return ret;
+}
+
+Particle_Bullet::Particle_Bullet()
+{
+	position.SetToZero();
+}
+
+Particle_Bullet::~Particle_Bullet()
+{
+	if (collider != nullptr)
+		App->collision->EraseCollider(collider);
+}
+
+Particle_Bullet::Particle_Bullet(const Particle_Bullet& p) :
+anim(p.anim), position(p.position),player(p.player),
+speed(p.speed),angle(p.angle),fx(p.fx), born(p.born), life(p.life)
+{}
+
+bool Particle_Bullet::Update()
+{
+	bool ret = true;
+
+	if (life > 0)
+	{
+		if ((SDL_GetTicks() - born) > life)
+			ret = false;
+	}
+	else
+		if (anim.Finished())
+			ret = false;
+
+	position.x -= speed*(cos(angle*PI / 180));
+	position.y -= speed*(sin(angle*PI / 180));
 
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);

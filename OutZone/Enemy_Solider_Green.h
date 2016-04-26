@@ -14,6 +14,7 @@ private:
 	iPoint original_pos;
 	fPoint speed;
 	Path path;
+	Uint32 lastShot = 0;
 
 public:
 

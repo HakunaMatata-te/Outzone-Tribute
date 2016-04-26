@@ -30,6 +30,25 @@ struct Particle
 	bool Update();
 };
 
+struct Particle_Bullet
+{
+	Collider* collider = nullptr;
+	Animation anim;
+	uint fx = 0;
+	fPoint position;
+	fPoint player;
+	float speed;
+	float angle;
+	Uint32 born = 0;
+	Uint32 life = 0;
+	bool fx_played = false;
+
+	Particle_Bullet();
+	Particle_Bullet(const Particle_Bullet& p);
+	~Particle_Bullet();
+	bool Update();
+};
+
 class ModuleParticles : public Module
 {
 public:
@@ -43,10 +62,13 @@ public:
 
 	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay = 0);
 
+	void AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay = 0);
+
 private:
 
 	SDL_Texture* particles_texture = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
+	Particle_Bullet* active_b[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
 
 public:
@@ -103,6 +125,8 @@ public:
 	Particle player_explosion;
 
 	Particle screen_bomb;
+
+	Particle_Bullet test;
 };
 
 #endif // !__MODULEPARTICLES_H__

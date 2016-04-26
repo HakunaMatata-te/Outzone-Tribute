@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <time.h>
 #include "Application.h"
 #include "Globals.h"
 #include "MemLeaks.h"
@@ -22,6 +23,8 @@ Application* App = nullptr;
 int main(int argc, char* argv[])
 {
 	ReportMemoryLeaks();
+
+	srand(time(NULL));
 
 	int main_return = EXIT_FAILURE;
 	main_states state = MAIN_CREATION;

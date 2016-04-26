@@ -71,12 +71,7 @@ bool ModuleLevel_1::Start()
 	App->collision->AddCollider({ 161, App->collision->returny(1313, background.h), 63, 65 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 220, App->collision->returny(1301, background.h), 32, 82 }, COLLIDER_WALL);
 	
-	App->enemies->AddEnemy(TRUCK, 150, App->collision->returny(4420, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 60, App->collision->returny(4570, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_RED, 100, App->collision->returny(4570, background.h));
-	App->enemies->AddEnemy(MINOR_TURRET, 34, App->collision->returny(4692, background.h));
-
-	App->enemies->AddEnemy(TRUCK, 34, App->collision->returny(4000, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 187, App->collision->returny(4500, background.h));
 	
 	return true;
 }
