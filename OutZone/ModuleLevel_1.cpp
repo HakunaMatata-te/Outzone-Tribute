@@ -81,7 +81,24 @@ bool ModuleLevel_1::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(4000, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 127, App->collision->returny(4020, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 154, App->collision->returny(4000, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 25, App->collision->returny(4090, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 25, App->collision->returny(4090, background.h));//
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 60, App->collision->returny(3940, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 90, App->collision->returny(3924, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 115, App->collision->returny(3950, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_RED, 156, App->collision->returny(3890, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 212, App->collision->returny(3900, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 236, App->collision->returny(3920, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 30, App->collision->returny(3835, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 60, App->collision->returny(3850, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 80, App->collision->returny(3837, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 120, App->collision->returny(3800, background.h));//
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 147, App->collision->returny(3810, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 174, App->collision->returny(3800, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 10, App->collision->returny(3685, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 60, App->collision->returny(3715, background.h));//
+	App->enemies->AddEnemy(TRUCK, 40, App->collision->returny(3430, background.h));//
+
+
 	return true;
 }
 
