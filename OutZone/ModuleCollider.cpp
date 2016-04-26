@@ -234,18 +234,18 @@ bool Collider::CheckCollision(const SDL_Rect& r) const
 
 bool Collider::CheckCollisionUp(const SDL_Rect& r) const
 {
-	return (rect.y < r.y + r.h && rect.y+1*SCREEN_SIZE > r.y + r.h);
+	return (rect.y < r.y + r.h && rect.y + (PLAYER_SPEED + 1) > r.y + r.h);
 }
 
 bool Collider::CheckCollisionDown(const SDL_Rect& r) const
 {
-	return (rect.y + rect.h > r.y && rect.y + rect.h -1*SCREEN_SIZE < r.y);
+	return (rect.y + rect.h > r.y && rect.y + rect.h - (PLAYER_SPEED + 1)< r.y);
 }
 bool Collider::CheckCollisionRight(const SDL_Rect& r) const
 {
-	return (rect.x + rect.w > r.x && rect.x + rect.w -1*SCREEN_SIZE < r.x);
+	return (rect.x + rect.w > r.x && rect.x + rect.w -(PLAYER_SPEED+1) < r.x);
 }
 bool Collider::CheckCollisionLeft(const SDL_Rect& r) const
 {
-	return (rect.x < r.x + r.w && rect.x+1*SCREEN_SIZE > r.x + r.w);
+	return (rect.x < r.x + r.w && rect.x + (PLAYER_SPEED + 1) > r.x + r.w);
 }

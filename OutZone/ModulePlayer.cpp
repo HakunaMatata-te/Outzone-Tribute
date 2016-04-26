@@ -129,7 +129,7 @@ bool ModulePlayer::Start(){
 	screenlowheight = 320;	
 	destroyed = false;
 	spbombmunition = 3;
-
+	speed = PLAYER_SPEED;
 	current_weapon = MINIGUN;
 	lvl = 1;
 	player_dir = 0;
@@ -153,7 +153,7 @@ bool ModulePlayer::CleanUp()
 
 update_status ModulePlayer::Update(){
 	
-	speed = 2;
+	
 	
 	//Special Screen bomb
 	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_DOWN && spbombmunition >= 0)
@@ -163,7 +163,7 @@ update_status ModulePlayer::Update(){
 	}
 	
 	//Set direction
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_REPEAT){
 		if (position.y - height > (screenlowheight - 320))
 			if (CollisionUp == false )
 				position.y -= speed;
@@ -173,7 +173,7 @@ update_status ModulePlayer::Update(){
 			player_dir++;
 	}
 	
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT){
+	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT){
 		if (position.y < (screenlowheight)-height)
 			if (CollisionDown == false)
 				position.y += speed;
@@ -182,7 +182,7 @@ update_status ModulePlayer::Update(){
 		if (player_dir > 8)
 			player_dir--;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT){
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT){
 		if (position.x >= 0)
 			if (CollisionLeft == false)
 				position.x -= speed;
@@ -192,7 +192,7 @@ update_status ModulePlayer::Update(){
 		if (player_dir > 12 || player_dir<=4)
 			player_dir--;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT){
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT){
 		if (position.x < SCREEN_WIDTH - width)
 			if (CollisionRight == false)
 				position.x += speed;

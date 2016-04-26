@@ -50,5 +50,6 @@ typedef unsigned int uint;
 #define WIN_RESIZABLE 0
 #define REN_VSYNC 1
 #define SCREEN_SPEED 2
+#define PLAYER_SPEED 2
 
 #endif // __GLOBALS_H__
