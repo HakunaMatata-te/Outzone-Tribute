@@ -242,7 +242,7 @@ update_status ModulePlayer::Update(){
 	
 
 	//Player shoting
-	if (current_weapon == MINIGUN && App->input->keyboard[SDL_SCANCODE_0] == KEY_REPEAT && SDL_GetTicks()-lastShot > 100){
+	if (current_weapon == MINIGUN && App->input->keyboard[SDL_SCANCODE_0] == KEY_REPEAT && SDL_GetTicks()-lastShot > 50){
 			if (lvl == 1){
 				if (player_dir == 0)
 				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);

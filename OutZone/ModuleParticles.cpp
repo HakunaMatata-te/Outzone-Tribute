@@ -286,25 +286,21 @@ bool ModuleParticles::Start()
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 287, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 527, 957, 240, 320 });
-	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 767, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 1007, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 1247, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 1487, 957, 240, 320 });
-	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 1527, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 1767, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 2007, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 2247, 957, 240, 320 });
-	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 2487, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 2727, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 2967, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 3207, 957, 240, 320 });
-	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 3447, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 3687, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
@@ -393,6 +389,11 @@ update_status ModuleParticles::Update()
 			}
 		}
 	}
+
+	if (App->player->position.y < ((App->player->screenlowheight - SCREEN_HEIGHT) + App->player->screenlowheight) / 2){
+		screen_bomb.speed.y = - SCREEN_SPEED;
+	}
+	else screen_bomb.speed.y = 0;
 
 	return UPDATE_CONTINUE;
 }
