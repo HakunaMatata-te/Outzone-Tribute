@@ -73,7 +73,11 @@ void Enemy_Solider_Red::Move()
 
 	if (SDL_GetTicks() - lastShot > 2000)
 	{
-		App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
+		if (SDL_GetTicks() - lasttimelapseShot > 50)
+		{
+			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
+			lasttimelapseShot = SDL_GetTicks();
+		}
 		lastShot = SDL_GetTicks();
 	}
 }

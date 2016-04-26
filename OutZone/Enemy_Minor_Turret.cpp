@@ -77,11 +77,17 @@ void Enemy_Minor_Turret::Move()
 		else if (pos_idle == 16)
 			animation = &Idle_16;
 
-		if (SDL_GetTicks() - lastShot > 2000)
-		{
-			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
-			lastShot = SDL_GetTicks();
-		}
+		
+			if (SDL_GetTicks() - lastShot > 2000)
+			{
+				if (SDL_GetTicks() - lasttimelapseShot > 50)
+				{
+				App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
+				lasttimelapseShot = SDL_GetTicks();
+				}
+				lastShot = SDL_GetTicks();
+			}
+
 	}
 }
 

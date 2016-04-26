@@ -16,6 +16,8 @@ private:
 	Path path;
 	Uint32 lastShot = 0;
 	int pos_idle = 0;
+	bool shot = true;
+	Uint32 lasttimelapseShot = 0;
 
 	Animation Idle_1;
 	Animation Idle_2;
