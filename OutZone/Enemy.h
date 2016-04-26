@@ -17,7 +17,6 @@ public:
 	iPoint position;
 	bool death = false;
 	uint life = 0;
-	bool shot = false;
 
 public:
 	Enemy(int x, int y);

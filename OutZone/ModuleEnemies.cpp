@@ -46,30 +46,20 @@ update_status ModuleEnemies::PreUpdate()
 			}
 		}
 	}
-
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	{
-		if (enemies[i] != nullptr)
-		{
-			if (queue[i].y * SCREEN_SIZE > -1 * (App->render->camera.y))
-			{
-				enemies[i]->shot = true;
-			}
-		}
-	}
-
 	return UPDATE_CONTINUE;
 }
 
 // Called before render is available
 update_status ModuleEnemies::Update()
 {
+
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->position.y > App->player->screenlowheight - 340 && enemies[i]->position.y < App->player->screenlowheight)
+		if (enemies[i] != nullptr && enemies[i]->position.y > App->player->screenlowheight - 340 && enemies[i]->position.y < App->player->screenlowheight) 
 			enemies[i]->Move();
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
-		if(enemies[i] != nullptr) enemies[i]->Draw(sprites);
+		if(enemies[i] != nullptr) 
+			enemies[i]->Draw(sprites);
 
 	return UPDATE_CONTINUE;
 }

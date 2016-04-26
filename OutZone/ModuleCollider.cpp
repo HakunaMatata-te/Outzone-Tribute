@@ -217,7 +217,7 @@ CollisionSide Collider::CheckCollisionSide(const SDL_Rect& r) const
 		return RIGHT;
 	if (rect.y < r.y + r.h)
 		return TOP;
-
+ 
 		return IDLE;
 	
 	/*
