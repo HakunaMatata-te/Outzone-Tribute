@@ -98,6 +98,7 @@ bool ModuleLevel_1::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 60, App->collision->returny(3715, background.h));//
 	App->enemies->AddEnemy(TRUCK, 40, App->collision->returny(3430, background.h));//
 
+	App->enemies->AddEnemy(MINOR_TURRET, 130, App->collision->returny(4500, background.h));
 
 	return true;
 }

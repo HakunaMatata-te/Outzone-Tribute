@@ -467,29 +467,32 @@ void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, 
 
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
+	if (c2->type != COLLIDER_NONE)
 	{
-		// Always destroy particles that collide
-		if (active[i] != nullptr && active[i]->collider == c1)
+		for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		{
-			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
-			delete active[i];
-			active[i] = nullptr;
-			break;
+			// Always destroy particles that collide
+			if (active[i] != nullptr && active[i]->collider == c1)
+			{
+				//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+				delete active[i];
+				active[i] = nullptr;
+				break;
+			}
+
+
+
 		}
 
-		
-
-	}
-
-	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
-	{
-		if (active_b[i] != nullptr && active_b[i]->collider == c1)
+		for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		{
-			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
-			delete active_b[i];
-			active_b[i] = nullptr;
-			break;
+			if (active_b[i] != nullptr && active_b[i]->collider == c1)
+			{
+				//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+				delete active_b[i];
+				active_b[i] = nullptr;
+				break;
+			}
 		}
 	}
 }
