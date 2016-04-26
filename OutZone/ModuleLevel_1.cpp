@@ -37,6 +37,7 @@ bool ModuleLevel_1::Start()
 	App->player->Enable();
 	App->collision->Enable();
 	App->enemies->Enable();
+	App->particles->Enable();
 
 	App->render->camera.y = 0;
 
@@ -84,6 +85,7 @@ bool ModuleLevel_1::CleanUp()
 	App->player->Disable();
 	App->collision->Disable();
 	App->enemies->Disable();
+	App->particles->Disable();
 
 	return true;
 }

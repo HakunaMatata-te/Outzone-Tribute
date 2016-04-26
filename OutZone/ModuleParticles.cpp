@@ -22,26 +22,13 @@ ModuleParticles::ModuleParticles()
 		active[i] = nullptr;
 		active_b[i] = nullptr;
 	}	
-}
-
-ModuleParticles::~ModuleParticles()
-{}
-
-// Load assets
-bool ModuleParticles::Start()
-{
-	LOG("Loading particles");
-	particles_texture = App->textures->Load("Animation/particles.png");
 
 	//LVL 1 particles --------------------------------------------------------------
-
-	int life_shots = 1200;
-
 	// Minigun particle
 	minigun_shot_lv1_up.anim.PushBack({ 55, 244, 4, 16 });
 	minigun_shot_lv1_up.speed.y = -8;
 	minigun_shot_lv1_up.life = life_shots;
-	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.wav");
+
 	//upper rigth
 	minigun_shot_lv1_upper_right.anim.PushBack({ 163, 296, 7, 15 });
 	minigun_shot_lv1_upper_right.speed.x = +4;
@@ -121,7 +108,7 @@ bool ModuleParticles::Start()
 	triple_shot_lv1_center.anim.PushBack({ 137, 246, 6, 14 });
 	triple_shot_lv1_center.speed.y = -4;
 	triple_shot_lv1_center.life = life_shots;
-	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.wav");
+	
 	//Triple right
 	triple_shot_lv1_right.anim.PushBack({ 155, 247, 9, 13 });
 	triple_shot_lv1_right.speed.y = -4;
@@ -140,7 +127,7 @@ bool ModuleParticles::Start()
 	minigun_shot_lv2_up.anim.PushBack({ 52, 219, 10, 16 });
 	minigun_shot_lv2_up.speed.y = -8;
 	minigun_shot_lv2_up.life = life_shots;
-	minigun_shot_lv2_up.fx = minigun_shot_lv1_up.fx;
+	
 	//upper rigth
 	minigun_shot_lv2_upper_right.anim.PushBack({ 169, 272, 13, 17 });
 	minigun_shot_lv2_upper_right.speed.x = +4;
@@ -218,7 +205,7 @@ bool ModuleParticles::Start()
 	triple_shot_lv2_center.anim.PushBack({ 135, 221, 10, 18 });
 	triple_shot_lv2_center.speed.y = -4;
 	triple_shot_lv2_center.life = life_shots;
-	triple_shot_lv2_center.fx = triple_shot_lv1_center.fx;
+	
 	//Triple right
 	triple_shot_lv2_right.anim.PushBack({ 165, 224, 12, 17 });
 	triple_shot_lv2_right.speed.y = -4;
@@ -237,13 +224,13 @@ bool ModuleParticles::Start()
 	minigun_shot_lv3.anim.PushBack({ 45, 128, 24, 24 });
 	minigun_shot_lv3.speed.y = -8;
 	minigun_shot_lv3.life = life_shots;
-	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
+	
 
 	// Triple shot particle
 	triple_shot_lv3_center.anim.PushBack({ 133, 130, 14, 23 });
 	triple_shot_lv3_center.speed.y = -4;
 	triple_shot_lv3_center.life = life_shots;
-	triple_shot_lv3_center.fx = triple_shot_lv1_center.fx;
+	
 	//Triple right
 	triple_shot_lv3_right.anim.PushBack({ 155, 130, 17, 22 });
 	triple_shot_lv3_right.speed.y = -4;
@@ -256,9 +243,9 @@ bool ModuleParticles::Start()
 	triple_shot_lv3_left.life = life_shots;
 
 	//Normal explosion
-	normal_explosion.anim.PushBack({ 71, 537, 38, 38});
+	normal_explosion.anim.PushBack({ 71, 537, 38, 38 });
 	normal_explosion.anim.PushBack({ 124, 537, 39, 38 });
-	normal_explosion.anim.PushBack({ 182, 534, 44, 43});
+	normal_explosion.anim.PushBack({ 182, 534, 44, 43 });
 	normal_explosion.anim.PushBack({ 245, 536, 39, 37 });
 	normal_explosion.anim.PushBack({ 303, 539, 30, 36 });
 	normal_explosion.anim.PushBack({ 352, 536, 24, 29 });
@@ -266,10 +253,10 @@ bool ModuleParticles::Start()
 	normal_explosion.anim.PushBack({ 436, 534, 9, 11 });
 	normal_explosion.anim.loop = false;
 	normal_explosion.anim.speed = 0.3f;
-	normal_explosion.fx = App->audios->LoadFX("Sounds/death_small_enemies.wav");
+	
 
 	//Player explosion
-	player_explosion.anim.PushBack({127,625,16,16});
+	player_explosion.anim.PushBack({ 127, 625, 16, 16 });
 	player_explosion.anim.PushBack({ 228, 617, 32, 31 });
 	player_explosion.anim.PushBack({ 313, 605, 64, 69 });
 	player_explosion.anim.PushBack({ 68, 696, 86, 90 });
@@ -280,7 +267,7 @@ bool ModuleParticles::Start()
 	player_explosion.anim.PushBack({ 328, 845, 113, 91 });
 	player_explosion.anim.loop = false;
 	player_explosion.anim.speed = 0.3f;
-	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.wav");
+	
 
 	//special bomb animation
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
@@ -310,6 +297,27 @@ bool ModuleParticles::Start()
 	test.anim.PushBack({ 45, 128, 24, 24 });
 	test.life = 5000;
 	test.speed = 1.5f;
+
+}
+
+ModuleParticles::~ModuleParticles()
+{}
+
+// Load assets
+bool ModuleParticles::Start()
+{
+	LOG("Loading particles");
+	particles_texture = App->textures->Load("Animation/particles.png");
+
+	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.wav");
+	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.wav");
+	minigun_shot_lv2_up.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
+	normal_explosion.fx = App->audios->LoadFX("Sounds/death_small_enemies.wav");
+	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.wav");
+	triple_shot_lv3_center.fx = triple_shot_lv1_center.fx;
+	triple_shot_lv2_center.fx = triple_shot_lv1_center.fx;
+
 
 	return true;
 }

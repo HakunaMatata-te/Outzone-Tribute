@@ -69,7 +69,7 @@ private:
 	SDL_Texture* particles_texture = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	Particle_Bullet* active_b[MAX_ACTIVE_PARTICLES];
-	uint last_particle = 0;
+	int life_shots = 1200;
 
 public:
 
