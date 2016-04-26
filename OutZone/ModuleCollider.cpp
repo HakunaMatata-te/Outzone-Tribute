@@ -209,7 +209,7 @@ bool Collider::CheckCollision(const SDL_Rect& r) const
 		rect.h + rect.y > r.y);
 }
 
-CollisionSide Collider::CheckCollisionSide(const SDL_Rect& r) const
+/*CollisionSide Collider::CheckCollisionSide(const SDL_Rect& r) const
 {
 	if (rect.x < r.x + r.w)
 		return LEFT;
@@ -229,6 +229,23 @@ CollisionSide Collider::CheckCollisionSide(const SDL_Rect& r) const
 		
 	if (rect.h + rect.y > r.y)
 		return RIGHT;
-	*/
-	
+		
+}*/
+
+bool Collider::CheckCollisionUp(const SDL_Rect& r) const
+{
+	return (rect.y < r.y + r.h && rect.y+1*SCREEN_SIZE > r.y + r.h);
+}
+
+bool Collider::CheckCollisionDown(const SDL_Rect& r) const
+{
+	return (rect.y + rect.h > r.y && rect.y + rect.h -1*SCREEN_SIZE < r.y);
+}
+bool Collider::CheckCollisionRight(const SDL_Rect& r) const
+{
+	return (rect.x + rect.w > r.x && rect.x + rect.w -1*SCREEN_SIZE < r.x);
+}
+bool Collider::CheckCollisionLeft(const SDL_Rect& r) const
+{
+	return (rect.x < r.x + r.w && rect.x+1*SCREEN_SIZE > r.x + r.w);
 }

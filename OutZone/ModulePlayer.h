@@ -33,6 +33,14 @@ public:
 	int spbombmunition = 3;
 	bool sp_bombthroun = false;
 	CollisionSide side_wall = IDLE;
+	bool CollisionUp;
+	bool CollisionDown;
+	bool CollisionRight;
+	bool CollisionLeft;
+
+	int up;
+	int left;
+
 
 	uint lvl;
 	Uint32 lastShot;

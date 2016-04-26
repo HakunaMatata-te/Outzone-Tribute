@@ -35,6 +35,8 @@ enum CollisionSide
 	LEFT
 };
 
+
+
 // Useful typedefs ---------
 typedef unsigned int uint;
 

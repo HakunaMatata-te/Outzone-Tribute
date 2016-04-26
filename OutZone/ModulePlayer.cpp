@@ -122,7 +122,8 @@ ModulePlayer::~ModulePlayer(){};
 
 bool ModulePlayer::Start(){
 	LOG("Loading player-----------");
-
+	up = 0;
+	left = 0;
 	position.x = 88;
 	position.y = 282;
 	screenlowheight = 320;	
@@ -163,18 +164,18 @@ update_status ModulePlayer::Update(){
 	
 	//Set direction
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_REPEAT){
-			if (position.y - height > (screenlowheight - 320))
-				if (side_wall != TOP)
-					position.y -= speed;
-			if (player_dir <= 8 && player_dir != 0)
-				player_dir--;
-			if (player_dir > 8 && player_dir != 0)
-				player_dir++;
+		if (position.y - height > (screenlowheight - 320))
+			if (CollisionUp == false )
+				position.y -= speed;
+		if (player_dir <= 8 && player_dir != 0)
+			player_dir--;
+		if (player_dir > 8 && player_dir != 0)
+			player_dir++;
 	}
 	
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT){
 		if (position.y < (screenlowheight)-height)
-			if (side_wall != DOWN)
+			if (CollisionDown == false)
 				position.y += speed;
 		if (player_dir < 8)
 			player_dir++;
@@ -183,8 +184,9 @@ update_status ModulePlayer::Update(){
 	}
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT){
 		if (position.x >= 0)
-			if (side_wall != LEFT)
-				position.x -= speed;		
+			if (CollisionLeft == false)
+				position.x -= speed;
+			
 		if (player_dir < 12 && player_dir>4)
 			player_dir++;
 		if (player_dir > 12 || player_dir<=4)
@@ -192,7 +194,7 @@ update_status ModulePlayer::Update(){
 	}
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT){
 		if (position.x < SCREEN_WIDTH - width)
-			if (side_wall != RIGHT)
+			if (CollisionRight == false)
 				position.x += speed;
 		if (player_dir < 12 && player_dir>4)
 			player_dir--;
@@ -440,7 +442,10 @@ update_status ModulePlayer::Update(){
 
 update_status ModulePlayer::PostUpdate()
 {
-	side_wall = IDLE;
+	CollisionUp = false;
+	CollisionDown = false;
+	CollisionLeft = false;
+	CollisionRight = false;
 	return UPDATE_CONTINUE;
 }
 
@@ -449,7 +454,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == playercollider && c2->type == COLLIDER_WALL)
 	{
-		side_wall = c1->CheckCollisionSide(c2->rect);
+		//side_wall = c1->CheckCollisionSide(c2->rect);
+		CollisionUp = c1->CheckCollisionUp(c2->rect);
+		CollisionDown = c1->CheckCollisionDown(c2->rect);
+		CollisionRight = c1->CheckCollisionRight(c2->rect);
+		CollisionLeft = c1->CheckCollisionLeft(c2->rect);
 	}
 	//Lose Condition
 	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
