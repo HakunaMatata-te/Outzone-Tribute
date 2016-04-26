@@ -67,6 +67,9 @@
     <ClCompile Include="ModuleLeaderboard.cpp">
       <Filter>Modules\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleEndlevel.cpp">
+      <Filter>Modules\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -145,6 +148,9 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="ModuleLeaderboard.h">
+      <Filter>Modules\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleEndlevel.h">
       <Filter>Modules\Scenes</Filter>
     </ClInclude>
   </ItemGroup>

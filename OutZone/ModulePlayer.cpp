@@ -451,19 +451,20 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		side_wall = c1->CheckCollisionSide(c2->rect);
 	}
-	//Lose_Condition
+	//Lose Condition
 	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->leaderboard, 3);
-
-		/*if (App->input->keyboard[SDL_SCANCODE_SPACE])
-		{
-			App->fade->FadeToBlack((Module*)App->leaderboard, (Module*)App->intro, 3);
-		} */
 
 		App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
 	
 		destroyed = true;
 
+	}
+
+	//Win Condition
+	if (position.y == 4760)
+	{
+		App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->end);
 	}
 }

@@ -39,7 +39,7 @@ bool ModuleLeaderboard::CleanUp()
 
 update_status ModuleLeaderboard::Update()
 {
-	App->render->Blit(lvl_texture, 0, 0, &leaderboard, 1); //starts rendering from bottom of the image
+	App->render->Blit(lvl_texture, 0, 0, &leaderboard, 0.75f); //starts rendering from bottom of the image
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE])
 	{

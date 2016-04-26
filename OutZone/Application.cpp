@@ -13,6 +13,7 @@
 #include "ModuleCollider.h"
 #include "ModuleEnemies.h"
 #include "ModuleLeaderboard.h"
+#include "ModuleEndlevel.h"
 
 
 Application::Application()
@@ -31,6 +32,7 @@ Application::Application()
 	modules[11] = player = new ModulePlayer();
 	modules[12] = particles = new ModuleParticles();
 	modules[13] = fade = new ModuleFadeToBlack();
+	modules[14] = end = new ModuleEndlevel();
 }	
 
 Application::~Application()
@@ -44,6 +46,7 @@ bool Application::Init()
 	bool ret = true;
 
 	//Disabled modules
+	end->Disable();
 	leaderboard->Disable();
 	player->Disable();
 	level_1->Disable();
