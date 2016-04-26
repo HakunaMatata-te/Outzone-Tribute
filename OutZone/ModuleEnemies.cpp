@@ -8,7 +8,8 @@
 #include "ModuleCollider.h"
 #include "ModulePlayer.h"
 
-#define SPAWN_MARGIN 50
+
+#define SPAWN_MARGIN 150
 
 
 ModuleEnemies::ModuleEnemies()
@@ -37,11 +38,22 @@ update_status ModuleEnemies::PreUpdate()
 	{
 		if(queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
-			if(queue[i].y * SCREEN_SIZE < App->render->camera.y + SPAWN_MARGIN)
+			if (queue[i].y * SCREEN_SIZE > -1 * (App->render->camera.y + SPAWN_MARGIN))
 			{
 				SpawnEnemy(queue[i]);
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
 				LOG("Spawning enemy at %d", queue[i].y * SCREEN_SIZE);
+			}
+		}
+	}
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	{
+		if (enemies[i] != nullptr)
+		{
+			if (queue[i].y * SCREEN_SIZE > -1 * (App->render->camera.y))
+			{
+				enemies[i]->shot = true;
 			}
 		}
 	}
@@ -52,11 +64,24 @@ update_status ModuleEnemies::PreUpdate()
 // Called before render is available
 update_status ModuleEnemies::Update()
 {
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	{
+		if (enemies[i] != nullptr)
+		{
+			if (enemies[i]->position.y * SCREEN_SIZE > -1 * (App->render->camera.y - (App->render->camera.h * SCREEN_SIZE)))
+			{
+				enemies[i]->shot = false;
+			}
+		}
+	}
+
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 		if(enemies[i] != nullptr) enemies[i]->Move();
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 		if(enemies[i] != nullptr) enemies[i]->Draw(sprites);
+
 
 	return UPDATE_CONTINUE;
 }
@@ -67,15 +92,17 @@ update_status ModuleEnemies::PostUpdate()
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if(enemies[i] != nullptr)
-		{
-			if (enemies[i]->position.y * SCREEN_SIZE > (App->render->camera.y) + (App->render->camera.h * SCREEN_SIZE) + SPAWN_MARGIN)
+		{ 
+			if (enemies[i]->position.y * SCREEN_SIZE > -1*(App->render->camera.y - (App->render->camera.h * SCREEN_SIZE) - SPAWN_MARGIN))
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.y * SCREEN_SIZE);
 				delete enemies[i];
 				enemies[i] = nullptr;
-			}
+			} 
 		}
 	}
+
+	
 
 	return UPDATE_CONTINUE;
 }

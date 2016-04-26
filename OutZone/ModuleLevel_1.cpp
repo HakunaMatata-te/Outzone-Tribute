@@ -72,7 +72,7 @@ bool ModuleLevel_1::Start()
 	App->collision->AddCollider({ 161, App->collision->returny(1313, background.h), 63, 65 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 220, App->collision->returny(1301, background.h), 32, 82 }, COLLIDER_WALL);
 	
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 187, App->collision->returny(4500, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 137, App->collision->returny(4000, background.h));
 	
 	return true;
 }
@@ -83,9 +83,9 @@ bool ModuleLevel_1::CleanUp()
 
 	App->textures->Unload(lvl_texture);
 	App->player->Disable();
-	App->collision->Disable();
 	App->enemies->Disable();
 	App->particles->Disable();
+	App->collision->Disable();
 
 	return true;
 }
