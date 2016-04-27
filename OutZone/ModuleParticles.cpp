@@ -309,12 +309,12 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	particles_texture = App->textures->Load("Animation/particles.png");
 
-	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.wav");
-	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.wav");
+	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.ogg");
+	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.ogg");
 	minigun_shot_lv2_up.fx = minigun_shot_lv1_up.fx;
 	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
-	normal_explosion.fx = App->audios->LoadFX("Sounds/death_small_enemies.wav");
-	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.wav");
+	normal_explosion.fx = App->audios->LoadFX("Sounds/death_small_enemies.ogg");
+	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.ogg");
 	triple_shot_lv3_center.fx = triple_shot_lv1_center.fx;
 	triple_shot_lv2_center.fx = triple_shot_lv1_center.fx;
 
