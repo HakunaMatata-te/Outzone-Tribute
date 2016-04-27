@@ -7,6 +7,7 @@ Tribute to Outzone made for learning purposes about videogame development.
 You're now a Cyborg soldier fighting for the earth against an army of aliens, use diferent weapons to reach the enemy boss and destroy it, killing as much aliens as you can in the way.
 
 ###Usage
+Press "SPACE" to advance through menus.
 Use the arrow keys to move arround.
 To shot press "E" key, press "Q" to change between the two weapons available. 
 Press "P" to upgrade your weapon lvl (max lvl = 3)  
@@ -22,6 +23,10 @@ If you have problems at beating the game you can press "I" to enter immortal mod
 
  
 ###Changelog
+v0.5.1 Few imporvements:
+ * Bullets despawn sooner when reaching the end of the screen.
+ * During the "Boss" stage the camera is fixed
+ * Added game over audio
 
 v0.5 Amaizing Update: Added all game functiality
  * Added movement
