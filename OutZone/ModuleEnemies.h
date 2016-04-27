@@ -10,6 +10,7 @@
 #include "Enemy_Solider_Red.h"
 #include "Enemy_Truck.h"
 #include "Enemy_Minor_Turret.h"
+#include "Enemy_First_Boss.h"
 
 
 enum ENEMY_TYPES
@@ -20,6 +21,7 @@ enum ENEMY_TYPES
 	TRUCK,
 	MINOR_TURRET,
 	BIGGER_TURRET,
+	FIRST_BOSS
 };
 
 class Enemy;

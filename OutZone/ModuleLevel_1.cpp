@@ -116,6 +116,9 @@ bool ModuleLevel_1::Start()
 	App->enemies->AddEnemy(MINOR_TURRET, 130, App->collision->returny(3824, background.h));
 	App->enemies->AddEnemy(MINOR_TURRET, 196, App->collision->returny(3760, background.h));
 
+	//BOSS
+	App->enemies->AddEnemy(FIRST_BOSS, 80, App->collision->returny(1090, background.h));
+
 	return true;
 }
 
