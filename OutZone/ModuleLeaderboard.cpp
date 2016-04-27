@@ -44,7 +44,7 @@ update_status ModuleLeaderboard::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE])
 	{
-		App->fade->FadeToBlack((Module*)App->leaderboard, (Module*)App->intro, 3);
+		App->fade->FadeToBlack((Module*)App->leaderboard, (Module*)App->intro, 1);
 	}
 
 	return UPDATE_CONTINUE;

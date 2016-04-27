@@ -16,9 +16,9 @@ ModuleIntro::ModuleIntro()
 {
 	
 	background.x = 0;
-	background.y = 19;
+	background.y = 0;
 	background.w = 240;
-	background.h = 381;
+	background.h = 320;
 	
 	//title animation
 	title.PushBack({ 0, 0, 416, 112});
@@ -40,7 +40,7 @@ bool ModuleIntro::Start()
 	LOG("Loading background assets");
 
 	App->audios->PlayMusic("Sounds/silence.ogg", 0);
-	lvl_texture2 = App->textures->Load("Intro/intro_scree_blue_guy.png");
+	lvl_texture2 = App->textures->Load("Intro/intro_screen.png");
 	lvl_title = App->textures->Load("Intro/title.png");
 
 	title.loop = false;
@@ -67,7 +67,7 @@ update_status ModuleIntro::Update()
 	App->render->Blit(lvl_texture2, 0, 0, &background, 1);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
-		App->fade->FadeToBlack(App->intro, App->level_1, 2);
+		App->fade->FadeToBlack(App->intro, App->level_1, 1);
 	}
 
 	return UPDATE_CONTINUE;

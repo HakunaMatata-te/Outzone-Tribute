@@ -478,7 +478,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
 		{
 			Disable();
-			App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->gameover, 2);
+			App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->gameover, 1);
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
 
