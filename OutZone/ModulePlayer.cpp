@@ -476,7 +476,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (invencible == false){
 		if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
 		{
-			App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->leaderboard, 3);
+			App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->gameover, 3);
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
 
