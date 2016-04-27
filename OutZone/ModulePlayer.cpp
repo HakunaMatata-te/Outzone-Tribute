@@ -9,7 +9,6 @@
 #include "ModuleCollider.h"
 #include "ModuleLevel_1.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleEnemies.h"
 
 #include "SDL\include\SDL.h"
 
@@ -485,4 +484,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 	//Win Condition
+	if (position.y == 4760)
+	{
+		App->fade->FadeToBlack((Module*)App->level_1, (Module*)App->end);
+	}
 }

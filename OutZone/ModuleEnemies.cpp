@@ -7,7 +7,6 @@
 #include "Enemy.h"
 #include "ModuleCollider.h"
 #include "ModulePlayer.h"
-#include "Enemy_First_Boss.h"
 
 
 #define SPAWN_MARGIN 150
@@ -145,9 +144,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 		case ENEMY_TYPES::MINOR_TURRET:
 			enemies[i] = new Enemy_Minor_Turret(info.x, info.y);
-			break;
-		case ENEMY_TYPES::FIRST_BOSS:
-			enemies[i] = new First_Boss(info.x, info.y);
 			break;
 		}
 	}

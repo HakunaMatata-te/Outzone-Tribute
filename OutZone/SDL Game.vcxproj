@@ -72,7 +72,6 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemy_First_Boss.h" />
     <ClInclude Include="Enemy_Minor_Turret.h" />
     <ClInclude Include="Enemy_Solider_Green.h" />
     <ClInclude Include="Enemy_Solider_Red.h" />
@@ -101,7 +100,6 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemy_First_Boss.cpp" />
     <ClCompile Include="Enemy_Minor_Turret.cpp" />
     <ClCompile Include="Enemy_Solider_Green.cpp" />
     <ClCompile Include="Enemy_Solider_Red.cpp" />
