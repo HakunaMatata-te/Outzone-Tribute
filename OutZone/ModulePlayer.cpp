@@ -138,7 +138,7 @@ bool ModulePlayer::Start(){
 
 
 	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER, App->player);
-	fx_lvlup_weapon = App->audios->LoadFX("Sounds/power_up_weapon.wav");
+	fx_lvlup_weapon = App->audios->LoadFX("Sounds/power_up_weapon.ogg");
 
 	return true;
 };
