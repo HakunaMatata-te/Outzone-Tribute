@@ -37,6 +37,7 @@ public:
 	bool invencible = false;
 
 
+
 	bool CollisionUp;
 	bool CollisionDown;
 	bool CollisionRight;
