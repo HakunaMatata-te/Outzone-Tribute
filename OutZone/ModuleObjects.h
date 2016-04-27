@@ -16,7 +16,7 @@
 
 enum OBJECTS_TYPES
 {
-	NO_TYPE,
+	NO_OBJECT_TYPE,
 	ENERGY,
 	POWER_UP,
 	WEAPON,
@@ -27,7 +27,7 @@ class Objects;
 
 struct ObjectsInfo
 {
-	OBJECTS_TYPES type = OBJECTS_TYPES::NO_TYPE;
+	OBJECTS_TYPES type = OBJECTS_TYPES::NO_OBJECT_TYPE;
 	int x, y;
 };
 
