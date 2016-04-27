@@ -153,7 +153,7 @@ bool ModulePlayer::CleanUp()
 
 update_status ModulePlayer::Update(){
 	
-	
+	last_dir = player_dir;
 	
 	//Special Screen bomb
 	if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_DOWN && spbombmunition >= 0)
@@ -244,7 +244,7 @@ update_status ModulePlayer::Update(){
 	
 
 	//Player shoting
-	if (current_weapon == MINIGUN && App->input->keyboard[SDL_SCANCODE_0] == KEY_REPEAT && SDL_GetTicks()-lastShot > 50){
+	if (current_weapon == MINIGUN && App->input->keyboard[SDL_SCANCODE_E] == KEY_REPEAT && (SDL_GetTicks()-lastShot > 100 || player_dir != last_dir)){
 			if (lvl == 1){
 				if (player_dir == 0)
 				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
@@ -455,10 +455,14 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1 == playercollider && c2->type == COLLIDER_WALL)
 	{
 		//side_wall = c1->CheckCollisionSide(c2->rect);
-		CollisionUp = c1->CheckCollisionUp(c2->rect);
-		CollisionDown = c1->CheckCollisionDown(c2->rect);
-		CollisionRight = c1->CheckCollisionRight(c2->rect);
-		CollisionLeft = c1->CheckCollisionLeft(c2->rect);
+		if (CollisionUp == false)
+			CollisionUp = c1->CheckCollisionUp(c2->rect);
+		if (CollisionDown == false)
+			CollisionDown = c1->CheckCollisionDown(c2->rect);
+		if (CollisionRight == false)
+			CollisionRight = c1->CheckCollisionRight(c2->rect);
+		if (CollisionLeft == false)
+			CollisionLeft = c1->CheckCollisionLeft(c2->rect);
 	}
 	//Lose Condition
 	if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
