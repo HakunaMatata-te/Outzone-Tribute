@@ -10,7 +10,7 @@
 ModuleEndlevel::ModuleEndlevel()
 {
 	endlevel.x = 0;
-	endlevel.y = 19;
+	endlevel.y = 0;
 	endlevel.w = 240;
 	endlevel.h = 381;
 }

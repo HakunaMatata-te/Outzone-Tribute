@@ -9,10 +9,10 @@
 
 ModuleLeaderboard::ModuleLeaderboard()
 {
-	leaderboard.x = 1;
+	leaderboard.x = 0;
 	leaderboard.y = 0;
 	leaderboard.w = 240;
-	leaderboard.h = 4760;
+	leaderboard.h = 381;
 }
 ModuleLeaderboard::~ModuleLeaderboard()
 {}
