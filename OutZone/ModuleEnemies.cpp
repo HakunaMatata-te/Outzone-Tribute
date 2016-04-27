@@ -55,7 +55,7 @@ update_status ModuleEnemies::Update()
 {
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	if (enemies[i] != nullptr && enemies[i]->position.y + enemies[i]->GetCollider()->rect.h > App->player->screenlowheight - 300 && enemies[i]->position.y + enemies[i]->GetCollider()->rect.h  < App->player->screenlowheight)
+	if (enemies[i] != nullptr && enemies[i]->position.y + enemies[i]->GetCollider()->rect.h > App->player->screenlowheight - 300 && enemies[i]->position.y + (enemies[i]->GetCollider()->rect.h/2)  < App->player->screenlowheight)
 			enemies[i]->Move();
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
