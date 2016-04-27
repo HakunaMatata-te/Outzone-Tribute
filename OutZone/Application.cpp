@@ -15,6 +15,7 @@
 #include "ModuleLeaderboard.h"
 #include "ModuleEndlevel.h"
 #include "ModuleGameOver.h"
+#include "ModuleObjects.h"
 
 
 Application::Application()
@@ -35,6 +36,7 @@ Application::Application()
 	modules[13] = fade = new ModuleFadeToBlack();
 	modules[14] = end = new ModuleEndlevel();
 	modules[15] = gameover = new ModuleGameOver();
+	//modules[16] = objects = new Object();
 }	
 
 Application::~Application()
@@ -48,6 +50,8 @@ bool Application::Init()
 	bool ret = true;
 
 	//Disabled modules
+
+	//objects->Disable();
 	gameover->Disable();
 	end->Disable();
 	leaderboard->Disable();

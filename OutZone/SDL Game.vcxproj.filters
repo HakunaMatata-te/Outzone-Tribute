@@ -76,6 +76,9 @@
     <ClCompile Include="ModuleGameOver.cpp">
       <Filter>Modules\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleObjects.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -165,6 +168,9 @@
     <ClInclude Include="ModuleGameOver.h">
       <Filter>Modules\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleObjects.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -181,6 +187,9 @@
     </Filter>
     <Filter Include="Modules\Enemies">
       <UniqueIdentifier>{859b360f-4d49-49fb-a317-d6edc9501225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Objects">
+      <UniqueIdentifier>{66b2db72-88c3-4218-928b-b9649b1c08d0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

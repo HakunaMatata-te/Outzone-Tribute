@@ -22,6 +22,7 @@ class ModuleEnemies;
 class Module;
 class ModuleEndlevel;
 class ModuleGameOver;
+//class ModuleObjects
 
 
 class Application
@@ -45,6 +46,7 @@ public:
 	ModuleEnemies* enemies;
 	ModuleEndlevel* end;
 	ModuleGameOver* gameover;
+	//ModuleObjects* objects;
 	
 	
 

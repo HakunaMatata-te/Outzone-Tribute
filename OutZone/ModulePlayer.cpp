@@ -137,7 +137,7 @@ bool ModulePlayer::Start(){
 	character = App->textures->Load("Animation/playermove.png");
 
 
-	playercollider = App->collision->AddCollider({ 88,250,31,36 }, COLLIDER_PLAYER, App->player);
+	playercollider = App->collision->AddCollider({ 88,250, 22,20 }, COLLIDER_PLAYER, App->player);
 	fx_lvlup_weapon = App->audios->LoadFX("Sounds/power_up_weapon.wav");
 
 	return true;
@@ -437,7 +437,7 @@ update_status ModulePlayer::Update(){
 		App->audios->PlayFx(fx_lvlup_weapon);
 	}
 
-	playercollider->SetPos(position.x, position.y);
+	playercollider->SetPos(position.x +5, position.y +10);
 
 	//Print player
 	if (destroyed == false)
