@@ -51,7 +51,7 @@ update_status ModuleRender::PreUpdate()
 update_status ModuleRender::Update()	
 {
 	
-	if (App->player->position.y < ((App->player->screenlowheight - SCREEN_HEIGHT) + App->player->screenlowheight) / 2){
+	if (App->player->position.y < ((App->player->screenlowheight - SCREEN_HEIGHT) + App->player->screenlowheight) / 2 && camera.y < 3500 * SCREEN_SIZE){
 		camera.y += SCREEN_SPEED*SCREEN_SIZE;
 		App->player->screenlowheight -= SCREEN_SPEED;
 	}

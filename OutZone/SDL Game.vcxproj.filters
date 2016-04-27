@@ -79,6 +79,12 @@
     <ClCompile Include="ModuleObjects.cpp">
       <Filter>Modules\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Object_Box.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -169,6 +175,12 @@
       <Filter>Modules\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="ModuleObjects.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_Box.h">
       <Filter>Modules\Objects</Filter>
     </ClInclude>
   </ItemGroup>

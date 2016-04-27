@@ -2,17 +2,9 @@
 #define __MODULE_OBJECTS_H__
 
 #include "Module.h"
+#include "Object.h"
 
 #define MAX_OBJECTS 50
-
-//Type of enemies.h
-/*
-#include "Enemy_Solider_Green.h"
-#include "Enemy_Solider_Red.h"
-#include "Enemy_Truck.h"
-#include "Enemy_Minor_Turret.h"
-#include "Enemy_First_Boss.h"
-*/
 
 enum OBJECTS_TYPES
 {
@@ -20,10 +12,12 @@ enum OBJECTS_TYPES
 	ENERGY,
 	POWER_UP,
 	WEAPON,
+	ENERGYBOX,
+	BOX,
 	SPECIAL
 };
 
-class Objects;
+class Object;
 
 struct ObjectsInfo
 {
@@ -42,19 +36,18 @@ public:
 	update_status Update();
 	update_status PostUpdate();
 	bool CleanUp();
-	void OnCollision(Collider* c1, Collider* c2);
 
-	//bool AddEnemy(ENEMY_TYPES type, int x, int y);
+	bool AddObject(OBJECTS_TYPES type, int x, int y);
 
 private:
 
-	//void SpawnEnemy(const EnemyInfo& info);
+	void SpawnObject(const ObjectsInfo& info);
 
 private:
 
 	ObjectsInfo object[MAX_OBJECTS];
-	Objects* Items[MAX_OBJECTS];
-	SDL_Texture* sprites;
+	Object* Items[MAX_OBJECTS];
+	SDL_Texture* itemsprites;
 };
 
 #endif
