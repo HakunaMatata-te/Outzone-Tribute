@@ -3,6 +3,9 @@
 Tribute to Outzone made for learning purposes about videogame development.
 
 
+##Description
+You're now a Cyborg soldier fighting for the earth against an army of aliens, use diferent weapons to reach the enemy boss and destroy it, killing as much aliens as you can in the way.
+
 ###Usage
 Use the arrow keys to move arround.
 To shot press "E" key, press "Q" to change between the two weapons available. 
