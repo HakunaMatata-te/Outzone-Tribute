@@ -82,6 +82,7 @@
     <ClInclude Include="ModuleCollider.h" />
     <ClInclude Include="ModuleEndlevel.h" />
     <ClInclude Include="ModuleEnemies.h" />
+    <ClInclude Include="ModuleGameOver.h" />
     <ClInclude Include="ModuleIntro.h" />
     <ClInclude Include="ModuleLeaderboard.h" />
     <ClInclude Include="ModuleParticles.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="ModuleEndlevel.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
+    <ClCompile Include="ModuleGameOver.cpp" />
     <ClCompile Include="ModuleIntro.cpp" />
     <ClCompile Include="ModuleLeaderboard.cpp" />
     <ClCompile Include="ModuleLevel_1.cpp" />
