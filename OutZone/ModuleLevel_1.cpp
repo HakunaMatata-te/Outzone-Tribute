@@ -97,7 +97,24 @@ bool ModuleLevel_1::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 174, App->collision->returny(3800, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 10, App->collision->returny(3685, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 60, App->collision->returny(3715, background.h));//
-	App->enemies->AddEnemy(TRUCK, 40, App->collision->returny(3430, background.h));//
+	App->enemies->AddEnemy(TRUCK, 40, App->collision->returny(3380, background.h));//
+	App->enemies->AddEnemy(MINOR_TURRET, 10, App->collision->returny(2415, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 75, App->collision->returny(2409, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 145, App->collision->returny(2400, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 200, App->collision->returny(2424, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 178, App->collision->returny(2378, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 108, App->collision->returny(2370, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 43, App->collision->returny(2370, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 20, App->collision->returny(2330, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 100, App->collision->returny(2320, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 155, App->collision->returny(2330, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 200, App->collision->returny(2300, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 140, App->collision->returny(2274, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 73, App->collision->returny(2280, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 5, App->collision->returny(2180, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 4, App->collision->returny(3860, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 130, App->collision->returny(3824, background.h));
+	App->enemies->AddEnemy(MINOR_TURRET, 196, App->collision->returny(3760, background.h));
 
 	return true;
 }

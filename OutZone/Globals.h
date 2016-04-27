@@ -26,14 +26,7 @@ enum Weapon
 	TRIPLE_GUN,
 };
 
-enum CollisionSide
-{
-	IDLE,
-	TOP,
-	DOWN,
-	RIGHT,
-	LEFT
-};
+
 
 
 

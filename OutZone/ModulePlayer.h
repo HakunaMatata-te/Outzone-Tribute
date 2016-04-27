@@ -26,13 +26,17 @@ public:
 public:
 
 	int player_dir;
+	int last_dir;
 	int height = 0;
 	int width = 0;
 	int speed;
 	int screenlowheight;
 	int spbombmunition = 3;
 	bool sp_bombthroun = false;
-	CollisionSide side_wall = IDLE;
+
+	bool invencible = false;
+
+
 	bool CollisionUp;
 	bool CollisionDown;
 	bool CollisionRight;
