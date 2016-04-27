@@ -106,17 +106,17 @@ ModuleParticles::ModuleParticles()
 
 	// Triple shot particle
 	triple_shot_lv1_center.anim.PushBack({ 137, 246, 6, 14 });
-	triple_shot_lv1_center.speed.y = -4;
+	triple_shot_lv1_center.speed.y = -8;
 	triple_shot_lv1_center.life = life_shots;
 	
 	//Triple right
 	triple_shot_lv1_right.anim.PushBack({ 155, 247, 9, 13 });
-	triple_shot_lv1_right.speed.y = -4;
+	triple_shot_lv1_right.speed.y = -8;
 	triple_shot_lv1_right.speed.x = +2;
 	triple_shot_lv1_right.life = life_shots;
 	//Triple left
 	triple_shot_lv1_left.anim.PushBack({ 116, 247, 9, 13 });
-	triple_shot_lv1_left.speed.y = -4;
+	triple_shot_lv1_left.speed.y = -8;
 	triple_shot_lv1_left.speed.x = -2;
 	triple_shot_lv1_left.life = life_shots;
 
@@ -203,17 +203,17 @@ ModuleParticles::ModuleParticles()
 
 	// Triple shot particle
 	triple_shot_lv2_center.anim.PushBack({ 135, 221, 10, 18 });
-	triple_shot_lv2_center.speed.y = -4;
+	triple_shot_lv2_center.speed.y = -8;
 	triple_shot_lv2_center.life = life_shots;
 	
 	//Triple right
 	triple_shot_lv2_right.anim.PushBack({ 165, 224, 12, 17 });
-	triple_shot_lv2_right.speed.y = -4;
+	triple_shot_lv2_right.speed.y = -8;
 	triple_shot_lv2_right.speed.x = +2;
 	triple_shot_lv2_right.life = life_shots;
 	//Triple left
 	triple_shot_lv2_left.anim.PushBack({ 103, 224, 12, 17 });
-	triple_shot_lv2_left.speed.y = -4;
+	triple_shot_lv2_left.speed.y = -8;
 	triple_shot_lv2_left.speed.x = -2;
 	triple_shot_lv2_left.life = life_shots;
 
@@ -228,17 +228,17 @@ ModuleParticles::ModuleParticles()
 
 	// Triple shot particle
 	triple_shot_lv3_center.anim.PushBack({ 133, 130, 14, 23 });
-	triple_shot_lv3_center.speed.y = -4;
+	triple_shot_lv3_center.speed.y = -8;
 	triple_shot_lv3_center.life = life_shots;
 	
 	//Triple right
 	triple_shot_lv3_right.anim.PushBack({ 155, 130, 17, 22 });
-	triple_shot_lv3_right.speed.y = -4;
+	triple_shot_lv3_right.speed.y = -8;
 	triple_shot_lv3_right.speed.x = +2;
 	triple_shot_lv3_right.life = life_shots;
 	//Triple left
 	triple_shot_lv3_left.anim.PushBack({ 108, 130, 17, 22 });
-	triple_shot_lv3_left.speed.y = -4;
+	triple_shot_lv3_left.speed.y = -8;
 	triple_shot_lv3_left.speed.x = -2;
 	triple_shot_lv3_left.life = life_shots;
 
