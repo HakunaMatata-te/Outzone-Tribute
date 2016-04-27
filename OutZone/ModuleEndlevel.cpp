@@ -6,12 +6,13 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleAudio.h"
 
 ModuleEndlevel::ModuleEndlevel()
 {
 	endlevel.x = 0;
-	endlevel.y = 0;
-	endlevel.w = 240;
+	endlevel.y = 1;
+	endlevel.w = 239;
 	endlevel.h = 381;
 }
 ModuleEndlevel::~ModuleEndlevel()
@@ -20,9 +21,8 @@ ModuleEndlevel::~ModuleEndlevel()
 bool ModuleEndlevel::Start()
 {
 	LOG("Loading end screen");
-
+	App->audios->PlayMusic("Sounds/silence.ogg", 0);
 	endlvl_texture = App->textures->Load("Intro/EndlevelScreen.png");
-
 	App->render->camera.y = 0;
 
 	return true;

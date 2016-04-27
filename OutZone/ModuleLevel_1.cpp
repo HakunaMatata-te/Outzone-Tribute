@@ -156,7 +156,7 @@ bool ModuleLevel_1::Start()
 bool ModuleLevel_1::CleanUp()
 {
 	LOG("Unloading lvl1 scene");
-
+	
 	App->textures->Unload(lvl_texture);
 	App->player->Disable();
 	App->enemies->Disable();
@@ -170,10 +170,6 @@ bool ModuleLevel_1::CleanUp()
 update_status ModuleLevel_1::Update()
 {
 	App->render->Blit(lvl_texture, 0, -4760 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom og the image
-
-	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
-		App->fade->FadeToBlack(App->level_1, App->level_2, 3);
-	}
 
 	return UPDATE_CONTINUE;
 }

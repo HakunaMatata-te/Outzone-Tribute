@@ -6,12 +6,13 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleAudio.h"
 
 ModuleLeaderboard::ModuleLeaderboard()
 {
 	leaderboard.x = 0;
-	leaderboard.y = 0;
-	leaderboard.w = 240;
+	leaderboard.y = 1;
+	leaderboard.w = 239 ;
 	leaderboard.h = 381;
 }
 ModuleLeaderboard::~ModuleLeaderboard()
@@ -20,7 +21,7 @@ ModuleLeaderboard::~ModuleLeaderboard()
 bool ModuleLeaderboard::Start()
 {
 	LOG("Loading leaderboard");
-
+	App->audios->PlayMusic("Sounds/silence.ogg", 0);
 	lvl_texture = App->textures->Load("Intro/Leaderboard.png");
 
 	App->render->camera.y = 0;

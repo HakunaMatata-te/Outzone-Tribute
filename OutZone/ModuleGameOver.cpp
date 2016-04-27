@@ -6,12 +6,13 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleAudio.h"
 
 ModuleGameOver::ModuleGameOver()
 {
 	background.x = 0;
-	background.y = 0;
-	background.w = 240;
+	background.y = 1;
+	background.w = 239;
 	background.h = 381;
 }
 ModuleGameOver::~ModuleGameOver()
@@ -22,6 +23,7 @@ bool ModuleGameOver::Start()
 	LOG("Loading game over screen");
 
 	lvl_texture = App->textures->Load("Intro/gameOver.png");
+	App->audios->PlayMusic("Sounds/Game_Over.ogg", 0);
 
 	App->render->camera.y = 0;
 
@@ -39,11 +41,11 @@ bool ModuleGameOver::CleanUp()
 
 update_status ModuleGameOver::Update()
 {
-	App->render->Blit(lvl_texture, 0, 0, &background, 0.75f); //starts rendering from bottom of the image
+	App->render->Blit(lvl_texture, 0, 0, &background, 0.75f);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE])
+	if (App->input->keyboard[SDL_SCANCODE_SPACE]==KEY_DOWN)
 	{
-		App->fade->FadeToBlack((Module*)App->gameover, (Module*)App->leaderboard, 3);
+		App->fade->FadeToBlack((Module*)App->gameover, (Module*)App->leaderboard, 2);
 	}
 
 	return UPDATE_CONTINUE;
