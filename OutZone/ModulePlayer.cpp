@@ -461,7 +461,7 @@ update_status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == playercollider && c2->type == COLLIDER_WALL)
+	if (c1 == playercollider && (c2->type == COLLIDER_WALL || c2->type == COLLIDER_BOX))
 	{
 		//side_wall = c1->CheckCollisionSide(c2->rect);
 		if (CollisionUp == false)

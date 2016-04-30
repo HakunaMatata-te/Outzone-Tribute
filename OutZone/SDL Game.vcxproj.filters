@@ -88,6 +88,12 @@
     <ClCompile Include="Object_Powerup.cpp">
       <Filter>Modules\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Object_SpecialBomb.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Object_Weapon.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -187,6 +193,12 @@
       <Filter>Modules\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Object_Powerup.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_SpecialBomb.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_Weapon.h">
       <Filter>Modules\Objects</Filter>
     </ClInclude>
   </ItemGroup>

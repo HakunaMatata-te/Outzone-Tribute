@@ -1,10 +1,6 @@
-#include "Application.h"
-#include "ModuleCollider.h"
-#include "ModuleParticles.h"
+
 #include "ModuleObjects.h"
 #include "Object_Box.h"
-
-#include "SDL\include\SDL.h"
 
 Box::Box(int x, int y) : Object(x,y)
 {
@@ -12,11 +8,15 @@ Box::Box(int x, int y) : Object(x,y)
 
 	animation = &box;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 24 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
+	collider = App->collision->AddCollider({ 0, 0, 24, 35 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
 };
 
 void Box::drop()
 {
-	App->objects->AddObject(POWER_UP, position.x, position.y);
+	if (SDL_GetTicks() % 3 == 0)
+		App->objects->AddObject(POWER_UP, position.x + 2, position.y + 2);
+	else if (SDL_GetTicks() % 3 == 1)
+		App->objects->AddObject(SPECIAL, position.x + 2, position.y + 2);
+	else App->objects->AddObject(WEAPON, position.x + 2, position.y + 2);
 }
 

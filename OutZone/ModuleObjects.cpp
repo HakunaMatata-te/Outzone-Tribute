@@ -1,12 +1,5 @@
-#include "Application.h"
-#include "ModuleInput.h"
-#include "ModuleRender.h"
-#include "ModuleParticles.h"
-#include "ModuleTextures.h"
-#include "ModuleCollider.h"
-#include "ModulePlayer.h"
+
 #include "ModuleObjects.h"
-#include "Object.h"
 
 
 ModuleObjects::ModuleObjects()
@@ -131,6 +124,13 @@ void ModuleObjects::SpawnObject(const ObjectsInfo& info)
 			break;
 		case OBJECTS_TYPES::POWER_UP:
 			Items[i] = new Powerup(info.x, info.y);
+			break;
+		case OBJECTS_TYPES::SPECIAL:
+			Items[i] = new Bomb(info.x, info.y);
+			break;
+		case OBJECTS_TYPES::WEAPON:
+			Items[i] = new ChangeWeapon(info.x, info.y);
+			break;
 		}
 	}
 }
@@ -150,6 +150,7 @@ void ModuleObjects::OnCollision(Collider* c1, Collider* c2)
 		else if (Items[i] != nullptr && Items[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER))
 		{
 		//	App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
+			Items[i]->pick();
 			delete Items[i];
 			Items[i] = nullptr;
 			break;

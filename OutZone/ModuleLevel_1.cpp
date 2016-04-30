@@ -147,7 +147,9 @@ bool ModuleLevel_1::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 43, App->collision->returny(3040, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 76, App->collision->returny(3040, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 109, App->collision->returny(3040, background.h));
-	//App->objects->AddObject(BOX, 130, App->collision->returny(4350, background.h));
+	
+	//Box
+	App->objects->AddObject(BOX, 30, App->collision->returny(4600, background.h));
 
 
 	//BOSS

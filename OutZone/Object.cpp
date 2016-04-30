@@ -1,11 +1,5 @@
 
-#include "Application.h"
 #include "Object.h"
-#include "ModuleCollider.h"
-#include "ModuleRender.h"
-#include "ModulePlayer.h"
-
-#include "SDL\include\SDL.h"
 
 
 Object::Object(int x, int y) : position(x, y), collider(nullptr)

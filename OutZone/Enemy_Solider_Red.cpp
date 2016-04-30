@@ -2,6 +2,8 @@
 #include "Enemy_Solider_Red.h"
 #include "ModuleCollider.h"
 #include "ModuleParticles.h"
+#include "ModuleObjects.h"
+
 
 #include "SDL\include\SDL.h"
 
@@ -80,4 +82,10 @@ void Enemy_Solider_Red::Move()
 		}
 		lastShot = SDL_GetTicks();
 	}
+}
+
+void Enemy_Solider_Red::droping()
+{
+	if (SDL_GetTicks() % 2 == 0)
+	App->objects->AddObject(SPECIAL, position.x + 2, position.y + 2);
 }

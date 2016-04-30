@@ -1,6 +1,14 @@
 #ifndef _OBJECT_
 #define _OBJECT_
 
+
+#include "Application.h"
+#include "ModuleCollider.h"
+#include "ModuleParticles.h"
+#include "ModulePlayer.h"
+#include "ModuleRender.h"
+#include "SDL\include\SDL.h"
+
 #include "p2Point.h"
 #include "Animation.h"
 
@@ -25,6 +33,7 @@ public:
 
 	virtual void Draw(SDL_Texture* itemsprites);
 	virtual void drop(){};
+	virtual void pick(){};
 };
 
 #endif

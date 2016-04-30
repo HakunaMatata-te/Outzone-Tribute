@@ -13,7 +13,7 @@ public:
 
 	Powerup(int x, int y);
 	~Powerup(){};
-
+	void pick();
 };
 
 #endif

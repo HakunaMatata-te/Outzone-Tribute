@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Object_SpecialBomb.h" />
     <ClInclude Include="Object_Box.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_First_Boss.h" />
@@ -100,6 +101,7 @@
     <ClInclude Include="ModuleObjects.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Object_Powerup.h" />
+    <ClInclude Include="Object_Weapon.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
   </ItemGroup>
@@ -133,6 +135,8 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Object_Box.cpp" />
     <ClCompile Include="Object_Powerup.cpp" />
+    <ClCompile Include="Object_SpecialBomb.cpp" />
+    <ClCompile Include="Object_Weapon.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

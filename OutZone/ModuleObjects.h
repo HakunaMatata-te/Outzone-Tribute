@@ -3,8 +3,14 @@
 
 #include "Module.h"
 
+#include "ModuleInput.h"
+#include "ModuleTextures.h"
+
+#include "Object.h"
 #include "Object_Box.h"
 #include "Object_Powerup.h"
+#include "Object_SpecialBomb.h"
+#include "Object_Weapon.h"
 
 #define MAX_OBJECTS 50
 

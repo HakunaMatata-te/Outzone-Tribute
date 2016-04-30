@@ -41,7 +41,7 @@ public:
 	Enemy_Solider_Red(int x, int y);
 
 	void Move();
-
+	void droping();
 };
 
 #endif // __ENEMY_SOLIDER_RED_H__

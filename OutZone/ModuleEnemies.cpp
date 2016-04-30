@@ -7,6 +7,7 @@
 #include "Enemy.h"
 #include "ModuleCollider.h"
 #include "ModulePlayer.h"
+#include "ModuleObjects.h"
 #include "Enemy_First_Boss.h"
 
 
@@ -160,6 +161,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB) && enemies[i]->death == false)
 		{
 			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
+			enemies[i]->droping();
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;
