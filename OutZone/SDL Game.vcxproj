@@ -99,6 +99,7 @@
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="ModuleObjects.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Object_Powerup.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
   </ItemGroup>
@@ -131,6 +132,7 @@
     <ClCompile Include="ModuleObjects.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Object_Box.cpp" />
+    <ClCompile Include="Object_Powerup.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

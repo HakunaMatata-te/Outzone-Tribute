@@ -11,6 +11,7 @@
 #include "ModuleCollider.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
+#include "ModuleObjects.h"
 
 ModuleLevel_1::ModuleLevel_1()
 {
@@ -38,6 +39,7 @@ bool ModuleLevel_1::Start()
 	App->collision->Enable();
 	App->enemies->Enable();
 	App->particles->Enable();
+	App->objects->Enable();
 
 	App->render->camera.y = 0;
 
@@ -145,6 +147,7 @@ bool ModuleLevel_1::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 43, App->collision->returny(3040, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 76, App->collision->returny(3040, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 109, App->collision->returny(3040, background.h));
+	//App->objects->AddObject(BOX, 130, App->collision->returny(4350, background.h));
 
 
 	//BOSS
@@ -162,6 +165,7 @@ bool ModuleLevel_1::CleanUp()
 	App->enemies->Disable();
 	App->particles->Disable();
 	App->collision->Disable();
+	App->objects->Disable();
 
 	return true;
 }

@@ -24,6 +24,7 @@ public:
 	const Collider* GetCollider() const;
 
 	virtual void Draw(SDL_Texture* itemsprites);
+	virtual void drop(){};
 };
 
 #endif

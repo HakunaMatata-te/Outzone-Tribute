@@ -2,7 +2,9 @@
 #define __MODULE_OBJECTS_H__
 
 #include "Module.h"
-#include "Object.h"
+
+#include "Object_Box.h"
+#include "Object_Powerup.h"
 
 #define MAX_OBJECTS 50
 
@@ -36,6 +38,7 @@ public:
 	update_status Update();
 	update_status PostUpdate();
 	bool CleanUp();
+	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddObject(OBJECTS_TYPES type, int x, int y);
 

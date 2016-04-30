@@ -36,7 +36,7 @@ Application::Application()
 	modules[13] = fade = new ModuleFadeToBlack();
 	modules[14] = end = new ModuleEndlevel();
 	modules[15] = gameover = new ModuleGameOver();
-	//modules[16] = objects = new Object();
+	modules[16] = objects = new ModuleObjects();
 }	
 
 Application::~Application()
@@ -51,7 +51,7 @@ bool Application::Init()
 
 	//Disabled modules
 
-	//objects->Disable();
+	objects->Disable();
 	gameover->Disable();
 	end->Disable();
 	leaderboard->Disable();

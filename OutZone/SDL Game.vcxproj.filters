@@ -85,6 +85,9 @@
     <ClCompile Include="Object_Box.cpp">
       <Filter>Modules\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Object_Powerup.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -181,6 +184,9 @@
       <Filter>Modules\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Object_Box.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_Powerup.h">
       <Filter>Modules\Objects</Filter>
     </ClInclude>
   </ItemGroup>
