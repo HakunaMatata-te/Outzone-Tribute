@@ -134,6 +134,9 @@ bool ModulePlayer::Start(){
 	current_weapon = MINIGUN;
 	lvl = 1;
 	player_dir = 0;
+	last_deplation = SDL_GetTicks();
+	current_time = SDL_GetTicks();
+	energy = MAX_N_ENERGY;
 	character = App->textures->Load("Animation/playermove.png");
 
 
@@ -428,7 +431,6 @@ update_status ModulePlayer::Update(){
 		invencible = false;
 
 	//LVL up weapons
-
 	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN) { 
 		if (lvl < 3)
 			lvl++;
@@ -440,11 +442,18 @@ update_status ModulePlayer::Update(){
 
 	playercollider->SetPos(position.x +5, position.y +10);
 
+	//Energy depletion
+	current_time = SDL_GetTicks();
+	if ((current_time - last_deplation) > 1000){
+		last_deplation = SDL_GetTicks();
+		energy--;
+	}
+
+
 	//Print player
 	if (destroyed == false)
 		App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
-	
-	
+		
 
 	return UPDATE_CONTINUE;
 }
@@ -455,6 +464,19 @@ update_status ModulePlayer::PostUpdate()
 	CollisionDown = false;
 	CollisionLeft = false;
 	CollisionRight = false;
+
+	//Energy depletion death
+	if (invencible == false){
+		if (energy<0){
+			Disable();
+			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
+
+			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
+
+			destroyed = true;
+		}
+	}
+
 	return UPDATE_CONTINUE;
 }
 

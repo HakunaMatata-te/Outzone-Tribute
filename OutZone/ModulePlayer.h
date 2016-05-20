@@ -33,6 +33,9 @@ public:
 	int screenlowheight;
 	int spbombmunition = 3;
 	bool sp_bombthroun = false;
+	int energy;
+	uint last_deplation;
+	uint current_time;
 
 	bool invencible = false;
 

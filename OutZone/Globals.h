@@ -44,5 +44,7 @@ typedef unsigned int uint;
 #define REN_VSYNC 1
 #define SCREEN_SPEED 2
 #define PLAYER_SPEED 2
+#define MAX_N_ENERGY  47  //Normal energy
+#define MAX_E_ENERGY 60		//Extended energy poerup, number not correct
 
 #endif // __GLOBALS_H__
