@@ -44,20 +44,113 @@ bool ModuleLevel_3::Start()
 	App->render->camera.y = 0;
 
 	//Colliders
-	//First two colliders, left and right
-	App->collision->AddCollider({ 0, App->collision->returny(4247, background.h), 95, 240 }, COLLIDER_WALL);
-	
+	//first holes colliders;
+	App->collision->AddCollider({ 0, App->collision->returny(5600, background.h), 46, 320 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 46, App->collision->returny(5700, background.h), 35, 120}, COLLIDER_HOLE);
+	App->collision->AddCollider({ 0, App->collision->returny(5200, background.h), 80, 157}, COLLIDER_HOLE);
+	App->collision->AddCollider({ 50, App->collision->returny(5271, background.h), 60, 182}, COLLIDER_HOLE);
+	App->collision->AddCollider({ 110, App->collision->returny(5327, background.h), 35, 93}, COLLIDER_HOLE);
+	App->collision->AddCollider({ 145, App->collision->returny(5360, background.h), 35, 60}, COLLIDER_HOLE);
+	App->collision->AddCollider({ 207, App->collision->returny(5136, background.h), 34, 164}, COLLIDER_HOLE);
+	App->collision->AddCollider({ 175, App->collision->returny(5170, background.h), 32, 63 }, COLLIDER_HOLE);
 
+	//Last holes colliders (before boss)
+	App->collision->AddCollider({ 0, App->collision->returny(640, background.h), 32, 480 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 32, App->collision->returny(704, background.h), 32, 288 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 64, App->collision->returny(704, background.h), 32, 64 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 64, App->collision->returny(866, background.h), 32, 126 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 96, App->collision->returny(930, background.h), 32, 62 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 0, App->collision->returny(1185, background.h), 64, 127 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 144, App->collision->returny(705, background.h), 32, 63 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 175, App->collision->returny(706, background.h), 32, 191 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 208, App->collision->returny(640, background.h), 32, 288 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 112, App->collision->returny(1057, background.h), 64, 63 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 176, App->collision->returny(1057, background.h), 32, 256 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 208, App->collision->returny(991, background.h), 32, 321 }, COLLIDER_HOLE); 
+
+	//Walls colliders first yellow
+	App->collision->AddCollider({ 0, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 16, App->collision->returny(4224, background.h), 48, 96 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(4224, background.h), 32, 96 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 16, App->collision->returny(4705, background.h), 48, 95 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(4705, background.h), 32, 95 }, COLLIDER_WALL);
+	
+	//Walls colliders second
+	App->collision->AddCollider({ 32, App->collision->returny(3873, background.h), 96, 63 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 128, App->collision->returny(3905, background.h), 64, 62 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 65, App->collision->returny(3936, background.h), 31, 31 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 96, App->collision->returny(3936, background.h), 32, 64 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 0, App->collision->returny(3744, background.h), 64, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(3808, background.h), 32, 31 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 160, App->collision->returny(3744, background.h), 32, 63 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 128, App->collision->returny(3744, background.h), 32, 95 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(3712, background.h), 48, 127 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(3839, background.h), 16, 32}, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 0, App->collision->returny(3649, background.h), 32, 62 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 64, App->collision->returny(3585, background.h), 64, 62 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 96, App->collision->returny(3647, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 128, App->collision->returny(3553, background.h), 32, 94 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 192, App->collision->returny(3585, background.h), 48, 62 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(3647, background.h), 16, 32 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 0, App->collision->returny(3425, background.h), 32, 158 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 32, App->collision->returny(3457, background.h), 32, 32 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 32, App->collision->returny(3489, background.h), 64, 63 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 160, App->collision->returny(3457, background.h), 64, 63}, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(3424, background.h), 16, 127 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 64, App->collision->returny(3361, background.h), 96, 63 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 96, App->collision->returny(3424, background.h), 32, 32 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 192, App->collision->returny(3329, background.h), 48, 63 }, COLLIDER_WALL);
+
+	//Walls colliders third
+	App->collision->AddCollider({ 0, App->collision->returny(2432, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(2464, background.h), 16, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 64, App->collision->returny(2368, background.h), 40, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(2272, background.h), 32, 96 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 32, App->collision->returny(2272, background.h), 32, 64 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 128, App->collision->returny(2272, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(2240, background.h), 48, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 64, App->collision->returny(2080, background.h), 64, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(2080, background.h), 64, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(2048, background.h), 16, 32 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 0, App->collision->returny(2016, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(1920, background.h), 64, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(1888, background.h), 32, 32 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(1920, background.h), 32, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 96, App->collision->returny(1824, background.h), 32, 64 }, COLLIDER_WALL);
+
+	App->collision->AddCollider({ 32, App->collision->returny(1760, background.h), 32, 96 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(1728, background.h), 32, 96 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 64, App->collision->returny(1760, background.h), 64, 32 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(1696, background.h), 48, 65 }, COLLIDER_WALL);
+
+	// Gate 
+	App->collision->AddCollider({ 0, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 216, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 176, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
 
 	//Enemies
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(4350, background.h));
+//	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(4350, background.h));
 
 	return true;
 }
 
 bool ModuleLevel_3::CleanUp()
 {
-	LOG("Unloading lvl1 scene");
+	LOG("Unloading lvl3 scene");
 
 	App->textures->Unload(lvl_texture);
 	App->player->Disable();
