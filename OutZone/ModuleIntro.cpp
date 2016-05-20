@@ -6,7 +6,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleIntro.h"
-#include "ModuleLevel_1.h"
+#include "ModuleLevel_3.h"
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
 
@@ -67,7 +67,7 @@ update_status ModuleIntro::Update()
 	App->render->Blit(lvl_texture2, 0, 0, &background, 1);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]){
-		App->fade->FadeToBlack(App->intro, App->level_1, 1);
+		App->fade->FadeToBlack(App->intro, App->level_3, 1);
 	}
 
 	return UPDATE_CONTINUE;

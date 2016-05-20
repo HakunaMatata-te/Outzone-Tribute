@@ -94,6 +94,9 @@
     <ClCompile Include="Object_Weapon.cpp">
       <Filter>Modules\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleLevel_3.cpp">
+      <Filter>Modules\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -200,6 +203,9 @@
     </ClInclude>
     <ClInclude Include="Object_Weapon.h">
       <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleLevel_3.h">
+      <Filter>Modules\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

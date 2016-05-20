@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="ModuleLevel_3.h" />
     <ClInclude Include="Object_SpecialBomb.h" />
     <ClInclude Include="Object_Box.h" />
     <ClInclude Include="Enemy.h" />
@@ -126,6 +127,7 @@
     <ClCompile Include="ModuleLevel_1.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleLevel_2.cpp" />
+    <ClCompile Include="ModuleLevel_3.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />

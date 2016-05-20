@@ -7,6 +7,7 @@
 #include "ModuleIntro.h"
 #include "ModuleLevel_1.h"
 #include "ModuleLevel_2.h"
+#include "ModuleLevel_3.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 #include "ModuleFadeToBlack.h"
@@ -28,15 +29,16 @@ Application::Application()
 	modules[5] = intro = new ModuleIntro();
 	modules[6] = level_1 = new ModuleLevel_1();
 	modules[7] = level_2 = new ModuleLevel_2();
-	modules[8] = leaderboard = new ModuleLeaderboard();
-	modules[9] = collision = new ModuleCollision();
-	modules[10] = enemies = new ModuleEnemies();
-	modules[11] = player = new ModulePlayer();
-	modules[12] = particles = new ModuleParticles();
-	modules[13] = fade = new ModuleFadeToBlack();
-	modules[14] = end = new ModuleEndlevel();
-	modules[15] = gameover = new ModuleGameOver();
-	modules[16] = objects = new ModuleObjects();
+	modules[8] = level_3 = new ModuleLevel_3();
+	modules[9] = leaderboard = new ModuleLeaderboard();
+	modules[10] = collision = new ModuleCollision();
+	modules[11] = enemies = new ModuleEnemies();
+	modules[12] = player = new ModulePlayer();
+	modules[13] = particles = new ModuleParticles();
+	modules[14] = fade = new ModuleFadeToBlack();
+	modules[15] = end = new ModuleEndlevel();
+	modules[16] = gameover = new ModuleGameOver();
+	modules[17] = objects = new ModuleObjects();
 }	
 
 Application::~Application()
@@ -58,6 +60,7 @@ bool Application::Init()
 	player->Disable();
 	level_1->Disable();
 	level_2->Disable();
+	level_3->Disable();
 	collision->Disable();
 	enemies->Disable();
 
