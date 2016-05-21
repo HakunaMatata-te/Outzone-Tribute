@@ -292,6 +292,15 @@ ModuleParticles::ModuleParticles()
 	screen_bomb.anim.PushBack({ 3687, 957, 240, 320 });
 	screen_bomb.anim.PushBack({ 47, 957, 240, 320 });
 	screen_bomb.anim.speed = 0.5f;
+	
+	//Player Falling
+	player_fall.anim.PushBack({ 598, 56, 38, 38});
+	player_fall.anim.PushBack({ 600, 104, 38, 38 });
+	player_fall.anim.PushBack({ 602, 144, 38, 38 });
+	player_fall.anim.PushBack({ 602, 184, 38, 38 });
+	player_fall.anim.PushBack({ 602, 224, 38, 38 });
+	player_fall.anim.speed = 0.1f;
+//	player_fall.anim.loop = false;
 
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});

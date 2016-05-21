@@ -126,6 +126,8 @@ public:
 
 	Particle screen_bomb;
 
+	Particle player_fall;
+
 	Particle_Bullet test;
 };
 

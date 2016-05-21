@@ -27,12 +27,14 @@ bool ModuleUi::Start(){
 	current_time = SDL_GetTicks();
 	energy = MAX_N_ENERGY;
 	infinite_energy = false;
-	idle_energybar.PushBack({ 54, 244, 4, 16 });
+	
+	idle_energybar.PushBack({ 5, 152, 128, 10});
+	idle_energy.PushBack({ 136, 153, 1, 7 });
 
-	position.x = 10;
-	position.y = 10;
+	position.x = 30;
+	position.y = 20;
 
-	uitextures = App->textures->Load("Animation/particles.png");
+	uitextures = App->textures->Load("Animation/UIs2.png");
 
 
 	return true;
@@ -49,17 +51,19 @@ bool ModuleUi::CleanUp()
 
 update_status ModuleUi::Update(){
 
+	App->render->Blit(uitextures, 10, 20, &(idle_energybar.GetCurrentFrame()), false);
+
 	current_time = SDL_GetTicks();
 	if ((current_time - last_deplation) > 1000 && infinite_energy == false){
 		last_deplation = SDL_GetTicks();
 		if (energy > 0){
-			energy-=2;
+			energy -= 1;
 		}
 	}
 	if (energy > 10){
 		for (int i = 0; i <= energy - 10; i++){
-			position.x += 5;
-			print_energy();
+			position.x += 2;
+			App->render->Blit(uitextures, position.x, position.y +1, &(idle_energy.GetCurrentFrame()), false);
 		}
 	}
 	//Testing e_bars
@@ -69,12 +73,12 @@ update_status ModuleUi::Update(){
 
 update_status ModuleUi::PostUpdate()
 {
-	position.x = 10;
+	position.x = 30;
 
 	return UPDATE_CONTINUE;
 }
 
 //Just for testing should be moved to ui module
 void ModuleUi::print_energy(){
-	App->render->Blit(uitextures, position.x, position.y, &(idle_energybar.GetCurrentFrame()), false);
+	App->render->Blit(uitextures, position.x, position.y, &(idle_energy.GetCurrentFrame()), false);
 };

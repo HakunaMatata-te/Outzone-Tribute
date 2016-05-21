@@ -506,9 +506,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1 == playercollider && c2->type == COLLIDER_HOLE && c1->CheckCollisionhole(c2->rect) == true)
 	{
 		Disable();
-		
-		//App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
-
+		if (fall_animation == false){
+			App->particles->AddParticle(App->particles->player_fall, position.x, position.y, COLLIDER_NONE);
+			fall_animation = true;
+		}
 		App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 5);
 		
 		destroyed = true;

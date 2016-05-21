@@ -35,7 +35,7 @@ public:
 	int screenlowheight;
 	int spbombmunition = 3;
 	bool sp_bombthroun = false;
-	
+	bool fall_animation = false;
 
 	iPoint position_test;
 

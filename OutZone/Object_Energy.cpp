@@ -21,6 +21,5 @@ void Energy::pick()
 		{
 			App->ui->energy++;
 		}
-		i++;
 	}
 }

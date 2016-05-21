@@ -38,6 +38,7 @@ public:
 	SDL_Texture* uitextures = nullptr;
 	
 	Animation idle_energybar;
+	Animation idle_energy;
 	iPoint position;
 
 };
