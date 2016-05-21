@@ -127,6 +127,8 @@ bool ModulePlayer::Start(){
 	left = 0;
 	position.x = 88;
 	position.y = 282;
+	position_test.x = 50;
+	position_test.y = 150;
 	screenlowheight = 320;	
 	destroyed = false;
 	spbombmunition = 3;
@@ -137,9 +139,8 @@ bool ModulePlayer::Start(){
 	last_deplation = SDL_GetTicks();
 	current_time = SDL_GetTicks();
 	energy = MAX_N_ENERGY;
+	e_bars = 36;
 	character = App->textures->Load("Animation/playermove.png");
-
-
 
 	playercollider = App->collision->AddCollider({ 88,250, 22,20 }, COLLIDER_PLAYER, App->player);
 	fx_lvlup_weapon = App->audios->LoadFX("Sounds/power_up_weapon.ogg");
@@ -447,6 +448,16 @@ update_status ModulePlayer::Update(){
 	if ((current_time - last_deplation) > 1000){
 		last_deplation = SDL_GetTicks();
 		energy--;
+		if (e_bars > 0){
+			e_bars--;
+		}
+	}
+
+
+	//Testing e_bars
+	for (int i = 1; i <= e_bars; i++){
+		position_test.x = i*5;
+		print_energy();
 	}
 
 
@@ -510,3 +521,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 	//Win Condition
 }
+
+
+//Just for testing should be moved to ui module
+void ModulePlayer::print_energy(){
+	App->particles->AddParticle(App->particles->test_ui, position_test.x, position_test.y, COLLIDER_NONE);
+};

@@ -23,6 +23,10 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
+
+	//Just for testing should be move to the ui module.
+	void print_energy();
+
 public:
 
 	int player_dir;
@@ -34,12 +38,14 @@ public:
 	int spbombmunition = 3;
 	bool sp_bombthroun = false;
 	int energy;
+	uint e_bars;
 	uint last_deplation;
 	uint current_time;
 
+	iPoint position_test;
+
 	bool invencible = false;
-
-
+	
 
 	bool CollisionUp;
 	bool CollisionDown;

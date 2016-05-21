@@ -126,6 +126,8 @@ public:
 
 	Particle screen_bomb;
 
+	Particle test_ui;
+
 	Particle_Bullet test;
 };
 
