@@ -145,6 +145,7 @@ bool ModuleLevel_3::Start()
 	//Enemies
 //	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(4350, background.h));
 
+	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 	return true;
 }
 

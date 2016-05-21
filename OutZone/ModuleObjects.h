@@ -11,6 +11,8 @@
 #include "Object_Powerup.h"
 #include "Object_SpecialBomb.h"
 #include "Object_Weapon.h"
+#include "Object_Energy.h"
+#include "Object_Box_Energy.h"
 
 #define MAX_OBJECTS 50
 

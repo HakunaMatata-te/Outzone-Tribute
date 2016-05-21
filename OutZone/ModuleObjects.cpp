@@ -122,6 +122,9 @@ void ModuleObjects::SpawnObject(const ObjectsInfo& info)
 		case OBJECTS_TYPES::BOX:
 			Items[i] = new Box(info.x, info.y);
 			break;
+		case OBJECTS_TYPES::ENERGYBOX:
+			Items[i] = new Energy_Box(info.x, info.y);
+			break;
 		case OBJECTS_TYPES::POWER_UP:
 			Items[i] = new Powerup(info.x, info.y);
 			break;
@@ -130,6 +133,9 @@ void ModuleObjects::SpawnObject(const ObjectsInfo& info)
 			break;
 		case OBJECTS_TYPES::WEAPON:
 			Items[i] = new ChangeWeapon(info.x, info.y);
+			break;
+		case OBJECTS_TYPES::ENERGY:
+			Items[i] = new Energy(info.x, info.y);
 			break;
 		}
 	}

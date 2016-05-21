@@ -72,6 +72,8 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="ModuleLevel_3.h" />
+    <ClInclude Include="Object_Box_Energy.h" />
+    <ClInclude Include="Object_Energy.h" />
     <ClInclude Include="Object_SpecialBomb.h" />
     <ClInclude Include="Object_Box.h" />
     <ClInclude Include="Enemy.h" />
@@ -136,6 +138,8 @@
     <ClCompile Include="ModuleObjects.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Object_Box.cpp" />
+    <ClCompile Include="Object_Box_Energy.cpp" />
+    <ClCompile Include="Object_Energy.cpp" />
     <ClCompile Include="Object_Powerup.cpp" />
     <ClCompile Include="Object_SpecialBomb.cpp" />
     <ClCompile Include="Object_Weapon.cpp" />
