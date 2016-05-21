@@ -23,9 +23,6 @@ ModuleParticles::ModuleParticles()
 		active_b[i] = nullptr;
 	}	
 
-
-	test_ui.anim.PushBack({ 55, 244, 4, 16 });
-	test_ui.life = 1;
 	//LVL 1 particles --------------------------------------------------------------
 	// Minigun particle
 	minigun_shot_lv1_up.anim.PushBack({ 55, 244, 4, 16 });

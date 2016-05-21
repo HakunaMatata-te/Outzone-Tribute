@@ -10,6 +10,7 @@
 #include "ModuleLevel_1.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleEnemies.h"
+#include "ModuleUI.h"
 
 #include "SDL\include\SDL.h"
 
@@ -136,10 +137,7 @@ bool ModulePlayer::Start(){
 	current_weapon = MINIGUN;
 	lvl = 1;
 	player_dir = 0;
-	last_deplation = SDL_GetTicks();
-	current_time = SDL_GetTicks();
-	energy = MAX_N_ENERGY;
-	e_bars = 36;
+	
 	character = App->textures->Load("Animation/playermove.png");
 
 	playercollider = App->collision->AddCollider({ 88,250, 22,20 }, COLLIDER_PLAYER, App->player);
@@ -441,26 +439,10 @@ update_status ModulePlayer::Update(){
 	}
 
 	playercollider->SetPos(position.x +5, position.y +10);
-
+	
 	//Energy depletion
 	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_DOWN)
-		infinte_energy = !infinte_energy;
-	current_time = SDL_GetTicks();
-	if ((current_time - last_deplation) > 1000 && infinte_energy == false){
-		last_deplation = SDL_GetTicks();
-		energy--;
-		if (e_bars > 0){
-			e_bars--;
-		}
-	}
-
-
-	//Testing e_bars
-	for (int i = 1; i <= e_bars; i++){
-		position_test.x = i*5;
-		print_energy();
-	}
-
+		App->ui->infinite_energy = !App->ui->infinite_energy;
 
 	//Print player
 	if (destroyed == false)
@@ -479,8 +461,9 @@ update_status ModulePlayer::PostUpdate()
 
 	//Energy depletion death
 	if (invencible == false){
-		if (energy<0){
+		if (App->ui->energy == 0){
 			Disable();
+			App->ui->Disable();
 			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
@@ -532,9 +515,3 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 	//Win Condition
 }
-
-
-//Just for testing should be moved to ui module
-void ModulePlayer::print_energy(){
-	App->particles->AddParticle(App->particles->test_ui, position_test.x, position_test.y, COLLIDER_NONE);
-};

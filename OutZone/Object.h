@@ -7,6 +7,7 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 #include "ModuleRender.h"
+#include "ModuleUI.h"
 #include "SDL\include\SDL.h"
 
 #include "p2Point.h"

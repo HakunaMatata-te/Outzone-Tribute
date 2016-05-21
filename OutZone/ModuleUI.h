@@ -23,7 +23,7 @@ public:
 	bool CleanUp();
 
 	//Just for testing should be move to the ui module.
-	//void print_energy();
+	void print_energy();
 
 public:
 
@@ -31,13 +31,13 @@ public:
 	
 	uint last_deplation;
 	uint current_time;
-
+	bool infinite_energy;
 	iPoint position_test;
 
 
 	SDL_Texture* uitextures = nullptr;
 	
-	Animation idle_up;
+	Animation idle_energybar;
 	iPoint position;
 
 };

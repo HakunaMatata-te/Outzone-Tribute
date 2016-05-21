@@ -17,9 +17,9 @@ void Energy::pick()
 {
 	for (int i = 0; i < 30; i++)
 	{
-		if (App->player->energy < MAX_N_ENERGY)
+		if (App->ui->energy < MAX_N_ENERGY)
 		{
-			App->player->energy++;
+			App->ui->energy++;
 		}
 		i++;
 	}

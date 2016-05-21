@@ -12,6 +12,7 @@
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
 #include "ModuleObjects.h"
+#include "ModuleUI.h"
 
 ModuleLevel_3::ModuleLevel_3()
 {
@@ -40,7 +41,7 @@ bool ModuleLevel_3::Start()
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->objects->Enable();
-
+	App->ui->Enable();
 	App->render->camera.y = 0;
 
 	//Colliders
@@ -159,6 +160,7 @@ bool ModuleLevel_3::CleanUp()
 	App->particles->Disable();
 	App->collision->Disable();
 	App->objects->Disable();
+	App->ui->Disable();
 
 	return true;
 }

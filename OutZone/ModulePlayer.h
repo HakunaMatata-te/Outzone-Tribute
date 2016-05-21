@@ -24,8 +24,6 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 
-	//Just for testing should be move to the ui module.
-	void print_energy();
 
 public:
 
@@ -37,17 +35,14 @@ public:
 	int screenlowheight;
 	int spbombmunition = 3;
 	bool sp_bombthroun = false;
-	int energy;
-	uint e_bars;
-	uint last_deplation;
-	uint current_time;
+	
 
 	iPoint position_test;
 
 
 	//Debug states
 	bool invencible = false;
-	bool infinte_energy = false;
+
 	
 
 	bool CollisionUp;
