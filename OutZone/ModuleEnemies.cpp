@@ -80,7 +80,7 @@ update_status ModuleEnemies::PostUpdate()
 				enemies[i] = nullptr;
 			} 
 
-			if (enemies[i]->life <= 0){
+			else if (enemies[i]->life <= 0){
 				enemies[i]->droping();
 				enemies[i]->death();
 				delete enemies[i];
