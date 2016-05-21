@@ -80,7 +80,7 @@ update_status ModuleEnemies::PostUpdate()
 				enemies[i] = nullptr;
 			} 
 
-			if (enemies[i]->life == 0){
+			if (enemies[i]->life <= 0){
 				enemies[i]->droping();
 				enemies[i]->death();
 				delete enemies[i];
@@ -155,12 +155,24 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB))
 		{
-			enemies[i]->life--;
-			//App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
-			//enemies[i]->droping();
-			//enemies[i]->death();
-			//delete enemies[i];
-			//enemies[i] = nullptr;
+			if (enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_PLAYER_SHOT){
+				if (App->player->lvl == 1)
+					enemies[i]->life--;
+				if (App->player->lvl == 2)
+					enemies[i]->life -= 2;
+				if (App->player->lvl == 3)
+					enemies[i]->life -= 3;
+			}
+			
+			if (enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_PLAYER){
+				enemies[i]->life -= 3;
+			}
+
+			if (enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_SCREEN_BOMB){
+				enemies[i]->life -= 6;
+			}
+
+
 			break;
 		} 
 		

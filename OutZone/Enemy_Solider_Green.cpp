@@ -34,7 +34,6 @@ Enemy_Solider_Green::Enemy_Solider_Green(int x, int y) : Enemy(x, y)
 
 void Enemy_Solider_Green::death(){
 	App->particles->AddParticle(App->particles->normal_explosion, position.x, position.y, COLLIDER_NONE);
-
 }
 
 void Enemy_Solider_Green::Move()
