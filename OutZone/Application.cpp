@@ -17,6 +17,7 @@
 #include "ModuleEndlevel.h"
 #include "ModuleGameOver.h"
 #include "ModuleObjects.h"
+#include "ModuleUI.h"
 
 
 Application::Application()
@@ -39,6 +40,7 @@ Application::Application()
 	modules[15] = end = new ModuleEndlevel();
 	modules[16] = gameover = new ModuleGameOver();
 	modules[17] = objects = new ModuleObjects();
+	modules[18] = ui = new ModuleUi();
 }	
 
 Application::~Application()
@@ -52,7 +54,7 @@ bool Application::Init()
 	bool ret = true;
 
 	//Disabled modules
-
+	ui->Disable();
 	objects->Disable();
 	gameover->Disable();
 	end->Disable();

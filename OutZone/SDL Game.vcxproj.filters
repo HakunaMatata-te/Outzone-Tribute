@@ -91,6 +91,9 @@
     <ClCompile Include="Object_Box_Energy.cpp">
       <Filter>Modules\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleUI.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -194,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="Object_Box_Energy.h">
       <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUI.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
