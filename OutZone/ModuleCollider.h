@@ -40,6 +40,7 @@ struct Collider
 	}
 
 	bool CheckCollision(const SDL_Rect& r) const;
+	bool CheckCollisionhole(const SDL_Rect& r) const;
 	//CollisionSide CheckCollisionSide(const SDL_Rect& r) const;
 	bool CheckCollisionUp(const SDL_Rect& r) const;
 	bool CheckCollisionDown(const SDL_Rect& r) const;

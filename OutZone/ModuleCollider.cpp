@@ -26,7 +26,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER][COLLIDER_SCREEN_BOMB] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ITEMS] = true;
 	matrix[COLLIDER_PLAYER][COLLIDER_BOX] = true;
-	matrix[COLLIDER_PLAYER][COLLIDER_HOLE] = false;
+	matrix[COLLIDER_PLAYER][COLLIDER_HOLE] = true;
 
 	matrix[COLLIDER_ENEMY][COLLIDER_WALL] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
@@ -263,7 +263,13 @@ bool Collider::CheckCollision(const SDL_Rect& r) const
 		rect.h + rect.y > r.y);
 }
 
-
+bool Collider::CheckCollisionhole(const SDL_Rect& r) const
+{
+	return (rect.x + 15 < r.x + r.w &&
+		rect.x - 15 + rect.w > r.x &&
+		rect.y + 15 < r.y + r.h &&
+		rect.h - 15 + rect.y > r.y);
+}
 bool Collider::CheckCollisionUp(const SDL_Rect& r) const
 {
 	return (rect.y < r.y + r.h && rect.y + (PLAYER_SPEED + 1) > r.y + r.h);
