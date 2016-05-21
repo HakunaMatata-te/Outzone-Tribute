@@ -426,10 +426,9 @@ update_status ModulePlayer::Update(){
 	//invencible mode
 	if (App->input->keyboard[SDL_SCANCODE_I] == KEY_DOWN && invencible == false)
 	{
-		invencible = true;
+		invencible = !invencible;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_I] == KEY_DOWN && invencible == true)
-		invencible = false;
+	
 
 	//LVL up weapons
 	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN) { 
@@ -444,8 +443,10 @@ update_status ModulePlayer::Update(){
 	playercollider->SetPos(position.x +5, position.y +10);
 
 	//Energy depletion
+	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_DOWN)
+		infinte_energy = !infinte_energy;
 	current_time = SDL_GetTicks();
-	if ((current_time - last_deplation) > 1000){
+	if ((current_time - last_deplation) > 1000 && infinte_energy == false){
 		last_deplation = SDL_GetTicks();
 		energy--;
 		if (e_bars > 0){

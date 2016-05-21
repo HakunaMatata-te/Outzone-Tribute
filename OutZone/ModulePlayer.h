@@ -44,7 +44,10 @@ public:
 
 	iPoint position_test;
 
+
+	//Debug states
 	bool invencible = false;
+	bool infinte_energy = false;
 	
 
 	bool CollisionUp;
