@@ -16,8 +16,7 @@ protected:
 
 public:
 	iPoint position;
-	bool death = false;
-	uint life = 0;
+	uint life = 2;
 
 public:
 	Enemy(int x, int y);
@@ -27,8 +26,8 @@ public:
 
 	virtual void Move() {};
 	virtual void Draw(SDL_Texture* sprites);
-	virtual void ChangeDeath() {};
-	virtual void droping(){};
+	virtual void death() {};
+	virtual void droping() {};
 
 	int SeePlayer(const SDL_Rect& r);
 

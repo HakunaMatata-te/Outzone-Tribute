@@ -8,7 +8,7 @@
 #include "ModuleCollider.h"
 #include "ModulePlayer.h"
 #include "ModuleObjects.h"
-#include "Enemy_First_Boss.h"
+
 
 
 #define SPAWN_MARGIN 150
@@ -79,6 +79,13 @@ update_status ModuleEnemies::PostUpdate()
 				delete enemies[i];
 				enemies[i] = nullptr;
 			} 
+
+			if (enemies[i]->life == 0){
+				enemies[i]->droping();
+				enemies[i]->death();
+				delete enemies[i];
+				enemies[i] = nullptr;
+			}
 		}
 	}
 
@@ -138,18 +145,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::FOOT_SOLIDER_GREEN:
 			enemies[i] = new Enemy_Solider_Green(info.x,info.y);
 			break;
-		case ENEMY_TYPES::FOOT_SOLIDER_RED:
-			enemies[i] = new Enemy_Solider_Red(info.x, info.y);
-			break;
-		case ENEMY_TYPES::TRUCK:
-			enemies[i] = new Enemy_Truck(info.x, info.y);
-			break;
-		case ENEMY_TYPES::MINOR_TURRET:
-			enemies[i] = new Enemy_Minor_Turret(info.x, info.y);
-			break;
-		case ENEMY_TYPES::FIRST_BOSS:
-			enemies[i] = new First_Boss(info.x, info.y);
-			break;
 		}
 	}
 }
@@ -158,19 +153,16 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB) && enemies[i]->death == false)
+		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB))
 		{
-			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
-			enemies[i]->droping();
-			delete enemies[i];
-			enemies[i] = nullptr;
+			enemies[i]->life--;
+			//App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
+			//enemies[i]->droping();
+			//enemies[i]->death();
+			//delete enemies[i];
+			//enemies[i] = nullptr;
 			break;
 		} 
-		else if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB) && enemies[i]->death == true)
-		{
-			App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
-			enemies[i]->ChangeDeath();
-			break;
-		}
+		
 	}
 }

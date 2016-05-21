@@ -77,11 +77,7 @@
     <ClInclude Include="Object_SpecialBomb.h" />
     <ClInclude Include="Object_Box.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Enemy_First_Boss.h" />
-    <ClInclude Include="Enemy_Minor_Turret.h" />
     <ClInclude Include="Enemy_Solider_Green.h" />
-    <ClInclude Include="Enemy_Solider_Red.h" />
-    <ClInclude Include="Enemy_Truck.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="ModuleCollider.h" />
@@ -111,11 +107,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Enemy_First_Boss.cpp" />
-    <ClCompile Include="Enemy_Minor_Turret.cpp" />
     <ClCompile Include="Enemy_Solider_Green.cpp" />
-    <ClCompile Include="Enemy_Solider_Red.cpp" />
-    <ClCompile Include="Enemy_Truck.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />

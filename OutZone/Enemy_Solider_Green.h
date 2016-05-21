@@ -39,7 +39,7 @@ private:
 public:
 
 	Enemy_Solider_Green(int x, int y);
-
+	void death();
 	void Move();
 
 };

@@ -143,7 +143,7 @@ bool ModuleLevel_3::Start()
 	App->collision->AddCollider({ 176, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
 
 	//Enemies
-//	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(4350, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 130, App->collision->returny(5350, background.h));
 
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 	return true;
