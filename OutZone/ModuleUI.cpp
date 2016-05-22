@@ -43,6 +43,7 @@ bool ModuleUi::Start(){
 	idle_score9.PushBack({ 187, 168, 20, 32 });
 	digit_score = &idle_score0;
 	personal_score = 0;
+	highscore = 0;
 
 	position.x = 30;
 	position.y = 20;
@@ -64,35 +65,44 @@ bool ModuleUi::CleanUp()
 
 update_status ModuleUi::Update(){
 
-	// Energy bar;
-	App->render->Blit(uitextures, 10, 20, &(idle_energybar.GetCurrentFrame()), false);
+	if (App->player->IsEnabled() == true){
+		// Energy bar;
+		App->render->Blit(uitextures, 10, 20, &(idle_energybar.GetCurrentFrame()), false);
 
-	// Energy;
-	current_time = SDL_GetTicks();
-	if ((current_time - last_deplation) > 1000 && infinite_energy == false){
-		last_deplation = SDL_GetTicks();
-		if (energy > 0){
-			energy -= 1;
+		// Energy;
+		current_time = SDL_GetTicks();
+		if ((current_time - last_deplation) > 1000 && infinite_energy == false){
+			last_deplation = SDL_GetTicks();
+			if (energy > 0){
+				energy -= 1;
+			}
 		}
-	}
-	if (energy > 10){
-		for (int i = 0; i <= energy - 10; i++){
-			position.x += 2;
-			App->render->Blit(uitextures, position.x, position.y +1, &(idle_energy.GetCurrentFrame()), false);
+		if (energy > 10){
+			for (int i = 0; i <= energy - 10; i++){
+				position.x += 2;
+				App->render->Blit(uitextures, position.x, position.y + 1, &(idle_energy.GetCurrentFrame()), false);
+			}
 		}
-	}
-	
-	//bomb munition
-	if (App->player->spbombmunition >= 0)
-	{
-		for (int i = 0; i <= App->player->spbombmunition; i++)
+
+		//bomb munition
+		if (App->player->spbombmunition >= 0)
 		{
-			App->render->Blit(uitextures, position_bomb, 280, &(idle_spbomb.GetCurrentFrame()), false);
-			position_bomb += 15;
+			for (int i = 0; i <= App->player->spbombmunition; i++)
+			{
+				App->render->Blit(uitextures, position_bomb, 280, &(idle_spbomb.GetCurrentFrame()), false);
+				position_bomb += 15;
+			}
 		}
+
+		if (personal_score > highscore)
+			highscore = personal_score;
+
+		print_score(personal_score, 120, 40);
+		print_score(highscore, 220, 10);
 	}
-	print_score(personal_score, 120, 40);
-	
+	else personal_score = 0;
+
+
 	return UPDATE_CONTINUE;
 }
 
@@ -100,7 +110,7 @@ update_status ModuleUi::PostUpdate()
 {
 	position.x = 30;
 	position_bomb = 5;
-
+	
 	return UPDATE_CONTINUE;
 }
 

@@ -95,6 +95,9 @@ bool Application::CleanUp()
 {
 	bool ret = true;
 
+	//temporaly here;
+	App->ui->Disable();
+
 	for(int i = NUM_MODULES - 1; i >= 0 && ret == true; --i)
 		ret = modules[i]->CleanUp();
 

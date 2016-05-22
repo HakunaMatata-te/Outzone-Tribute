@@ -166,7 +166,7 @@ bool ModuleLevel_3::CleanUp()
 	App->particles->Disable();
 	App->collision->Disable();
 	App->objects->Disable();
-	App->ui->Disable();
+	
 
 	return true;
 }
