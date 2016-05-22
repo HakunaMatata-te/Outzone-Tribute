@@ -22,6 +22,10 @@ public:
 
 	SDL_Texture* lvl_texture = nullptr;
 	SDL_Rect background;
+	uint lava_timer;
+	bool boss_start;
+	bool first_lava;
+	bool second_lava;
 
 };
 

@@ -153,6 +153,10 @@ bool ModuleLevel_3::Start()
 
 
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
+
+	boss_start = false;
+	first_lava = false;
+	second_lava = false;
 	return true;
 }
 
@@ -174,7 +178,28 @@ bool ModuleLevel_3::CleanUp()
 // Update: draw background
 update_status ModuleLevel_3::Update()
 {
-	App->render->Blit(lvl_texture, 0, -6436 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom og the image
+	App->render->Blit(lvl_texture, 0, -6436 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom of the image
 
+	//Boss lava
+	//Pick the time when entering boss
+	if (boss_start == false && App->render->camera.y >= 5925*SCREEN_SIZE){
+		boss_start = true;
+		lava_timer = SDL_GetTicks();
+	}
+
+	if (App->render->camera.y >= 5925 && boss_start == true){
+		//Right lava (1st to appear)
+		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == false){
+			App->collision->AddCollider({ 170, App->collision->returny(300, background.h), 84, 100 }, COLLIDER_HOLE);
+			first_lava = true;
+			lava_timer = SDL_GetTicks();
+		}
+
+		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == true && second_lava == false){
+			App->collision->AddCollider({ 0, App->collision->returny(300, background.h), 84, 100 }, COLLIDER_HOLE);
+			second_lava = true;
+		}
+	}
+	
 	return UPDATE_CONTINUE;
 }
