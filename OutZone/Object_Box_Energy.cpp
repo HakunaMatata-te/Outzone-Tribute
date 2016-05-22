@@ -4,15 +4,15 @@
 
 Energy_Box::Energy_Box(int x, int y) : Object(x, y)
 {
-	energy_box.PushBack({ 316, 71, 28, 28 });
+	energy_box.PushBack({ 494, 185, 28, 31 });
 
 	animation = &energy_box;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 35 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
+	collider = App->collision->AddCollider({ 0, 0, 33, 45 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
 };
 
 void Energy_Box::drop()
 {
-		App->objects->AddObject(ENERGY, position.x + 2, position.y + 2);
+		App->objects->AddObject(ENERGY, position.x + 3, position.y + 3);
 }
 

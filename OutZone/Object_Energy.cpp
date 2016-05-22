@@ -4,8 +4,8 @@
 
 Energy::Energy(int x, int y) : Object(x, y)
 {
-	energy.PushBack({ 362, 463, 19, 19 });
-	energy.PushBack({ 389, 463, 19, 19 });
+	energy.PushBack({ 362, 463, 20, 19 });
+	energy.PushBack({ 389, 463, 20, 19 });
 	energy.speed = 0.1f;
 
 	animation = &energy;
