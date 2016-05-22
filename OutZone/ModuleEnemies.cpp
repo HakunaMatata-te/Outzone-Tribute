@@ -136,15 +136,19 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 {
 	// find room for the new enemy
 	uint i = 0;
-	for(; enemies[i] != nullptr && i < MAX_ENEMIES; ++i);
-
-	if(i != MAX_ENEMIES)
+	for (; enemies[i] != nullptr && i < MAX_ENEMIES; ++i);
 	{
-		switch(info.type)
+		if (i != MAX_ENEMIES)
 		{
-		case ENEMY_TYPES::FOOT_SOLIDER_GREEN:
-			enemies[i] = new Enemy_Solider_Green(info.x,info.y);
-			break;
+			switch (info.type)
+			{
+			case ENEMY_TYPES::FOOT_SOLIDER_GREEN:
+				enemies[i] = new Enemy_Solider_Green(info.x, info.y);
+				break;
+			case ENEMY_TYPES::FOOT_SOLIDER_PURPLE:
+				enemies[i] = new Enemy_Solider_Purple(info.x, info.y);
+				break;
+			}
 		}
 	}
 }

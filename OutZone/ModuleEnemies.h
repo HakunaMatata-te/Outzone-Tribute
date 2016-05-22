@@ -7,6 +7,7 @@
 
 //Type of enemies.h
 #include "Enemy_Solider_Green.h"
+#include "Enemy_Solider_Purple.h"
 
 
 
@@ -14,11 +15,7 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	FOOT_SOLIDER_GREEN,
-	FOOT_SOLIDER_RED,
-	TRUCK,
-	MINOR_TURRET,
-	BIGGER_TURRET,
-	FIRST_BOSS
+	FOOT_SOLIDER_PURPLE,
 };
 
 class Enemy;
