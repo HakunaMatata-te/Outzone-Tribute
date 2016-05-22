@@ -128,6 +128,12 @@ public:
 
 	Particle player_fall;
 
+	Particle right_laser_turret_light;
+	Particle right_laser_turret_shot;
+
+	Particle left_laser_turret_light;
+	Particle left_laser_turret_shot;
+
 	Particle_Bullet test;
 };
 

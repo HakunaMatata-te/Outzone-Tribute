@@ -172,6 +172,18 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 150, App->collision->returny(5250, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h));
 
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4639, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4639, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4575, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4575, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4511, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4511, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4447, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4447, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4383, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4383, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4319, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4319, background.h));
 
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 	App->objects->AddObject(BOX, 130, App->collision->returny(6300, background.h));

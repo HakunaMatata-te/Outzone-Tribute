@@ -148,6 +148,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::FOOT_SOLIDER_PURPLE:
 				enemies[i] = new Enemy_Solider_Purple(info.x, info.y);
 				break;
+			case ENEMY_TYPES::RIGHT_LASER_TURRET:
+				enemies[i] = new Enemy_Right_Laser_Turret(info.x, info.y);
+				break;
+			case ENEMY_TYPES::LEFT_LASER_TURRET:
+				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y);
+				break;
 			}
 		}
 	}

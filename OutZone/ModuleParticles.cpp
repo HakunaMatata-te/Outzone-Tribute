@@ -302,6 +302,40 @@ ModuleParticles::ModuleParticles()
 	player_fall.anim.speed = 0.1f;
 //	player_fall.anim.loop = false;
 
+
+	//Laser Turret
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.speed = 0.2f;
+	right_laser_turret_light.anim.loop = false;
+
+	right_laser_turret_shot.anim.PushBack({ 624, 388, 8, 8 });
+	right_laser_turret_shot.speed.y = +5;
+	right_laser_turret_shot.speed.x = -5;
+	right_laser_turret_shot.life = life_shots;
+
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.speed = 0.1f;
+	left_laser_turret_light.anim.loop = false;
+
+	left_laser_turret_shot.anim.PushBack({ 591, 448, 8, 8 });
+	left_laser_turret_shot.speed.y = +5;
+	left_laser_turret_shot.speed.x = +5;
+	left_laser_turret_shot.life = life_shots;
+
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;

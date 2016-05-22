@@ -97,6 +97,12 @@
     <ClCompile Include="Enemy_Solider_Purple.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Right_Laser_Turret.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Left_Laser_Turret.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -205,6 +211,12 @@
       <Filter>Modules</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Solider_Purple.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Right_Laser_Turret.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Left_Laser_Turret.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
