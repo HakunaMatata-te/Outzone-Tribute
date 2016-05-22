@@ -208,7 +208,20 @@ update_status ModuleLevel_3::Update()
 		}
 
 		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == true && second_lava == false){
-			App->collision->AddCollider({ 0, App->collision->returny(300, background.h), 84, 100 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(480, background.h), 200, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(469, background.h), 120, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(456, background.h), 110, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(449, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(438, background.h), 90, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(426, background.h), 80, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(419, background.h), 70, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(408, background.h), 60, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(397, background.h), 50, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(388, background.h), 40, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(377, background.h), 30, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(366, background.h), 20, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(357, background.h), 10, 50 }, COLLIDER_HOLE);
+
 			second_lava = true;
 		}
 	}
