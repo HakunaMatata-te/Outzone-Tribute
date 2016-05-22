@@ -473,7 +473,7 @@ update_status ModulePlayer::PostUpdate()
 	if (invencible == false){
 		if (App->ui->energy == 0){
 			Disable();
-			App->ui->Disable();
+			
 			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
@@ -508,7 +508,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
-
+			App->ui->energy = MAX_N_ENERGY;
 			destroyed = true;
 
 		}
