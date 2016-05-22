@@ -132,6 +132,7 @@ bool ModulePlayer::Start(){
 	position_test.y = 150;
 	screenlowheight = 320;	
 	destroyed = false;
+	fall_animation = false;
 	spbombmunition = 3;
 	speed = PLAYER_SPEED;
 	current_weapon = MINIGUN;
