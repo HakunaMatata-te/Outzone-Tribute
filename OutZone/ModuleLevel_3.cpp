@@ -190,7 +190,19 @@ update_status ModuleLevel_3::Update()
 	if (App->render->camera.y >= 5925 && boss_start == true){
 		//Right lava (1st to appear)
 		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == false){
-			App->collision->AddCollider({ 170, App->collision->returny(300, background.h), 84, 100 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 130, App->collision->returny(480, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 140, App->collision->returny(473, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 150, App->collision->returny(469, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 160, App->collision->returny(464, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 170, App->collision->returny(458, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 180, App->collision->returny(452, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 190, App->collision->returny(449, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 200, App->collision->returny(442, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 210, App->collision->returny(437, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 220, App->collision->returny(434, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 230, App->collision->returny(427, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 240, App->collision->returny(421, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 250, App->collision->returny(417, background.h), 100, 50 }, COLLIDER_HOLE);
 			first_lava = true;
 			lava_timer = SDL_GetTicks();
 		}
