@@ -215,22 +215,31 @@ update_status ModulePlayer::Update(){
 	if (player_dir < 0)
 		player_dir = 15;
 
-	//Dir check
+	//Player direction update
 	if (current_weapon == MINIGUN){
-		if (player_dir == 0)
+		if (player_dir == 0){
 			current_animation = &upward;
+			current_idle = &idle_up;
+		}
 		if (player_dir < 4 && player_dir>0)
 			current_animation = &upward_right;
-		if (player_dir == 4)
+		if (player_dir == 4){
 			current_animation = &rightward;
-		if (player_dir < 8 && player_dir>4)
+			current_idle = &idle_right;
+		}
+		if (player_dir < 8 && player_dir>4){
 			current_animation = &downward_right;
-		if (player_dir == 8)
+		}
+		if (player_dir == 8){
 			current_animation = &downward;
+			current_idle = &idle_down;
+		}
 		if (player_dir < 12 && player_dir>8)
 			current_animation = &downward_left;
-		if (player_dir == 12)
+		if (player_dir == 12){
 			current_animation = &leftward;
+			current_idle = &idle_left;
+		}
 		if (player_dir > 12 && player_dir <= 15)
 			current_animation = &upward_left;
 	}
@@ -439,8 +448,12 @@ update_status ModulePlayer::Update(){
 		App->ui->infinite_energy = !App->ui->infinite_energy;
 
 	//Print player
-	if (destroyed == false)
-		App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
+	if (destroyed == false){
+		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT)
+			App->render->Blit(character, position.x, position.y, &current_animation->GetCurrentFrame());
+		else
+			App->render->Blit(character, position.x, position.y, &current_idle->GetCurrentFrame());
+	}
 
 	//Debug funtions -----------------------------------------------------------
 

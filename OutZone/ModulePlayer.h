@@ -61,6 +61,7 @@ public:
 	//SDL_Rect idle;
 
 	Animation* current_animation = nullptr;
+	Animation* current_idle = nullptr;
 	Animation idle_up;
 	Animation idle_right;
 	Animation idle_down;
