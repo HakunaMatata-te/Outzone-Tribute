@@ -154,6 +154,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::LEFT_LASER_TURRET:
 				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y);
 				break;
+			case ENEMY_TYPES::SHIELD_TANK:
+				enemies[i] = new Enemy_Shield_Tank(info.x, info.y);
+				break;
 			}
 		}
 	}

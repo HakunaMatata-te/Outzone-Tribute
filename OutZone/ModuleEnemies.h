@@ -10,7 +10,7 @@
 #include "Enemy_Solider_Purple.h"
 #include "Enemy_Right_Laser_Turret.h"
 #include "Enemy_Left_Laser_Turret.h"
-
+#include "Enemy_Shield_Tank.h"
 
 enum ENEMY_TYPES
 {
@@ -19,6 +19,7 @@ enum ENEMY_TYPES
 	FOOT_SOLIDER_PURPLE,
 	RIGHT_LASER_TURRET,
 	LEFT_LASER_TURRET,
+	SHIELD_TANK
 };
 
 class Enemy;

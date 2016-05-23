@@ -103,6 +103,9 @@
     <ClCompile Include="Enemy_Left_Laser_Turret.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Shield_Tank.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -217,6 +220,9 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Left_Laser_Turret.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Shield_Tank.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

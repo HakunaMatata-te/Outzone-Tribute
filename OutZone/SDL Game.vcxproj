@@ -73,6 +73,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy_Left_Laser_Turret.h" />
     <ClInclude Include="Enemy_Right_Laser_Turret.h" />
+    <ClInclude Include="Enemy_Shield_Tank.h" />
     <ClInclude Include="Enemy_Solider_Purple.h" />
     <ClInclude Include="ModuleLevel_3.h" />
     <ClInclude Include="ModuleUI.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Left_Laser_Turret.cpp" />
     <ClCompile Include="Enemy_Right_Laser_Turret.cpp" />
+    <ClCompile Include="Enemy_Shield_Tank.cpp" />
     <ClCompile Include="Enemy_Solider_Green.cpp" />
     <ClCompile Include="Enemy_Solider_Purple.cpp" />
     <ClCompile Include="Globals.cpp" />

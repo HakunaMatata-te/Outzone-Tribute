@@ -134,6 +134,13 @@ public:
 	Particle left_laser_turret_light;
 	Particle left_laser_turret_shot;
 
+	Particle left_Shield_Tank_Case;
+	Particle right_Shield_Tank_Case;
+
+	Particle blue_shot_left;
+	Particle blue_shot_center;
+	Particle blue_shot_right;
+
 	Particle_Bullet test;
 };
 

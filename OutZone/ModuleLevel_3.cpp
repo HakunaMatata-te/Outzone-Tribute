@@ -185,6 +185,9 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4319, background.h));
 	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4319, background.h));
 
+	App->enemies->AddEnemy(SHIELD_TANK, 144, App->collision->returny(5695, background.h));
+
+	//Objects
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 	App->objects->AddObject(BOX, 130, App->collision->returny(6300, background.h));
 
