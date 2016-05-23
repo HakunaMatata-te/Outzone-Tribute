@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Solider_Green::Enemy_Solider_Green(int x, int y) : Enemy(x, y)
+Enemy_Solider_Green::Enemy_Solider_Green(int x, int y, uint typemove) : Enemy(x, y,typemove)
 {
 	Idle_1.PushBack({ 301, 16, 28, 35 });
 	Idle_2.PushBack({ 303, 62, 28, 36 });

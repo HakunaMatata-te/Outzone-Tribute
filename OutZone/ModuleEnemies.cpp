@@ -113,7 +113,7 @@ bool ModuleEnemies::CleanUp()
 	return true;
 }
 
-bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
+bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove)
 {
 	bool ret = false;
 
@@ -124,6 +124,7 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y)
 			queue[i].type = type;
 			queue[i].x = x;
 			queue[i].y = y;
+			queue[i].typemove = typemove;
 			ret = true;
 			break;
 		}
@@ -143,19 +144,22 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			switch (info.type)
 			{
 			case ENEMY_TYPES::FOOT_SOLIDER_GREEN:
-				enemies[i] = new Enemy_Solider_Green(info.x, info.y);
+				enemies[i] = new Enemy_Solider_Green(info.x, info.y, info.typemove);
 				break;
 			case ENEMY_TYPES::FOOT_SOLIDER_PURPLE:
-				enemies[i] = new Enemy_Solider_Purple(info.x, info.y);
+				enemies[i] = new Enemy_Solider_Purple(info.x, info.y, info.typemove);
 				break;
 			case ENEMY_TYPES::RIGHT_LASER_TURRET:
-				enemies[i] = new Enemy_Right_Laser_Turret(info.x, info.y);
+				enemies[i] = new Enemy_Right_Laser_Turret(info.x, info.y, info.typemove);
 				break;
 			case ENEMY_TYPES::LEFT_LASER_TURRET:
-				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y);
+				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y, info.typemove);
 				break;
 			case ENEMY_TYPES::SHIELD_TANK:
-				enemies[i] = new Enemy_Shield_Tank(info.x, info.y);
+				enemies[i] = new Enemy_Shield_Tank(info.x, info.y, info.typemove);
+				break;
+			case ENEMY_TYPES::HORITZONTAL_MOVING_MACHINE:
+				enemies[i] = new Enemy_HMM(info.x, info.y, info.typemove);
 				break;
 			}
 		}

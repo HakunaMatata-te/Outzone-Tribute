@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Left_Laser_Turret::Enemy_Left_Laser_Turret(int x, int y) : Enemy(x, y)
+Enemy_Left_Laser_Turret::Enemy_Left_Laser_Turret(int x, int y, uint typemove) : Enemy(x, y, typemove)
 {
 
 	move.PushBack({ 0, 0, 0, 0 });
