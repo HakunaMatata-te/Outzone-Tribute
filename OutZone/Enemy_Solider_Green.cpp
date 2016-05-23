@@ -40,8 +40,8 @@ void Enemy_Solider_Green::death(){
 void Enemy_Solider_Green::Move()
 {
 	SDL_Rect anim = animation->GetCurrentFrame();
-
-	pos_idle = SeePlayer(SDL_Rect{position.x,position.y,anim.w,anim.h });
+	float angle;
+	pos_idle = SeePlayer(SDL_Rect{position.x,position.y,anim.w,anim.h}, angle);
 
 	if (pos_idle == 1)
 		animation = &Idle_1;
@@ -80,7 +80,7 @@ void Enemy_Solider_Green::Move()
 	{
 		if (SDL_GetTicks() - lasttimelapseShot > 50)
 		{
-			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT, angle);
 			lasttimelapseShot = SDL_GetTicks();
 		}
 		lastShot = SDL_GetTicks();

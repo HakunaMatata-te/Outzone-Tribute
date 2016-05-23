@@ -32,8 +32,8 @@ void Enemy_Red_Infantery::death(){
 void Enemy_Red_Infantery::Move()
 {
 	SDL_Rect anim = animation->GetCurrentFrame();
-
-	pos_idle = SeePlayer(SDL_Rect{position.x,position.y,anim.w,anim.h });
+	float angle;
+	pos_idle = SeePlayer(SDL_Rect{position.x,position.y,anim.w,anim.h }, angle);
 
 	if (pos_idle == 1 || pos_idle == 2)
 		animation = &Idle_1;
@@ -56,7 +56,7 @@ void Enemy_Red_Infantery::Move()
 	{
 		if (SDL_GetTicks() - lasttimelapseShot > 50)
 		{
-			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT, angle);
 			lasttimelapseShot = SDL_GetTicks();
 		}
 		lastShot = SDL_GetTicks();

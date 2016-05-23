@@ -32,7 +32,7 @@ void Enemy::Draw(SDL_Texture* sprites)
 	App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
 }
 
-int Enemy::SeePlayer(const SDL_Rect& r)
+int Enemy::SeePlayer(const SDL_Rect& r, float& angle2)
 {
 	float angle;
 	fPoint player;
@@ -44,11 +44,13 @@ int Enemy::SeePlayer(const SDL_Rect& r)
 
 	int distx = player.x - (r.x + r.w / 2);
 
+	float hypotenusa = sqrt(distx*distx + ((player.y - (r.y + r.h / 2))*(player.y - (r.y + r.h / 2))));
 
-	angle = atan((player.y - (r.y + r.h / 2)) / (distx)) * 180 / PI;
+	angle = acos(distx / hypotenusa) * 180 / PI;
 
-	if (distx > 0)
-		angle += 180;
+	if ((player.y - (r.y + r.h / 2)) >= 0)
+	angle += 180;
+	else angle = (180 - angle);
 
 	if (angle > 78.75 && angle <= 101.25)
 		dir = 1;
@@ -66,15 +68,15 @@ int Enemy::SeePlayer(const SDL_Rect& r)
 		dir = 7;
 	else if (angle > 236.25 && angle <= 258.75)
 		dir = 8;
-	else if ((angle > 258.75 && angle <= 270) || (angle >= -90 && angle <= -78.75))
+	else if ((angle > 258.75 && angle <= 281.25))
 		dir = 9;
-	else if (angle > -78.75 && angle <= -56.25)
+	else if (angle > 281.25 && angle <= 303.75)
 		dir = 10;
-	else if (angle > -56.25 && angle <= -33.75)
+	else if (angle > 303.75 && angle <= 326.25)
 		dir = 11;
-	else if (angle > -33.75 && angle <= -11.25)
+	else if (angle > 326.25 && angle <= 348.75)
 		dir = 12;
-	else if ((angle > -11.25 && angle <= 0) || (angle >= 0 && angle <= 11.25))
+	else if ((angle > 348.75 && angle <= 360) || (angle >= 0 && angle <= 11.25))
 		dir = 13;
 	else if (angle > 11.25 && angle <= 33.75)
 		dir = 14;
@@ -82,6 +84,6 @@ int Enemy::SeePlayer(const SDL_Rect& r)
 		dir = 15;
 	else if (angle > 56.25 && angle <= 78.75)
 		dir = 16;
-
+	angle2 = angle;
 		return dir;
 }

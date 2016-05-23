@@ -32,7 +32,7 @@ public:
 	virtual void death() {};
 	virtual void droping() {};
 
-	int SeePlayer(const SDL_Rect& r);
+	int SeePlayer(const SDL_Rect& r, float& angle2);
 
 };
 

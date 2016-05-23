@@ -365,7 +365,7 @@ ModuleParticles::ModuleParticles()
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;
-	test.speed = 1.5f;
+	test.speed = 4.5f;
 
 }
 
@@ -494,7 +494,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 	}
 }
 
-void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
+void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, uint angle, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -504,26 +504,7 @@ void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, 
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
-			//in the range: center player -  (center player + 50)
-
-			p->player.x = (App->player->width / 2) + App->player->position.x;
-			p->player.y = (App->player->height / 2) + App->player->position.y;
-			
-			if (rand() % 2 == 1)
-				p->player.x -= rand() % 20;
-			else
-				p->player.x += rand() % 20;
-			if (rand() % 2 == 0)
-				p->player.y -= rand() % 20;
-			else
-				p->player.y += rand() % 20;
-
-			int distx = p->player.x - p->position.x;
-			
-			p->angle = atan((p->player.y - p->position.y) / (distx)) * 180 / PI;
-
-			if (distx > 0)
-				p->angle += 180;
+			p->angle = angle;
 			
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);

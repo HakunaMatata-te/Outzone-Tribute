@@ -25,11 +25,12 @@ void Enemy_Boss_LvL3_Files::death(){
 
 void Enemy_Boss_LvL3_Files::Move()
 {
+	float angle = 270;
 	if (SDL_GetTicks() - lastShot > 2000)
 	{
 		if (SDL_GetTicks() - lasttimelapseShot > 50)
 		{
-			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + 14, position.y + 15, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + 14, position.y + 15, COLLIDER_ENEMY_SHOT, angle);
 			lasttimelapseShot = SDL_GetTicks();
 		}
 		lastShot = SDL_GetTicks();

@@ -62,7 +62,7 @@ public:
 
 	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay = 0);
 
-	void AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay = 0);
+	void AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, uint angle, Uint32 delay = 0);
 
 private:
 

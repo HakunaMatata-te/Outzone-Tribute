@@ -42,7 +42,7 @@ void Enemy_Shield_Tank::Move()
 			lastShot = SDL_GetTicks();
 		}
 	}
-
+	float angle = 270;
 	if (anim.x == 828 && nude == false)
 	{
 		if (SDL_GetTicks() - lastShot > 1000)
@@ -50,7 +50,7 @@ void Enemy_Shield_Tank::Move()
 
 			if (SDL_GetTicks() - lasttimelapseShot > 50)
 			{
-				App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT, angle);
 				lasttimelapseShot = SDL_GetTicks();
 			}
 				
