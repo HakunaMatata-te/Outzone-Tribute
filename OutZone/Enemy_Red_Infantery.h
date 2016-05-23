@@ -1,10 +1,10 @@
-#ifndef __ENEMY_SOLIDER_GREEN_H__
-#define __ENEMY_SOLIDER_GREEN_H__
+#ifndef __ENEMY_RED_INFANTERY_H__
+#define __ENEMY_RED_INFANTERY_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class Enemy_Solider_Green : public Enemy
+class Enemy_Red_Infantery : public Enemy
 {
 private:
 	float wave = -1.0f;
@@ -27,21 +27,13 @@ private:
 	Animation Idle_6;
 	Animation Idle_7;
 	Animation Idle_8;
-	Animation Idle_9;
-	Animation Idle_10;
-	Animation Idle_11;
-	Animation Idle_12;
-	Animation Idle_13;
-	Animation Idle_14;
-	Animation Idle_15;
-	Animation Idle_16;
 
 public:
 
-	Enemy_Solider_Green(int x, int y, uint typemove);
+	Enemy_Red_Infantery(int x, int y, uint typemove);
 	void death();
 	void Move();
 
 };
 
-#endif // __ENEMY_SOLIDER_GREEN_H__
+#endif // __ENEMY_RED_INFANTERY_H__

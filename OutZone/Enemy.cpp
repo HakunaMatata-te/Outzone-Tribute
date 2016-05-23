@@ -10,7 +10,7 @@
 
 #define PI 3.14159265f
 
-Enemy::Enemy(int x, int y) : position(x, y), collider(nullptr)
+Enemy::Enemy(int x, int y, uint typemove) : position(x, y), typemove(typemove), collider(nullptr)
 {}
 
 Enemy::~Enemy()

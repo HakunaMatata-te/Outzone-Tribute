@@ -1,29 +1,29 @@
 #include "Application.h"
-#include "Enemy_Solider_Green.h"
+#include "Enemy_Solider_Purple.h"
 #include "ModuleCollider.h"
 #include "ModuleParticles.h"
 
 #include "SDL\include\SDL.h"
 
 
-Enemy_Solider_Green::Enemy_Solider_Green(int x, int y, uint typemove) : Enemy(x, y,typemove)
+Enemy_Solider_Purple::Enemy_Solider_Purple(int x, int y, uint typemove) : Enemy(x, y, typemove)
 {
-	Idle_1.PushBack({ 301, 16, 28, 35 });
-	Idle_2.PushBack({ 303, 62, 28, 36 });
-	Idle_3.PushBack({ 268, 63, 25, 35 });
-	Idle_4.PushBack({ 232, 63, 22, 36 });
-	Idle_5.PushBack({ 191, 64, 24, 35 });
-	Idle_6.PushBack({ 128, 64, 26, 35 });
-	Idle_7.PushBack({ 92, 66, 27, 35 });
-	Idle_8.PushBack({ 55, 66, 29, 34 });
-	Idle_9.PushBack({ 20, 65, 28, 35 });
-	Idle_10.PushBack({ 22, 21, 27, 35 });
-	Idle_11.PushBack({ 57, 20, 27, 36 });
-	Idle_12.PushBack({ 93, 21, 26, 35 });
-	Idle_13.PushBack({ 128, 21, 23, 33 });
-	Idle_14.PushBack({ 188, 19, 24, 35 });
-	Idle_15.PushBack({ 227, 17, 27, 35 });
-	Idle_16.PushBack({ 266, 17, 26, 35 });
+	Idle_1.PushBack({ 272, 667, 28, 35 });
+	Idle_2.PushBack({ 276, 705, 28, 36 });
+	Idle_3.PushBack({ 244, 706, 25, 35 });
+	Idle_4.PushBack({ 215, 706, 22, 36 });
+	Idle_5.PushBack({ 182, 707, 24, 35 });
+	Idle_6.PushBack({ 145, 706, 26, 35 });
+	Idle_7.PushBack({ 111, 706, 27, 35 });
+	Idle_8.PushBack({ 75, 707, 29, 34 });
+	Idle_9.PushBack({ 40, 707, 28, 35 });
+	Idle_10.PushBack({ 40, 665, 27, 35 });
+	Idle_11.PushBack({ 75, 665, 27, 36 });
+	Idle_12.PushBack({ 110, 666, 26, 35 });
+	Idle_13.PushBack({ 144, 668, 23, 33 });
+	Idle_14.PushBack({ 179, 668, 24, 35 });
+	Idle_15.PushBack({ 210, 667, 27, 35 });
+	Idle_16.PushBack({ 243, 668, 26, 35 });
 
 
 	animation = &Idle_9;
@@ -32,12 +32,12 @@ Enemy_Solider_Green::Enemy_Solider_Green(int x, int y, uint typemove) : Enemy(x,
 
 }
 
-void Enemy_Solider_Green::death(){
+void Enemy_Solider_Purple::death(){
 	App->particles->AddParticle(App->particles->normal_explosion, position.x, position.y, COLLIDER_NONE);
 	App->ui->personal_score += 3000;
 }
 
-void Enemy_Solider_Green::Move()
+void Enemy_Solider_Purple::Move()
 {
 	SDL_Rect anim = animation->GetCurrentFrame();
 

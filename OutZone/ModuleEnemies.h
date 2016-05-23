@@ -7,18 +7,29 @@
 
 //Type of enemies.h
 #include "Enemy_Solider_Green.h"
-
-
+#include "Enemy_Solider_Purple.h"
+#include "Enemy_Right_Laser_Turret.h"
+#include "Enemy_Left_Laser_Turret.h"
+#include "Enemy_Shield_Tank.h"
+#include "Enemy_HMM.h"
+#include "Enemy_Yellow_Infantery.h"
+#include "Enemy_Red_Infantery.h"
+#include "Enemy_Boss_LvL3.h"
+#include "Enemy_Boss_LvL3_Files.h"
 
 enum ENEMY_TYPES
 {
 	NO_TYPE,
 	FOOT_SOLIDER_GREEN,
-	FOOT_SOLIDER_RED,
-	TRUCK,
-	MINOR_TURRET,
-	BIGGER_TURRET,
-	FIRST_BOSS
+	FOOT_SOLIDER_PURPLE,
+	RIGHT_LASER_TURRET,
+	LEFT_LASER_TURRET,
+	SHIELD_TANK,
+	HORITZONTAL_MOVING_MACHINE,
+	YELLOW_INFANTERY,
+	RED_INFANTERY,
+	BOSS_LVL3,
+	BOSS_LVL3_FILES
 };
 
 class Enemy;
@@ -27,6 +38,7 @@ struct EnemyInfo
 {
 	ENEMY_TYPES type = ENEMY_TYPES::NO_TYPE;
 	int x, y;
+	uint typemove = 0;
 };
 
 class ModuleEnemies : public Module
@@ -43,7 +55,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	bool AddEnemy(ENEMY_TYPES type, int x, int y);
+	bool AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove = 0);
 
 private:
 

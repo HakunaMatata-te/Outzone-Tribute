@@ -19,9 +19,10 @@ protected:
 public:
 	iPoint position;
 	int life = 2;
+	uint typemove;
 
 public:
-	Enemy(int x, int y);
+	Enemy(int x, int y, uint typemove);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;

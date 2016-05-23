@@ -1,10 +1,10 @@
-#ifndef __ENEMY_SOLIDER_GREEN_H__
-#define __ENEMY_SOLIDER_GREEN_H__
+#ifndef __ENEMY_SOLIDER_Purple_H__
+#define __ENEMY_SOLIDER_Purple_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class Enemy_Solider_Green : public Enemy
+class Enemy_Solider_Purple : public Enemy
 {
 private:
 	float wave = -1.0f;
@@ -38,10 +38,10 @@ private:
 
 public:
 
-	Enemy_Solider_Green(int x, int y, uint typemove);
+	Enemy_Solider_Purple(int x, int y,uint typemove);
 	void death();
 	void Move();
 
 };
 
-#endif // __ENEMY_SOLIDER_GREEN_H__
+#endif // __ENEMY_SOLIDER_Purple_H__

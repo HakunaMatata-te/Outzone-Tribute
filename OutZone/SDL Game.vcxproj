@@ -71,6 +71,15 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Enemy_Boss_LvL3.h" />
+    <ClInclude Include="Enemy_Boss_LvL3_Files.h" />
+    <ClInclude Include="Enemy_HMM.h" />
+    <ClInclude Include="Enemy_Left_Laser_Turret.h" />
+    <ClInclude Include="Enemy_Red_Infantery.h" />
+    <ClInclude Include="Enemy_Right_Laser_Turret.h" />
+    <ClInclude Include="Enemy_Shield_Tank.h" />
+    <ClInclude Include="Enemy_Solider_Purple.h" />
+    <ClInclude Include="Enemy_Yellow_Infantery.h" />
     <ClInclude Include="ModuleLevel_3.h" />
     <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="Object_Box_Energy.h" />
@@ -108,7 +117,16 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy_Boss_LvL3.cpp" />
+    <ClCompile Include="Enemy_Boss_LvL3_Files.cpp" />
+    <ClCompile Include="Enemy_HMM.cpp" />
+    <ClCompile Include="Enemy_Left_Laser_Turret.cpp" />
+    <ClCompile Include="Enemy_Red_Infantery.cpp" />
+    <ClCompile Include="Enemy_Right_Laser_Turret.cpp" />
+    <ClCompile Include="Enemy_Shield_Tank.cpp" />
     <ClCompile Include="Enemy_Solider_Green.cpp" />
+    <ClCompile Include="Enemy_Solider_Purple.cpp" />
+    <ClCompile Include="Enemy_Yellow_Infantery.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
