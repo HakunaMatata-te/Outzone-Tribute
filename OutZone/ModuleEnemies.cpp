@@ -161,6 +161,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::HORITZONTAL_MOVING_MACHINE:
 				enemies[i] = new Enemy_HMM(info.x, info.y, info.typemove);
 				break;
+			case ENEMY_TYPES::YELLOW_INFANTERY:
+				enemies[i] = new Enemy_Yellow_Infantery(info.x, info.y, info.typemove);
+				break;
+			case ENEMY_TYPES::RED_INFANTERY:
+				enemies[i] = new Enemy_Red_Infantery(info.x, info.y, info.typemove);
+				break;
 			}
 		}
 	}

@@ -12,6 +12,8 @@
 #include "Enemy_Left_Laser_Turret.h"
 #include "Enemy_Shield_Tank.h"
 #include "Enemy_HMM.h"
+#include "Enemy_Yellow_Infantery.h"
+#include "Enemy_Red_Infantery.h"
 
 enum ENEMY_TYPES
 {
@@ -21,7 +23,9 @@ enum ENEMY_TYPES
 	RIGHT_LASER_TURRET,
 	LEFT_LASER_TURRET,
 	SHIELD_TANK,
-	HORITZONTAL_MOVING_MACHINE
+	HORITZONTAL_MOVING_MACHINE,
+	YELLOW_INFANTERY,
+	RED_INFANTERY
 };
 
 class Enemy;

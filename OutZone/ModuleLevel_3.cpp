@@ -192,6 +192,10 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 61, App->collision->returny(2231, background.h), 2);
 	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 90, App->collision->returny(2167, background.h), 3);
 
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5950, background.h));
+
+	App->enemies->AddEnemy(RED_INFANTERY, 100, App->collision->returny(5950, background.h));
+
 	//Objects
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 	App->objects->AddObject(BOX, 130, App->collision->returny(6300, background.h));
