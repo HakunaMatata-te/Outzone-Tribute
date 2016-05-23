@@ -10,7 +10,7 @@ Enemy_Solider_Purple::Enemy_Solider_Purple(int x, int y, uint typemove) : Enemy(
 {
 	Idle_1.PushBack({ 272, 667, 28, 35 });
 	Idle_2.PushBack({ 276, 705, 28, 36 });
-	Idle_3.PushBack({ 224, 706, 25, 35 });
+	Idle_3.PushBack({ 244, 706, 25, 35 });
 	Idle_4.PushBack({ 215, 706, 22, 36 });
 	Idle_5.PushBack({ 182, 707, 24, 35 });
 	Idle_6.PushBack({ 145, 706, 26, 35 });

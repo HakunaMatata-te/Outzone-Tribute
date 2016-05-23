@@ -21,7 +21,6 @@ Enemy_Shield_Tank::Enemy_Shield_Tank(int x, int y, uint typemove) : Enemy(x, y, 
 	collider = App->collision->AddCollider({ 0, 0, 64, 56 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	life = 5;
-
 }
 
 void Enemy_Shield_Tank::death(){
@@ -33,13 +32,28 @@ void Enemy_Shield_Tank::Move()
 {
 	SDL_Rect anim = animation->GetCurrentFrame();
 
-	if (anim.x == 828)
+	if (anim.x == 828 && nude == true)
 	{
 		if (SDL_GetTicks() - lastShot > 200)
 		{
 			App->particles->AddParticle(App->particles->blue_shot_left, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->blue_shot_right, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
+			lastShot = SDL_GetTicks();
+		}
+	}
+
+	if (anim.x == 828 && nude == false)
+	{
+		if (SDL_GetTicks() - lastShot > 1000)
+		{
+
+			if (SDL_GetTicks() - lasttimelapseShot > 50)
+			{
+				App->particles->AddParticle_Bullet_Enemy(App->particles->test, position.x + (anim.w / 2), position.y + (anim.h / 2), COLLIDER_ENEMY_SHOT);
+				lasttimelapseShot = SDL_GetTicks();
+			}
+				
 			lastShot = SDL_GetTicks();
 		}
 	}

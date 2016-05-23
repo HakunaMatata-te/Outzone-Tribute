@@ -1,10 +1,10 @@
-#ifndef __ENEMY_SHIELD_TANK_H__
-#define __ENEMY_SHIELD_TANK_H__
+#ifndef __ENEMY_BOSS_LVL3_H__
+#define __ENEMY_BOSS_LVL3_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class Enemy_Shield_Tank : public Enemy
+class Enemy_Boss_LvL3 : public Enemy
 {
 private:
 	float wave = -1.0f;
@@ -15,20 +15,21 @@ private:
 	fPoint speed;
 	Path path;
 	Uint32 lastShot = 0;
-	Uint32 lasttimelapseShot = 0;
 	int pos_idle = 0;
 	bool shot = true;
+	bool right = true;
+	bool left = false;
+	bool up = false;
+	bool down = false;
 
-	Animation Shield;
-	Animation Nude;
-	bool nude = true;
+	Animation Structure;
 
 public:
 
-	Enemy_Shield_Tank(int x, int y, uint typemove);
+	Enemy_Boss_LvL3(int x, int y, uint typemove);
 	void death();
 	void Move();
 
 };
 
-#endif // __ENEMY_SHIELD_TANK_H__
+#endif // __ENEMY_BOSS_LVL3_H__

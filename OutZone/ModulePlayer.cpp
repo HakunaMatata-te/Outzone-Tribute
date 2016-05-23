@@ -478,8 +478,17 @@ update_status ModulePlayer::PostUpdate()
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
 
-			destroyed = true;
+			screenlowheight = -5600;
 		}
+	}
+
+	if (win == true)
+	{
+		Disable();
+
+		App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
+
+		destroyed = true;
 	}
 
 	return UPDATE_CONTINUE;

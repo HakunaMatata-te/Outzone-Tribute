@@ -187,14 +187,20 @@ bool ModuleLevel_3::Start()
 
 	App->enemies->AddEnemy(SHIELD_TANK, 144, App->collision->returny(5695, background.h));
 
-	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 170, App->collision->returny(2871, background.h), 1);
-	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 75, App->collision->returny(2935, background.h), 1);
-	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 61, App->collision->returny(2231, background.h), 2);
-	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 90, App->collision->returny(2167, background.h), 3);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2871, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2935, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2231, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2167, background.h), 2);
+
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 50, App->collision->returny(5950, background.h));
 
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5950, background.h));
 
 	App->enemies->AddEnemy(RED_INFANTERY, 100, App->collision->returny(5950, background.h));
+
+	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h));
+
+	App->enemies->AddEnemy(BOSS_LVL3, 0, App->collision->returny(191, background.h));
 
 	//Objects
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
@@ -273,5 +279,7 @@ update_status ModuleLevel_3::Update()
 		}
 	}
 	
+
+
 	return UPDATE_CONTINUE;
 }

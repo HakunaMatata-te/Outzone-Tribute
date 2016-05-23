@@ -26,7 +26,6 @@ public:
 	bool boss_start;
 	bool first_lava;
 	bool second_lava;
-
 };
 
 #endif

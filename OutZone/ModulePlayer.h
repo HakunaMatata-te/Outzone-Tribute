@@ -86,6 +86,7 @@ public:
 	Collider* playercollider = nullptr;
 
 	bool destroyed = false;
+	bool win = false;
 };
 
 #endif // !__ModulePlayer_H__

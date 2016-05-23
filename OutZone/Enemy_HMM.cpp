@@ -60,7 +60,7 @@ void Enemy_HMM::Move()
 
 	if (typemove == 2)
 	{
-		if (position.x >= 143)
+		if (position.x >= 190)
 		{
 			right = false;
 			left = true;
@@ -69,30 +69,6 @@ void Enemy_HMM::Move()
 		{
 			right = true;
 			left = false;
-		}
-
-		if (right == true)
-			position.x += 2;
-		if (left == true)
-			position.x -= 2;
-	}
-
-	if (typemove == 3)
-	{
-		if (position.x >= 175)
-		{
-			right = false;
-			left = true;
-		}
-		if (position.x <= 0)
-		{
-			right = true;
-			left = false;
-		}
-
-		if (position.x >= 95)
-		{
-			up = true;
 		}
 		if (position.x >= 95 && right == true)
 		{

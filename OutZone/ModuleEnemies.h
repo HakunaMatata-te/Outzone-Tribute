@@ -14,6 +14,8 @@
 #include "Enemy_HMM.h"
 #include "Enemy_Yellow_Infantery.h"
 #include "Enemy_Red_Infantery.h"
+#include "Enemy_Boss_LvL3.h"
+#include "Enemy_Boss_LvL3_Files.h"
 
 enum ENEMY_TYPES
 {
@@ -25,7 +27,9 @@ enum ENEMY_TYPES
 	SHIELD_TANK,
 	HORITZONTAL_MOVING_MACHINE,
 	YELLOW_INFANTERY,
-	RED_INFANTERY
+	RED_INFANTERY,
+	BOSS_LVL3,
+	BOSS_LVL3_FILES
 };
 
 class Enemy;
