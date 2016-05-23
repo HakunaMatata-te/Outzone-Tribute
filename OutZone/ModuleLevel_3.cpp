@@ -22,6 +22,11 @@ ModuleLevel_3::ModuleLevel_3()
 	background.w = 240;
 	background.h = 6436;
 
+	platform.x = 1;
+	platform.y = 0;
+	platform.y = 240;
+	platform.h = 200;
+
 }
 
 ModuleLevel_3::~ModuleLevel_3()
@@ -33,6 +38,7 @@ bool ModuleLevel_3::Start()
 	LOG("Loading background assets");
 
 	lvl_texture = App->textures->Load("Maps/lvl_3.png");
+	right_platform = App->textures->Load("Maps/Right_boss_platform_test.png");
 	//App->audios->PlayMusic("Sounds/lvl_1.ogg", -1.0f);
 
 	//Enable modules
@@ -225,6 +231,11 @@ update_status ModuleLevel_3::Update()
 			second_lava = true;
 		}
 	}
+
+
+
+	//App->render->Blit(right_platform, 0, 300 + SCREEN_HEIGHT, &platform, 1, true);
+
 	
 	return UPDATE_CONTINUE;
 }
