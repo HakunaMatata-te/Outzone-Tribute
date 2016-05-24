@@ -179,6 +179,42 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h));
 
 
+	//Laser turrets
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4639, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4639, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4575, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4575, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4511, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4511, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4447, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4447, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4383, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4383, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4319, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4319, background.h));
+
+	//Tank shield
+	App->enemies->AddEnemy(SHIELD_TANK, 144, App->collision->returny(5695, background.h));
+
+	//Horizontal moving machine
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2871, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2935, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2231, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2167, background.h), 2);
+
+
+	//Infantary
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5950, background.h));
+	
+	App->enemies->AddEnemy(RED_INFANTERY, 100, App->collision->returny(5950, background.h));
+
+
+	//boss
+	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h));
+	
+	App->enemies->AddEnemy(BOSS_LVL3, 0, App->collision->returny(191, background.h));
+
+	//Objects
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 
 	boss_start = false;
