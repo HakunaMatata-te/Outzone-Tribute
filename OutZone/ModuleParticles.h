@@ -64,6 +64,8 @@ public:
 
 	void AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, uint angle, Uint32 delay = 0);
 
+	void Shots_explosion(int x, int y);
+
 private:
 
 	SDL_Texture* particles_texture = nullptr;
@@ -140,6 +142,9 @@ public:
 	Particle blue_shot_left;
 	Particle blue_shot_center;
 	Particle blue_shot_right;
+
+	Animation shot_explosion;
+	Animation triple_gun_shot_explosion;
 
 	Particle_Bullet test;
 };
