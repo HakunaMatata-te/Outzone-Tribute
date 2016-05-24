@@ -28,23 +28,23 @@ bool ModuleUi::Start(){
 	energy = MAX_N_ENERGY;
 	infinite_energy = false;
 	
-	idle_energybar.PushBack({ 26, 70, 96, 8});
-	idle_energy.PushBack({ 125, 71, 1, 7 });
-	idle_spbomb.PushBack({ 92, 46, 8, 15});
-	idle_score0.PushBack({ 111, 50, 7, 7 });
-	idle_score1.PushBack({ 121, 50, 7, 7 });
-	idle_score2.PushBack({ 132, 50, 7, 7 });
-	idle_score3.PushBack({ 144, 50, 7, 7 });
-	idle_score4.PushBack({ 156, 50, 7, 7 });
-	idle_score5.PushBack({ 168, 50, 7, 7});
-	idle_score6.PushBack({ 180, 50, 7, 7 });
-	idle_score7.PushBack({ 192, 50, 7, 7 });
-	idle_score8.PushBack({ 204, 50, 7, 7 });
-	idle_score9.PushBack({ 216, 50, 7, 7 });
+	idle_energybar.PushBack({ 26, 40, 96, 9});
+	idle_energy.PushBack({ 125, 41, 1, 7 });
+	idle_spbomb.PushBack({ 92, 17, 8, 15});
+	idle_score0.PushBack({ 111, 21, 7, 7 });
+	idle_score1.PushBack({ 121, 21, 7, 7 });
+	idle_score2.PushBack({ 132, 21, 7, 7 });
+	idle_score3.PushBack({ 144, 21, 7, 7 });
+	idle_score4.PushBack({ 156, 21, 7, 7 });
+	idle_score5.PushBack({ 168, 21, 7, 7});
+	idle_score6.PushBack({ 180, 21, 7, 7 });
+	idle_score7.PushBack({ 192, 21, 7, 7 });
+	idle_score8.PushBack({ 204, 21, 7, 7 });
+	idle_score9.PushBack({ 216, 21, 7, 7 });
 
-	idle_playername.PushBack({ 28, 50, 56, 8});
-	idle_playerlive.PushBack({262, 43, 9, 17});
-	idle_top.PushBack({ 232, 49, 22, 8});
+	idle_playername.PushBack({ 28, 21, 56, 8});
+	idle_playerlive.PushBack({262, 21, 9, 17});
+	idle_top.PushBack({ 232, 20, 22, 8});
 
 	digit_score = &idle_score0;
 	personal_score = 0;

@@ -4,11 +4,11 @@
 
 Box::Box(int x, int y) : Object(x,y)
 {
-	box.PushBack({ 521, 185, 28, 28 });
+	box.PushBack({ 504, 139, 44, 44 });
 
 	animation = &box;
 
-	collider = App->collision->AddCollider({ 0, 0, 24, 35 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
+	collider = App->collision->AddCollider({ -2, 0, 42, 56 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
 };
 
 void Box::drop()
