@@ -302,10 +302,74 @@ ModuleParticles::ModuleParticles()
 	player_fall.anim.speed = 0.1f;
 //	player_fall.anim.loop = false;
 
+
+	//Laser Turret
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.speed = 0.2f;
+	right_laser_turret_light.anim.loop = false;
+
+	right_laser_turret_shot.anim.PushBack({ 624, 388, 8, 8 });
+	right_laser_turret_shot.speed.y = +5;
+	right_laser_turret_shot.speed.x = -5;
+	right_laser_turret_shot.life = life_shots;
+
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
+	left_laser_turret_light.anim.speed = 0.1f;
+	left_laser_turret_light.anim.loop = false;
+
+	left_laser_turret_shot.anim.PushBack({ 591, 448, 8, 8 });
+	left_laser_turret_shot.speed.y = +5;
+	left_laser_turret_shot.speed.x = +5;
+	left_laser_turret_shot.life = life_shots;
+
+	//Shield Tank
+	left_Shield_Tank_Case.anim.PushBack({ 582, 541, 31, 48});
+	left_Shield_Tank_Case.speed.y = -3;
+	left_Shield_Tank_Case.speed.x = -2;
+	left_Shield_Tank_Case.life = 500;
+
+	right_Shield_Tank_Case.anim.PushBack({ 619, 541, 31, 48 });
+	right_Shield_Tank_Case.speed.y = -3;
+	right_Shield_Tank_Case.speed.x = +2;
+	right_Shield_Tank_Case.life = 500;
+
+	//Blue Shot
+	blue_shot_left.anim.PushBack({ 587, 499, 8, 8 });
+	blue_shot_left.speed.y = +2;
+	blue_shot_left.speed.x = -2;
+	blue_shot_left.life = 4000;
+	
+	blue_shot_center.anim.PushBack({ 611, 509, 6, 8 });
+	blue_shot_center.speed.y = +2;
+	blue_shot_center.life = 4000;
+
+	blue_shot_right.anim.PushBack({ 632, 499, 8, 8 });
+	blue_shot_right.speed.y = +2;
+	blue_shot_right.speed.x = +2;
+	blue_shot_right.life = 4000;
+
+	shot_explosion.PushBack({49, 160, 16 , 12});
+
+	triple_gun_shot_explosion.PushBack({ 121, 160, 38, 15 });
+
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;
-	test.speed = 1.5f;
+	test.speed = 4.5f;
 
 }
 
@@ -434,7 +498,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 	}
 }
 
-void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
+void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, uint angle, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -444,26 +508,7 @@ void ModuleParticles::AddParticle_Bullet_Enemy(const Particle_Bullet& particle, 
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
-			//in the range: center player -  (center player + 50)
-
-			p->player.x = (App->player->width / 2) + App->player->position.x;
-			p->player.y = (App->player->height / 2) + App->player->position.y;
-			
-			if (rand() % 2 == 1)
-				p->player.x -= rand() % 20;
-			else
-				p->player.x += rand() % 20;
-			if (rand() % 2 == 0)
-				p->player.y -= rand() % 20;
-			else
-				p->player.y += rand() % 20;
-
-			int distx = p->player.x - p->position.x;
-			
-			p->angle = atan((p->player.y - p->position.y) / (distx)) * 180 / PI;
-
-			if (distx > 0)
-				p->angle += 180;
+			p->angle = angle;
 			
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
@@ -480,6 +525,11 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	{
 		for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		{
+			/*if (c1->type == COLLIDER_PLAYER_SHOT)
+			{
+				if (App->player->current_weapon == MINIGUN)
+					AddParticle(shot_explosion, active[i]->position.x, active[i]->position.y);
+			}*/
 			// Always destroy particles that collide
 			if (active[i] != nullptr && active[i]->collider == c1)
 			{
@@ -488,7 +538,6 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 				active[i] = nullptr;
 				break;
 			}
-
 
 
 		}
@@ -505,6 +554,16 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 }
+
+//shot explosion;
+void ModuleParticles::Shots_explosion(int x, int y)
+{
+	if (App->player->current_weapon == MINIGUN)
+	App->render->Blit(particles_texture, x, y, &shot_explosion.GetCurrentFrame());
+	else if (App->player->current_weapon == TRIPLE_GUN)
+		App->render->Blit(particles_texture, x, y, &triple_gun_shot_explosion.GetCurrentFrame());
+}
+
 
 // Particle sruct methods-------------------------------------------------------------
 

@@ -89,7 +89,7 @@ update_status Application::Update()
 		ret = (modules[i]->IsEnabled()) ? (modules[i]->PostUpdate()) : UPDATE_CONTINUE;
 
 	return ret;
-}
+}	
 
 bool Application::CleanUp()
 {

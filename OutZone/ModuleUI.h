@@ -56,11 +56,14 @@ public:
 	Animation idle_score7;
 	Animation idle_score8;
 	Animation idle_score9;
+	Animation idle_playername;
+	Animation idle_playerlive;
+	Animation idle_top;
 	
 	Animation* digit_score = nullptr;
 	iPoint position;
 	
-	void print_score(uint score, int score_postion_x, int score_position_y);
+	void print_score(uint score, int score_postion_x, int score_position_y, bool high);
 	int digit_x(int num, int k);
 	int number_digits(int num);
 };

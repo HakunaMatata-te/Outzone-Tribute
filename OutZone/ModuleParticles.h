@@ -62,7 +62,9 @@ public:
 
 	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay = 0);
 
-	void AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay = 0);
+	void AddParticle_Bullet_Enemy(const Particle_Bullet& particle, int x, int y, COLLIDER_TYPE collider_type, uint angle, Uint32 delay = 0);
+
+	void Shots_explosion(int x, int y);
 
 private:
 
@@ -127,6 +129,22 @@ public:
 	Particle screen_bomb;
 
 	Particle player_fall;
+
+	Particle right_laser_turret_light;
+	Particle right_laser_turret_shot;
+
+	Particle left_laser_turret_light;
+	Particle left_laser_turret_shot;
+
+	Particle left_Shield_Tank_Case;
+	Particle right_Shield_Tank_Case;
+
+	Particle blue_shot_left;
+	Particle blue_shot_center;
+	Particle blue_shot_right;
+
+	Animation shot_explosion;
+	Animation triple_gun_shot_explosion;
 
 	Particle_Bullet test;
 };

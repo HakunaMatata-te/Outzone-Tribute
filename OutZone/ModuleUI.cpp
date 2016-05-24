@@ -28,27 +28,32 @@ bool ModuleUi::Start(){
 	energy = MAX_N_ENERGY;
 	infinite_energy = false;
 	
-	idle_energybar.PushBack({ 5, 152, 128, 10});
-	idle_energy.PushBack({ 136, 153, 1, 7 });
-	idle_spbomb.PushBack({ 10, 96, 13, 22});
-	idle_score0.PushBack({ 7, 168, 20, 32 });
-	idle_score1.PushBack({ 27, 168, 20, 32 });
-	idle_score2.PushBack({ 47, 168, 20, 32 });
-	idle_score3.PushBack({ 67, 168, 20, 32 });
-	idle_score4.PushBack({ 87, 168, 20, 32 });
-	idle_score5.PushBack({ 107, 168, 20, 32 });
-	idle_score6.PushBack({ 127, 168, 20, 32 });
-	idle_score7.PushBack({ 147, 168, 20, 32 });
-	idle_score8.PushBack({ 167, 168, 20, 32 });
-	idle_score9.PushBack({ 187, 168, 20, 32 });
+	idle_energybar.PushBack({ 26, 70, 96, 8});
+	idle_energy.PushBack({ 125, 71, 1, 7 });
+	idle_spbomb.PushBack({ 92, 46, 8, 15});
+	idle_score0.PushBack({ 111, 50, 7, 7 });
+	idle_score1.PushBack({ 121, 50, 7, 7 });
+	idle_score2.PushBack({ 132, 50, 7, 7 });
+	idle_score3.PushBack({ 144, 50, 7, 7 });
+	idle_score4.PushBack({ 156, 50, 7, 7 });
+	idle_score5.PushBack({ 168, 50, 7, 7});
+	idle_score6.PushBack({ 180, 50, 7, 7 });
+	idle_score7.PushBack({ 192, 50, 7, 7 });
+	idle_score8.PushBack({ 204, 50, 7, 7 });
+	idle_score9.PushBack({ 216, 50, 7, 7 });
+
+	idle_playername.PushBack({ 28, 50, 56, 8});
+	idle_playerlive.PushBack({262, 43, 9, 17});
+	idle_top.PushBack({ 232, 49, 22, 8});
+
 	digit_score = &idle_score0;
 	personal_score = 0;
 	highscore = 0;
 
-	position.x = 30;
-	position.y = 20;
-	position_bomb = 5;
-	uitextures = App->textures->Load("Animation/UIs2.png");
+	position.x = 15;
+	position.y = 17;
+	position_bomb = 0;
+	uitextures = App->textures->Load("Animation/UIs.png");
 
 
 	return true;
@@ -67,8 +72,13 @@ update_status ModuleUi::Update(){
 
 	if (App->player->IsEnabled() == true){
 		// Energy bar;
-		App->render->Blit(uitextures, 10, 20, &(idle_energybar.GetCurrentFrame()), false);
-
+		App->render->Blit(uitextures, 0, 17, &(idle_energybar.GetCurrentFrame()), false);
+		//player name
+		App->render->Blit(uitextures, 28, 0, &(idle_playername.GetCurrentFrame()), false);
+		//player live
+		App->render->Blit(uitextures, 0, 0, &(idle_playerlive.GetCurrentFrame()), false);
+		//top score;
+		App->render->Blit(uitextures, 108, 0, &(idle_top.GetCurrentFrame()), false);
 		// Energy;
 		current_time = SDL_GetTicks();
 		if ((current_time - last_deplation) > 1000 && infinite_energy == false){
@@ -77,8 +87,8 @@ update_status ModuleUi::Update(){
 				energy -= 1;
 			}
 		}
-		if (energy > 10){
-			for (int i = 0; i <= energy - 10; i++){
+		if (energy > 11){
+			for (int i = 0; i <= energy - 11; i++){
 				position.x += 2;
 				App->render->Blit(uitextures, position.x, position.y + 1, &(idle_energy.GetCurrentFrame()), false);
 			}
@@ -89,16 +99,16 @@ update_status ModuleUi::Update(){
 		{
 			for (int i = 0; i <= App->player->spbombmunition; i++)
 			{
-				App->render->Blit(uitextures, position_bomb, 280, &(idle_spbomb.GetCurrentFrame()), false);
-				position_bomb += 15;
+				App->render->Blit(uitextures, position_bomb, 304, &(idle_spbomb.GetCurrentFrame()), false);
+				position_bomb += 8;
 			}
 		}
 
 		if (personal_score > highscore)
 			highscore = personal_score;
 
-		print_score(personal_score, 120, 40);
-		print_score(highscore, 220, 10);
+		print_score(personal_score, 78, 9, false);
+		print_score(highscore, 120, 9, true);
 	}
 	else personal_score = 0;
 
@@ -108,16 +118,19 @@ update_status ModuleUi::Update(){
 
 update_status ModuleUi::PostUpdate()
 {
-	position.x = 30;
-	position_bomb = 5;
+	position.x = 15;
+	position_bomb = 0;
 	
 	return UPDATE_CONTINUE;
 }
 
-void ModuleUi::print_score(uint score, int score_postion_x, int score_position_y)
+void ModuleUi::print_score(uint score, int score_postion_x, int score_position_y, bool high)
 {
 	
 	uint numberofdigits = number_digits(score);
+	if (high == true){
+		score_postion_x += (numberofdigits - 1) * 5;
+	}
 	int i = 0;
 	while (i <= numberofdigits)
 	{
@@ -148,7 +161,7 @@ void ModuleUi::print_score(uint score, int score_postion_x, int score_position_y
 		}
 		
 		App->render->Blit(uitextures, score_postion_x, score_position_y, &digit_score->GetCurrentFrame(), false);
-		score_postion_x -= 22;
+		score_postion_x -= 8;
 		
 	}
 }

@@ -61,10 +61,17 @@ public:
 	//SDL_Rect idle;
 
 	Animation* current_animation = nullptr;
+	Animation* current_idle = nullptr;
 	Animation idle_up;
+	Animation idle_upright;
+	Animation idle_upleft;
 	Animation idle_right;
 	Animation idle_down;
+	Animation idle_downright;
+	Animation idle_downleft;
 	Animation idle_left;
+	Animation idle_3gun;
+	
 
 	Animation upward;
 	Animation upward_right;
@@ -81,11 +88,13 @@ public:
 	Animation leftward_triple_gun;
 
 	iPoint position;
+	iPoint shotposition;
 	uint fx_lvlup_weapon = 0;
 
 	Collider* playercollider = nullptr;
 
 	bool destroyed = false;
+	bool win = false;
 };
 
 #endif // !__ModulePlayer_H__

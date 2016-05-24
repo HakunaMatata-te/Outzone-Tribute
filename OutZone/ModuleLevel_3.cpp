@@ -22,6 +22,11 @@ ModuleLevel_3::ModuleLevel_3()
 	background.w = 240;
 	background.h = 6436;
 
+	platform.x = 1;
+	platform.y = 0;
+	platform.y = 240;
+	platform.h = 200;
+
 }
 
 ModuleLevel_3::~ModuleLevel_3()
@@ -33,6 +38,7 @@ bool ModuleLevel_3::Start()
 	LOG("Loading background assets");
 
 	lvl_texture = App->textures->Load("Maps/lvl_3.png");
+	right_platform = App->textures->Load("Maps/Right_boss_platform_test.png");
 	//App->audios->PlayMusic("Sounds/lvl_1.ogg", -1.0f);
 
 	//Enable modules
@@ -115,7 +121,7 @@ bool ModuleLevel_3::Start()
 	//Walls colliders third
 	App->collision->AddCollider({ 0, App->collision->returny(2432, background.h), 32, 64 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 224, App->collision->returny(2464, background.h), 16, 64 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 64, App->collision->returny(2368, background.h), 40, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 64, App->collision->returny(2368, background.h), 32, 64 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 0, App->collision->returny(2272, background.h), 32, 96 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 32, App->collision->returny(2272, background.h), 32, 64 }, COLLIDER_WALL);
 
@@ -136,6 +142,27 @@ bool ModuleLevel_3::Start()
 	App->collision->AddCollider({ 64, App->collision->returny(1760, background.h), 64, 32 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 192, App->collision->returny(1696, background.h), 48, 65 }, COLLIDER_WALL);
 
+	//Enemys base
+	App->collision->AddCollider({ 0, App->collision->returny(2576, background.h), 32, 143 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 32, App->collision->returny(2608, background.h), 32, 79 }, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 128, App->collision->returny(2608, background.h), 32, 79 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(2608, background.h), 32, 79 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 160, App->collision->returny(2592, background.h), 63, 127 }, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 64, App->collision->returny(2480, background.h), 128, 79 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 96, App->collision->returny(2447, background.h), 64, 33 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 96, App->collision->returny(2368, background.h), 56, 79 }, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 192, App->collision->returny(2352, background.h), 48, 79 }, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 96, App->collision->returny(1920, background.h), 64, 127 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 160, App->collision->returny(1968, background.h), 32, 79 }, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 160, App->collision->returny(1808, background.h), 80, 79 }, COLLIDER_WALL);
+	
+	App->collision->AddCollider({ 32, App->collision->returny(1712, background.h), 96, 47 }, COLLIDER_WALL);
+	
 	// Gate 
 	App->collision->AddCollider({ 0, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 0, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
@@ -144,7 +171,7 @@ bool ModuleLevel_3::Start()
 	App->collision->AddCollider({ 176, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
 
 	//Enemies
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 150, App->collision->returny(5350, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 180, App->collision->returny(5350, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(5550, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 110, App->collision->returny(5850, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 90, App->collision->returny(5050, background.h));
@@ -152,7 +179,47 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h));
 
 
+	//Laser turrets
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4639, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4639, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4575, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4575, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4511, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4511, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4447, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4447, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4383, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4383, background.h));
+	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4319, background.h));
+	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4319, background.h));
+
+	//Tank shield
+	App->enemies->AddEnemy(SHIELD_TANK, 144, App->collision->returny(5695, background.h));
+
+	//Horizontal moving machine
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2871, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2935, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2231, background.h), 1);
+	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2167, background.h), 2);
+
+
+	//Infantary
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5950, background.h));
+	
+	App->enemies->AddEnemy(RED_INFANTERY, 100, App->collision->returny(5950, background.h));
+
+
+	//boss
+	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h));
+	
+	App->enemies->AddEnemy(BOSS_LVL3, 0, App->collision->returny(191, background.h));
+
+	//Objects
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
+
+	boss_start = false;
+	first_lava = false;
+	second_lava = false;
 	return true;
 }
 
@@ -174,7 +241,58 @@ bool ModuleLevel_3::CleanUp()
 // Update: draw background
 update_status ModuleLevel_3::Update()
 {
-	App->render->Blit(lvl_texture, 0, -6436 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom og the image
+	App->render->Blit(lvl_texture, 0, -6436 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom of the image
 
+	//Boss lava
+	//Pick the time when entering boss
+	if (boss_start == false && App->render->camera.y >= 5925*SCREEN_SIZE){
+		boss_start = true;
+		lava_timer = SDL_GetTicks();
+	}
+
+	if (App->render->camera.y >= 5925 && boss_start == true){
+		//Right lava (1st to appear)
+		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == false){
+			App->collision->AddCollider({ 130, App->collision->returny(480, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 140, App->collision->returny(473, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 150, App->collision->returny(469, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 160, App->collision->returny(464, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 170, App->collision->returny(458, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 180, App->collision->returny(452, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 190, App->collision->returny(449, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 200, App->collision->returny(442, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 210, App->collision->returny(437, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 220, App->collision->returny(434, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 230, App->collision->returny(427, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 240, App->collision->returny(421, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 250, App->collision->returny(417, background.h), 100, 50 }, COLLIDER_HOLE);
+			first_lava = true;
+			lava_timer = SDL_GetTicks();
+		}
+
+		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == true && second_lava == false){
+			App->collision->AddCollider({ 0, App->collision->returny(480, background.h), 200, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(469, background.h), 120, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(456, background.h), 110, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(449, background.h), 100, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(438, background.h), 90, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(426, background.h), 80, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(419, background.h), 70, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(408, background.h), 60, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(397, background.h), 50, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(388, background.h), 40, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(377, background.h), 30, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(366, background.h), 20, 50 }, COLLIDER_HOLE);
+			App->collision->AddCollider({ 0, App->collision->returny(357, background.h), 10, 50 }, COLLIDER_HOLE);
+
+			second_lava = true;
+		}
+	}
+
+
+
+	//App->render->Blit(right_platform, 0, 300 + SCREEN_HEIGHT, &platform, 1, true);
+
+	
 	return UPDATE_CONTINUE;
 }

@@ -19,9 +19,10 @@ protected:
 public:
 	iPoint position;
 	int life = 2;
+	uint typemove;
 
 public:
-	Enemy(int x, int y);
+	Enemy(int x, int y, uint typemove);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;
@@ -31,7 +32,7 @@ public:
 	virtual void death() {};
 	virtual void droping() {};
 
-	int SeePlayer(const SDL_Rect& r);
+	int SeePlayer(const SDL_Rect& r, float& angle2);
 
 };
 
