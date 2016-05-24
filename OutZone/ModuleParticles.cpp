@@ -362,6 +362,10 @@ ModuleParticles::ModuleParticles()
 	blue_shot_right.speed.x = +2;
 	blue_shot_right.life = 4000;
 
+	shot_explosion.PushBack({121, 160, 38 , 15});
+
+	triple_gun_shot_explosion.PushBack({});
+
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;
@@ -521,6 +525,11 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	{
 		for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		{
+			/*if (c1->type == COLLIDER_PLAYER_SHOT)
+			{
+				if (App->player->current_weapon == MINIGUN)
+					AddParticle(shot_explosion, active[i]->position.x, active[i]->position.y);
+			}*/
 			// Always destroy particles that collide
 			if (active[i] != nullptr && active[i]->collider == c1)
 			{
@@ -529,7 +538,6 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 				active[i] = nullptr;
 				break;
 			}
-
 
 
 		}
@@ -546,6 +554,16 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 }
+
+//shot explosion;
+void ModuleParticles::Shots_explosion(int x, int y)
+{
+	if (App->player->current_weapon == TRIPLE_GUN)
+	App->render->Blit(particles_texture, x, y, &shot_explosion.GetCurrentFrame());
+	else if (App->player->current_weapon == MINIGUN)
+		App->render->Blit(particles_texture, x, y, &shot_explosion.GetCurrentFrame());
+}
+
 
 // Particle sruct methods-------------------------------------------------------------
 
