@@ -362,9 +362,9 @@ ModuleParticles::ModuleParticles()
 	blue_shot_right.speed.x = +2;
 	blue_shot_right.life = 4000;
 
-	shot_explosion.PushBack({121, 160, 38 , 15});
+	shot_explosion.PushBack({49, 160, 16 , 12});
 
-	triple_gun_shot_explosion.PushBack({});
+	triple_gun_shot_explosion.PushBack({ 121, 160, 38, 15 });
 
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
@@ -558,10 +558,10 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 //shot explosion;
 void ModuleParticles::Shots_explosion(int x, int y)
 {
-	if (App->player->current_weapon == TRIPLE_GUN)
+	if (App->player->current_weapon == MINIGUN)
 	App->render->Blit(particles_texture, x, y, &shot_explosion.GetCurrentFrame());
-	else if (App->player->current_weapon == MINIGUN)
-		App->render->Blit(particles_texture, x, y, &shot_explosion.GetCurrentFrame());
+	else if (App->player->current_weapon == TRIPLE_GUN)
+		App->render->Blit(particles_texture, x, y, &triple_gun_shot_explosion.GetCurrentFrame());
 }
 
 

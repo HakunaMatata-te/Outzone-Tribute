@@ -88,6 +88,7 @@ public:
 	Animation leftward_triple_gun;
 
 	iPoint position;
+	iPoint shotposition;
 	uint fx_lvlup_weapon = 0;
 
 	Collider* playercollider = nullptr;

@@ -132,10 +132,13 @@ bool ModulePlayer::Start(){
 	left = 0;
 	position.x = 88;
 	position.y = 282;
+	shotposition.x = 88;
+	shotposition.y = 282;
 	position_test.x = 50;
 	position_test.y = 150;
 	screenlowheight = 320;	
 	destroyed = false;
+	invencible = false;
 	fall_animation = false;
 	spbombmunition = 3;
 	speed = PLAYER_SPEED;
@@ -225,75 +228,173 @@ update_status ModulePlayer::Update(){
 	//Player shoting
 	if (current_weapon == MINIGUN && App->input->keyboard[SDL_SCANCODE_E] == KEY_REPEAT && (SDL_GetTicks() - lastShot > 100 || player_dir != last_dir)){
 		if (lvl == 1){
-			if (player_dir == 0)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 1)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+			if (player_dir == 0){
+				shotposition.x = position.x + (3 * width / 4);
+				shotposition.y = position.y;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_up, shotposition.x - 6, shotposition.y - 16, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 1){
+				shotposition.x = position.x + 9 +(3 * width / 4);
+				shotposition.y = position.y + 3;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_right, shotposition.x - 8, shotposition.y - 10, COLLIDER_PLAYER_SHOT);
+			}
 			if (player_dir == 2)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 3)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 4)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 5)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 6)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 7)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_downer_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 8)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_down, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 9)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_downer_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 10)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 11)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 12)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 13)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 14)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 15)
-				App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-
+			{
+				shotposition.x = position.x + 10 + (3 * width / 4);
+				shotposition.y = position.y + 6;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_right, shotposition.x - 6, shotposition.y - 11, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 3){
+				shotposition.x = position.x + 9 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_righter, shotposition.x - 10, shotposition.y - 5, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 4){
+				shotposition.x = position.x + 12 + (3 * width / 4);
+				shotposition.y = position.y + 16;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_right, shotposition.x - 6, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 5){
+				shotposition.x = position.x + (3 * width / 4);
+				shotposition.y = position.y + 26;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_righter, shotposition.x -8, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 6){
+				shotposition.x = position.x  +(3 * width / 4);
+				shotposition.y = position.y + 26;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_right, shotposition.x - 6, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 7){
+				shotposition.x = position.x - 4+ (3 * width / 4);
+				shotposition.y = position.y + 32;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_downer_right, shotposition.x - 10 , shotposition.y -10, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 8){
+				shotposition.x = position.x + 10;
+				shotposition.y = position.y + height;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_down, shotposition.x - 5, shotposition.y -6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 9){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 24;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_downer_left, shotposition.x - 8, position.y +10, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 10){
+				shotposition.x = position.x -10 + (3 * width / 4);
+				shotposition.y = position.y + 24;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_left, shotposition.x -10, shotposition.y - 8, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 11){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 24;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_down_lefter, shotposition.x - 12, shotposition.y -6 , COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 12){
+				shotposition.x = position.x + 2;
+				shotposition.y = position.y + 12;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_left, shotposition.x - 15, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 13){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_lefter, shotposition.x - 14, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 14){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_up_left, shotposition.x - 12, shotposition.y - 12, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 15){
+				shotposition.x = position.x -10 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv1_upper_left, shotposition.x -6, shotposition.y - 14, COLLIDER_PLAYER_SHOT);
+			}
+			App->particles->Shots_explosion(shotposition.x - 12, shotposition.y - 10);
 			lastShot = SDL_GetTicks();
 		}
 		else if (lvl == 2){
-			if (player_dir == 0)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_up, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 1)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_upper_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
+			if (player_dir == 0){
+				shotposition.x = position.x + (3 * width / 4);
+				shotposition.y = position.y;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_up, shotposition.x - 6, shotposition.y - 16, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 1){
+				shotposition.x = position.x + 9 + (3 * width / 4);
+				shotposition.y = position.y + 3;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_upper_right, shotposition.x - 8, shotposition.y - 10, COLLIDER_PLAYER_SHOT);
+			}
 			if (player_dir == 2)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 3)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 4)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 5)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_righter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 6)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 7)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_downer_right, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 8)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_down, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 9)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_downer_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 10)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 11)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 12)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 13)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_lefter, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 14)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-			if (player_dir == 15)
-				App->particles->AddParticle(App->particles->minigun_shot_lv2_upper_left, position.x + (3 * width / 4), position.y, COLLIDER_PLAYER_SHOT);
-
+			{
+				shotposition.x = position.x + 10 + (3 * width / 4);
+				shotposition.y = position.y + 6;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_right, shotposition.x - 6, shotposition.y - 11, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 3){
+				shotposition.x = position.x + 9 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_righter, shotposition.x - 10, shotposition.y - 5, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 4){
+				shotposition.x = position.x + 12 + (3 * width / 4);
+				shotposition.y = position.y + 16;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_right, shotposition.x - 6, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 5){
+				shotposition.x = position.x + (3 * width / 4);
+				shotposition.y = position.y + 26;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_righter, shotposition.x - 8, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 6){
+				shotposition.x = position.x + (3 * width / 4);
+				shotposition.y = position.y + 26;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_right, shotposition.x - 6, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 7){
+				shotposition.x = position.x - 4 + (3 * width / 4);
+				shotposition.y = position.y + 32;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_downer_right, shotposition.x - 10, shotposition.y - 10, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 8){
+				shotposition.x = position.x + 10;
+				shotposition.y = position.y + height;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_down, shotposition.x - 5, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 9){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 24;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_downer_left, shotposition.x - 8, position.y + 10, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 10){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 24;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_left, shotposition.x - 10, shotposition.y - 8, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 11){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 24;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_down_lefter, shotposition.x - 12, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 12){
+				shotposition.x = position.x + 2;
+				shotposition.y = position.y + 12;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_left, shotposition.x - 15, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 13){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_lefter, shotposition.x - 14, shotposition.y - 6, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 14){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_up_left, shotposition.x - 12, shotposition.y - 12, COLLIDER_PLAYER_SHOT);
+			}
+			if (player_dir == 15){
+				shotposition.x = position.x - 10 + (3 * width / 4);
+				shotposition.y = position.y + 4;
+				App->particles->AddParticle(App->particles->minigun_shot_lv2_upper_left, shotposition.x - 6, shotposition.y - 14, COLLIDER_PLAYER_SHOT);
+			}
+			App->particles->Shots_explosion(shotposition.x - 12, shotposition.y - 10);
 			lastShot = SDL_GetTicks();
 		}
 		else if (lvl == 3){
@@ -369,25 +470,25 @@ update_status ModulePlayer::Update(){
 
 	if (current_weapon == TRIPLE_GUN && (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN || App->input->keyboard[SDL_SCANCODE_E] == KEY_REPEAT && SDL_GetTicks() - lastShot > 700)){
 		if (lvl == 1){
-			App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv1_center, position.x - 2 + width / 2, position.y - 8, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv1_right, position.x + 8 + width / 2, position.y - 8, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv1_left, position.x - 18 + width / 2, position.y - 8, COLLIDER_PLAYER_SHOT);
 			lastShot = SDL_GetTicks();
 		}
 		else if (lvl == 2){
-			App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv2_center, position.x - 4 + width / 2, position.y - 12, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv2_right, position.x + 8 + width / 2, position.y - 12, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv2_left, position.x - 18 + width / 2, position.y - 12, COLLIDER_PLAYER_SHOT);
 			lastShot = SDL_GetTicks();
 		}
 		else if (lvl == 3){
-			App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x + width / 2, position.y, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 3 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 6 + width / 2, position.y, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv3_center, position.x - 6 + width / 2, position.y - 18, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv3_right, position.x + 10 + width / 2, position.y - 18, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->triple_shot_lv3_left, position.x - 25 + width / 2, position.y - 18, COLLIDER_PLAYER_SHOT);
 			lastShot = SDL_GetTicks();
 		}
+		App->particles->Shots_explosion(position.x - 4, position.y - 10);
 	}
-
 	//Weapon change
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN){
 		if (current_weapon == MINIGUN)
