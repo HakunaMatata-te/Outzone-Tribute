@@ -546,5 +546,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->ui->energy = MAX_N_ENERGY;
 		destroyed = true;
 	}
+	if (destroyed == true)
+		App->enemies->Disable();
 	//Win Condition
 }

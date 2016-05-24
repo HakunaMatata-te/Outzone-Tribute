@@ -38,10 +38,16 @@ update_status ModuleEnemies::PreUpdate()
 	// check camera position to decide what to spawn
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-
+		bool spawned = false;
 		if(queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
-			if ((queue[i].y) * SCREEN_SIZE > -1 * (App->render->camera.y + SPAWN_MARGIN))
+
+			for (uint j = 0; j < i; ++j)
+			{
+				if (queue[i].y == queue[j].y && queue[i].x == queue[j].x)
+					spawned = true;
+			}
+			if ((queue[i].y) * SCREEN_SIZE > -1 * (App->render->camera.y + SPAWN_MARGIN) && spawned == false)
 			{	
 				SpawnEnemy(queue[i]);
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
@@ -121,13 +127,6 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove)
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{ 
 		
-		for (uint j = 0; j < i; ++j)
-		{
-			if (queue[i].y == queue[j].y)
-			{
-				return false;
-			}
-		}
 			if (queue[i].type == ENEMY_TYPES::NO_TYPE)
 			{
 				queue[i].type = type;

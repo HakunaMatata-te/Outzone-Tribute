@@ -177,12 +177,7 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 90, App->collision->returny(5050, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 150, App->collision->returny(5250, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 180, App->collision->returny(5350, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(5550, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 110, App->collision->returny(5850, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 90, App->collision->returny(5050, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 150, App->collision->returny(5250, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h));
+
 
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 
