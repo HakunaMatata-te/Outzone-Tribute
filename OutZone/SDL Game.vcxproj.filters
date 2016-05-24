@@ -121,6 +121,15 @@
     <ClCompile Include="Enemy_Boss_LvL3_Files.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleTerrainmods.cpp">
+      <Filter>Modules\Terrain mods</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrainmod.cpp">
+      <Filter>Modules\Terrain mods</Filter>
+    </ClCompile>
+    <ClCompile Include="BossRightplatform.cpp">
+      <Filter>Modules\Terrain mods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -255,6 +264,15 @@
     <ClInclude Include="Enemy_Boss_LvL3_Files.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleTerrainmods.h">
+      <Filter>Modules\Terrain mods</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrainmod.h">
+      <Filter>Modules\Terrain mods</Filter>
+    </ClInclude>
+    <ClInclude Include="BossRightplatform.h">
+      <Filter>Modules\Terrain mods</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -274,6 +292,9 @@
     </Filter>
     <Filter Include="Modules\Objects">
       <UniqueIdentifier>{66b2db72-88c3-4218-928b-b9649b1c08d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Terrain mods">
+      <UniqueIdentifier>{28486c43-6915-4179-8c8c-8406f51cbef2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -49,7 +49,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddObject(OBJECTS_TYPES type, int x, int y);
-
+	
 private:
 
 	void SpawnObject(const ObjectsInfo& info);

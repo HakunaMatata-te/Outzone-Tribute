@@ -18,6 +18,7 @@
 #include "ModuleGameOver.h"
 #include "ModuleObjects.h"
 #include "ModuleUI.h"
+#include "ModuleTerrainmods.h"
 
 
 Application::Application()
@@ -34,13 +35,14 @@ Application::Application()
 	modules[9] = leaderboard = new ModuleLeaderboard();
 	modules[10] = collision = new ModuleCollision();
 	modules[11] = enemies = new ModuleEnemies();
-	modules[12] = player = new ModulePlayer();
-	modules[13] = particles = new ModuleParticles();
-	modules[14] = fade = new ModuleFadeToBlack();
-	modules[15] = end = new ModuleEndlevel();
-	modules[16] = gameover = new ModuleGameOver();
-	modules[17] = objects = new ModuleObjects();
-	modules[18] = ui = new ModuleUi();
+	modules[12] = terrain = new ModuleTerrainmods();
+	modules[13] = player = new ModulePlayer();
+	modules[14] = particles = new ModuleParticles();
+	modules[15] = fade = new ModuleFadeToBlack();
+	modules[16] = end = new ModuleEndlevel();
+	modules[17] = gameover = new ModuleGameOver();
+	modules[18] = objects = new ModuleObjects();
+	modules[19] = ui = new ModuleUi();
 }	
 
 Application::~Application()

@@ -13,6 +13,7 @@
 #include "ModuleEnemies.h"
 #include "ModuleObjects.h"
 #include "ModuleUI.h"
+#include "ModuleTerrainmods.h"
 
 ModuleLevel_3::ModuleLevel_3()
 {
@@ -216,6 +217,10 @@ bool ModuleLevel_3::Start()
 
 	//Objects
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
+	App->objects->AddObject(POWER_UP, 200, App->collision->returny(6300, background.h));
+	App->objects->AddObject(WEAPON, 150, App->collision->returny(6300, background.h));
+
+	//Terrain mods
 
 	boss_start = false;
 	first_lava = false;
