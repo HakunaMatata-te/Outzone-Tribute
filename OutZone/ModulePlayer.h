@@ -63,9 +63,15 @@ public:
 	Animation* current_animation = nullptr;
 	Animation* current_idle = nullptr;
 	Animation idle_up;
+	Animation idle_upright;
+	Animation idle_upleft;
 	Animation idle_right;
 	Animation idle_down;
+	Animation idle_downright;
+	Animation idle_downleft;
 	Animation idle_left;
+	Animation idle_3gun;
+	
 
 	Animation upward;
 	Animation upward_right;

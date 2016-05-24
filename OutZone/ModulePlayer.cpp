@@ -33,9 +33,13 @@ ModulePlayer::ModulePlayer(){
 
 	//idle sprites
 	idle_up.PushBack({ 521, 197, 27, 37 });
-	idle_down.PushBack({ 346, 252, 28, 39 });
+	idle_upleft.PushBack({ 437, 108, 28, 37});
+	idle_upright.PushBack({358, 73,27, 36});
+	idle_down.PushBack({ 435, 352, 28, 39 });
+	idle_downright.PushBack({ 361, 351, 28, 34 });
 	idle_right.PushBack({360, 305, 29, 35});
 	idle_left.PushBack({86, 362, 29, 35});
+	idle_3gun.PushBack({ 199, 37, 30, 36 });
 	
 	// walk upward animation (arcade sprite sheet)
 	upward.PushBack({ 517, 151, 31, 38 });
@@ -215,45 +219,6 @@ update_status ModulePlayer::Update(){
 	if (player_dir < 0)
 		player_dir = 15;
 
-	//Player direction update
-	if (current_weapon == MINIGUN){
-		if (player_dir == 0){
-			current_animation = &upward;
-			current_idle = &idle_up;
-		}
-		if (player_dir < 4 && player_dir>0)
-			current_animation = &upward_right;
-		if (player_dir == 4){
-			current_animation = &rightward;
-			current_idle = &idle_right;
-		}
-		if (player_dir < 8 && player_dir>4){
-			current_animation = &downward_right;
-		}
-		if (player_dir == 8){
-			current_animation = &downward;
-			current_idle = &idle_down;
-		}
-		if (player_dir < 12 && player_dir>8)
-			current_animation = &downward_left;
-		if (player_dir == 12){
-			current_animation = &leftward;
-			current_idle = &idle_left;
-		}
-		if (player_dir > 12 && player_dir <= 15)
-			current_animation = &upward_left;
-	}
-
-	if (current_weapon == TRIPLE_GUN) {
-		if (player_dir > 12 || player_dir < 4)
-			current_animation = &upward_triple_gun;
-		if (player_dir == 12)
-			current_animation = &leftward_triple_gun;
-		if (player_dir == 4)
-			current_animation = &rightward_triple_gun;
-		if (player_dir < 12 && player_dir>4)
-			current_animation = &downward_triple_gun;
-	}
 
 
 
@@ -446,6 +411,57 @@ update_status ModulePlayer::Update(){
 	//Energy depletion
 	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_DOWN)
 		App->ui->infinite_energy = !App->ui->infinite_energy;
+
+	//Player direction update
+	if (current_weapon == MINIGUN){
+		if (player_dir == 0){
+			current_animation = &upward;
+			current_idle = &idle_up;
+		}
+		if (player_dir < 4 && player_dir>0){
+			current_animation = &upward_right;
+			current_idle = &idle_upright;
+		}
+		if (player_dir == 4){
+			current_animation = &rightward;
+			current_idle = &idle_right;
+		}
+		if (player_dir < 8 && player_dir>4){
+			current_animation = &downward_right;
+			current_idle = &idle_downright;
+		}
+		if (player_dir == 8){
+			current_animation = &downward;
+			current_idle = &idle_down;
+		}
+		if (player_dir < 12 && player_dir>8){
+			current_animation = &downward_left;
+		}
+		if (player_dir == 12){
+			current_animation = &leftward;
+			current_idle = &idle_left;
+		}
+		if (player_dir > 12 && player_dir <= 15){
+			current_animation = &upward_left;
+			current_idle = &idle_upleft;
+		}
+	}
+
+	if (current_weapon == TRIPLE_GUN) {
+		if (player_dir > 12 || player_dir < 4)
+			current_animation = &upward_triple_gun;
+		if (player_dir == 12)
+			current_animation = &leftward_triple_gun;
+		if (player_dir == 4)
+			current_animation = &rightward_triple_gun;
+		if (player_dir < 12 && player_dir>4)
+			current_animation = &downward_triple_gun;
+		current_idle = &idle_3gun;
+	}
+
+	//movement correction
+
+
 
 	//Print player
 	if (destroyed == false){
