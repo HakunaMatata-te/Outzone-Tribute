@@ -17,7 +17,7 @@ Enemy_Red_Infantery::Enemy_Red_Infantery(int x, int y, uint typemove) : Enemy(x,
 	Idle_7.PushBack({ 134, 557, 29, 31 });
 	Idle_8.PushBack({ 188, 560, 25, 31 });
 
-
+	life = 1;
 	animation = &Idle_5;
 
 	collider = App->collision->AddCollider({ 0, 0, 23, 32 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

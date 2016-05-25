@@ -12,6 +12,7 @@ Enemy_Left_Laser_Turret::Enemy_Left_Laser_Turret(int x, int y, uint typemove) : 
 	move.PushBack({ 0, 0, 0, 0 });
 	collider = App->collision->AddCollider({ 0, 0, 16, 36 }, COLLIDER_TYPE::COLLIDER_NONE, (Module*)App->enemies);
 	animation = &move;
+	life = 1000;
 }
 
 void Enemy_Left_Laser_Turret::death(){

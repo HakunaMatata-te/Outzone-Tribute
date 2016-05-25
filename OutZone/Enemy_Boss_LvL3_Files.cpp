@@ -13,7 +13,7 @@ Enemy_Boss_LvL3_Files::Enemy_Boss_LvL3_Files(int x, int y, uint typemove) : Enem
 	Idle.speed = 0.1f;
 
 	animation = &Idle;
-
+	life = 1;
 	collider = App->collision->AddCollider({ 0, 0, 27, 31 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 }
