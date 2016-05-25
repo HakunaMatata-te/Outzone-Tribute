@@ -18,7 +18,7 @@ protected:
 
 public:
 	iPoint position;
-	int life = 2;
+	int life;
 	uint typemove;
 
 public:

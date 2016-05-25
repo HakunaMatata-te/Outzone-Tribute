@@ -182,6 +182,8 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::BOSS_LVL3:
 				enemies[i] = new Enemy_Boss_LvL3(info.x, info.y, info.typemove);
 				break;
+			case ENEMY_TYPES::BOSS_LVL3_EYE:
+				enemies[i] = new Enemy_Boss_Eye(info.x, info.y, info.typemove);
 			}
 		}
 	}

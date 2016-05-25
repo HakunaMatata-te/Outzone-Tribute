@@ -16,6 +16,7 @@
 #include "Enemy_Red_Infantery.h"
 #include "Enemy_Boss_LvL3.h"
 #include "Enemy_Boss_LvL3_Files.h"
+#include "Enemy_boss_lvl3_Eye.h"
 
 enum ENEMY_TYPES
 {
@@ -29,6 +30,7 @@ enum ENEMY_TYPES
 	YELLOW_INFANTERY,
 	RED_INFANTERY,
 	BOSS_LVL3,
+	BOSS_LVL3_EYE,
 	BOSS_LVL3_FILES
 };
 

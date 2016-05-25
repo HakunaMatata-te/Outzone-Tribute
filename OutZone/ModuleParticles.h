@@ -143,6 +143,12 @@ public:
 	Particle blue_shot_center;
 	Particle blue_shot_right;
 
+
+	//Boss particles
+	Particle left_long_shot;
+	Particle right_long_shot;
+
+
 	Animation shot_explosion;
 	Animation triple_gun_shot_explosion;
 
