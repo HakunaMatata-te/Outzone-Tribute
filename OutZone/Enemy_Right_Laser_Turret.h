@@ -15,6 +15,7 @@ private:
 	fPoint speed;
 	Path path;
 	Uint32 lastShot = 0;
+	Uint32 shotDelay = 0;
 	int pos_idle = 0;
 	bool shot = true;
 	Uint32 lasttimelapseShot = 0;

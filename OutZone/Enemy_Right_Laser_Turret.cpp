@@ -19,13 +19,19 @@ void Enemy_Right_Laser_Turret::death(){
 
 void Enemy_Right_Laser_Turret::Move()
 {
-	if (SDL_GetTicks() - lastShot > 4500)
+	if (SDL_GetTicks() - shotDelay > 4500)
 	{
-		
 		App->particles->AddParticle(App->particles->right_laser_turret_light, position.x, position.y, COLLIDER_NONE);
-		
-		
-		
+	
+		shotDelay = SDL_GetTicks();
+	}
+
+	if ((SDL_GetTicks() - lastShot) > 25 && (SDL_GetTicks() - shotDelay) < 200){
+		//shoot
+		App->particles->AddParticle(App->particles->right_laser_turret_shot, position.x, position.y + 19, COLLIDER_NONE);
+
 		lastShot = SDL_GetTicks();
 	}
+
+
 }

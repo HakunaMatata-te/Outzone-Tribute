@@ -315,10 +315,10 @@ ModuleParticles::ModuleParticles()
 	right_laser_turret_light.anim.speed = 0.2f;
 	right_laser_turret_light.anim.loop = false;
 
-	right_laser_turret_shot.anim.PushBack({ 624, 388, 8, 8 });
-	right_laser_turret_shot.speed.y = +5;
-	right_laser_turret_shot.speed.x = -5;
-	right_laser_turret_shot.life = life_shots;
+	right_laser_turret_shot.anim.PushBack({ 580, 337, 8, 8 });
+	right_laser_turret_shot.speed.y = +2;
+	right_laser_turret_shot.speed.x = -2;
+	right_laser_turret_shot.life = 100000;
 
 	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
 	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
