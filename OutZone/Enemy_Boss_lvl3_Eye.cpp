@@ -3,44 +3,95 @@
 #include "ModuleCollider.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModuleEnemies.h"
 
 #include "SDL\include\SDL.h"
 
 
 Enemy_Boss_Eye::Enemy_Boss_Eye(int x, int y, uint typemove) : Enemy(x, y, typemove)
 {
-	open = false;
+	
 	closed.PushBack({589, 655, 20, 31});
 	animation = &closed;
 
-	shoot.PushBack({619, 655, 20, 31});
+	opened.PushBack({ 869, 655, 20, 31 });
+
+	opening.PushBack({ 618, 655, 20, 31});
+	opening.PushBack({ 655, 655, 20, 31 });
+	opening.PushBack({ 692, 655, 20, 31 });
+	opening.PushBack({ 727, 655, 20, 31 });
+	opening.PushBack({ 764, 655, 20, 31 });
+	opening.PushBack({ 799, 655, 20, 31 });
+	opening.PushBack({ 834, 655, 20, 31 });
+	opening.PushBack({ 869, 655, 20, 31 });
+	opening.speed = 0.15f;
+
+
+	closing.PushBack({ 869, 655, 20, 31 });
+	closing.PushBack({ 834, 655, 20, 31 });
+	closing.PushBack({ 799, 655, 20, 31 });
+	closing.PushBack({ 764, 655, 20, 31 });
+	closing.PushBack({ 727, 655, 20, 31 });
+	closing.PushBack({ 692, 655, 20, 31 });
+	closing.PushBack({ 655, 655, 20, 31 });
+	closing.PushBack({ 618, 655, 20, 31 });
+	closing.speed = 0.15f;
 
 	collider = App->collision->AddCollider({ 0, 0, 20, 31 }, COLLIDER_NONE, (Module*)App->enemies);
-	closeTimer = SDL_GetTicks();
-	openTimer = SDL_GetTicks();
+	Timer = SDL_GetTicks();
+	shotTimer = SDL_GetTicks();
 	life = 100;
 }
 
-void Enemy_Boss_Eye::death(){};
+void Enemy_Boss_Eye::death(){
+	for (uint i = 0; i < MAX_ENEMIES; ++i){
+		if (App->enemies->enemies[i] != nullptr){
+			App->enemies->enemies[i]->life = 0;
+		}
+	}
+};
 
 void Enemy_Boss_Eye::Move(){
 
-	if (!open){
-		if (SDL_GetTicks() - closeTimer > 3000){
-			open = true;
+	if (stage == PROGRESS::CLOSE){
+		if (SDL_GetTicks() - Timer > 3000){
+			stage = OPENING;
 			collider->type = COLLIDER_ENEMY;
-			openTimer = SDL_GetTicks();
-			animation = &shoot;
+			Timer = SDL_GetTicks();
+			animation = &opening;
 		}
 	}
 	
-	if (open){
-		if (SDL_GetTicks() - openTimer > 3000){
-			open = false;
+	if (stage == OPENING){
+		if (SDL_GetTicks() - Timer > 750){
+			stage = OPEN;
+			Timer = SDL_GetTicks();
+			animation = &opened;
+		}
+	}
+
+	if (stage == OPEN){
+		if (SDL_GetTicks() - shotTimer > 501){
+			App->particles->AddParticle(App->particles->right_laser_turret_shot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+			shotTimer = SDL_GetTicks();
+		}
+
+
+		if (SDL_GetTicks() - Timer > 1000){
+			stage = CLOSING;
+			Timer = SDL_GetTicks();
+			animation = &closing;
+		}
+	}
+
+	if (stage == CLOSING){
+		if (SDL_GetTicks() - Timer > 750){
+			stage = CLOSE;
 			collider->type = COLLIDER_NONE;
-			closeTimer = SDL_GetTicks();
+			Timer = SDL_GetTicks();
 			animation = &closed;
 		}
 	}
+
 
 };
