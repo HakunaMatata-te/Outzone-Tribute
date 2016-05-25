@@ -14,7 +14,7 @@ Enemy_Boss_LvL3::Enemy_Boss_LvL3(int x, int y, uint typemove) : Enemy(x, y, type
 
 	collider = App->collision->AddCollider({ 0, 0, 240, 103 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	life = 10;
+	life = 30000;
 	
 }
 

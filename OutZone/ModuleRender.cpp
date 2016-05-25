@@ -56,6 +56,12 @@ update_status ModuleRender::Update()
 		App->player->screenlowheight -= SCREEN_SPEED;
 	}
 	
+	if (camera.y > 5700 * SCREEN_SIZE && camera.y < 5925 * SCREEN_SIZE && App->player->position.y < (App->player->screenlowheight -40)){
+		camera.y += SCREEN_SPEED*SCREEN_SIZE;
+		App->player->screenlowheight -= SCREEN_SPEED;
+	}
+
+
 	return update_status::UPDATE_CONTINUE;
 }
 
