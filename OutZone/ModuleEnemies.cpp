@@ -209,7 +209,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 
 			if (enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_SCREEN_BOMB){
-				enemies[i]->life -= 6;
+				enemies[i]->life --;
+				//Don't add more, the bomb stays for a few seconds at screen doing 1 dmg per game tick, which makes adds up quite fast
 			}
 
 

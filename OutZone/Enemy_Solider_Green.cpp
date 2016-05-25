@@ -25,7 +25,7 @@ Enemy_Solider_Green::Enemy_Solider_Green(int x, int y, uint typemove) : Enemy(x,
 	Idle_15.PushBack({ 227, 17, 27, 35 });
 	Idle_16.PushBack({ 266, 17, 26, 35 });
 
-
+	life = 2;
 	animation = &Idle_9;
 
 	collider = App->collision->AddCollider({ 0, 0, 27, 31 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

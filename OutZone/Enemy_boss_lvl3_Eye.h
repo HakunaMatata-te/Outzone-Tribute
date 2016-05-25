@@ -3,14 +3,25 @@
 
 #include "Enemy.h"
 
+enum PROGRESS
+{
+	CLOSE,
+	OPENING,
+	OPEN,
+	CLOSING
+};
+
 class Enemy_Boss_Eye : public Enemy
 {
 private:
-	Animation shoot;
+	Animation opening;
+	Animation closing;
 	Animation closed;
-	bool open;
-	uint closeTimer;
-	uint openTimer;
+	Animation opened;
+	PROGRESS stage;
+	uint shotTimer;
+	uint Timer;
+	
 
 
 public:

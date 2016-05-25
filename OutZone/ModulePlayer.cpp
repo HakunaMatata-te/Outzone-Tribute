@@ -616,7 +616,7 @@ update_status ModulePlayer::PostUpdate()
 	{
 		Disable();
 
-		App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
+		App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->end, 1);
 		App->ui->energy = MAX_N_ENERGY;
 		destroyed = true;
 	}

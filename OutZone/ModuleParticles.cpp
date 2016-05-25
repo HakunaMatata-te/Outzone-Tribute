@@ -304,18 +304,18 @@ ModuleParticles::ModuleParticles()
 
 
 	//Laser Turret
-	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
-	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
-	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
-	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
-	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
-	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
-	right_laser_turret_light.anim.PushBack({ 574, 365, 16, 36 });
-	right_laser_turret_light.anim.PushBack({ 594, 365, 22, 36 });
+	right_laser_turret_light.anim.PushBack({ 569, 406, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 549, 406, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 569, 406, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 549, 406, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 569, 406, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 549, 406, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 569, 406, 16, 36 });
+	right_laser_turret_light.anim.PushBack({ 549, 406, 16, 36 });
 	right_laser_turret_light.anim.speed = 0.2f;
 	right_laser_turret_light.anim.loop = false;
 
-	right_laser_turret_shot.anim.PushBack({ 580, 337, 8, 8 });
+	right_laser_turret_shot.anim.PushBack({ 586, 337, 8, 8 });
 	right_laser_turret_shot.speed.y = +2;
 	right_laser_turret_shot.speed.x = -2;
 	right_laser_turret_shot.life = 100000;
@@ -365,6 +365,10 @@ ModuleParticles::ModuleParticles()
 	shot_explosion.PushBack({49, 160, 16 , 12});
 
 	triple_gun_shot_explosion.PushBack({ 121, 160, 38, 15 });
+
+	//Boss particles
+	
+
 
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
