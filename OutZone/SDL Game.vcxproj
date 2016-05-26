@@ -72,6 +72,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy_Boss_LeftCable.h" />
+    <ClInclude Include="Enemy_Boss_Left_Door.h" />
     <ClInclude Include="Enemy_Boss_LvL3.h" />
     <ClInclude Include="Enemy_boss_lvl3_Eye.h" />
     <ClInclude Include="Enemy_Boss_LvL3_Files.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Boss_LeftCable.cpp" />
+    <ClCompile Include="Enemy_Boss_Left_Door.cpp" />
     <ClCompile Include="Enemy_Boss_LvL3.cpp" />
     <ClCompile Include="Enemy_Boss_lvl3_Eye.cpp" />
     <ClCompile Include="Enemy_Boss_LvL3_Files.cpp" />
