@@ -75,6 +75,7 @@
     <ClInclude Include="Enemy_Boss_LvL3.h" />
     <ClInclude Include="Enemy_boss_lvl3_Eye.h" />
     <ClInclude Include="Enemy_Boss_LvL3_Files.h" />
+    <ClInclude Include="Enemy_Boss_lvl3_Left_laser.h" />
     <ClInclude Include="Enemy_HMM.h" />
     <ClInclude Include="Enemy_Left_Laser_Turret.h" />
     <ClInclude Include="Enemy_Red_Infantery.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="Enemy_Boss_LvL3.cpp" />
     <ClCompile Include="Enemy_Boss_lvl3_Eye.cpp" />
     <ClCompile Include="Enemy_Boss_LvL3_Files.cpp" />
+    <ClCompile Include="Enemy_Boss_lvl3_Left_laser.cpp" />
     <ClCompile Include="Enemy_HMM.cpp" />
     <ClCompile Include="Enemy_Left_Laser_Turret.cpp" />
     <ClCompile Include="Enemy_Red_Infantery.cpp" />

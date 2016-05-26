@@ -133,6 +133,9 @@
     <ClCompile Include="Enemy_Boss_lvl3_Eye.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Boss_lvl3_Left_laser.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -277,6 +280,9 @@
       <Filter>Modules\Terrain mods</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_boss_lvl3_Eye.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Boss_lvl3_Left_laser.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
