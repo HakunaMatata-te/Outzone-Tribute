@@ -73,7 +73,7 @@ void Enemy_Boss_Eye::Move(){
 
 	if (stage == OPEN){
 		if (SDL_GetTicks() - shotTimer > 501){
-			App->particles->AddParticle(App->particles->right_laser_turret_shot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->awesome_shot, position.x, position.y, COLLIDER_ENEMY_SHOT);
 			shotTimer = SDL_GetTicks();
 		}
 

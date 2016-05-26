@@ -147,6 +147,7 @@ public:
 	//Boss particles
 	Particle left_long_shot;
 	Particle right_long_shot;
+	Particle awesome_shot;
 
 
 	Animation shot_explosion;

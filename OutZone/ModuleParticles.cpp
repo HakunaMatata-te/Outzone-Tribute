@@ -371,6 +371,22 @@ ModuleParticles::ModuleParticles()
 	left_long_shot.speed.x = -2;
 	left_long_shot.life = 20000;
 
+	awesome_shot.anim.PushBack({ 532, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 568, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 598, 590, 31, 31 });
+	awesome_shot.anim.PushBack({636, 590, 31, 31});
+	awesome_shot.anim.PushBack({ 680, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 724, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 636, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 680, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 724, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 636, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 680, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 724, 590, 31, 31 });
+	awesome_shot.anim.speed = 0.2f;
+	awesome_shot.speed.y = 3;
+	awesome_shot.life = 9000;
+
 
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
