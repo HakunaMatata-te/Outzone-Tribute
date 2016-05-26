@@ -13,7 +13,7 @@
 #include "ModuleEnemies.h"
 #include "ModuleObjects.h"
 #include "ModuleUI.h"
-#include "ModuleTerrainmods.h"
+
 
 ModuleLevel_3::ModuleLevel_3()
 {
@@ -28,6 +28,12 @@ ModuleLevel_3::ModuleLevel_3()
 	platform.y = 240;
 	platform.h = 200;
 
+	lava.PushBack({ 0, 0, 240, 830 });
+	lava.PushBack({ 269, 0, 240, 830 });
+	lava.PushBack({ 538, 0, 240, 830 });
+	lava.speed = 0.01f;
+
+
 }
 
 ModuleLevel_3::~ModuleLevel_3()
@@ -40,6 +46,7 @@ bool ModuleLevel_3::Start()
 
 	lvl_texture = App->textures->Load("Maps/lvl_3.png");
 	right_platform = App->textures->Load("Maps/Right_boss_platform_test.png");
+	lava_texture = App->textures->Load("Maps/Lava_animation.png");
 	//App->audios->PlayMusic("Sounds/lvl_1.ogg", -1.0f);
 
 	//Enable modules
@@ -50,6 +57,7 @@ bool ModuleLevel_3::Start()
 	App->objects->Enable();
 	App->ui->Enable();
 	App->render->camera.y = 0;
+
 
 	//Colliders
 	//first holes colliders;
@@ -235,7 +243,8 @@ bool ModuleLevel_3::Start()
 bool ModuleLevel_3::CleanUp()
 {
 	LOG("Unloading lvl3 scene");
-
+	App->textures->Unload(lava_texture);
+	App->textures->Unload(right_platform);
 	App->textures->Unload(lvl_texture);
 	App->player->Disable();
 	App->enemies->Disable();
@@ -250,6 +259,13 @@ bool ModuleLevel_3::CleanUp()
 // Update: draw background
 update_status ModuleLevel_3::Update()
 {
+
+		App->render->Blit(lava_texture, 0, -1000, &lava.GetCurrentFrame(), 1);
+		App->render->Blit(lava_texture, 0, -3000, &lava.GetCurrentFrame(), 1);
+		App->render->Blit(lava_texture, 0, -5500, &lava.GetCurrentFrame(), 1);
+		App->render->Blit(lava_texture, 0, -6000, &lava.GetCurrentFrame(), 1);
+
+
 	App->render->Blit(lvl_texture, 0, -6436 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom of the image
 
 	//Boss lava

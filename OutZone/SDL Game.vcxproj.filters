@@ -121,15 +121,6 @@
     <ClCompile Include="Enemy_Boss_LvL3_Files.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleTerrainmods.cpp">
-      <Filter>Modules\Terrain mods</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrainmod.cpp">
-      <Filter>Modules\Terrain mods</Filter>
-    </ClCompile>
-    <ClCompile Include="BossRightplatform.cpp">
-      <Filter>Modules\Terrain mods</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy_Boss_lvl3_Eye.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
@@ -269,15 +260,6 @@
     </ClInclude>
     <ClInclude Include="Enemy_Boss_LvL3_Files.h">
       <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="ModuleTerrainmods.h">
-      <Filter>Modules\Terrain mods</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrainmod.h">
-      <Filter>Modules\Terrain mods</Filter>
-    </ClInclude>
-    <ClInclude Include="BossRightplatform.h">
-      <Filter>Modules\Terrain mods</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_boss_lvl3_Eye.h">
       <Filter>Modules\Enemies</Filter>

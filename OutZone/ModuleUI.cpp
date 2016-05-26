@@ -43,7 +43,7 @@ bool ModuleUi::Start(){
 	idle_score9.PushBack({ 216, 21, 7, 7 });
 
 	idle_playername.PushBack({ 28, 21, 56, 8});
-	idle_playerlive.PushBack({262, 21, 9, 17});
+	idle_playerlive.PushBack({262, 13, 9, 17});
 	idle_top.PushBack({ 232, 20, 22, 8});
 
 	digit_score = &idle_score0;

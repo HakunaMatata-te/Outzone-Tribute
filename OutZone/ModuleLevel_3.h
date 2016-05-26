@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "Animation.h"
 
 #include "SDL_mixer/include/SDL_mixer.h"
 struct SDL_Texture;
@@ -22,8 +23,10 @@ public:
 
 	SDL_Texture* lvl_texture = nullptr;
 	SDL_Texture* right_platform = nullptr;
+	SDL_Texture* lava_texture = nullptr;
 	SDL_Rect background;
 	SDL_Rect platform;
+	Animation lava;
 	uint lava_timer;
 	bool boss_start;
 	bool first_lava;
