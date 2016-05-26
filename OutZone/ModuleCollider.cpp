@@ -98,7 +98,7 @@ ModuleCollision::ModuleCollision()
 
 	matrix[COLLIDER_HOLE][COLLIDER_WALL] = false;
 	matrix[COLLIDER_HOLE][COLLIDER_PLAYER] = false;
-	matrix[COLLIDER_HOLE][COLLIDER_ENEMY] = false;
+	matrix[COLLIDER_HOLE][COLLIDER_ENEMY] = true;
 	matrix[COLLIDER_HOLE][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_HOLE][COLLIDER_ENEMY_SHOT] = false;
 	matrix[COLLIDER_HOLE][COLLIDER_SCREEN_BOMB] = false;
@@ -306,9 +306,26 @@ bool Collider::CheckCollisionDown(const SDL_Rect& r) const
 }
 bool Collider::CheckCollisionRight(const SDL_Rect& r) const
 {
-	return (rect.x + rect.w > r.x && rect.x + rect.w -(PLAYER_SPEED+1) < r.x);
+	return (rect.x + rect.w > r.x && rect.x + rect.w -(PLAYER_SPEED + 1) < r.x);
 }
 bool Collider::CheckCollisionLeft(const SDL_Rect& r) const
 {
 	return (rect.x < r.x + r.w && rect.x + (PLAYER_SPEED + 1) > r.x + r.w);
+}
+
+bool Collider::CheckCollisionUpEnemy(const SDL_Rect& r) const
+{
+	return (rect.y < r.y + r.h && rect.y + (ENEMY_SPEED + 1) > r.y + r.h);
+}
+bool Collider::CheckCollisionDownEnemy(const SDL_Rect& r) const
+{
+	return (rect.y + rect.h > r.y && rect.y + rect.h - (ENEMY_SPEED + 1)< r.y);
+}
+bool Collider::CheckCollisionRightEnemy(const SDL_Rect& r) const
+{
+	return (rect.x + rect.w > r.x && rect.x + rect.w - (ENEMY_SPEED + 1) < r.x);
+}
+bool Collider::CheckCollisionLeftEnemy(const SDL_Rect& r) const
+{
+	return (rect.x < r.x + r.w && rect.x + (ENEMY_SPEED + 1) > r.x + r.w);
 }

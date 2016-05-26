@@ -6,9 +6,11 @@
 
 #include "ModuleUI.h"
 
+
 struct SDL_Texture;
 struct Collider;
 struct SDL_Rect;
+enum ENEMY_TYPES;
 
 class Enemy
 {
@@ -17,12 +19,19 @@ protected:
 	Collider* collider;
 
 public:
-	iPoint position;
+	fPoint position;
 	int life;
 	uint typemove;
 
+	bool CollisionUp;
+	bool CollisionDown;
+	bool CollisionRight;
+	bool CollisionLeft;
+
+	//ENEMY_TYPES type;
+
 public:
-	Enemy(int x, int y, uint typemove);
+	Enemy(int x, int y, uint typemove/*, ENEMY_TYPES type*/);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;
@@ -33,6 +42,7 @@ public:
 	virtual void droping() {};
 
 	int SeePlayer(const SDL_Rect& r, float& angle2);
+	void MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle);
 
 };
 

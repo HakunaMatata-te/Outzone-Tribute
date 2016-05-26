@@ -80,6 +80,12 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if(enemies[i] != nullptr)
 		{ 
+
+			enemies[i]->CollisionDown = false;
+			enemies[i]->CollisionUp = false;
+			enemies[i]->CollisionRight = false;
+			enemies[i]->CollisionLeft = false;
+
 			if (enemies[i]->position.y * SCREEN_SIZE > -1*(App->render->camera.y - (App->render->camera.h * SCREEN_SIZE) - SPAWN_MARGIN))
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.y * SCREEN_SIZE);
@@ -198,7 +204,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB))
+		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_PLAYER || c2->type == COLLIDER_SCREEN_BOMB || c2->type == COLLIDER_HOLE || c2->type == COLLIDER_BOX || c2->type == COLLIDER_WALL))
 		{
 			if (enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_PLAYER_SHOT){
 				if (App->player->lvl == 1)
@@ -216,6 +222,19 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (enemies[i]->GetCollider() == c1 && c2->type == COLLIDER_SCREEN_BOMB){
 				enemies[i]->life --;
 				//Don't add more, the bomb stays for a few seconds at screen doing 1 dmg per game tick, which makes adds up quite fast
+			}
+
+			if (enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_HOLE || c2->type == COLLIDER_BOX || c2->type == COLLIDER_WALL)){
+				
+				if (enemies[i]->CollisionUp == false)
+					enemies[i]->CollisionUp = c1->CheckCollisionUp(c2->rect);
+				if (enemies[i]->CollisionDown == false)
+					enemies[i]->CollisionDown = c1->CheckCollisionDown(c2->rect);
+				if (enemies[i]->CollisionRight == false)
+					enemies[i]->CollisionRight = c1->CheckCollisionRight(c2->rect);
+				if (enemies[i]->CollisionLeft == false)
+					enemies[i]->CollisionLeft = c1->CheckCollisionLeft(c2->rect);
+
 			}
 
 

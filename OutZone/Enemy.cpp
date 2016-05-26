@@ -10,7 +10,7 @@
 
 #define PI 3.14159265f
 
-Enemy::Enemy(int x, int y, uint typemove) : position(x, y), typemove(typemove), collider(nullptr)
+Enemy::Enemy(int x, int y, uint typemove/*,ENEMY_TYPES type*/) : position(x, y), typemove(typemove), /*type(type),*/ collider(nullptr)
 {}
 
 Enemy::~Enemy()
@@ -86,4 +86,24 @@ int Enemy::SeePlayer(const SDL_Rect& r, float& angle2)
 		dir = 16;
 	angle2 = angle;
 		return dir;
+}
+
+void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle)
+{
+	fPoint player;
+	player.x = (App->player->width / 2) + App->player->position.x;
+	player.y = (App->player->height / 2) + App->player->position.y;
+
+	int distx = player.x - (pos_x + w / 2);
+	int disty = player.y - (pos_y + h / 2);
+
+
+	if (CollisionUp == false && disty + 70 < 0)
+		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
+	if (CollisionDown == false && disty - 70 >= 0)
+		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
+	if (CollisionLeft == false && distx + 70 < 0)
+		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
+	if (CollisionRight == false && distx - 70 >= 0)
+		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
 }

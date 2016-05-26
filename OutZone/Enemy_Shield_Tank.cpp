@@ -20,7 +20,7 @@ Enemy_Shield_Tank::Enemy_Shield_Tank(int x, int y, uint typemove) : Enemy(x, y, 
 
 	collider = App->collision->AddCollider({ 0, 0, 64, 56 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	life = 5;
+	life = 13;
 }
 
 void Enemy_Shield_Tank::death(){
@@ -59,7 +59,7 @@ void Enemy_Shield_Tank::Move()
 	}
 	
 
-	if (life == 2 && nude == true)
+	if (life == 5 && nude == true)
 	{
 		App->particles->AddParticle(App->particles->normal_explosion, position.x + 64/4, position.y + 56/4, COLLIDER_NONE);
 		App->particles->AddParticle(App->particles->left_Shield_Tank_Case, position.x, position.y, COLLIDER_NONE);
