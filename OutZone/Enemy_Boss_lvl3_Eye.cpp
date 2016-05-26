@@ -59,6 +59,7 @@ void Enemy_Boss_Eye::Move(){
 			collider->type = COLLIDER_ENEMY;
 			Timer = SDL_GetTicks();
 			animation = &opening;
+			opening.Reset();
 		}
 	}
 	
@@ -81,6 +82,7 @@ void Enemy_Boss_Eye::Move(){
 			stage = CLOSING;
 			Timer = SDL_GetTicks();
 			animation = &closing;
+			closing.Reset();
 		}
 	}
 
