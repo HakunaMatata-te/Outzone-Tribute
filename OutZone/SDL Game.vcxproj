@@ -71,7 +71,6 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="BossRightplatform.h" />
     <ClInclude Include="Enemy_Boss_LeftCable.h" />
     <ClInclude Include="Enemy_Boss_LvL3.h" />
     <ClInclude Include="Enemy_boss_lvl3_Eye.h" />
@@ -85,7 +84,6 @@
     <ClInclude Include="Enemy_Solider_Purple.h" />
     <ClInclude Include="Enemy_Yellow_Infantery.h" />
     <ClInclude Include="ModuleLevel_3.h" />
-    <ClInclude Include="ModuleTerrainmods.h" />
     <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="Object_Box_Energy.h" />
     <ClInclude Include="Object_Energy.h" />
@@ -118,11 +116,9 @@
     <ClInclude Include="Object_Weapon.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
-    <ClInclude Include="Terrainmod.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="BossRightplatform.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Boss_LeftCable.cpp" />
     <ClCompile Include="Enemy_Boss_LvL3.cpp" />
@@ -154,7 +150,6 @@
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
-    <ClCompile Include="ModuleTerrainmods.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleUI.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
@@ -166,7 +161,6 @@
     <ClCompile Include="Object_Powerup.cpp" />
     <ClCompile Include="Object_SpecialBomb.cpp" />
     <ClCompile Include="Object_Weapon.cpp" />
-    <ClCompile Include="Terrainmod.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -54,8 +54,8 @@ bool ModuleIntro::CleanUp()
 {
 	LOG("Unloading Intro scene");
 
-	App->textures->Unload(lvl_texture2);
 	App->textures->Unload(lvl_texture);
+	App->textures->Unload(lvl_texture2);
 
 	return true;
 }

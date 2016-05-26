@@ -201,6 +201,14 @@ ModuleParticles::ModuleParticles()
 	minigun_shot_lv2_down.speed.y = +8;
 	minigun_shot_lv2_down.life = life_shots;
 
+	//minigun_shot_collision
+	Minigunshot_coll.anim.PushBack({ 48, 103, 17, 17 });
+	Minigunshot_coll.anim.PushBack({ 48, 80, 17, 17 });
+	Minigunshot_coll.anim.PushBack({ 48, 64, 17, 17 });
+	Minigunshot_coll.anim.PushBack({ 48, 44, 17, 17 });
+	Minigunshot_coll.anim.speed = 0.2f;
+	Minigunshot_coll.anim.loop = false;
+
 	// Triple shot particle
 	triple_shot_lv2_center.anim.PushBack({ 135, 221, 10, 18 });
 	triple_shot_lv2_center.speed.y = -8;
@@ -241,6 +249,14 @@ ModuleParticles::ModuleParticles()
 	triple_shot_lv3_left.speed.y = -8;
 	triple_shot_lv3_left.speed.x = -2;
 	triple_shot_lv3_left.life = life_shots;
+
+	//Triple shot collision
+	Triplegunshot_coll.anim.PushBack({ 131, 105, 17, 17 });
+	Triplegunshot_coll.anim.PushBack({ 131, 80, 17, 17 });
+	Triplegunshot_coll.anim.PushBack({ 131, 63, 17, 17 });
+	Triplegunshot_coll.anim.PushBack({ 131, 44, 17, 17 });
+	Triplegunshot_coll.anim.speed = 0.2f;
+	Triplegunshot_coll.anim.loop = false;
 
 	//Normal explosion
 	normal_explosion.anim.PushBack({ 71, 537, 38, 38 });
@@ -300,7 +316,7 @@ ModuleParticles::ModuleParticles()
 	player_fall.anim.PushBack({ 602, 184, 38, 38 });
 	player_fall.anim.PushBack({ 602, 224, 38, 38 });
 	player_fall.anim.speed = 0.1f;
-//	player_fall.anim.loop = false;
+	player_fall.anim.loop = false;
 
 
 	//Laser Turret

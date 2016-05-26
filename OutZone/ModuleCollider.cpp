@@ -2,6 +2,8 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleCollider.h"
+#include "ModulePlayer.h"
+#include "ModuleParticles.h"
 
 ModuleCollision::ModuleCollision()
 {
@@ -164,6 +166,7 @@ update_status ModuleCollision::Update()
 
 			if (c1->CheckCollision(c2->rect) == true)
 			{
+				c1->Checkparticle(c1, c2);
 				if (matrix[c1->type][c2->type] && c1->callback)
 					c1->callback->OnCollision(c1, c2);
 
@@ -328,4 +331,23 @@ bool Collider::CheckCollisionRightEnemy(const SDL_Rect& r) const
 bool Collider::CheckCollisionLeftEnemy(const SDL_Rect& r) const
 {
 	return (rect.x < r.x + r.w && rect.x + (ENEMY_SPEED + 1) > r.x + r.w);
+}
+
+
+void Collider::Checkparticle(Collider* c1, Collider* c2) const
+{
+	if (c1->type == COLLIDER_PLAYER_SHOT  && c2->type != COLLIDER_PLAYER && c2->type != COLLIDER_NONE && c2->type != COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_ENEMY_SHOT && c2->type != COLLIDER_HOLE && c2->type != COLLIDER_ITEMS)
+	{
+		if (App->player->current_weapon == MINIGUN)
+			App->particles->AddParticle(App->particles->Minigunshot_coll, c1->rect.x - 5, c1->rect.y - 5, COLLIDER_NONE);
+		if (App->player->current_weapon == TRIPLE_GUN)
+			App->particles->AddParticle(App->particles->Triplegunshot_coll, c1->rect.x - 5, c1->rect.y - 5, COLLIDER_NONE);
+	}
+	if (c2->type == COLLIDER_PLAYER_SHOT && c1->type != COLLIDER_PLAYER && c1->type != COLLIDER_NONE && c1->type != COLLIDER_PLAYER_SHOT && c1->type != COLLIDER_ENEMY_SHOT && c1->type != COLLIDER_HOLE && c1->type != COLLIDER_ITEMS)
+	{
+		if (App->player->current_weapon == MINIGUN)
+			App->particles->AddParticle(App->particles->Minigunshot_coll, c2->rect.x - 5, c2->rect.y - 5, COLLIDER_NONE);
+		if (App->player->current_weapon == TRIPLE_GUN)
+			App->particles->AddParticle(App->particles->Triplegunshot_coll, c2->rect.x - 5, c2->rect.y - 5, COLLIDER_NONE);
+	}
 }

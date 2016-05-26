@@ -51,6 +51,7 @@ struct Collider
 	bool CheckCollisionDownEnemy(const SDL_Rect& r) const;
 	bool CheckCollisionRightEnemy(const SDL_Rect& r) const;
 	bool CheckCollisionLeftEnemy(const SDL_Rect& r) const;
+	void Checkparticle(Collider* c1, Collider* c2) const;
 };
 
 class ModuleCollision : public Module

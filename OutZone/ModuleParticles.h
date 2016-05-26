@@ -149,9 +149,11 @@ public:
 	Particle boss_right_long_shot;
 	Particle awesome_shot;
 
-
+	Particle Triplegunshot_coll;
+	Particle Minigunshot_coll;
 	Animation shot_explosion;
 	Animation triple_gun_shot_explosion;
+	
 
 	Particle_Bullet test;
 };
