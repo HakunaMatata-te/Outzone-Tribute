@@ -10,7 +10,8 @@ enum LMOVEMENT
 	LASER_CREATION,
 	LASER_MOVE,
 	TURN_IDLE,
-	RETREAT
+	RETREAT,
+	FINISHED
 };
 
 
@@ -23,6 +24,7 @@ private:
 	Animation turn_idle;
 
 	uint Timer;
+	bool Timer_state;
 	uint sTimer;
 	bool sTimer_state;
 	LMOVEMENT stage;

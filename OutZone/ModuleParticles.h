@@ -7,7 +7,7 @@
 #include "p2Point.h"
 #include "ModuleCollider.h"
 
-#define MAX_ACTIVE_PARTICLES 600000
+
 
 struct SDL_Texture;
 
@@ -66,7 +66,7 @@ public:
 
 	void Shots_explosion(int x, int y);
 
-private:
+public:
 
 	SDL_Texture* particles_texture = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
@@ -145,8 +145,8 @@ public:
 
 
 	//Boss particles
-	Particle left_long_shot;
-	Particle right_long_shot;
+	Particle boss_left_long_shot;
+	Particle boss_right_long_shot;
 	Particle awesome_shot;
 
 

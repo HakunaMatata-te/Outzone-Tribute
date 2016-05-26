@@ -46,5 +46,6 @@ typedef unsigned int uint;
 #define PLAYER_SPEED 2
 #define MAX_N_ENERGY  47  //Normal energy
 #define MAX_E_ENERGY 60		//Extended energy poerup, number not correct
+#define MAX_ACTIVE_PARTICLES 600000
 
 #endif // __GLOBALS_H__

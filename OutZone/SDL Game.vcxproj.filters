@@ -115,12 +115,6 @@
     <ClCompile Include="Enemy_Red_Infantery.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Boss_LvL3.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Boss_LvL3_Files.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleTerrainmods.cpp">
       <Filter>Modules\Terrain mods</Filter>
     </ClCompile>
@@ -130,11 +124,20 @@
     <ClCompile Include="BossRightplatform.cpp">
       <Filter>Modules\Terrain mods</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Boss_LvL3.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
     <ClCompile Include="Enemy_Boss_lvl3_Eye.cpp">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Boss_LvL3_Files.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_Boss_lvl3_Left_laser.cpp">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Boss_LeftCable.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -264,12 +267,6 @@
     <ClInclude Include="Enemy_Red_Infantery.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Boss_LvL3.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Boss_LvL3_Files.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleTerrainmods.h">
       <Filter>Modules\Terrain mods</Filter>
     </ClInclude>
@@ -279,11 +276,20 @@
     <ClInclude Include="BossRightplatform.h">
       <Filter>Modules\Terrain mods</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_Boss_LvL3.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
     <ClInclude Include="Enemy_boss_lvl3_Eye.h">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Boss_LvL3_Files.h">
+      <Filter>Modules\Enemies\Boss</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Boss_lvl3_Left_laser.h">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Boss_LeftCable.h">
+      <Filter>Modules\Enemies\Boss</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -307,6 +313,9 @@
     </Filter>
     <Filter Include="Modules\Terrain mods">
       <UniqueIdentifier>{28486c43-6915-4179-8c8c-8406f51cbef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\Boss">
+      <UniqueIdentifier>{0df00216-0919-4071-a7d2-c4c014c04db7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
