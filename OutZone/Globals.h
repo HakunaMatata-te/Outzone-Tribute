@@ -26,7 +26,17 @@ enum Weapon
 	TRIPLE_GUN,
 };
 
-
+//Boss lasser states
+enum LMOVEMENT
+{
+	START,
+	TURN_RIGHT,
+	LASER_CREATION,
+	LASER_MOVE,
+	TURN_IDLE,
+	RETREAT,
+	FINISHED
+};
 
 
 

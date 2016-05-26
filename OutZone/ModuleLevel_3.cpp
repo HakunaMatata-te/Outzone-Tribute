@@ -219,11 +219,12 @@ bool ModuleLevel_3::Start()
 
 
 	//boss
+	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_L_LASER, 0, App->collision->returny(212, background.h));
-	App->enemies->AddEnemy(BOSS_LVL3, 0, App->collision->returny(191, background.h));
+	//App->enemies->AddEnemy(BOSS_LVL3, 0, App->collision->returny(191, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_EYE, 110, App->collision->returny(236, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h));
-	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 50, App->collision->returny(300, background.h));
+	
 
 	//Test 
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4671, background.h));
@@ -278,7 +279,9 @@ update_status ModuleLevel_3::Update()
 	}
 
 	if (App->render->camera.y >= 5925 && boss_start == true){
-		//Right lava (1st to appear)
+
+
+		//Right lava colliders (1st to appear)
 		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == false){
 			App->collision->AddCollider({ 130, App->collision->returny(480, background.h), 100, 50 }, COLLIDER_HOLE);
 			App->collision->AddCollider({ 140, App->collision->returny(473, background.h), 100, 50 }, COLLIDER_HOLE);
@@ -297,6 +300,7 @@ update_status ModuleLevel_3::Update()
 			lava_timer = SDL_GetTicks();
 		}
 
+		//Left lava collider (Second)
 		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == true && second_lava == false){
 			App->collision->AddCollider({ 0, App->collision->returny(480, background.h), 200, 50 }, COLLIDER_HOLE);
 			App->collision->AddCollider({ 0, App->collision->returny(469, background.h), 120, 50 }, COLLIDER_HOLE);
@@ -313,9 +317,13 @@ update_status ModuleLevel_3::Update()
 			App->collision->AddCollider({ 0, App->collision->returny(357, background.h), 10, 50 }, COLLIDER_HOLE);
 
 			second_lava = true;
+
+
+			//Spawning cables
+			//Left
+
 		}
 	}
-
 
 
 	//App->render->Blit(right_platform, 0, 300 + SCREEN_HEIGHT, &platform, 1, true);

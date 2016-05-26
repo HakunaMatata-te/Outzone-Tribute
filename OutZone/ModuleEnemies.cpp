@@ -194,6 +194,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::BOSS_LVL3_L_LASER:
 				enemies[i] = new Enemy_Boss_L_Laser(info.x, info.y, info.typemove, info.type);
 				break;
+			case ENEMY_TYPES::BOSS_LVL3_L_CABLE:
+				enemies[i] = new Enemy_Boss_LCable(info.x, info.y, info.typemove, info.type);
+				break;
 			
 			}
 		}

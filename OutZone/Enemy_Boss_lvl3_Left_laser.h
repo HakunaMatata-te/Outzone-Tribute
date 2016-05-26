@@ -3,16 +3,7 @@
 
 #include "Enemy.h"
 
-enum LMOVEMENT
-{
-	START,
-	TURN_RIGHT,
-	LASER_CREATION,
-	LASER_MOVE,
-	TURN_IDLE,
-	RETREAT,
-	FINISHED
-};
+
 
 
 class Enemy_Boss_L_Laser : public Enemy

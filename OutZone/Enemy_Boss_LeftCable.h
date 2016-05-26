@@ -3,11 +3,13 @@
 
 #include "Enemy.h"
 
+
+
 class Enemy_Boss_LCable : public Enemy
 {
 private:
 	Animation idle;
-
+	LMOVEMENT stage;
 	uint Timer;
 	bool Timer_state;
 
