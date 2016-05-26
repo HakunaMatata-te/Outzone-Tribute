@@ -25,7 +25,7 @@ private:
 
 public:
 
-	Enemy_Shield_Tank(int x, int y, uint typemove);
+	Enemy_Shield_Tank(int x, int y, uint typemove, ENEMY_TYPES type);
 	void death();
 	void Move();
 

@@ -23,7 +23,7 @@ private:
 
 public:
 
-	Enemy_Boss_LvL3_Files(int x, int y, uint typemove);
+	Enemy_Boss_LvL3_Files(int x, int y, uint typemove, ENEMY_TYPES type);
 	void death();
 	void Move();
 

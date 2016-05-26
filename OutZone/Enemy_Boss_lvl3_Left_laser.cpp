@@ -8,7 +8,7 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_Boss_L_Laser::Enemy_Boss_L_Laser(int x, int y, uint typemove) : Enemy(x, y, typemove)
+Enemy_Boss_L_Laser::Enemy_Boss_L_Laser(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
 {
 	idle.PushBack({ 716, 708, 16, 40 });
 	animation = &idle;

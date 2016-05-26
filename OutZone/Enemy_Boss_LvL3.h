@@ -26,7 +26,7 @@ private:
 
 public:
 
-	Enemy_Boss_LvL3(int x, int y, uint typemove);
+	Enemy_Boss_LvL3(int x, int y, uint typemove, ENEMY_TYPES type);
 	void death();
 	void Move();
 

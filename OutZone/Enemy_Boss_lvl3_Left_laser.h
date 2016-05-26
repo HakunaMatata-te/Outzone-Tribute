@@ -30,7 +30,7 @@ private:
 	LMOVEMENT stage;
 
 public:
-	Enemy_Boss_L_Laser(int x, int y, uint typemove);
+	Enemy_Boss_L_Laser(int x, int y, uint typemove, ENEMY_TYPES type);
 
 
 	void death();

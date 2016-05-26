@@ -4,6 +4,8 @@
 #include "Enemy.h"
 #include "Path.h"
 
+enum ENEMY_TYPES;
+
 class Enemy_Yellow_Infantery : public Enemy
 {
 private:
@@ -30,7 +32,7 @@ private:
 
 public:
 
-	Enemy_Yellow_Infantery(int x, int y, uint typemove);
+	Enemy_Yellow_Infantery(int x, int y, uint typemove, ENEMY_TYPES type);
 	void death();
 	void Move();
 

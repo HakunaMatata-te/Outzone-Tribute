@@ -38,7 +38,7 @@ private:
 
 public:
 
-	Enemy_Solider_Green(int x, int y, uint typemove);
+	Enemy_Solider_Green(int x, int y, uint typemove, ENEMY_TYPES type);
 	void death();
 	void Move();
 

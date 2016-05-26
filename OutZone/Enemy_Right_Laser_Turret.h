@@ -22,7 +22,7 @@ private:
 
 public:
 
-	Enemy_Right_Laser_Turret(int x, int y, uint typemove);
+	Enemy_Right_Laser_Turret(int x, int y, uint typemove, ENEMY_TYPES type);
 	void death();
 	void Move();
 

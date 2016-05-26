@@ -159,40 +159,40 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			switch (info.type)
 			{
 			case ENEMY_TYPES::FOOT_SOLIDER_GREEN:
-				enemies[i] = new Enemy_Solider_Green(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Solider_Green(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::FOOT_SOLIDER_PURPLE:
-				enemies[i] = new Enemy_Solider_Purple(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Solider_Purple(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::RIGHT_LASER_TURRET:
-				enemies[i] = new Enemy_Right_Laser_Turret(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Right_Laser_Turret(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::LEFT_LASER_TURRET:
-				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::SHIELD_TANK:
-				enemies[i] = new Enemy_Shield_Tank(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Shield_Tank(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::HORITZONTAL_MOVING_MACHINE:
-				enemies[i] = new Enemy_HMM(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_HMM(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::YELLOW_INFANTERY:
-				enemies[i] = new Enemy_Yellow_Infantery(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Yellow_Infantery(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::RED_INFANTERY:
-				enemies[i] = new Enemy_Red_Infantery(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Red_Infantery(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_FILES:
-				enemies[i] = new Enemy_Boss_LvL3_Files(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Boss_LvL3_Files(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3:
-				enemies[i] = new Enemy_Boss_LvL3(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Boss_LvL3(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_EYE:
-				enemies[i] = new Enemy_Boss_Eye(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Boss_Eye(info.x, info.y, info.typemove, info.type);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_L_LASER:
-				enemies[i] = new Enemy_Boss_L_Laser(info.x, info.y, info.typemove);
+				enemies[i] = new Enemy_Boss_L_Laser(info.x, info.y, info.typemove, info.type);
 				break;
 			
 			}
@@ -224,7 +224,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				//Don't add more, the bomb stays for a few seconds at screen doing 1 dmg per game tick, which makes adds up quite fast
 			}
 
-			if (enemies[i]->GetCollider() == c1 && (c2->type == COLLIDER_HOLE || c2->type == COLLIDER_BOX || c2->type == COLLIDER_WALL)){
+			if (enemies[i]->GetCollider() == c1 && enemies[i]->type == FOOT_SOLIDER_GREEN && (c2->type == COLLIDER_HOLE || c2->type == COLLIDER_BOX || c2->type == COLLIDER_WALL)){
 				
 				if (enemies[i]->CollisionUp == false)
 					enemies[i]->CollisionUp = c1->CheckCollisionUp(c2->rect);

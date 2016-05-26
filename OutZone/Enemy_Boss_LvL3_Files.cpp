@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Boss_LvL3_Files::Enemy_Boss_LvL3_Files(int x, int y, uint typemove) : Enemy(x, y, typemove)
+Enemy_Boss_LvL3_Files::Enemy_Boss_LvL3_Files(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
 {
 	Idle.PushBack({ 339, 792, 28, 30 });
 	Idle.PushBack({ 339, 827, 28, 30 });

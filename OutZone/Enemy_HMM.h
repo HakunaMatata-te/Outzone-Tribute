@@ -26,7 +26,7 @@ private:
 
 public:
 
-	Enemy_HMM(int x, int y, uint typemove);
+	Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type);
 	void death();
 	void Move();
 

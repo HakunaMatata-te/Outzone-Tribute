@@ -6,7 +6,7 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_Boss_LCable::Enemy_Boss_LCable(int x, int y, uint typemove) : Enemy(x, y, typemove)
+Enemy_Boss_LCable::Enemy_Boss_LCable(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
 {
 	idle.PushBack({641, 702, 100, 45});
 	animation = &idle;

@@ -12,7 +12,7 @@ private:
 	bool Timer_state;
 
 public:
-	Enemy_Boss_LCable(int x, int y, uint typemove);
+	Enemy_Boss_LCable(int x, int y, uint typemove, ENEMY_TYPES type);
 
 	void death();
 	void Move();

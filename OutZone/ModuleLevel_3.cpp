@@ -225,9 +225,10 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 50, App->collision->returny(300, background.h));
 
-
-
-
+	//Test 
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4671, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 200, App->collision->returny(4671, background.h));
+	
 	//Objects
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 	App->objects->AddObject(POWER_UP, 200, App->collision->returny(6300, background.h));

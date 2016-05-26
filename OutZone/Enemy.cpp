@@ -10,7 +10,7 @@
 
 #define PI 3.14159265f
 
-Enemy::Enemy(int x, int y, uint typemove/*,ENEMY_TYPES type*/) : position(x, y), typemove(typemove), /*type(type),*/ collider(nullptr)
+Enemy::Enemy(int x, int y, uint typemove,ENEMY_TYPES type) : position(x, y), typemove(typemove), type(type), collider(nullptr)
 {}
 
 Enemy::~Enemy()
@@ -98,12 +98,12 @@ void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle)
 	int disty = player.y - (pos_y + h / 2);
 
 
-	if (CollisionUp == false && disty + 70 < 0)
+	if (CollisionUp == false && disty + h + 30 < 0)
 		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
-	if (CollisionDown == false && disty - 70 >= 0)
+	if (CollisionDown == false && disty - h - 30 >= 0)
 		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
-	if (CollisionLeft == false && distx + 70 < 0)
+	if (CollisionLeft == false && distx + w + 30 < 0)
 		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
-	if (CollisionRight == false && distx - 70 >= 0)
+	if (CollisionRight == false && distx - w - 30 >= 0)
 		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
 }

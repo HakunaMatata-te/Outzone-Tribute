@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Red_Infantery::Enemy_Red_Infantery(int x, int y, uint typemove) : Enemy(x, y, typemove)
+Enemy_Red_Infantery::Enemy_Red_Infantery(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
 {
 	Idle_1.PushBack({ 135, 477, 25, 32 });
 	Idle_2.PushBack({ 191, 472, 29, 30 });

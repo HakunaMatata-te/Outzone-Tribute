@@ -28,10 +28,10 @@ public:
 	bool CollisionRight;
 	bool CollisionLeft;
 
-	//ENEMY_TYPES type;
+	ENEMY_TYPES type;
 
 public:
-	Enemy(int x, int y, uint typemove/*, ENEMY_TYPES type*/);
+	Enemy(int x, int y, uint typemove, ENEMY_TYPES type);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;
