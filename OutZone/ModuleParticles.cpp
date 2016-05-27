@@ -350,7 +350,7 @@ ModuleParticles::ModuleParticles()
 	left_laser_turret_shot.anim.PushBack({ 569, 337, 8, 8 });
 	left_laser_turret_shot.speed.y = +2;
 	left_laser_turret_shot.speed.x = +2;
-	left_laser_turret_shot.life = 1326; //acts as an ID
+	left_laser_turret_shot.life = 10000; //acts as an ID
 
 	//Shield Tank
 	left_Shield_Tank_Case.anim.PushBack({ 582, 541, 31, 48});
@@ -383,9 +383,14 @@ ModuleParticles::ModuleParticles()
 	triple_gun_shot_explosion.PushBack({ 121, 160, 38, 15 });
 
 	//Boss particles
-	boss_left_long_shot.anim.PushBack({ 569, 337, 8, 8 });
-	boss_left_long_shot.speed.x--;
-	boss_left_long_shot.speed.y++;
+	boss_left_shot_apear.anim.PushBack({ 498, 664, 8, 6 });
+	boss_left_shot_apear.speed.y = 1;
+	boss_left_shot_apear.speed.x = 2;
+	boss_left_shot_apear.life = 13026; //acts as an ID
+
+	boss_left_long_shot.anim.PushBack({ 498, 664, 8, 6 });
+	boss_left_long_shot.speed.x = -2;
+	boss_left_long_shot.speed.y = 1;
 	boss_left_long_shot.life = 20000;
 
 	boss_left_sparkle.anim.PushBack({ 595, 630, 16, 16 });

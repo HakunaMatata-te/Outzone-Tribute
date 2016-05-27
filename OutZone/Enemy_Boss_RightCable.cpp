@@ -25,7 +25,7 @@ void Enemy_Boss_RCable::Move(){
 		Timer_state = false;
 
 		if (stage == LMOVEMENT::START){ //Using start as a delay to avoid using a secondary timer (doesn't stand for the same START as the one from the laser machine)
-			if (SDL_GetTicks() - Timer > 4900){
+			if (SDL_GetTicks() - Timer > 9900){
 				stage = LMOVEMENT::TURN_RIGHT;
 				Timer = SDL_GetTicks();
 			}

@@ -35,10 +35,10 @@ void Enemy_Boss_RDoor::Move(){
 	if (App->level_3->boss_start){
 		Timer_state = false;
 		if (stage == LMOVEMENT::START){
-			if (SDL_GetTicks() - Timer > 4820){
+			if (SDL_GetTicks() - Timer > 9820){
 				animation = &opening;
 			}
-			if (SDL_GetTicks() - Timer > 5000){
+			if (SDL_GetTicks() - Timer > 10000){
 				animation = &opened;
 				stage = LMOVEMENT::RETREAT;
 				Timer = SDL_GetTicks();
@@ -46,10 +46,10 @@ void Enemy_Boss_RDoor::Move(){
 		}
 
 		if (stage == LMOVEMENT::RETREAT){
-			if (SDL_GetTicks() - Timer > 4220){
+			if (SDL_GetTicks() - Timer > 5070){
 				animation = &closing;
 			}
-			if (SDL_GetTicks() - Timer > 4400){
+			if (SDL_GetTicks() - Timer > 5290){
 				animation = &closed;
 				stage = LMOVEMENT::FINISHED;
 			}

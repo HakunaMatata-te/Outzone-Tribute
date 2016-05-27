@@ -41,7 +41,7 @@ void Enemy_Boss_R_Laser::Move(){
 	if (App->level_3->boss_start){
 		Timer_state = false;
 		if (stage == LMOVEMENT::START){
-			if (SDL_GetTicks() - Timer > 5000){
+			if (SDL_GetTicks() - Timer > 10000){
 				position.y += 2;
 				if (sTimer_state){
 					sTimer = SDL_GetTicks();

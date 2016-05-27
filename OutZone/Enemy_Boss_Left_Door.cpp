@@ -46,10 +46,10 @@ void Enemy_Boss_LDoor::Move(){
 		}
 
 		if (stage == LMOVEMENT::RETREAT){
-			if (SDL_GetTicks() - Timer > 4220){
+			if (SDL_GetTicks() - Timer > 4840){
 				animation = &closing;
 			}
-			if (SDL_GetTicks() - Timer > 4400){
+			if (SDL_GetTicks() - Timer > 5060){
 				animation = &closed;
 				stage = LMOVEMENT::FINISHED;
 			}
