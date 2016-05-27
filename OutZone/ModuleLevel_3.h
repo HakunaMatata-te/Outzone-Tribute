@@ -27,6 +27,8 @@ public:
 	SDL_Rect background;
 	SDL_Rect platform;
 	Animation lava;
+	Animation paralaxleft;
+	Animation paralaxright;
 	uint lava_timer;
 	bool boss_start;
 	bool first_lava;

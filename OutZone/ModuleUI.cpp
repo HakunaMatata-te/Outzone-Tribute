@@ -43,8 +43,13 @@ bool ModuleUi::Start(){
 	idle_score9.PushBack({ 216, 21, 7, 7 });
 
 	idle_playername.PushBack({ 28, 21, 56, 8});
-	idle_playerlive.PushBack({262, 13, 9, 17});
+	idle_playerlive.PushBack({262, 13, 10, 17});
 	idle_top.PushBack({ 232, 20, 22, 8});
+
+	upper.x = 0;
+	upper.y = 0;
+	upper.h = 6436;
+	upper.w = 240;
 
 	digit_score = &idle_score0;
 	personal_score = 0;
@@ -54,7 +59,7 @@ bool ModuleUi::Start(){
 	position.y = 17;
 	position_bomb = 0;
 	uitextures = App->textures->Load("Animation/UIs.png");
-
+	uppermaptexture = App->textures->Load("Maps/lvl_3_upper.png");
 
 	return true;
 };
@@ -62,13 +67,16 @@ bool ModuleUi::Start(){
 bool ModuleUi::CleanUp()
 {
 	LOG("Unloading UI");
-
+	App->textures->Unload(uppermaptexture);
 	App->textures->Unload(uitextures);
-
+	
 	return true;
 }
 
 update_status ModuleUi::Update(){
+
+	//upper map
+	App->render->Blit(uppermaptexture, 0, -6436 + SCREEN_HEIGHT, &upper, 1);
 
 	if (App->player->IsEnabled() == true){
 		// Energy bar;

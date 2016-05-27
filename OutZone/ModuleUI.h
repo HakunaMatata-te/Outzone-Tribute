@@ -41,7 +41,8 @@ public:
 
 
 	SDL_Texture* uitextures = nullptr;
-	
+	SDL_Texture* uppermaptexture = nullptr;
+
 	Animation idle_energybar;
 	Animation idle_energy;
 	Animation idle_spbomb;
@@ -60,6 +61,8 @@ public:
 	Animation idle_playerlive;
 	Animation idle_top;
 	
+	SDL_Rect upper;
+
 	Animation* digit_score = nullptr;
 	iPoint position;
 	

@@ -33,6 +33,9 @@ ModuleLevel_3::ModuleLevel_3()
 	lava.PushBack({ 538, 0, 240, 830 });
 	lava.speed = 0.01f;
 
+	paralaxleft.PushBack({ 924, 8, 64, 815 });
+	paralaxright.PushBack({ 822, 8, 46, 815 });
+
 
 }
 
@@ -72,17 +75,17 @@ bool ModuleLevel_3::Start()
 
 	//Last holes colliders (before boss)
 	App->collision->AddCollider({ 0, App->collision->returny(640, background.h), 32, 480 }, COLLIDER_HOLE);
-	App->collision->AddCollider({ 32, App->collision->returny(704, background.h), 32, 288 }, COLLIDER_HOLE);
-	App->collision->AddCollider({ 64, App->collision->returny(704, background.h), 32, 64 }, COLLIDER_HOLE);
-	App->collision->AddCollider({ 64, App->collision->returny(866, background.h), 32, 126 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 32, App->collision->returny(704, background.h), 33, 288 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 65, App->collision->returny(704, background.h), 31, 64 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 65, App->collision->returny(866, background.h), 31, 126 }, COLLIDER_HOLE);
 	App->collision->AddCollider({ 96, App->collision->returny(930, background.h), 32, 62 }, COLLIDER_HOLE);
-	App->collision->AddCollider({ 0, App->collision->returny(1185, background.h), 64, 127 }, COLLIDER_HOLE);
-	App->collision->AddCollider({ 144, App->collision->returny(705, background.h), 32, 63 }, COLLIDER_HOLE);
-	App->collision->AddCollider({ 175, App->collision->returny(706, background.h), 32, 191 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 0, App->collision->returny(1185, background.h), 64, 128 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 144, App->collision->returny(704, background.h), 31, 64 }, COLLIDER_HOLE);
+	App->collision->AddCollider({ 175, App->collision->returny(704, background.h), 33, 192 }, COLLIDER_HOLE);
 	App->collision->AddCollider({ 208, App->collision->returny(640, background.h), 32, 288 }, COLLIDER_HOLE);
 	App->collision->AddCollider({ 112, App->collision->returny(1057, background.h), 64, 63 }, COLLIDER_HOLE);
 	App->collision->AddCollider({ 176, App->collision->returny(1057, background.h), 32, 256 }, COLLIDER_HOLE);
-	App->collision->AddCollider({ 208, App->collision->returny(991, background.h), 32, 321 }, COLLIDER_HOLE); 
+	App->collision->AddCollider({ 208, App->collision->returny(991, background.h), 32, 322 }, COLLIDER_HOLE); 
 
 	//Walls colliders first yellow
 	App->collision->AddCollider({ 0, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_TURRET_WALL);
@@ -266,13 +269,15 @@ bool ModuleLevel_3::CleanUp()
 // Update: draw background
 update_status ModuleLevel_3::Update()
 {
-
-		App->render->Blit(lava_texture, 0, -1000, &lava.GetCurrentFrame(), 1);
-		App->render->Blit(lava_texture, 0, -3000, &lava.GetCurrentFrame(), 1);
-		App->render->Blit(lava_texture, 0, -5500, &lava.GetCurrentFrame(), 1);
-		App->render->Blit(lava_texture, 0, -6000, &lava.GetCurrentFrame(), 1);
-
-
+	App->render->Blit(lava_texture, 0, -1000, &lava.GetCurrentFrame(), 1);
+	App->render->Blit(lava_texture, 0, -3000, &lava.GetCurrentFrame(), 1);
+	App->render->Blit(lava_texture, 0, -5500, &lava.GetCurrentFrame(), 1);
+	App->render->Blit(lava_texture, 0, -6000, &lava.GetCurrentFrame(), 1);
+		
+	if (App->player->position.y >= -6000 && App->player->position.y <= -4500){
+		App->render->Blit(lava_texture, 0, -5000, &paralaxleft.GetCurrentFrame(), 0.9);
+		App->render->Blit(lava_texture, 194, -5000, &paralaxright.GetCurrentFrame(), 0.9);
+	}
 	App->render->Blit(lvl_texture, 0, -6436 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom of the image
 
 	//Boss lava
