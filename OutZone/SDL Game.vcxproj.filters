@@ -139,6 +139,9 @@
     <ClCompile Include="Enemy_Boss_Right_Door.cpp">
       <Filter>Modules\Enemies\Boss</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Boss_RightCable.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -289,6 +292,9 @@
       <Filter>Modules\Enemies\Boss</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Boss_Right_Door.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Boss_RightCable.h">
       <Filter>Modules\Enemies\Boss</Filter>
     </ClInclude>
   </ItemGroup>

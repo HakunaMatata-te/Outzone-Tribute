@@ -22,6 +22,7 @@
 #include "Enemy_Boss_Left_Door.h"
 #include "Enemy_Boss_lvl3_Right_laser.h"
 #include "Enemy_Boss_Right_Door.h"
+#include "Enemy_Boss_RightCable.h"
 
 enum ENEMY_TYPES
 {
