@@ -20,6 +20,7 @@
 #include "Enemy_Boss_lvl3_Left_laser.h"
 #include "Enemy_Boss_LeftCable.h"
 #include "Enemy_Boss_Left_Door.h"
+#include "Enemy_Boss_lvl3_Right_laser.h"
 
 enum ENEMY_TYPES
 {
@@ -37,6 +38,9 @@ enum ENEMY_TYPES
 	BOSS_LVL3_L_LASER,
 	BOSS_LVL3_L_CABLE,
 	BOSS_LVL3_L_DOOR,
+	BOSS_LVL3_R_LASER,
+	BOSS_LVL3_R_CABLE,
+	BOSS_LVL3_R_DOOR,
 	BOSS_LVL3_FILES
 };
 

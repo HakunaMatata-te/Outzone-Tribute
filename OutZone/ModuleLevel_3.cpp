@@ -221,6 +221,7 @@ bool ModuleLevel_3::Start()
 	//boss
 	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_L_LASER, 0, App->collision->returny(212, background.h));
+	App->enemies->AddEnemy(BOSS_LVL3_R_LASER, 210, App->collision->returny(212, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3, 0, App->collision->returny(191, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_EYE, 110, App->collision->returny(236, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_L_DOOR, 0, App->collision->returny(243, background.h));

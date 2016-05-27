@@ -200,6 +200,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			case ENEMY_TYPES::BOSS_LVL3_L_DOOR:
 				enemies[i] = new Enemy_Boss_LDoor(info.x, info.y, info.typemove, info.type);
 				break;
+			case ENEMY_TYPES::BOSS_LVL3_R_LASER:
+				enemies[i] = new Enemy_Boss_R_Laser(info.x, info.y, info.typemove, info.type);
+				break;
 			}
 		}
 	}
