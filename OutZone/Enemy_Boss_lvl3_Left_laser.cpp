@@ -70,6 +70,7 @@ void Enemy_Boss_L_Laser::Move(){
 				sTimer = SDL_GetTicks();
 			}
 			if (SDL_GetTicks() - Timer > 1000){
+				App->particles->AddParticle(App->particles->boss_left_sparkle, 226, App->collision->returny(416, App->level_3->background.h), COLLIDER_ENEMY_SHOT);
 				Timer = SDL_GetTicks();
 				stage = LASER_MOVE;
 			}
@@ -87,7 +88,7 @@ void Enemy_Boss_L_Laser::Move(){
 					}
 				}
 			}
-			position.y += 2;
+			position.y ++;
 			if (SDL_GetTicks() - Timer > 1420){
 				stage = LMOVEMENT::TURN_IDLE;
 				Timer = SDL_GetTicks();

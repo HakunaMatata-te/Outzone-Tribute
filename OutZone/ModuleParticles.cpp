@@ -334,7 +334,7 @@ ModuleParticles::ModuleParticles()
 	right_laser_turret_shot.anim.PushBack({ 586, 337, 8, 8 });
 	right_laser_turret_shot.speed.y = +2;
 	right_laser_turret_shot.speed.x = -2;
-	right_laser_turret_shot.life = 1325; //acts as an ID
+	right_laser_turret_shot.life = 10000; 
 
 	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
 	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
@@ -388,10 +388,34 @@ ModuleParticles::ModuleParticles()
 	boss_left_long_shot.speed.y++;
 	boss_left_long_shot.life = 20000;
 
-	boss_right_long_shot.anim.PushBack({ 586, 337, 8, 8 });
-	boss_right_long_shot.speed.x++;
-	boss_right_long_shot.speed.y++;
-	boss_right_long_shot.life = 20000;
+	boss_left_sparkle.anim.PushBack({ 595, 630, 16, 16 });
+	boss_left_sparkle.anim.PushBack({ 618, 633, 16, 16 });
+	boss_left_sparkle.anim.PushBack({ 638, 633, 16, 16 });
+	boss_left_sparkle.anim.PushBack({ 661, 633, 16, 16 });
+	boss_left_sparkle.anim.speed = 0.8f;
+	boss_left_sparkle.speed.x = -2;
+	boss_left_sparkle.speed.y = 1;
+	boss_left_sparkle.life = 20000;
+
+
+	boss_right_shot_apear.anim.PushBack({ 646, 663, 8, 6 });
+	boss_right_shot_apear.speed.y = 1;
+	boss_right_shot_apear.speed.x = -4;
+	boss_right_shot_apear.life = 1325; //acts as an ID
+
+	boss_right_long_shot.anim.PushBack({ 646, 663, 8, 6 });
+	boss_right_long_shot.speed.x = 1;
+	boss_right_long_shot.speed.y = 1;
+	boss_right_long_shot.life = 20012;
+
+	boss_right_sparkle.anim.PushBack({ 476, 634, 16, 16 });
+	boss_right_sparkle.anim.PushBack({ 500, 634, 16, 16 });
+	boss_right_sparkle.anim.PushBack({ 519, 634, 16, 16 });
+	boss_right_sparkle.anim.PushBack({ 541, 631, 16, 16 });
+	boss_right_sparkle.anim.speed = 0.8f;
+	boss_right_sparkle.speed.x++;
+	boss_right_sparkle.speed.y++;
+	boss_right_sparkle.life = 20011;
 
 	awesome_shot.anim.PushBack({ 532, 590, 31, 31 });
 	awesome_shot.anim.PushBack({ 568, 590, 31, 31 });

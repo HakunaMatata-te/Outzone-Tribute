@@ -145,8 +145,12 @@ public:
 
 
 	//Boss particles
+	Particle boss_left_shot_apear;
+	Particle boss_right_shot_apear;
 	Particle boss_left_long_shot;
 	Particle boss_right_long_shot;
+	Particle boss_left_sparkle;
+	Particle boss_right_sparkle;
 	Particle awesome_shot;
 
 	Particle Triplegunshot_coll;

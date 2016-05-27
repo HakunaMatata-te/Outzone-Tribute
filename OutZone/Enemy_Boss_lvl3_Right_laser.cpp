@@ -22,7 +22,7 @@ Enemy_Boss_R_Laser::Enemy_Boss_R_Laser(int x, int y, uint typemove, ENEMY_TYPES 
 
 	turn_idle.PushBack({ 755, 709, 30, 37 });
 	turn_idle.PushBack({ 731, 709, 30, 40 });
-	turn_idle.speed = 0.07f;
+	turn_idle.speed = 0.05f;
 
 	life = 10000;
 	collider = App->collision->AddCollider({ 0, 0, 16, 40 }, COLLIDER_ENEMY, (Module*)App->enemies);
@@ -48,7 +48,7 @@ void Enemy_Boss_R_Laser::Move(){
 					sTimer_state = false;
 				}
 
-				if (SDL_GetTicks() - sTimer > 600){
+				if (SDL_GetTicks() - sTimer > 450){
 					stage = LMOVEMENT::TURN_RIGHT;
 					animation = &turn_left;
 					Timer = SDL_GetTicks();
@@ -65,11 +65,12 @@ void Enemy_Boss_R_Laser::Move(){
 		}
 
 		if (stage == LMOVEMENT::LASER_CREATION){
-			if (SDL_GetTicks() - sTimer > 25){
-				App->particles->AddParticle(App->particles->right_laser_turret_shot, position.x, position.y + 29, COLLIDER_ENEMY_SHOT);
+			if (SDL_GetTicks() - sTimer > 10){
+				App->particles->AddParticle(App->particles->boss_right_shot_apear, position.x, position.y + 29, COLLIDER_ENEMY_SHOT);
 				sTimer = SDL_GetTicks();
 			}
-			if (SDL_GetTicks() - Timer > 1000){
+			if (SDL_GetTicks() - Timer > 820){
+				App->particles->AddParticle(App->particles->boss_right_sparkle, 0, App->collision->returny(347, App->level_3->background.h), COLLIDER_ENEMY_SHOT);
 				Timer = SDL_GetTicks();
 				stage = LASER_MOVE;
 			}
@@ -87,8 +88,22 @@ void Enemy_Boss_R_Laser::Move(){
 					}
 				}
 			}
-			position.y += 2;
-			if (SDL_GetTicks() - Timer > 1420){
+			position.y += 1.25f;
+
+			if (SDL_GetTicks() - Timer > 2000){
+				for (uint i = 0; i < MAX_ACTIVE_PARTICLES; i++){
+					if (App->particles->active[i] != nullptr){
+						if (App->particles->active[i]->life == 20011){ 
+							App->particles->active[i]->speed.x=0;
+						}
+						if (App->particles->active[i]->life == 20012){
+							App->particles->active[i]->speed.x = 0;
+						}
+					}
+				}
+			}
+
+			if (SDL_GetTicks() - Timer > 2500){
 				stage = LMOVEMENT::TURN_IDLE;
 				Timer = SDL_GetTicks();
 				animation = &turn_idle;
@@ -96,7 +111,7 @@ void Enemy_Boss_R_Laser::Move(){
 		}
 
 		if (stage == LMOVEMENT::TURN_IDLE){
-			if (SDL_GetTicks() - Timer > 100){
+			if (SDL_GetTicks() - Timer > 200){
 				stage = LMOVEMENT::RETREAT;
 				animation = &idle;
 				Timer = SDL_GetTicks();
