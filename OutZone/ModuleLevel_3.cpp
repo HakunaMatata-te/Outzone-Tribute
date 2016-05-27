@@ -225,6 +225,7 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(BOSS_LVL3, 0, App->collision->returny(191, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_EYE, 110, App->collision->returny(236, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_L_DOOR, 0, App->collision->returny(243, background.h));
+	App->enemies->AddEnemy(BOSS_LVL3_R_DOOR, 224, App->collision->returny(243, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h));
 	
 

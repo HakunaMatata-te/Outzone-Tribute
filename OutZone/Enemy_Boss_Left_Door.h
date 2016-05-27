@@ -24,4 +24,4 @@ public:
 };
 
 
-#endif // !__ENEMY_BOSS_LEFTCABLE_H__
+#endif // !__ENEMY_BOSS_LEFTDOOR_H__
