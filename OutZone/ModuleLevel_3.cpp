@@ -184,12 +184,12 @@ bool ModuleLevel_3::Start()
 
 	//Enemies -----------------------------------------------------------------------------------------------------------------------
 
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 180, App->collision->returny(5350, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(5550, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 110, App->collision->returny(5850, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 90, App->collision->returny(5050, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 150, App->collision->returny(5250, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 180, App->collision->returny(5350, background.h), 1);
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(5550, background.h), 1);
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 110, App->collision->returny(5850, background.h), 1);
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 90, App->collision->returny(5050, background.h), 1);
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 150, App->collision->returny(5250, background.h), 1);
+	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h), 1);
 
 
 	//Laser turrets
@@ -217,9 +217,9 @@ bool ModuleLevel_3::Start()
 
 
 	//Infantary
-	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5950, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5950, background.h), 1);
 	
-	App->enemies->AddEnemy(RED_INFANTERY, 100, App->collision->returny(5950, background.h));
+	App->enemies->AddEnemy(RED_INFANTERY, 100, App->collision->returny(5950, background.h), 1);
 
 
 	//boss
@@ -240,7 +240,7 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(BOSS_LVL3_L_DOOR, 0, App->collision->returny(243, background.h),0, true);
 	App->enemies->AddEnemy(BOSS_LVL3_R_DOOR, 224, App->collision->returny(243, background.h),0, true);
 
-	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h));
+	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h), 1);
 	
 
 	//Test 

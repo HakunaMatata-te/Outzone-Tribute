@@ -68,5 +68,8 @@ void Enemy_Shield_Tank::Move()
 		nude = false;
 	}
 
+
+
+
 	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
 }

@@ -28,7 +28,10 @@ public:
 	bool CollisionRight;
 	bool CollisionLeft;
 
-	bool RotationPlayer = false;
+	bool ShieldTank = false;
+	bool RestEnemy = false;
+	int n_movement;
+	int lastTime = 0;
 
 	ENEMY_TYPES type;
 	bool boss_enemy;
