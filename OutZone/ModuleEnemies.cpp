@@ -47,6 +47,15 @@ update_status ModuleEnemies::PreUpdate()
 				if (queue[i].y == queue[j].y && queue[i].x == queue[j].x)
 					spawned = true;
 			}
+			
+			//Making boss always spawned to avoid graphical issues
+			if (queue[i].boss_enemy){
+				SpawnEnemy(queue[i]);
+				queue[i].type = ENEMY_TYPES::NO_TYPE;
+				LOG("Spawning boss enemy at %d", queue[i].y * SCREEN_SIZE);
+			}
+
+			
 			if ((queue[i].y) * SCREEN_SIZE > -1 * (App->render->camera.y + SPAWN_MARGIN) && spawned == false && !queue[i].boss_enemy)
 			{	
 				SpawnEnemy(queue[i]);
@@ -54,11 +63,7 @@ update_status ModuleEnemies::PreUpdate()
 				LOG("Spawning enemy at %d", queue[i].y * SCREEN_SIZE);
 			}
 			
-			//Making boss always spawned to avoid graphical issues
-			if (queue[i].boss_enemy){
-				SpawnEnemy(queue[i]);
-				queue[i].type = ENEMY_TYPES::NO_TYPE;
-			}
+			
 
 		}
 	}
@@ -69,9 +74,14 @@ update_status ModuleEnemies::PreUpdate()
 update_status ModuleEnemies::Update()
 {
 
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	if (enemies[i] != nullptr && enemies[i]->position.y + enemies[i]->GetCollider()->rect.h > App->player->screenlowheight - 300 && enemies[i]->position.y + (enemies[i]->GetCollider()->rect.h/2)  < App->player->screenlowheight)
+	for (uint i = 0; i < MAX_ENEMIES; ++i){
+		if (enemies[i] != nullptr && enemies[i]->position.y + enemies[i]->GetCollider()->rect.h > App->player->screenlowheight - 300 && enemies[i]->position.y + (enemies[i]->GetCollider()->rect.h / 2) < App->player->screenlowheight && !(enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_L_CABLE || enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_R_CABLE))
 			enemies[i]->Move();
+
+		//Needed for the boss cables to work
+		if (enemies[i] != nullptr && (enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_L_CABLE || enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_R_CABLE))
+			enemies[i]->Move();
+	}
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 		if(enemies[i] != nullptr) 
@@ -170,7 +180,7 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove, bool
 			queue[i].x = x;
 			queue[i].y = y;
 			queue[i].typemove = typemove;
-			queue[i].boss_enemy = boss_type;
+			queue[i].boss_enemy = true;
 			ret = true;
 			break;
 		}
