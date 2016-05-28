@@ -151,7 +151,7 @@ public:
 	Particle boss_right_long_shot;
 	Particle boss_left_sparkle;
 	Particle boss_right_sparkle;
-	Particle awesome_shot;
+	Particle_Bullet awesome_shot;
 
 	Particle Triplegunshot_coll;
 	Particle Minigunshot_coll;

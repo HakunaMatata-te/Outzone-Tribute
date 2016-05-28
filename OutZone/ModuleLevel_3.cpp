@@ -222,6 +222,8 @@ bool ModuleLevel_3::Start()
 
 
 	//boss
+	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45*2, background.h));
+	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45*2, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_R_CABLE, 227, App->collision->returny(212 - 45, background.h));
 	App->enemies->AddEnemy(BOSS_LVL3_L_LASER, 0, App->collision->returny(212, background.h));
@@ -275,7 +277,7 @@ update_status ModuleLevel_3::Update()
 	App->render->Blit(lava_texture, 0, -6000, &lava.GetCurrentFrame(), 1);
 		
 	if (App->player->position.y >= -6000 && App->player->position.y <= -4500){
-		App->render->Blit(lava_texture, 0, -5000, &paralaxleft.GetCurrentFrame(), 0.9);
+		App->render->Blit(lava_texture, -1, -5000, &paralaxleft.GetCurrentFrame(), 0.9);
 		App->render->Blit(lava_texture, 194, -5000, &paralaxright.GetCurrentFrame(), 0.9);
 	}
 	App->render->Blit(lvl_texture, 0, -6436 + SCREEN_HEIGHT, &background, 1); //Negative value to start rendering from the bottom of the image

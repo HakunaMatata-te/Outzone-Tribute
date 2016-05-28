@@ -60,7 +60,7 @@ update_status ModuleRender::Update()
 		camera.y += SCREEN_SPEED*SCREEN_SIZE;
 		App->player->screenlowheight -= SCREEN_SPEED;
 	}
-
+	
 
 	return update_status::UPDATE_CONTINUE;
 }

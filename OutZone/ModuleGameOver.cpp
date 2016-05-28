@@ -41,7 +41,7 @@ bool ModuleGameOver::CleanUp()
 
 update_status ModuleGameOver::Update()
 {
-	App->render->Blit(lvl_texture, 0, 0, &background, 0.75f);
+	App->render->Blit(lvl_texture, 0, 0, &background, 0.75f, false);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]==KEY_DOWN)
 	{

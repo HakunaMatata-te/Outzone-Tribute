@@ -39,7 +39,7 @@ bool ModuleEndlevel::CleanUp()
 
 update_status ModuleEndlevel::Update()
 {
-	App->render->Blit(endlvl_texture, 0, 0, &endlevel, 1); //starts rendering from bottom of the image
+	App->render->Blit(endlvl_texture, 0, 0, &endlevel, 1, false); //starts rendering from bottom of the image
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE])
 	{

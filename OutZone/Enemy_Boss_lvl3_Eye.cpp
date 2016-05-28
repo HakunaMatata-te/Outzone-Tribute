@@ -53,6 +53,9 @@ void Enemy_Boss_Eye::death(){
 
 void Enemy_Boss_Eye::Move(){
 
+	float angle;
+	SeePlayer(SDL_Rect{ position.x, position.y, 20, 31 }, angle);
+
 	if (stage == PROGRESS::CLOSE){
 		if (SDL_GetTicks() - Timer > 3000){
 			stage = OPENING;
@@ -73,7 +76,7 @@ void Enemy_Boss_Eye::Move(){
 
 	if (stage == OPEN){
 		if (SDL_GetTicks() - shotTimer > 501){
-			App->particles->AddParticle(App->particles->awesome_shot, position.x, position.y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle_Bullet_Enemy(App->particles->awesome_shot, position.x, position.y, COLLIDER_ENEMY_SHOT, angle);
 			shotTimer = SDL_GetTicks();
 		}
 

@@ -435,7 +435,7 @@ ModuleParticles::ModuleParticles()
 	awesome_shot.anim.PushBack({ 680, 590, 31, 31 });
 	awesome_shot.anim.PushBack({ 724, 590, 31, 31 });
 	awesome_shot.anim.speed = 0.2f;
-	awesome_shot.speed.y = 3;
+	awesome_shot.speed = 3;
 	awesome_shot.life = 9000;
 
 
