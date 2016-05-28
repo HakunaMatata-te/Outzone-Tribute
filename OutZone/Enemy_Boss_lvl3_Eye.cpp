@@ -8,7 +8,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Boss_Eye::Enemy_Boss_Eye(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Boss_Eye::Enemy_Boss_Eye(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	
 	closed.PushBack({589, 655, 20, 31});

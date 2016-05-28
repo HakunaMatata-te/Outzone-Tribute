@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Shield_Tank::Enemy_Shield_Tank(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Shield_Tank::Enemy_Shield_Tank(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Shield.PushBack({ 828, 67, 64, 56 });
 	Shield.PushBack({ 760, 67, 64, 56 });

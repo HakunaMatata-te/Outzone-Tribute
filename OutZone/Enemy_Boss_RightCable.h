@@ -13,7 +13,7 @@ private:
 	bool Timer_state;
 
 public:
-	Enemy_Boss_RCable(int x, int y, uint typemove, ENEMY_TYPES type);
+	Enemy_Boss_RCable(int x, int y, uint typemove, ENEMY_TYPES type, bool boss);
 
 	void death();
 	void Move();

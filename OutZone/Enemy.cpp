@@ -10,7 +10,7 @@
 
 #define PI 3.14159265f
 
-Enemy::Enemy(int x, int y, uint typemove,ENEMY_TYPES type) : position(x, y), typemove(typemove), type(type), collider(nullptr)
+Enemy::Enemy(int x, int y, uint typemove,ENEMY_TYPES type, bool boss) : position(x, y), typemove(typemove), type(type), boss_enemy(boss), collider(nullptr)
 {}
 
 Enemy::~Enemy()

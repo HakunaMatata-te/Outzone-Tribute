@@ -47,12 +47,19 @@ update_status ModuleEnemies::PreUpdate()
 				if (queue[i].y == queue[j].y && queue[i].x == queue[j].x)
 					spawned = true;
 			}
-			if ((queue[i].y) * SCREEN_SIZE > -1 * (App->render->camera.y + SPAWN_MARGIN) && spawned == false)
+			if ((queue[i].y) * SCREEN_SIZE > -1 * (App->render->camera.y + SPAWN_MARGIN) && spawned == false && !queue[i].boss_enemy)
 			{	
 				SpawnEnemy(queue[i]);
 				queue[i].type = ENEMY_TYPES::NO_TYPE;
 				LOG("Spawning enemy at %d", queue[i].y * SCREEN_SIZE);
 			}
+			
+			//Making boss always spawned to avoid graphical issues
+			if (queue[i].boss_enemy){
+				SpawnEnemy(queue[i]);
+				queue[i].type = ENEMY_TYPES::NO_TYPE;
+			}
+
 		}
 	}
 	return UPDATE_CONTINUE;
@@ -75,7 +82,7 @@ update_status ModuleEnemies::Update()
 
 update_status ModuleEnemies::PostUpdate()
 {
-	// check camera position to decide what to spawn
+	// check camera position to decide what to despawn
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if(enemies[i] != nullptr)
@@ -86,7 +93,7 @@ update_status ModuleEnemies::PostUpdate()
 			enemies[i]->CollisionRight = false;
 			enemies[i]->CollisionLeft = false;
 
-			if (enemies[i]->position.y * SCREEN_SIZE > -1*(App->render->camera.y - (App->render->camera.h * SCREEN_SIZE) - SPAWN_MARGIN))
+			if (enemies[i]->position.y * SCREEN_SIZE > -1*(App->render->camera.y - (App->render->camera.h * SCREEN_SIZE) - SPAWN_MARGIN)&&enemies[i]->boss_enemy == false)
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.y * SCREEN_SIZE);
 				delete enemies[i];
@@ -139,6 +146,7 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove)
 				queue[i].x = x;
 				queue[i].y = y;
 				queue[i].typemove = typemove;
+				queue[i].boss_enemy = false;
 				ret = true;
 				break;
 			}
@@ -148,6 +156,29 @@ bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove)
 	return ret;
 }
 
+//Add enemy to detect the boss enemies
+bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove, bool boss_type)
+{
+	bool ret = false;
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	{
+
+		if (queue[i].type == ENEMY_TYPES::NO_TYPE)
+		{
+			queue[i].type = type;
+			queue[i].x = x;
+			queue[i].y = y;
+			queue[i].typemove = typemove;
+			queue[i].boss_enemy = boss_type;
+			ret = true;
+			break;
+		}
+
+	}
+
+	return ret;
+}
 void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 {
 	// find room for the new enemy
@@ -159,55 +190,55 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			switch (info.type)
 			{
 			case ENEMY_TYPES::FOOT_SOLIDER_GREEN:
-				enemies[i] = new Enemy_Solider_Green(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Solider_Green(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::FOOT_SOLIDER_PURPLE:
-				enemies[i] = new Enemy_Solider_Purple(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Solider_Purple(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::RIGHT_LASER_TURRET:
-				enemies[i] = new Enemy_Right_Laser_Turret(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Right_Laser_Turret(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::LEFT_LASER_TURRET:
-				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Left_Laser_Turret(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::SHIELD_TANK:
-				enemies[i] = new Enemy_Shield_Tank(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Shield_Tank(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::HORITZONTAL_MOVING_MACHINE:
-				enemies[i] = new Enemy_HMM(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_HMM(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::YELLOW_INFANTERY:
-				enemies[i] = new Enemy_Yellow_Infantery(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Yellow_Infantery(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::RED_INFANTERY:
-				enemies[i] = new Enemy_Red_Infantery(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Red_Infantery(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_FILES:
-				enemies[i] = new Enemy_Boss_LvL3_Files(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_LvL3_Files(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3:
-				enemies[i] = new Enemy_Boss_LvL3(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_LvL3(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_EYE:
-				enemies[i] = new Enemy_Boss_Eye(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_Eye(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_L_LASER:
-				enemies[i] = new Enemy_Boss_L_Laser(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_L_Laser(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_L_CABLE:
-				enemies[i] = new Enemy_Boss_LCable(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_LCable(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_L_DOOR:
-				enemies[i] = new Enemy_Boss_LDoor(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_LDoor(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_R_LASER:
-				enemies[i] = new Enemy_Boss_R_Laser(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_R_Laser(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_R_CABLE:
-				enemies[i] = new Enemy_Boss_RCable(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_RCable(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_R_DOOR:
-				enemies[i] = new Enemy_Boss_RDoor(info.x, info.y, info.typemove, info.type);
+				enemies[i] = new Enemy_Boss_RDoor(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			}
 		}

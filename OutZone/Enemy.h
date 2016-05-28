@@ -29,9 +29,10 @@ public:
 	bool CollisionLeft;
 
 	ENEMY_TYPES type;
+	bool boss_enemy;
 
 public:
-	Enemy(int x, int y, uint typemove, ENEMY_TYPES type);
+	Enemy(int x, int y, uint typemove, ENEMY_TYPES type, bool boss);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;

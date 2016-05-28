@@ -24,6 +24,7 @@
 #include "Enemy_Boss_Right_Door.h"
 #include "Enemy_Boss_RightCable.h"
 
+
 enum ENEMY_TYPES
 {
 	NO_TYPE,
@@ -50,6 +51,7 @@ class Enemy;
 
 struct EnemyInfo
 {
+	bool boss_enemy;
 	ENEMY_TYPES type = ENEMY_TYPES::NO_TYPE;
 	int x, y;
 	uint typemove = 0;
@@ -70,6 +72,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove = 0);
+	bool AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove, bool boss_type);
 
 private:
 

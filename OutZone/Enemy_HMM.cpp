@@ -5,7 +5,7 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Horitzontal.PushBack({ 757, 535, 50, 38 });
 	Horitzontal.PushBack({ 808, 535, 52, 38 });

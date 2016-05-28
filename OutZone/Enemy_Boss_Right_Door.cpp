@@ -6,7 +6,7 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_Boss_RDoor::Enemy_Boss_RDoor(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Boss_RDoor::Enemy_Boss_RDoor(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	closed.PushBack({ 611, 701, 16, 12 });
 	animation = &closed;

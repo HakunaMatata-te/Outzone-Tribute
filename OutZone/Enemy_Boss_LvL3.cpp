@@ -6,7 +6,7 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_Boss_LvL3::Enemy_Boss_LvL3(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Boss_LvL3::Enemy_Boss_LvL3(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Structure.PushBack({ 339, 655, 240, 103 });
 
