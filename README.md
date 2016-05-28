@@ -1,4 +1,4 @@
-# Outzone-Tribute
+﻿# Outzone-Tribute
 
 Tribute to Outzone made for learning purposes about videogame development.
 
@@ -7,13 +7,17 @@ Tribute to Outzone made for learning purposes about videogame development.
 You're now a Cyborg soldier fighting for the earth against an army of aliens, use diferent weapons to reach the enemy boss and destroy it, killing as much aliens as you can in the way.
 
 ###Usage
-Press "SPACE" to advance through menus.
-Use the arrow keys to move arround.
-To shot press "E" key, press "Q" to change between the two weapons available. 
-Press "P" to upgrade your weapon lvl (max lvl = 3)  
-Press "LeftCtrl" to shot a bomb barrage killing all enemies in the screen (only 3 bomb ammunition).
+"SPACE" :to advance through menus.
+Arrow keys: to move arround.
+ "E" : Shot
+ "Q" : Change between the two weapons available. 
+ "LeftCtrl" : Shot a bomb barrage killing all enemies in the screen (only 3 bomb ammunition).
 
-If you have problems at beating the game you can press "I" to enter immortal mode.
+#####Debug
+ "I" : Immortal mode (care, you can still die when falling to the lava).
+ "U" : Infinte energy.
+ "B" : Tp to boss (The game camera is likely to become buged, do not report camera bugs if you have used this comand).
+ "P" : Upgrade your weapon lvl (max lvl = 3). Upgrading your weapon beyond lvl 3 will result in a lvl reset.
 
 ###Credits
  * Isabel Lammens: https://github.com/ilammens
@@ -23,6 +27,18 @@ If you have problems at beating the game you can press "I" to enter immortal mod
 
  
 ###Changelog
+v.1.0-Alpha
+ * Some more enemies (not much just to test they work)
+ * Boss Fight almost done (still has graphical problems)
+ * Lava animated
+ * Player shooting from the weapon
+ * Shots explode when they hit something (instead of disapearing)
+
+v0.6 Lvl 3 start
+ * Map is now the lvl 3 map
+ * Very few enemies with higher life (just for testing purposes)
+ * Lava colliders
+
 v0.5.1 Few imporvements:
  * Bullets despawn sooner when reaching the end of the screen.
  * During the "Boss" stage the camera is fixed
