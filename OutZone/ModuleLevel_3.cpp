@@ -87,13 +87,17 @@ bool ModuleLevel_3::Start()
 	App->collision->AddCollider({ 176, App->collision->returny(1057, background.h), 32, 256 }, COLLIDER_HOLE);
 	App->collision->AddCollider({ 208, App->collision->returny(991, background.h), 32, 322 }, COLLIDER_HOLE); 
 
-	//Walls colliders first yellow
-	App->collision->AddCollider({ 0, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 224, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 16, App->collision->returny(4224, background.h), 48, 96 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 192, App->collision->returny(4224, background.h), 32, 96 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 16, App->collision->returny(4705, background.h), 48, 95 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 192, App->collision->returny(4705, background.h), 32, 95 }, COLLIDER_TURRET_WALL);
+	//Wall turret colliders
+	//Left wall
+	App->collision->AddCollider({ 0, App->collision->returny(4224, background.h), 64, 95 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(4320, background.h), 16, 385 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(4705, background.h), 64, 95 }, COLLIDER_WALL);
+	//Rigth wall
+	App->collision->AddCollider({ 193, App->collision->returny(4224, background.h), 64, 95 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 225, App->collision->returny(4320, background.h), 16, 385 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 193, App->collision->returny(4705, background.h), 64, 95 }, COLLIDER_WALL);
+
+
 	
 	//Walls colliders second
 	App->collision->AddCollider({ 32, App->collision->returny(3873, background.h), 96, 63 }, COLLIDER_WALL);
