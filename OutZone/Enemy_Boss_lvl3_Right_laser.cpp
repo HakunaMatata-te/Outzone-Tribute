@@ -111,6 +111,14 @@ void Enemy_Boss_R_Laser::Move(){
 		}
 
 		if (stage == LMOVEMENT::TURN_IDLE){
+			for (uint i = 0; i < MAX_ACTIVE_PARTICLES; i++){
+				if (App->particles->active[i] != nullptr){
+					if (App->particles->active[i]->life == 20011 || App->particles->active[i]->life == 20012){
+						delete App->particles->active[i];
+						App->particles->active[i] = nullptr;
+					}
+				}
+			}
 			if (SDL_GetTicks() - Timer > 200){
 				stage = LMOVEMENT::RETREAT;
 				animation = &idle;
