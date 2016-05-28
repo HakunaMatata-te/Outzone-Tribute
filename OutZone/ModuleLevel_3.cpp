@@ -305,7 +305,7 @@ update_status ModuleLevel_3::Update()
 
 
 		//Right lava colliders (1st to appear)
-		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == false){
+		if ((SDL_GetTicks() - lava_timer) > 4840 && first_lava == false){
 			App->collision->AddCollider({ 130, App->collision->returny(480, background.h), 100, 50 }, COLLIDER_HOLE);
 			App->collision->AddCollider({ 140, App->collision->returny(473, background.h), 100, 50 }, COLLIDER_HOLE);
 			App->collision->AddCollider({ 150, App->collision->returny(469, background.h), 100, 50 }, COLLIDER_HOLE);
@@ -324,7 +324,7 @@ update_status ModuleLevel_3::Update()
 		}
 
 		//Left lava collider (Second)
-		if ((SDL_GetTicks() - lava_timer) > 4000 && first_lava == true && second_lava == false){
+		if ((SDL_GetTicks() - lava_timer) > 9230 && first_lava == true && second_lava == false){
 			App->collision->AddCollider({ 0, App->collision->returny(480, background.h), 200, 50 }, COLLIDER_HOLE);
 			App->collision->AddCollider({ 0, App->collision->returny(469, background.h), 120, 50 }, COLLIDER_HOLE);
 			App->collision->AddCollider({ 0, App->collision->returny(456, background.h), 110, 50 }, COLLIDER_HOLE);

@@ -391,7 +391,7 @@ ModuleParticles::ModuleParticles()
 	boss_left_long_shot.anim.PushBack({ 498, 664, 8, 6 });
 	boss_left_long_shot.speed.x = -2;
 	boss_left_long_shot.speed.y = 1;
-	boss_left_long_shot.life = 20000;
+	boss_left_long_shot.life = 20021; // acts as an ID
 
 	boss_left_sparkle.anim.PushBack({ 595, 630, 16, 16 });
 	boss_left_sparkle.anim.PushBack({ 618, 633, 16, 16 });
@@ -400,7 +400,7 @@ ModuleParticles::ModuleParticles()
 	boss_left_sparkle.anim.speed = 0.8f;
 	boss_left_sparkle.speed.x = -2;
 	boss_left_sparkle.speed.y = 1;
-	boss_left_sparkle.life = 20000;
+	boss_left_sparkle.life = 20022; //acts as an ID
 
 
 	boss_right_shot_apear.anim.PushBack({ 646, 663, 8, 6 });
@@ -517,6 +517,21 @@ update_status ModuleParticles::Update()
 			{
 				p->fx_played = true;
 				App->audios->PlayFx(p->fx);
+			}
+		}
+
+		//Boss overlap fixes
+
+		if (p != nullptr){
+			if (p->life == 20012 && p->position.x > 205){
+				delete active[i];
+				active[i] = nullptr;
+			}
+		}
+		if (p != nullptr){
+			if (p->life == 20021 && p->position.x < 27){
+				delete active[i];
+				active[i] = nullptr;
 			}
 		}
 	}
