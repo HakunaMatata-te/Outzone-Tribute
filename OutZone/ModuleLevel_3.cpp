@@ -62,7 +62,7 @@ bool ModuleLevel_3::Start()
 	App->render->camera.y = 0;
 
 
-	//Colliders
+	//Colliders	---------------------------------------------------------------------------------------------------------
 	//first holes colliders;
 	App->collision->AddCollider({ 0, App->collision->returny(5600, background.h), 46, 320 }, COLLIDER_HOLE);
 	App->collision->AddCollider({ 46, App->collision->returny(5700, background.h), 35, 120}, COLLIDER_HOLE);
@@ -182,7 +182,8 @@ bool ModuleLevel_3::Start()
 	App->collision->AddCollider({ 216, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 176, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
 
-	//Enemies
+	//Enemies -----------------------------------------------------------------------------------------------------------------------
+
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 180, App->collision->returny(5350, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(5550, background.h));
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 110, App->collision->returny(5850, background.h));

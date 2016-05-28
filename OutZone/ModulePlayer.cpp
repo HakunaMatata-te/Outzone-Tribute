@@ -140,6 +140,7 @@ bool ModulePlayer::Start(){
 	destroyed = false;
 	invencible = false;
 	fall_animation = false;
+	win = false;
 	spbombmunition = 3;
 	speed = PLAYER_SPEED;
 	current_weapon = MINIGUN;

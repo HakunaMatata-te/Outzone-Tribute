@@ -40,7 +40,7 @@ void Enemy_Boss_LCable::Move(){
 		}
 
 		if (stage == LMOVEMENT::LASER_CREATION){
-			if (SDL_GetTicks() - Timer > 1620){
+			if (SDL_GetTicks() - Timer > 1700){
 				stage = LMOVEMENT::LASER_MOVE;
 				Timer = SDL_GetTicks();
 			}
