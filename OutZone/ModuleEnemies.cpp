@@ -269,7 +269,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				//Don't add more, the bomb stays for a few seconds at screen doing 1 dmg per game tick, which makes adds up quite fast
 			}
 
-			if (enemies[i]->GetCollider() == c1 && enemies[i]->type == FOOT_SOLIDER_GREEN && (c2->type == COLLIDER_HOLE || c2->type == COLLIDER_BOX || c2->type == COLLIDER_WALL)){
+			if (enemies[i]->GetCollider() == c1 && (enemies[i]->type == FOOT_SOLIDER_GREEN || enemies[i]->type == SHIELD_TANK || enemies[i]->type == RED_INFANTERY || enemies[i]->type == YELLOW_INFANTERY) && (c2->type == COLLIDER_HOLE || c2->type == COLLIDER_BOX || c2->type == COLLIDER_WALL)){
 				
 				if (enemies[i]->CollisionUp == false)
 					enemies[i]->CollisionUp = c1->CheckCollisionUp(c2->rect);
@@ -279,10 +279,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					enemies[i]->CollisionRight = c1->CheckCollisionRight(c2->rect);
 				if (enemies[i]->CollisionLeft == false)
 					enemies[i]->CollisionLeft = c1->CheckCollisionLeft(c2->rect);
-
 			}
-
-
 			break;
 		} 
 		

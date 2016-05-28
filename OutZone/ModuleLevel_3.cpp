@@ -207,7 +207,7 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4319, background.h));
 
 	//Tank shield
-	App->enemies->AddEnemy(SHIELD_TANK, 144, App->collision->returny(5695, background.h));
+	App->enemies->AddEnemy(SHIELD_TANK, 144, App->collision->returny(5695, background.h), 1);
 
 	//Horizontal moving machine
 	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2871, background.h), 1);

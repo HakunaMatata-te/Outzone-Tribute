@@ -52,7 +52,7 @@ void Enemy_Yellow_Infantery::Move()
 	else if (pos_idle == 15 || pos_idle == 16)
 		animation = &Idle_8;
 
-	MoveToPlayer(position.x,position.y, anim.h,anim.w,angle);
+	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
 
 	if (SDL_GetTicks() - lastShot > 2000)
 	{

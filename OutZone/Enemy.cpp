@@ -88,7 +88,7 @@ int Enemy::SeePlayer(const SDL_Rect& r, float& angle2)
 		return dir;
 }
 
-void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle)
+void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, float angle)
 {
 	fPoint player;
 	player.x = (App->player->width / 2) + App->player->position.x;
@@ -97,13 +97,24 @@ void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle)
 	int distx = player.x - (pos_x + w / 2);
 	int disty = player.y - (pos_y + h / 2);
 
+	if (RotationPlayer == false)
+	{
+		if (CollisionUp == false && disty + h + 30 < 0)
+			pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
+		if (CollisionDown == false && disty - h - 30 >= 0)
+			pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
+		if (CollisionLeft == false && distx + w + 30 < 0)
+			pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
+		if (CollisionRight == false && distx - w - 30 >= 0)
+			pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
 
-	if (CollisionUp == false && disty + h + 30 < 0)
-		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
-	if (CollisionDown == false && disty - h - 30 >= 0)
-		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
-	if (CollisionLeft == false && distx + w + 30 < 0)
-		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
-	if (CollisionRight == false && distx - w - 30 >= 0)
-		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
+		if (disty - h - 30 < 0)
+			RotationPlayer = true;
+	}
+
+	if (RotationPlayer == true)
+	{
+		pos_x = pos_x + ENEMY_SPEED * cos(angle);
+		pos_y = pos_y + ENEMY_SPEED * sin(angle);
+	}
 }

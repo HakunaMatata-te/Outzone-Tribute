@@ -25,6 +25,9 @@ void Enemy_Boss_LvL3_Files::death(){
 
 void Enemy_Boss_LvL3_Files::Move()
 {
+	SDL_Rect anim = animation->GetCurrentFrame();
+
+
 	float angle = 270;
 	if (SDL_GetTicks() - lastShot > 2000)
 	{
@@ -35,4 +38,7 @@ void Enemy_Boss_LvL3_Files::Move()
 		}
 		lastShot = SDL_GetTicks();
 	}
+
+	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
+
 }

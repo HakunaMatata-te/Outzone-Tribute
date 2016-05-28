@@ -353,27 +353,27 @@ ModuleParticles::ModuleParticles()
 	left_laser_turret_shot.life = 10000; //acts as an ID
 
 	//Shield Tank
-	left_Shield_Tank_Case.anim.PushBack({ 582, 541, 31, 48});
+	left_Shield_Tank_Case.anim.PushBack({ 549, 714, 31, 48});
 	left_Shield_Tank_Case.speed.y = -3;
 	left_Shield_Tank_Case.speed.x = -2;
 	left_Shield_Tank_Case.life = 500;
 
-	right_Shield_Tank_Case.anim.PushBack({ 619, 541, 31, 48 });
+	right_Shield_Tank_Case.anim.PushBack({ 586, 714, 31, 48 });
 	right_Shield_Tank_Case.speed.y = -3;
 	right_Shield_Tank_Case.speed.x = +2;
 	right_Shield_Tank_Case.life = 500;
 
 	//Blue Shot
-	blue_shot_left.anim.PushBack({ 587, 499, 8, 8 });
+	blue_shot_left.anim.PushBack({ 556, 793, 8, 8 });
 	blue_shot_left.speed.y = +2;
 	blue_shot_left.speed.x = -2;
 	blue_shot_left.life = 4000;
 	
-	blue_shot_center.anim.PushBack({ 611, 509, 6, 8 });
+	blue_shot_center.anim.PushBack({ 580, 803, 6, 8 });
 	blue_shot_center.speed.y = +2;
 	blue_shot_center.life = 4000;
 
-	blue_shot_right.anim.PushBack({ 632, 499, 8, 8 });
+	blue_shot_right.anim.PushBack({ 601, 793, 8, 8 });
 	blue_shot_right.speed.y = +2;
 	blue_shot_right.speed.x = +2;
 	blue_shot_right.life = 4000;

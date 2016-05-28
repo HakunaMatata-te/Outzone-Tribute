@@ -28,6 +28,8 @@ public:
 	bool CollisionRight;
 	bool CollisionLeft;
 
+	bool RotationPlayer = false;
+
 	ENEMY_TYPES type;
 	bool boss_enemy;
 
@@ -43,7 +45,7 @@ public:
 	virtual void droping() {};
 
 	int SeePlayer(const SDL_Rect& r, float& angle2);
-	void MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle);
+	void MoveToPlayer(float& pos_x, float& pos_y, int h, int w, float angle);
 
 };
 
