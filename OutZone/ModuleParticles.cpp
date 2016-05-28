@@ -442,7 +442,7 @@ ModuleParticles::ModuleParticles()
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;
-	test.speed = 4.5f;
+	test.speed = 3.5f;
 
 }
 

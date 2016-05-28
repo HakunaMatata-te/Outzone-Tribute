@@ -34,7 +34,7 @@ void Enemy_Shield_Tank::Move()
 
 	if (anim.x == 828 && nude == true)
 	{
-		if (SDL_GetTicks() - lastShot > 200)
+		if (SDL_GetTicks() - lastShot > 700)
 		{
 			App->particles->AddParticle(App->particles->blue_shot_left, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);

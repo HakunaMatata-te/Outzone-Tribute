@@ -14,7 +14,7 @@ Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) :
 
 	animation = &Horitzontal;
 
-	collider = App->collision->AddCollider({ 0, 0, 64, 56 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 54, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	life = 5;
 	
@@ -31,7 +31,7 @@ void Enemy_HMM::Move()
 
 	if (anim.x == 866)
 	{
-		if (SDL_GetTicks() - lastShot > 200)
+		if (SDL_GetTicks() - lastShot > 700)
 		{
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + 8, position.y + 15, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + 41, position.y + 15, COLLIDER_ENEMY_SHOT);
