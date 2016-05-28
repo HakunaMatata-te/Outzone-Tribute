@@ -7,17 +7,17 @@ Tribute to Outzone made for learning purposes about videogame development.
 You're now a Cyborg soldier fighting for the earth against an army of aliens, use diferent weapons to reach the enemy boss and destroy it, killing as much aliens as you can in the way.
 
 ###Usage
-"SPACE" :to advance through menus.
-Arrow keys: to move arround.
- "E" : Shot
- "Q" : Change between the two weapons available. 
- "LeftCtrl" : Shot a bomb barrage killing all enemies in the screen (only 3 bomb ammunition).
+"SPACE" :to advance through menus.   
+Arrow keys: to move arround.   
+ "E" : Shot   
+ "Q" : Change between the two weapons available.    
+ "LeftCtrl" : Shot a bomb barrage killing all enemies in the screen (only 3 bomb ammunition).   
 
 #####Debug
- "I" : Immortal mode (care, you can still die when falling to the lava).
- "U" : Infinte energy.
- "B" : Tp to boss (The game camera is likely to become buged, do not report camera bugs if you have used this comand).
- "P" : Upgrade your weapon lvl (max lvl = 3). Upgrading your weapon beyond lvl 3 will result in a lvl reset.
+ "I" : Immortal mode (care, you can still die when falling to the lava).   
+ "U" : Infinte energy.   
+ "B" : Tp to boss (The game camera is likely to become buged, do not report camera bugs if you have used this comand).   
+ "P" : Upgrade your weapon lvl (max lvl = 3). Upgrading your weapon beyond lvl 3 will result in a lvl reset.   
 
 ###Credits
  * Isabel Lammens: https://github.com/ilammens
