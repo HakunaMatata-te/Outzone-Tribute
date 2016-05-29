@@ -438,7 +438,14 @@ ModuleParticles::ModuleParticles()
 	awesome_shot.speed = 3;
 	awesome_shot.life = 9000;
 
-
+	outofenergyanim.anim.PushBack({ 675, 58, 41, 60 });
+	outofenergyanim.anim.PushBack({ 675, 127, 41, 60 });
+	outofenergyanim.anim.PushBack({ 675, 196, 41, 60 });
+	outofenergyanim.anim.PushBack({ 675, 265, 41, 60 });
+	//outofenergyanim.anim.PushBack({ 675, 58, 41, 60 });
+	outofenergyanim.anim.speed = 0.1f;
+	outofenergyanim.anim.loop = false;
+	
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;

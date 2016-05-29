@@ -608,9 +608,9 @@ update_status ModulePlayer::PostUpdate()
 		if (App->ui->energy == 0){
 			Disable();
 			
-			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
+			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 5);
 
-			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->outofenergyanim, position.x, position.y - 23, COLLIDER_NONE);
 		
 			screenlowheight = -5600;
 		}
