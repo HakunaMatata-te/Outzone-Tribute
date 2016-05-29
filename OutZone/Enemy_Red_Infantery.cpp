@@ -26,6 +26,10 @@ Enemy_Red_Infantery::Enemy_Red_Infantery(int x, int y, uint typemove, ENEMY_TYPE
 
 void Enemy_Red_Infantery::death(){
 	App->particles->AddParticle(App->particles->normal_explosion, position.x, position.y, COLLIDER_NONE);
+	if (SDL_GetTicks() % 2 == 0)
+		App->objects->AddObject(POWER_UP, position.x + 2, position.y + 2);
+	else if (SDL_GetTicks() % 2 == 1)
+		App->objects->AddObject(SPECIAL, position.x + 5, position.y + 5);
 	App->ui->personal_score += 3000;
 }
 

@@ -13,10 +13,7 @@ Box::Box(int x, int y) : Object(x,y)
 
 void Box::drop()
 {
-		if (SDL_GetTicks() % 3 == 0)
-			App->objects->AddObject(POWER_UP, position.x +1, position.y +1);
-			else if (SDL_GetTicks() % 3 == 1)
-			App->objects->AddObject(SPECIAL, position.x +5, position.y +5);
-			else App->objects->AddObject(WEAPON, position.x +1, position.y + 1);
+		
+		App->objects->AddObject(WEAPON, position.x +5, position.y + 4);
 }
 

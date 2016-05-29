@@ -22,6 +22,10 @@ Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) :
 
 void Enemy_HMM::death(){
 	App->particles->AddParticle(App->particles->normal_explosion, position.x, position.y, COLLIDER_NONE);
+	if (SDL_GetTicks() % 2 == 0)
+		App->objects->AddObject(POWER_UP, position.x + 15, position.y + 8);
+	else if (SDL_GetTicks() % 2 == 1)
+		App->objects->AddObject(SPECIAL, position.x + 18, position.y + 10);
 	App->ui->personal_score += 3000;
 }
 
