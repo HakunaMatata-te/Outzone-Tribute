@@ -32,12 +32,14 @@ public:
 	uint last_deplation;
 	uint current_time;
 	bool infinite_energy;
+	bool curren_deplation;
 	iPoint position_test;
 
 	//puntuació
 	uint highscore;
 	uint personal_score;
 	uint digit;
+	uint go_aheadtimer;
 
 
 	SDL_Texture* uitextures = nullptr;
@@ -60,6 +62,9 @@ public:
 	Animation idle_playername;
 	Animation idle_playerlive;
 	Animation idle_top;
+	Animation idle_numlives;
+	Animation go_ahead;
+	Animation outofenergy;
 	
 	SDL_Rect upper;
 

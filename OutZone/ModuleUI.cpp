@@ -45,6 +45,14 @@ bool ModuleUi::Start(){
 	idle_playername.PushBack({ 28, 21, 56, 8});
 	idle_playerlive.PushBack({262, 13, 10, 17});
 	idle_top.PushBack({ 232, 20, 22, 8});
+	idle_numlives.PushBack({ 300, 16, 6, 16 });
+	go_ahead.PushBack({ 211, 66, 51, 49 });
+	go_ahead.PushBack({ 328, 66, 51, 49 });
+	go_ahead.speed = 0.05f;
+	outofenergy.PushBack({ 285, 83, 41, 23 });
+//	outofenergy.PushBack({ 286, 86, 39, 17 });
+	outofenergy.PushBack({ 286, 56, 39, 17 });
+	outofenergy.speed = 0.05f;
 
 	upper.x = 0;
 	upper.y = 0;
@@ -58,6 +66,7 @@ bool ModuleUi::Start(){
 	position.x = 15;
 	position.y = 17;
 	position_bomb = 0;
+	go_aheadtimer = current_time;
 	uitextures = App->textures->Load("Animation/UIs.png");
 	uppermaptexture = App->textures->Load("Maps/lvl_3_upper.png");
 
@@ -85,8 +94,22 @@ update_status ModuleUi::Update(){
 		App->render->Blit(uitextures, 28, 0, &(idle_playername.GetCurrentFrame()), false);
 		//player live
 		App->render->Blit(uitextures, 0, 0, &(idle_playerlive.GetCurrentFrame()), false);
+		App->render->Blit(uitextures, 11, 1, &(idle_numlives.GetCurrentFrame()), false);
 		//top score;
 		App->render->Blit(uitextures, 108, 0, &(idle_top.GetCurrentFrame()), false);
+		//go_ahead;
+		if (App->player->position.y > ((App->player->screenlowheight - SCREEN_HEIGHT) + App->player->screenlowheight) / 2 && curren_deplation == false)
+		{
+			curren_deplation = true;
+			go_aheadtimer = current_time;
+		}
+		else if (App->player->position.y < ((App->player->screenlowheight - SCREEN_HEIGHT) + App->player->screenlowheight) / 2) 
+		{
+			go_aheadtimer = current_time;
+			curren_deplation = false;
+		}
+		if (go_aheadtimer + 6000 <= current_time && curren_deplation == true)
+			App->render->Blit(uitextures, 95, 50, &(go_ahead.GetCurrentFrame()), false);
 		// Energy;
 		current_time = SDL_GetTicks();
 		if ((current_time - last_deplation) > 1000 && infinite_energy == false){
@@ -101,6 +124,7 @@ update_status ModuleUi::Update(){
 				App->render->Blit(uitextures, position.x, position.y + 1, &(idle_energy.GetCurrentFrame()), false);
 			}
 		}
+		else App->render->Blit(uitextures, 20, 30, &(outofenergy.GetCurrentFrame()), false);
 
 		//bomb munition
 		if (App->player->spbombmunition >= 0)

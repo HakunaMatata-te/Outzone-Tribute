@@ -147,6 +147,9 @@ bool ModulePlayer::Start(){
 	lvl = 1;
 	player_dir = 0;
 	
+	App->ui->go_aheadtimer = 0;
+	App->ui->energy = MAX_N_ENERGY;
+
 	character = App->textures->Load("Animation/playermove.png");
 
 	playercollider = App->collision->AddCollider({ 88,250, 22,20 }, COLLIDER_PLAYER, App->player);
@@ -608,7 +611,7 @@ update_status ModulePlayer::PostUpdate()
 			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
-			App->ui->energy = MAX_N_ENERGY;
+		
 			screenlowheight = -5600;
 		}
 	}
@@ -618,7 +621,7 @@ update_status ModulePlayer::PostUpdate()
 		Disable();
 
 		App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->end, 1);
-		App->ui->energy = MAX_N_ENERGY;
+
 		destroyed = true;
 	}
 
@@ -648,7 +651,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
 
 			App->particles->AddParticle(App->particles->player_explosion, position.x, position.y, COLLIDER_NONE);
-			App->ui->energy = MAX_N_ENERGY;
 			destroyed = true;
 
 		}
@@ -661,7 +663,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			fall_animation = true;
 		}
 		App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 5);
-		App->ui->energy = MAX_N_ENERGY;
+
 		destroyed = true;
 	}
 	if (destroyed == true)
