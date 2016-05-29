@@ -91,6 +91,8 @@
     <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="Object_Box_Energy.h" />
     <ClInclude Include="Object_Energy.h" />
+    <ClInclude Include="Object_GateL.h" />
+    <ClInclude Include="Object_GateR.h" />
     <ClInclude Include="Object_SpecialBomb.h" />
     <ClInclude Include="Object_Box.h" />
     <ClInclude Include="Enemy.h" />
@@ -166,6 +168,8 @@
     <ClCompile Include="Object_Box.cpp" />
     <ClCompile Include="Object_Box_Energy.cpp" />
     <ClCompile Include="Object_Energy.cpp" />
+    <ClCompile Include="Object_GateL.cpp" />
+    <ClCompile Include="Object_GateR.cpp" />
     <ClCompile Include="Object_Powerup.cpp" />
     <ClCompile Include="Object_SpecialBomb.cpp" />
     <ClCompile Include="Object_Weapon.cpp" />

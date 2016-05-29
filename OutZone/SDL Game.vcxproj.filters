@@ -142,6 +142,12 @@
     <ClCompile Include="Enemy_Boss_RightCable.cpp">
       <Filter>Modules\Enemies\Boss</Filter>
     </ClCompile>
+    <ClCompile Include="Object_GateL.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Object_GateR.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -296,6 +302,12 @@
     </ClInclude>
     <ClInclude Include="Enemy_Boss_RightCable.h">
       <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_GateL.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_GateR.h">
+      <Filter>Modules\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

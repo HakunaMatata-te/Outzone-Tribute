@@ -98,7 +98,7 @@ update_status ModuleUi::Update(){
 		//top score;
 		App->render->Blit(uitextures, 108, 0, &(idle_top.GetCurrentFrame()), false);
 		//go_ahead;
-		if (App->player->position.y > ((App->player->screenlowheight - SCREEN_HEIGHT) + App->player->screenlowheight) / 2 && curren_deplation == false)
+		if (App->player->position.y > ((App->player->screenlowheight - SCREEN_HEIGHT) + App->player->screenlowheight) / 2 && curren_deplation == false && App->player->position.y <= -5400 * SCREEN_SIZE)
 		{
 			curren_deplation = true;
 			go_aheadtimer = current_time;

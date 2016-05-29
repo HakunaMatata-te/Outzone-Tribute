@@ -181,10 +181,10 @@ bool ModuleLevel_3::Start()
 	
 	// Gate 
 	App->collision->AddCollider({ 0, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 0, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 0, App->collision->returny(1344, background.h), 64, 78 }, COLLIDER_WALL);
 	
 	App->collision->AddCollider({ 216, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 176, App->collision->returny(1344, background.h), 64, 64 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 176, App->collision->returny(1344, background.h), 64, 78 }, COLLIDER_WALL);
 
 	//Enemies -----------------------------------------------------------------------------------------------------------------------
 
@@ -255,6 +255,11 @@ bool ModuleLevel_3::Start()
 	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
 	App->objects->AddObject(POWER_UP, 200, App->collision->returny(6300, background.h));
 	App->objects->AddObject(WEAPON, 150, App->collision->returny(6300, background.h));
+
+	//GatePrototype
+	App->objects->AddObject(GATEL, 63, App->collision->returny(1356, background.h));
+	App->objects->AddObject(GATER, 121, App->collision->returny(1356, background.h));
+
 
 	//Terrain mods
 

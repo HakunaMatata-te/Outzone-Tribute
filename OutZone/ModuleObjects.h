@@ -13,6 +13,8 @@
 #include "Object_Weapon.h"
 #include "Object_Energy.h"
 #include "Object_Box_Energy.h"
+#include "Object_GateL.h"
+#include "Object_GateR.h"
 
 #define MAX_OBJECTS 50
 
@@ -24,6 +26,8 @@ enum OBJECTS_TYPES
 	WEAPON,
 	ENERGYBOX,
 	BOX,
+	GATEL,
+	GATER,
 	SPECIAL
 };
 
