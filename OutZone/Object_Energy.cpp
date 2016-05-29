@@ -10,7 +10,7 @@ Energy::Energy(int x, int y) : Object(x, y)
 
 	animation = &energy;
 
-	collider = App->collision->AddCollider({ 0, 0, 18, 18 }, COLLIDER_TYPE::COLLIDER_ITEMS, (Module*)App->objects);
+	collider = App->collision->AddCollider({ 0, 0, 20, 20 }, COLLIDER_TYPE::COLLIDER_ITEMS, (Module*)App->objects);
 };
 
 void Energy::pick()

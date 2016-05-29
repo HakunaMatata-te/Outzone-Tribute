@@ -336,14 +336,14 @@ bool Collider::CheckCollisionLeftEnemy(const SDL_Rect& r) const
 
 void Collider::Checkparticle(Collider* c1, Collider* c2) const
 {
-	if (c1->type == COLLIDER_PLAYER_SHOT  && c2->type != COLLIDER_PLAYER && c2->type != COLLIDER_NONE && c2->type != COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_ENEMY_SHOT && c2->type != COLLIDER_HOLE && c2->type != COLLIDER_ITEMS)
+	if (c1->type == COLLIDER_PLAYER_SHOT  && c2->type != COLLIDER_SCREEN_BOMB && c2->type != COLLIDER_PLAYER && c2->type != COLLIDER_NONE && c2->type != COLLIDER_PLAYER_SHOT && c2->type != COLLIDER_ENEMY_SHOT && c2->type != COLLIDER_HOLE && c2->type != COLLIDER_ITEMS)
 	{
 		if (App->player->current_weapon == MINIGUN)
 			App->particles->AddParticle(App->particles->Minigunshot_coll, c1->rect.x - 5, c1->rect.y - 5, COLLIDER_NONE);
 		if (App->player->current_weapon == TRIPLE_GUN)
 			App->particles->AddParticle(App->particles->Triplegunshot_coll, c1->rect.x - 5, c1->rect.y - 5, COLLIDER_NONE);
 	}
-	if (c2->type == COLLIDER_PLAYER_SHOT && c1->type != COLLIDER_PLAYER && c1->type != COLLIDER_NONE && c1->type != COLLIDER_PLAYER_SHOT && c1->type != COLLIDER_ENEMY_SHOT && c1->type != COLLIDER_HOLE && c1->type != COLLIDER_ITEMS)
+	if (c2->type == COLLIDER_PLAYER_SHOT && c1->type != COLLIDER_SCREEN_BOMB && c1->type != COLLIDER_PLAYER && c1->type != COLLIDER_NONE && c1->type != COLLIDER_PLAYER_SHOT && c1->type != COLLIDER_ENEMY_SHOT && c1->type != COLLIDER_HOLE && c1->type != COLLIDER_ITEMS)
 	{
 		if (App->player->current_weapon == MINIGUN)
 			App->particles->AddParticle(App->particles->Minigunshot_coll, c2->rect.x - 5, c2->rect.y - 5, COLLIDER_NONE);

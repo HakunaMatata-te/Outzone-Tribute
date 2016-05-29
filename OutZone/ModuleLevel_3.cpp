@@ -252,9 +252,31 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 200, App->collision->returny(4671, background.h));
 	
 	//Objects
-	App->objects->AddObject(ENERGYBOX, 30, App->collision->returny(6300, background.h));
-	App->objects->AddObject(POWER_UP, 200, App->collision->returny(6300, background.h));
-	App->objects->AddObject(WEAPON, 150, App->collision->returny(6300, background.h));
+	App->objects->AddObject(BOX, 212, App->collision->returny(6040, background.h));
+	App->objects->AddObject(BOX, 10, App->collision->returny(5560, background.h));
+	App->objects->AddObject(BOX, 162, App->collision->returny(3810, background.h));
+	App->objects->AddObject(ENERGYBOX, 5, App->collision->returny(5380, background.h));
+	App->objects->AddObject(ENERGYBOX, 206, App->collision->returny(4975, background.h));
+	App->objects->AddObject(BOX, 209, App->collision->returny(5010, background.h));
+	App->objects->AddObject(BOX, 70, App->collision->returny(4480, background.h));
+	App->objects->AddObject(BOX, 137, App->collision->returny(4480, background.h));
+	App->objects->AddObject(BOX, 70, App->collision->returny(4610, background.h));
+	App->objects->AddObject(BOX, 137, App->collision->returny(4610, background.h));
+	App->objects->AddObject(ENERGYBOX, 206, App->collision->returny(4185, background.h));
+	App->objects->AddObject(BOX, 209, App->collision->returny(4130, background.h));
+	App->objects->AddObject(ENERGYBOX, 206, App->collision->returny(3550, background.h));
+	App->objects->AddObject(ENERGYBOX, 100, App->collision->returny(3330, background.h));
+	App->objects->AddObject(BOX, 209, App->collision->returny(3300, background.h));
+	App->objects->AddObject(BOX, 6, App->collision->returny(2990, background.h));
+	App->objects->AddObject(BOX, 206, App->collision->returny(2990, background.h));
+	App->objects->AddObject(ENERGYBOX, 15, App->collision->returny(2780, background.h));
+	App->objects->AddObject(BOX, 206, App->collision->returny(2310, background.h));
+	App->objects->AddObject(ENERGYBOX, 206, App->collision->returny(2195, background.h));
+	App->objects->AddObject(ENERGYBOX, 206, App->collision->returny(1655, background.h));
+	App->objects->AddObject(BOX, 209, App->collision->returny(1475, background.h));
+	App->objects->AddObject(ENERGYBOX, 206, App->collision->returny(955, background.h));
+	App->objects->AddObject(ENERGYBOX, 10, App->collision->returny(550, background.h));
+	App->objects->AddObject(BOX, 196, App->collision->returny(550, background.h));
 
 	//GatePrototype
 	App->objects->AddObject(GATEL, 63, App->collision->returny(1356, background.h));
