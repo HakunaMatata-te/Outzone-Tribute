@@ -14,13 +14,15 @@ private:
 	iPoint original_pos;
 	fPoint speed;
 	Path path;
-	Uint32 lastShot = 0;
+	Uint32 Timer = 0;
 	int pos_idle = 0;
 	bool shot = true;
 	bool right = true;
 	bool left = false;
 	bool up = false;
 	bool down = false;
+
+	bool Timer_state;
 
 	Animation Structure;
 

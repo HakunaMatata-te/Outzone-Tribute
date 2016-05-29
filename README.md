@@ -27,6 +27,14 @@ Arrow keys: to move arround.
 
  
 ###Changelog
+v1.0-Beta
+ * All enemies and objects in place
+ * Enemies drop items
+ * Doors added
+ * Boss terrain destruction sprites added
+ * Level music added
+ * Boss completed
+
 v.1.0-Alpha
  * Some more enemies (not much just to test they work)
  * Boss Fight almost done (still has graphical problems)
