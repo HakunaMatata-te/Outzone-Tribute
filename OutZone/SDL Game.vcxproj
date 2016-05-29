@@ -71,6 +71,8 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Boss_L_Platform.h" />
+    <ClInclude Include="Boss_R_Platform.h" />
     <ClInclude Include="Enemy_Boss_LeftCable.h" />
     <ClInclude Include="Enemy_Boss_Left_Door.h" />
     <ClInclude Include="Enemy_Boss_LvL3.h" />
@@ -125,6 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Boss_L_Platform.cpp" />
+    <ClCompile Include="Boss_R_Platform.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Boss_LeftCable.cpp" />
     <ClCompile Include="Enemy_Boss_Left_Door.cpp" />

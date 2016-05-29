@@ -75,11 +75,11 @@ update_status ModuleEnemies::Update()
 {
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i){
-		if (enemies[i] != nullptr && enemies[i]->position.y + enemies[i]->GetCollider()->rect.h > App->player->screenlowheight - 300 && enemies[i]->position.y + (enemies[i]->GetCollider()->rect.h / 2) < App->player->screenlowheight && !(enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_L_CABLE || enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_R_CABLE))
+		//Needed for the boss cables to work
+		if (enemies[i] != nullptr && (enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_L_CABLE || enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_R_CABLE || enemies[i]->type == ENEMY_TYPES::BOSS_L_PLAT || enemies[i]->type == ENEMY_TYPES::BOSS_R_PLAT))
 			enemies[i]->Move();
 
-		//Needed for the boss cables to work
-		if (enemies[i] != nullptr && (enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_L_CABLE || enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_R_CABLE))
+		else if (enemies[i] != nullptr && enemies[i]->position.y + enemies[i]->GetCollider()->rect.h > App->player->screenlowheight - 300 && enemies[i]->position.y + (enemies[i]->GetCollider()->rect.h / 2) < App->player->screenlowheight && !(enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_L_CABLE || enemies[i]->type == ENEMY_TYPES::BOSS_LVL3_R_CABLE))
 			enemies[i]->Move();
 	}
 
@@ -249,6 +249,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 				break;
 			case ENEMY_TYPES::BOSS_LVL3_R_DOOR:
 				enemies[i] = new Enemy_Boss_RDoor(info.x, info.y, info.typemove, info.type, info.boss_enemy);
+				break;
+			case ENEMY_TYPES::BOSS_L_PLAT:
+				enemies[i] = new Boss_LPlat(info.x, info.y, info.typemove, info.type, info.boss_enemy);
+				break;
+			case ENEMY_TYPES::BOSS_R_PLAT:
+				enemies[i] = new Boss_RPlat(info.x, info.y, info.typemove, info.type, info.boss_enemy);
 				break;
 			}
 		}

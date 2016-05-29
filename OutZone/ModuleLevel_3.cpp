@@ -227,6 +227,9 @@ bool ModuleLevel_3::Start()
 
 
 	//boss
+	App->enemies->AddEnemy(BOSS_L_PLAT, 0, App->collision->returny(350, background.h), 0, true);
+	App->enemies->AddEnemy(BOSS_R_PLAT, 49, App->collision->returny(413, background.h), 0, true);
+
 	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45 * 5, background.h), 0, true);
 	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45 * 4, background.h), 0, true);
 	App->enemies->AddEnemy(BOSS_LVL3_L_CABLE, 0, App->collision->returny(212 - 45*3, background.h), 0, true);
@@ -245,7 +248,8 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(BOSS_LVL3_R_DOOR, 224, App->collision->returny(243, background.h),0, true);
 
 	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h), 1);
-	
+
+
 
 	//Test 
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4671, background.h));
