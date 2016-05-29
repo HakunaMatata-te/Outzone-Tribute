@@ -52,8 +52,8 @@ typedef unsigned int uint;
 #define WIN_BORDERLESS 0
 #define WIN_RESIZABLE 0
 #define REN_VSYNC 1
-#define SCREEN_SPEED 6
-#define PLAYER_SPEED 6
+#define SCREEN_SPEED 2
+#define PLAYER_SPEED 2
 #define ENEMY_SPEED 1.1f
 #define MAX_N_ENERGY  47  //Normal energy
 #define MAX_E_ENERGY 60		//Extended energy poerup, number not correct

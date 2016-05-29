@@ -122,8 +122,21 @@ void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, float angle)
 
 	if (ShieldTank == true && type == SHIELD_TANK)
 	{
-		pos_x = pos_x + ENEMY_SPEED * cos(angle);
-		pos_y = pos_y + ENEMY_SPEED * sin(angle);
+		if (typemove == 1)
+		{
+			pos_x = pos_x + ENEMY_SPEED * cos(angle);
+			pos_y = pos_y + ENEMY_SPEED * sin(angle);
+		}
+		if (typemove == 2)
+		{
+			pos_x = pos_x - ENEMY_SPEED * cos(angle);
+			pos_y = pos_y + ENEMY_SPEED * sin(angle);
+		}
+		if (typemove == 3)
+		{
+			pos_x = pos_x - ENEMY_SPEED * cos(angle);
+			pos_y = pos_y + ENEMY_SPEED * sin(angle) - 0.5f;
+		}
 	}
 
 	if (RestEnemy == true && (type != SHIELD_TANK && type == BOSS_LVL3_FILES))

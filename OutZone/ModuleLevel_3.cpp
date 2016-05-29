@@ -17,7 +17,6 @@
 
 ModuleLevel_3::ModuleLevel_3()
 {
-
 	background.x = 1;
 	background.y = 0;
 	background.w = 240;
@@ -35,8 +34,6 @@ ModuleLevel_3::ModuleLevel_3()
 
 	paralaxleft.PushBack({ 924, 8, 64, 815 });
 	paralaxright.PushBack({ 822, 8, 46, 815 });
-
-
 }
 
 ModuleLevel_3::~ModuleLevel_3()
@@ -50,7 +47,7 @@ bool ModuleLevel_3::Start()
 	lvl_texture = App->textures->Load("Maps/lvl_3.png");
 	right_platform = App->textures->Load("Maps/Right_boss_platform_test.png");
 	lava_texture = App->textures->Load("Maps/Lava_animation.png");
-	//App->audios->PlayMusic("Sounds/lvl_1.ogg", -1.0f);
+	App->audios->PlayMusic("Sounds/lvl_3.ogg", -1.0f);
 
 	//Enable modules
 	App->player->Enable();
@@ -188,14 +185,6 @@ bool ModuleLevel_3::Start()
 
 	//Enemies -----------------------------------------------------------------------------------------------------------------------
 
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 180, App->collision->returny(5350, background.h), 1);
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 100, App->collision->returny(5550, background.h), 1);
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 110, App->collision->returny(5850, background.h), 1);
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 90, App->collision->returny(5050, background.h), 1);
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 150, App->collision->returny(5250, background.h), 1);
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 190, App->collision->returny(5950, background.h), 1);
-
-
 	//Laser turrets
 	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4639, background.h));
 	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4639, background.h));
@@ -210,21 +199,241 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(RIGHT_LASER_TURRET, 224, App->collision->returny(4319, background.h));
 	App->enemies->AddEnemy(LEFT_LASER_TURRET, 0, App->collision->returny(4319, background.h));
 
-	//Tank shield
-	App->enemies->AddEnemy(SHIELD_TANK, 144, App->collision->returny(5695, background.h), 1);
-
 	//Horizontal moving machine
 	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2871, background.h), 1);
 	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2935, background.h), 1);
 	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, 240, App->collision->returny(2231, background.h), 1);
 	App->enemies->AddEnemy(HORITZONTAL_MOVING_MACHINE, -64, App->collision->returny(2167, background.h), 2);
 
-
 	//Infantary
-	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5950, background.h), 1);
-	
-	App->enemies->AddEnemy(RED_INFANTERY, 100, App->collision->returny(5950, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 110, App->collision->returny(6058, background.h), 1); // pos_x +25
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 135, App->collision->returny(6050, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 161, App->collision->returny(6058, background.h), 1);
 
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 23, App->collision->returny(6020, background.h), 1); // pos_y -15
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 48, App->collision->returny(6005, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 73, App->collision->returny(5980, background.h), 1);
+	
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 110, App->collision->returny(5975, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 135, App->collision->returny(5970, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 161, App->collision->returny(5975, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 130, App->collision->returny(5900, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 155, App->collision->returny(5895, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 181, App->collision->returny(5900, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 100, App->collision->returny(5865, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 125, App->collision->returny(5880, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5895, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 240, App->collision->returny(5685, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 170, App->collision->returny(5650, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 295, App->collision->returny(5645, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 220, App->collision->returny(5650, background.h), 1);
+	
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 65, App->collision->returny(5580, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 90, App->collision->returny(5565, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 115, App->collision->returny(5550, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5565, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 50, App->collision->returny(5525, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 75, App->collision->returny(5500, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(5525, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 185, App->collision->returny(5500, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 190, App->collision->returny(5395, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 215, App->collision->returny(5390, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 200, App->collision->returny(5330, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 175, App->collision->returny(5310, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5295, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 175, App->collision->returny(5270, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(5255, background.h), 1);
+	App->enemies->AddEnemy(RED_INFANTERY, 125, App->collision->returny(5240, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 115, App->collision->returny(5165, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 140, App->collision->returny(5150, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 165, App->collision->returny(5135, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 190, App->collision->returny(5095, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 215, App->collision->returny(5080, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 240, App->collision->returny(5095, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 15, App->collision->returny(5045, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 40, App->collision->returny(5030, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 65, App->collision->returny(5045, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 115, App->collision->returny(5015, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 140, App->collision->returny(5000, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 165, App->collision->returny(5015, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 140, App->collision->returny(4975, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 20, App->collision->returny(4930, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 45, App->collision->returny(4945, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 0, App->collision->returny(4960, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 80, App->collision->returny(4760, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 120, App->collision->returny(4745, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 155, App->collision->returny(4760, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4640, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 137, App->collision->returny(4625, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 190, App->collision->returny(4610, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 120, App->collision->returny(4550, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 190, App->collision->returny(4550, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4480, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 120, App->collision->returny(4480, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 185, App->collision->returny(4430, background.h), 1);
+	App->enemies->AddEnemy(RED_INFANTERY, 160, App->collision->returny(4415, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4480, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 120, App->collision->returny(4480, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4400, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 190, App->collision->returny(4400, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4340, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 137, App->collision->returny(4325, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 190, App->collision->returny(4340, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 80, App->collision->returny(4290, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 120, App->collision->returny(4275, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 155, App->collision->returny(4290, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 110, App->collision->returny(4200, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 135, App->collision->returny(4185, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 160, App->collision->returny(4200, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4170, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 50, App->collision->returny(4170, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, -23, App->collision->returny(4150, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 100, App->collision->returny(3820, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 90, App->collision->returny(3780, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 75, App->collision->returny(3735, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(3717, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 165, App->collision->returny(3718, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(3685, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 192, App->collision->returny(3654, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(3621, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(3590, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(3555, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 70, App->collision->returny(3465, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 195, App->collision->returny(3430, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(3400, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(3365, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(3395, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 35, App->collision->returny(3400, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 35, App->collision->returny(3365, background.h), 1);
+
+	App->enemies->AddEnemy(RED_INFANTERY, 80, App->collision->returny(3050, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 165, App->collision->returny(3050, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 240, App->collision->returny(3050, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 30, App->collision->returny(3020, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 220, App->collision->returny(3020, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 90, App->collision->returny(2980, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 175, App->collision->returny(2980, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 70, App->collision->returny(2660, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 90, App->collision->returny(2620, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 100, App->collision->returny(2590, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(2550, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(2560, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 65, App->collision->returny(2455, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 165, App->collision->returny(2455, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 35, App->collision->returny(2380, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 85, App->collision->returny(2340, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 95, App->collision->returny(2285, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(2330, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(2310, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 10, App->collision->returny(2120, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 40, App->collision->returny(2105, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 135, App->collision->returny(2105, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 165, App->collision->returny(2120, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(1995, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(2020, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(1995, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(1895, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 35, App->collision->returny(1895, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(1785, background.h));
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(1762, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 135, App->collision->returny(1760, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(1730, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 170, App->collision->returny(1700, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 140, App->collision->returny(1560, background.h), 1); 
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 165, App->collision->returny(1545, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 190, App->collision->returny(1560, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 15, App->collision->returny(1475, background.h), 1); 
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 40, App->collision->returny(1450, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 65, App->collision->returny(1475, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 75, App->collision->returny(1250, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 100, App->collision->returny(1225, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 125, App->collision->returny(1200, background.h), 1);
+
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 37, App->collision->returny(1060, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 84, App->collision->returny(1060, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 150, App->collision->returny(1010, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 175, App->collision->returny(1010, background.h), 1);
+
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 176, App->collision->returny(1027, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 205, App->collision->returny(935, background.h));
+
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 145, App->collision->returny(830, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 70, App->collision->returny(770, background.h));
+	App->enemies->AddEnemy(FOOT_SOLIDER_PURPLE, 145, App->collision->returny(770, background.h));
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 105, App->collision->returny(675, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 70, App->collision->returny(640, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 125, App->collision->returny(625, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 185, App->collision->returny(640, background.h), 1);
+
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 75, App->collision->returny(580, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 125, App->collision->returny(565, background.h), 1);
+	App->enemies->AddEnemy(YELLOW_INFANTERY, 180, App->collision->returny(580, background.h), 1);
+
+	//Tank shield
+	App->enemies->AddEnemy(SHIELD_TANK, -64, App->collision->returny(5975, background.h), 1);
+
+	App->enemies->AddEnemy(SHIELD_TANK, 100, App->collision->returny(5796, background.h), 1);
+	App->enemies->AddEnemy(SHIELD_TANK, 170, App->collision->returny(5780, background.h), 1);
+
+	App->enemies->AddEnemy(SHIELD_TANK, 240, App->collision->returny(5600, background.h), 3);
+
+	App->enemies->AddEnemy(SHIELD_TANK, -64, App->collision->returny(4900, background.h), 1);
+
+	App->enemies->AddEnemy(SHIELD_TANK, 240, App->collision->returny(4830, background.h), 2);
+
+	App->enemies->AddEnemy(SHIELD_TANK, 240, App->collision->returny(4050, background.h), 2);
+	App->enemies->AddEnemy(SHIELD_TANK, -54, App->collision->returny(4000, background.h), 1);
 
 	//boss
 	App->enemies->AddEnemy(BOSS_L_PLAT, 0, App->collision->returny(350, background.h), 0, true);
@@ -247,13 +456,8 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(BOSS_LVL3_L_DOOR, 0, App->collision->returny(243, background.h),0, true);
 	App->enemies->AddEnemy(BOSS_LVL3_R_DOOR, 224, App->collision->returny(243, background.h),0, true);
 
-	App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h), 1);
+	//App->enemies->AddEnemy(BOSS_LVL3_FILES, 200, App->collision->returny(360, background.h), 1);
 
-
-
-	//Test 
-	App->enemies->AddEnemy(YELLOW_INFANTERY, 25, App->collision->returny(4671, background.h));
-	App->enemies->AddEnemy(FOOT_SOLIDER_GREEN, 200, App->collision->returny(4671, background.h));
 	
 	//Objects
 	App->objects->AddObject(BOX, 212, App->collision->returny(6040, background.h));

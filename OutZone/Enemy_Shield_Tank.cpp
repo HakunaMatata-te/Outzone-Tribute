@@ -71,5 +71,5 @@ void Enemy_Shield_Tank::Move()
 
 
 
-	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
+	if (typemove == 1 || typemove == 2 || typemove == 3) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
 }
