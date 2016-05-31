@@ -422,18 +422,17 @@ ModuleParticles::ModuleParticles()
 	boss_right_sparkle.speed.y++;
 	boss_right_sparkle.life = 20011;
 
+	awesome_shot.anim.PushBack({ 434, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 481, 590, 31, 31 });
 	awesome_shot.anim.PushBack({ 532, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 568, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 598, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 636, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 680, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 724, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 636, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 680, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 724, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 636, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 680, 590, 31, 31 });
-	awesome_shot.anim.PushBack({ 724, 590, 31, 31 });
+	awesome_shot.anim.PushBack({ 579, 588, 31, 31 });
+	awesome_shot.anim.PushBack({ 631, 588, 31, 31 });
+	awesome_shot.anim.PushBack({ 689, 588, 31, 31 });
+	awesome_shot.anim.PushBack({ 732, 588, 31, 31 });
+	awesome_shot.anim.PushBack({ 785, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 838, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 895, 586, 31, 31 });
+
 	awesome_shot.anim.speed = 0.2f;
 	awesome_shot.speed = 3;
 	awesome_shot.life = 9000;
@@ -447,7 +446,7 @@ ModuleParticles::ModuleParticles()
 	outofenergyanim.anim.loop = false;
 	
 	//Test bullet
-	test.anim.PushBack({ 436, 536, 9, 8});
+	test.anim.PushBack({ 620, 532, 8, 8});
 	test.life = 4000;
 	test.speed = 3.5f;
 
