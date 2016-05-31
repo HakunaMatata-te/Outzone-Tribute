@@ -29,6 +29,8 @@ Pick [B] to add 1 more ammo of bombs.
  * Pere Rifà: https://github.com/PereRifa
  * Joan Pareja: https://github.com/Yulna
 
+ ###Webpage
+ http://hakunamatata-te.github.io/Outzone-Tribute/
  
 ###Changelog
 v1.0-Release   
