@@ -54,7 +54,7 @@ void Enemy_Yellow_Infantery::Move()
 
 	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
 
-	if (SDL_GetTicks() - lastShot > 2000)
+	if (SDL_GetTicks() - lastShot > 5000)
 	{
 		if (SDL_GetTicks() - lasttimelapseShot > 50)
 		{

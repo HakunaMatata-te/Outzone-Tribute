@@ -80,7 +80,7 @@ void Enemy_Solider_Green::Move()
 
 
 
-	if (SDL_GetTicks() - lastShot > 2000)
+	if (SDL_GetTicks() - lastShot > 5000)
 	{
 		if (SDL_GetTicks() - lasttimelapseShot > 50)
 		{

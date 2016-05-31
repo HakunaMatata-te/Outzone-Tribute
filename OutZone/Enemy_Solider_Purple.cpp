@@ -76,7 +76,7 @@ void Enemy_Solider_Purple::Move()
 	else if (pos_idle == 16)
 		animation = &Idle_16;
 
-	if (SDL_GetTicks() - lastShot > 2000)
+	if (SDL_GetTicks() - lastShot > 5000)
 	{
 		if (SDL_GetTicks() - lasttimelapseShot > 50)
 		{

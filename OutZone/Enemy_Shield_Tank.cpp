@@ -20,7 +20,7 @@ Enemy_Shield_Tank::Enemy_Shield_Tank(int x, int y, uint typemove, ENEMY_TYPES ty
 
 	collider = App->collision->AddCollider({ 0, 0, 64, 56 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	life = 13;
+	life = 21;
 }
 
 void Enemy_Shield_Tank::death(){
@@ -34,7 +34,7 @@ void Enemy_Shield_Tank::Move()
 
 	if (anim.x == 828 && nude == true)
 	{
-		if (SDL_GetTicks() - lastShot > 700)
+		if (SDL_GetTicks() - lastShot > 4000)
 		{
 			App->particles->AddParticle(App->particles->blue_shot_left, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
@@ -45,7 +45,7 @@ void Enemy_Shield_Tank::Move()
 	float angle = 270;
 	if (anim.x == 828 && nude == false)
 	{
-		if (SDL_GetTicks() - lastShot > 1000)
+		if (SDL_GetTicks() - lastShot > 3000)
 		{
 
 			if (SDL_GetTicks() - lasttimelapseShot > 50)
@@ -59,7 +59,7 @@ void Enemy_Shield_Tank::Move()
 	}
 	
 
-	if (life == 5 && nude == true)
+	if (life <= 10 && nude == true)
 	{
 		App->particles->AddParticle(App->particles->normal_explosion, position.x + 64/4, position.y + 56/4, COLLIDER_NONE);
 		App->particles->AddParticle(App->particles->left_Shield_Tank_Case, position.x, position.y, COLLIDER_NONE);

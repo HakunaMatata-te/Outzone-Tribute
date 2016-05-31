@@ -36,7 +36,8 @@ ModulePlayer::ModulePlayer(){
 	idle_upleft.PushBack({ 437, 108, 28, 37});
 	idle_upright.PushBack({358, 73,27, 36});
 	idle_down.PushBack({ 435, 352, 28, 39 });
-	idle_downright.PushBack({ 361, 351, 28, 34 });
+	idle_downright.PushBack({ 361, 351, 30, 34 });
+	idle_downleft.PushBack({597, 69, 28, 38 });
 	idle_right.PushBack({360, 305, 29, 35});
 	idle_left.PushBack({86, 362, 29, 35});
 	idle_3gun.PushBack({ 199, 37, 30, 36 });
@@ -541,6 +542,7 @@ update_status ModulePlayer::Update(){
 		}
 		if (player_dir < 12 && player_dir>8){
 			current_animation = &downward_left;
+			current_idle = &idle_downleft;
 		}
 		if (player_dir == 12){
 			current_animation = &leftward;
@@ -645,7 +647,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 	//Lose Condition
 	if (invencible == false){
-		if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT && App->fade->IsFading() == false)
+		if (playercollider == c1 && c2->type == COLLIDER_ENEMY || c2->type == COLLIDER_ENEMY_SHOT || c2->type == COLLIDER_LASER_LEFT || c2->type == COLLIDER_LASER_RIGHT && App->fade->IsFading() == false)
 		{
 			Disable();
 			App->fade->FadeToBlack((Module*)App->level_3, (Module*)App->gameover, 1);
