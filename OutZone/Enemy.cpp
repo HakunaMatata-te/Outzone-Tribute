@@ -117,6 +117,9 @@ void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, float angle)
 			ShieldTank = true;
 
 		if (disty - h - 60 < 0)
+			BossFiles = true;
+
+		if (disty - h - 60 < 0)
 			RestEnemy = true;
 	}
 
@@ -139,7 +142,7 @@ void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, float angle)
 		}
 	}
 
-	if (RestEnemy == true && (type != SHIELD_TANK && type == BOSS_LVL3_FILES))
+	if (BossFiles == true && (type != SHIELD_TANK && type == BOSS_LVL3_FILES))
 	{
 
 

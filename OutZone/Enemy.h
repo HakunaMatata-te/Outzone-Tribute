@@ -30,6 +30,7 @@ public:
 	bool CollisionLeft;
 
 	bool ShieldTank = false;
+	bool BossFiles = false;
 	bool RestEnemy = false;
 	int n_movement;
 	int lastTime = 0;
