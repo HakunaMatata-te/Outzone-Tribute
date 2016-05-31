@@ -9,15 +9,19 @@ You're now a Cyborg soldier fighting for the earth against an army of aliens, us
 ###Usage
 "SPACE" :to advance through menus.   
 Arrow keys: to move arround.   
- "E" : Shot   
- "Q" : Change between the two weapons available.    
- "LeftCtrl" : Shot a bomb barrage killing all enemies in the screen (only 3 bomb ammunition).   
+ "E" : Shot.   
+ "LeftCtrl" : Shot a bomb barrage killing all enemies in the screen (starts with 4 bomb ammunition).  
+Pick power ups [P] to upgrade your weapon.     
+Pick [C] to change weapons.    
+Energy will deplete overtime, pick [E] to refill it or you will die.    
+Pick [B] to add 1 more ammo of bombs.   
 
-#####Debug
+####Debug
  "I" : Immortal mode (care, you can still die when falling to the lava).   
  "U" : Infinte energy.   
  "B" : Tp to boss (The game camera is likely to become buged, do not report camera bugs if you have used this comand).   
  "P" : Upgrade your weapon lvl (max lvl = 3). Upgrading your weapon beyond lvl 3 will result in a lvl reset.   
+ "Q" : Change between the two weapons available.    
 
 ###Credits
  * Isabel Lammens: https://github.com/ilammens
