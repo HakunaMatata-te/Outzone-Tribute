@@ -5,7 +5,7 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Horitzontal.PushBack({ 757, 535, 50, 38 });
 	Horitzontal.PushBack({ 808, 535, 52, 38 });
@@ -14,7 +14,7 @@ Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y
 
 	animation = &Horitzontal;
 
-	collider = App->collision->AddCollider({ 0, 0, 64, 56 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 54, 38 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	life = 5;
 	
@@ -22,6 +22,10 @@ Enemy_HMM::Enemy_HMM(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y
 
 void Enemy_HMM::death(){
 	App->particles->AddParticle(App->particles->normal_explosion, position.x, position.y, COLLIDER_NONE);
+	if (SDL_GetTicks() % 2 == 0)
+		App->objects->AddObject(POWER_UP, position.x + 15, position.y + 8);
+	else if (SDL_GetTicks() % 2 == 1)
+		App->objects->AddObject(SPECIAL, position.x + 18, position.y + 10);
 	App->ui->personal_score += 3000;
 }
 
@@ -31,7 +35,7 @@ void Enemy_HMM::Move()
 
 	if (anim.x == 866)
 	{
-		if (SDL_GetTicks() - lastShot > 200)
+		if (SDL_GetTicks() - lastShot > 700)
 		{
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + 8, position.y + 15, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + 41, position.y + 15, COLLIDER_ENEMY_SHOT);

@@ -142,6 +142,18 @@
     <ClCompile Include="Enemy_Boss_RightCable.cpp">
       <Filter>Modules\Enemies\Boss</Filter>
     </ClCompile>
+    <ClCompile Include="Object_GateL.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Object_GateR.cpp">
+      <Filter>Modules\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_L_Platform.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_R_Platform.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MemLeaks.h">
@@ -295,6 +307,18 @@
       <Filter>Modules\Enemies\Boss</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Boss_RightCable.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_GateL.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object_GateR.h">
+      <Filter>Modules\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_L_Platform.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_R_Platform.h">
       <Filter>Modules\Enemies\Boss</Filter>
     </ClInclude>
   </ItemGroup>

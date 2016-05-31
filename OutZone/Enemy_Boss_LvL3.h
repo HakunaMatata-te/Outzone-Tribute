@@ -14,7 +14,7 @@ private:
 	iPoint original_pos;
 	fPoint speed;
 	Path path;
-	Uint32 lastShot = 0;
+	Uint32 Timer = 0;
 	int pos_idle = 0;
 	bool shot = true;
 	bool right = true;
@@ -22,11 +22,13 @@ private:
 	bool up = false;
 	bool down = false;
 
+	bool Timer_state;
+
 	Animation Structure;
 
 public:
 
-	Enemy_Boss_LvL3(int x, int y, uint typemove, ENEMY_TYPES type);
+	Enemy_Boss_LvL3(int x, int y, uint typemove, ENEMY_TYPES type, bool boss);
 	void death();
 	void Move();
 

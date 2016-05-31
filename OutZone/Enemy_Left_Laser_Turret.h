@@ -15,13 +15,14 @@ private:
 	fPoint speed;
 	Path path;
 	Uint32 lastShot = 0;
+	Uint32 shotdelay = 0;
 	int pos_idle = 0;
 	bool shot = true;
 	Uint32 lasttimelapseShot = 0;
 
 public:
 
-	Enemy_Left_Laser_Turret(int x, int y, uint typemove, ENEMY_TYPES type);
+	Enemy_Left_Laser_Turret(int x, int y, uint typemove, ENEMY_TYPES type, bool boss);
 	void death();
 	void Move();
 

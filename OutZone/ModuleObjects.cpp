@@ -28,7 +28,7 @@ update_status ModuleObjects::PreUpdate()
 	{
 		if (object[i].type != OBJECTS_TYPES::NO_OBJECT_TYPE)
 		{
-			if ((object[i].y) * SCREEN_SIZE > -1 * (App->render->camera.y))
+			if ((object[i].y) * SCREEN_SIZE > (-1 * (App->render->camera.y) - 200))
 			{
 				SpawnObject(object[i]);
 				object[i].type = OBJECTS_TYPES::NO_OBJECT_TYPE;
@@ -85,6 +85,12 @@ bool ModuleObjects::CleanUp()
 			delete Items[i];
 			Items[i] = nullptr;
 		}
+
+		if (object[i].type != OBJECTS_TYPES::NO_OBJECT_TYPE)
+		{
+			object[i].type = OBJECTS_TYPES::NO_OBJECT_TYPE;
+		}
+
 	}
 
 	return true;
@@ -137,6 +143,12 @@ void ModuleObjects::SpawnObject(const ObjectsInfo& info)
 		case OBJECTS_TYPES::ENERGY:
 			Items[i] = new Energy(info.x, info.y);
 			break;
+		case OBJECTS_TYPES::GATEL:
+			Items[i] = new GateL(info.x, info.y);
+			break;
+		case OBJECTS_TYPES::GATER:
+			Items[i] = new GateR(info.x, info.y);
+			break;
 		}
 	}
 }
@@ -153,7 +165,7 @@ void ModuleObjects::OnCollision(Collider* c1, Collider* c2)
 			Items[i] = nullptr;
 			break;
 		}
-		else if (Items[i] != nullptr && Items[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER))
+		else if (Items[i] != nullptr && Items[i]->GetCollider() == c1 && (c2->type == COLLIDER_PLAYER) && Items[i]->GetCollider()->type != COLLIDER_WALL)
 		{
 		//	App->particles->AddParticle(App->particles->normal_explosion, enemies[i]->position.x, enemies[i]->position.y, COLLIDER_NONE);
 			Items[i]->pick();

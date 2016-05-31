@@ -9,7 +9,7 @@ Powerup::Powerup(int x, int y) : Object(x, y)
 
 	animation = &powerup;
 
-	collider = App->collision->AddCollider({ 0, 0, 18, 18 }, COLLIDER_TYPE::COLLIDER_ITEMS, (Module*)App->objects);
+	collider = App->collision->AddCollider({ 0, 0, 20, 20 }, COLLIDER_TYPE::COLLIDER_ITEMS, (Module*)App->objects);
 };
 
 void Powerup::pick()

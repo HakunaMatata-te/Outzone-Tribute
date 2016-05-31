@@ -5,6 +5,7 @@
 #include "Animation.h"
 
 #include "ModuleUI.h"
+#include "ModuleObjects.h"
 
 
 struct SDL_Texture;
@@ -28,10 +29,16 @@ public:
 	bool CollisionRight;
 	bool CollisionLeft;
 
+	bool ShieldTank = false;
+	bool RestEnemy = false;
+	int n_movement;
+	int lastTime = 0;
+
 	ENEMY_TYPES type;
+	bool boss_enemy;
 
 public:
-	Enemy(int x, int y, uint typemove, ENEMY_TYPES type);
+	Enemy(int x, int y, uint typemove, ENEMY_TYPES type, bool boss);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;
@@ -42,7 +49,7 @@ public:
 	virtual void droping() {};
 
 	int SeePlayer(const SDL_Rect& r, float& angle2);
-	void MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle);
+	void MoveToPlayer(float& pos_x, float& pos_y, int h, int w, float angle);
 
 };
 

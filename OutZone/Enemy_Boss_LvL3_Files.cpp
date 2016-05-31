@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Boss_LvL3_Files::Enemy_Boss_LvL3_Files(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Boss_LvL3_Files::Enemy_Boss_LvL3_Files(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Idle.PushBack({ 339, 792, 28, 30 });
 	Idle.PushBack({ 339, 827, 28, 30 });
@@ -25,6 +25,9 @@ void Enemy_Boss_LvL3_Files::death(){
 
 void Enemy_Boss_LvL3_Files::Move()
 {
+	SDL_Rect anim = animation->GetCurrentFrame();
+
+
 	float angle = 270;
 	if (SDL_GetTicks() - lastShot > 2000)
 	{
@@ -35,4 +38,7 @@ void Enemy_Boss_LvL3_Files::Move()
 		}
 		lastShot = SDL_GetTicks();
 	}
+
+	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
+
 }

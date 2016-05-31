@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Red_Infantery::Enemy_Red_Infantery(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Red_Infantery::Enemy_Red_Infantery(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Idle_1.PushBack({ 135, 477, 25, 32 });
 	Idle_2.PushBack({ 191, 472, 29, 30 });
@@ -26,6 +26,10 @@ Enemy_Red_Infantery::Enemy_Red_Infantery(int x, int y, uint typemove, ENEMY_TYPE
 
 void Enemy_Red_Infantery::death(){
 	App->particles->AddParticle(App->particles->normal_explosion, position.x, position.y, COLLIDER_NONE);
+	if (SDL_GetTicks() % 2 == 0)
+		App->objects->AddObject(POWER_UP, position.x + 2, position.y + 2);
+	else if (SDL_GetTicks() % 2 == 1)
+		App->objects->AddObject(SPECIAL, position.x + 5, position.y + 5);
 	App->ui->personal_score += 3000;
 }
 
@@ -51,6 +55,8 @@ void Enemy_Red_Infantery::Move()
 		animation = &Idle_7;
 	else if (pos_idle == 15 || pos_idle == 16)
 		animation = &Idle_8;
+
+	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
 
 	if (SDL_GetTicks() - lastShot > 2000)
 	{

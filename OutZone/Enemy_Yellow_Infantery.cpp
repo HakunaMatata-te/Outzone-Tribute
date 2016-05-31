@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Yellow_Infantery::Enemy_Yellow_Infantery(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Yellow_Infantery::Enemy_Yellow_Infantery(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Idle_1.PushBack({ 499, 477, 25, 32 });
 	Idle_2.PushBack({ 555, 472, 29, 30 });
@@ -52,7 +52,7 @@ void Enemy_Yellow_Infantery::Move()
 	else if (pos_idle == 15 || pos_idle == 16)
 		animation = &Idle_8;
 
-	MoveToPlayer(position.x,position.y, anim.h,anim.w,angle);
+	if (typemove == 1) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
 
 	if (SDL_GetTicks() - lastShot > 2000)
 	{

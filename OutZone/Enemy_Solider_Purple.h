@@ -38,7 +38,7 @@ private:
 
 public:
 
-	Enemy_Solider_Purple(int x, int y, uint typemove, ENEMY_TYPES type);
+	Enemy_Solider_Purple(int x, int y, uint typemove, ENEMY_TYPES type, bool boss);
 	void death();
 	void Move();
 

@@ -71,6 +71,8 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Boss_L_Platform.h" />
+    <ClInclude Include="Boss_R_Platform.h" />
     <ClInclude Include="Enemy_Boss_LeftCable.h" />
     <ClInclude Include="Enemy_Boss_Left_Door.h" />
     <ClInclude Include="Enemy_Boss_LvL3.h" />
@@ -91,6 +93,8 @@
     <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="Object_Box_Energy.h" />
     <ClInclude Include="Object_Energy.h" />
+    <ClInclude Include="Object_GateL.h" />
+    <ClInclude Include="Object_GateR.h" />
     <ClInclude Include="Object_SpecialBomb.h" />
     <ClInclude Include="Object_Box.h" />
     <ClInclude Include="Enemy.h" />
@@ -123,6 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Boss_L_Platform.cpp" />
+    <ClCompile Include="Boss_R_Platform.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Boss_LeftCable.cpp" />
     <ClCompile Include="Enemy_Boss_Left_Door.cpp" />
@@ -166,6 +172,8 @@
     <ClCompile Include="Object_Box.cpp" />
     <ClCompile Include="Object_Box_Energy.cpp" />
     <ClCompile Include="Object_Energy.cpp" />
+    <ClCompile Include="Object_GateL.cpp" />
+    <ClCompile Include="Object_GateR.cpp" />
     <ClCompile Include="Object_Powerup.cpp" />
     <ClCompile Include="Object_SpecialBomb.cpp" />
     <ClCompile Include="Object_Weapon.cpp" />

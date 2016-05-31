@@ -8,7 +8,7 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_Boss_L_Laser::Enemy_Boss_L_Laser(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Boss_L_Laser::Enemy_Boss_L_Laser(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	idle.PushBack({ 716, 708, 16, 40 });
 	animation = &idle;
@@ -97,6 +97,14 @@ void Enemy_Boss_L_Laser::Move(){
 		}
 
 		if (stage == LMOVEMENT::TURN_IDLE){
+			for (uint i = 0; i < MAX_ACTIVE_PARTICLES; i++){
+				if (App->particles->active[i] != nullptr){
+					if (App->particles->active[i]->life == 20021 || App->particles->active[i]->life == 20022){
+						delete App->particles->active[i];
+						App->particles->active[i] = nullptr;
+					}
+				}
+			}
 			if (SDL_GetTicks() - Timer > 100){
 				stage = LMOVEMENT::RETREAT;
 				animation = &idle;

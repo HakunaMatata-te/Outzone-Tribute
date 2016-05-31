@@ -3,7 +3,7 @@
 
 #include "Module.h"
 
-#define MAX_ENEMIES 100
+#define MAX_ENEMIES 200
 
 //Type of enemies.h
 #include "Enemy_Solider_Green.h"
@@ -23,6 +23,9 @@
 #include "Enemy_Boss_lvl3_Right_laser.h"
 #include "Enemy_Boss_Right_Door.h"
 #include "Enemy_Boss_RightCable.h"
+#include "Boss_L_Platform.h"
+#include "Boss_R_Platform.h"
+
 
 enum ENEMY_TYPES
 {
@@ -43,13 +46,16 @@ enum ENEMY_TYPES
 	BOSS_LVL3_R_LASER,
 	BOSS_LVL3_R_CABLE,
 	BOSS_LVL3_R_DOOR,
-	BOSS_LVL3_FILES
+	BOSS_LVL3_FILES,
+	BOSS_L_PLAT,
+	BOSS_R_PLAT
 };
 
 class Enemy;
 
 struct EnemyInfo
 {
+	bool boss_enemy;
 	ENEMY_TYPES type = ENEMY_TYPES::NO_TYPE;
 	int x, y;
 	uint typemove = 0;
@@ -70,6 +76,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove = 0);
+	bool AddEnemy(ENEMY_TYPES type, int x, int y, uint typemove, bool boss_type);
 
 private:
 

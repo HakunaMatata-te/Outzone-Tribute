@@ -11,9 +11,9 @@
 ModuleGameOver::ModuleGameOver()
 {
 	background.x = 0;
-	background.y = 1;
-	background.w = 239;
-	background.h = 381;
+	background.y = 0;
+	background.w = 240;
+	background.h = 320;
 }
 ModuleGameOver::~ModuleGameOver()
 {}
@@ -41,7 +41,7 @@ bool ModuleGameOver::CleanUp()
 
 update_status ModuleGameOver::Update()
 {
-	App->render->Blit(lvl_texture, 0, 0, &background, 0.75f, false);
+	App->render->Blit(lvl_texture, 0, 0, &background, 1.0f , false);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]==KEY_DOWN)
 	{

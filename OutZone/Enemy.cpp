@@ -1,22 +1,27 @@
 #include <math.h>
+#include <time.h>
+#include <stdlib.h>
 
 #include "Application.h"
 #include "Enemy.h"
 #include "ModuleCollider.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleEnemies.h"
 
 #include "SDL\include\SDL.h"
 
 #define PI 3.14159265f
 
-Enemy::Enemy(int x, int y, uint typemove,ENEMY_TYPES type) : position(x, y), typemove(typemove), type(type), collider(nullptr)
+Enemy::Enemy(int x, int y, uint typemove,ENEMY_TYPES type, bool boss) : position(x, y), typemove(typemove), type(type), boss_enemy(boss), collider(nullptr)
 {}
 
 Enemy::~Enemy()
 {
 	if(collider != nullptr)
 		App->collision->EraseCollider(collider);
+
+	srand(time(NULL));
 }
 
 const Collider* Enemy::GetCollider() const
@@ -88,7 +93,7 @@ int Enemy::SeePlayer(const SDL_Rect& r, float& angle2)
 		return dir;
 }
 
-void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle)
+void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, float angle)
 {
 	fPoint player;
 	player.x = (App->player->width / 2) + App->player->position.x;
@@ -97,13 +102,146 @@ void Enemy::MoveToPlayer(float& pos_x, float& pos_y, int h, int w, int angle)
 	int distx = player.x - (pos_x + w / 2);
 	int disty = player.y - (pos_y + h / 2);
 
+	if ((ShieldTank == false && type == SHIELD_TANK) || (RestEnemy == false && type != SHIELD_TANK))
+	{
+		if (CollisionUp == false && disty + h + 30 < 0)
+			pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
+		if (CollisionDown == false && disty - h - 30 >= 0)
+			pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
+		if (CollisionLeft == false && distx + w + 30 < 0)
+			pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
+		if (CollisionRight == false && distx - w - 30 >= 0)
+			pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
 
-	if (CollisionUp == false && disty + h + 30 < 0)
-		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
-	if (CollisionDown == false && disty - h - 30 >= 0)
-		pos_y -= ENEMY_SPEED*(sin(angle*PI / 180));
-	if (CollisionLeft == false && distx + w + 30 < 0)
-		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
-	if (CollisionRight == false && distx - w - 30 >= 0)
-		pos_x -= ENEMY_SPEED*(cos(angle*PI / 180));
+		if (disty - h - 30 < 0)
+			ShieldTank = true;
+
+		if (disty - h - 60 < 0)
+			RestEnemy = true;
+	}
+
+	if (ShieldTank == true && type == SHIELD_TANK)
+	{
+		if (typemove == 1)
+		{
+			pos_x = pos_x + ENEMY_SPEED * cos(angle);
+			pos_y = pos_y + ENEMY_SPEED * sin(angle);
+		}
+		if (typemove == 2)
+		{
+			pos_x = pos_x - ENEMY_SPEED * cos(angle);
+			pos_y = pos_y + ENEMY_SPEED * sin(angle);
+		}
+		if (typemove == 3)
+		{
+			pos_x = pos_x - ENEMY_SPEED * cos(angle);
+			pos_y = pos_y + ENEMY_SPEED * sin(angle) - 0.5f;
+		}
+	}
+
+	if (RestEnemy == true && (type != SHIELD_TANK && type == BOSS_LVL3_FILES))
+	{
+
+
+		if (SDL_GetTicks() - lastTime > 18)
+		{
+			n_movement = rand() % 5;
+		}
+		lastTime = SDL_GetTicks();
+
+		
+
+		if (n_movement == 0)
+		{
+			pos_x += ENEMY_SPEED;
+		}
+
+		if (n_movement == 1)
+		{
+			pos_x -= ENEMY_SPEED;
+		}
+
+		if (n_movement == 2)
+		{
+			pos_y += ENEMY_SPEED;
+		}
+		if (n_movement == 3)
+		{
+			pos_y -= ENEMY_SPEED;
+		}
+
+		if (n_movement == 4)
+		{
+			pos_x -= ENEMY_SPEED;
+			pos_y += ENEMY_SPEED;
+		}
+
+		if (n_movement == 5)
+		{
+			pos_x += ENEMY_SPEED;
+			pos_y += ENEMY_SPEED;
+		}
+
+		if (n_movement == 6)
+		{
+			pos_x -= ENEMY_SPEED;
+			pos_y -= ENEMY_SPEED;
+		}
+
+		if (n_movement == 7)
+		{
+			pos_x += ENEMY_SPEED;
+			pos_y -= ENEMY_SPEED;
+		}
+
+
+	}
+
+	if (RestEnemy == true && (type != SHIELD_TANK && type != BOSS_LVL3_FILES))
+	{
+
+
+		if (SDL_GetTicks() - lastTime > 18)
+		{
+			n_movement = rand() % 5;
+		}
+		lastTime = SDL_GetTicks();
+
+
+
+		if (n_movement == 0)
+		{
+			if (CollisionRight == false)
+				pos_x += ENEMY_SPEED;
+		}
+
+		if (n_movement == 1)
+		{
+			if (CollisionLeft == false)
+				pos_x -= ENEMY_SPEED;
+		}
+
+		if (n_movement == 2)
+		{
+			if (CollisionDown == false)
+				pos_y += ENEMY_SPEED;
+		}
+
+
+		if (n_movement == 3)
+		{
+			if (CollisionLeft == false)
+				pos_x -= ENEMY_SPEED;
+			if (CollisionDown == false)
+				pos_y += ENEMY_SPEED;
+		}
+
+		if (n_movement == 4)
+		{
+			if (CollisionRight == false)
+				pos_x += ENEMY_SPEED;
+			if (CollisionDown == false)
+				pos_y += ENEMY_SPEED;
+		}
+	}
 }

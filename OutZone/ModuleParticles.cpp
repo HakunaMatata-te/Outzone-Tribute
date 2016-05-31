@@ -336,15 +336,15 @@ ModuleParticles::ModuleParticles()
 	right_laser_turret_shot.speed.x = -2;
 	right_laser_turret_shot.life = 10000; 
 
-	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
-	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
-	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
-	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
-	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
-	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
-	left_laser_turret_light.anim.PushBack({ 633, 425, 16, 36 });
-	left_laser_turret_light.anim.PushBack({ 613, 425, 16, 36 });
-	left_laser_turret_light.anim.speed = 0.1f;
+	left_laser_turret_light.anim.PushBack({ 574, 454, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 588, 454, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 574, 454, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 588, 454, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 574, 454, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 588, 454, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 574, 454, 16, 36 });
+	left_laser_turret_light.anim.PushBack({ 588, 454, 16, 36 });
+	left_laser_turret_light.anim.speed = 0.4f;
 	left_laser_turret_light.anim.loop = false;
 
 	left_laser_turret_shot.anim.PushBack({ 569, 337, 8, 8 });
@@ -353,27 +353,27 @@ ModuleParticles::ModuleParticles()
 	left_laser_turret_shot.life = 10000; //acts as an ID
 
 	//Shield Tank
-	left_Shield_Tank_Case.anim.PushBack({ 582, 541, 31, 48});
+	left_Shield_Tank_Case.anim.PushBack({ 549, 714, 31, 48});
 	left_Shield_Tank_Case.speed.y = -3;
 	left_Shield_Tank_Case.speed.x = -2;
 	left_Shield_Tank_Case.life = 500;
 
-	right_Shield_Tank_Case.anim.PushBack({ 619, 541, 31, 48 });
+	right_Shield_Tank_Case.anim.PushBack({ 586, 714, 31, 48 });
 	right_Shield_Tank_Case.speed.y = -3;
 	right_Shield_Tank_Case.speed.x = +2;
 	right_Shield_Tank_Case.life = 500;
 
 	//Blue Shot
-	blue_shot_left.anim.PushBack({ 587, 499, 8, 8 });
+	blue_shot_left.anim.PushBack({ 556, 793, 8, 8 });
 	blue_shot_left.speed.y = +2;
 	blue_shot_left.speed.x = -2;
 	blue_shot_left.life = 4000;
 	
-	blue_shot_center.anim.PushBack({ 611, 509, 6, 8 });
+	blue_shot_center.anim.PushBack({ 580, 803, 6, 8 });
 	blue_shot_center.speed.y = +2;
 	blue_shot_center.life = 4000;
 
-	blue_shot_right.anim.PushBack({ 632, 499, 8, 8 });
+	blue_shot_right.anim.PushBack({ 601, 793, 8, 8 });
 	blue_shot_right.speed.y = +2;
 	blue_shot_right.speed.x = +2;
 	blue_shot_right.life = 4000;
@@ -391,7 +391,7 @@ ModuleParticles::ModuleParticles()
 	boss_left_long_shot.anim.PushBack({ 498, 664, 8, 6 });
 	boss_left_long_shot.speed.x = -2;
 	boss_left_long_shot.speed.y = 1;
-	boss_left_long_shot.life = 20000;
+	boss_left_long_shot.life = 20021; // acts as an ID
 
 	boss_left_sparkle.anim.PushBack({ 595, 630, 16, 16 });
 	boss_left_sparkle.anim.PushBack({ 618, 633, 16, 16 });
@@ -400,7 +400,7 @@ ModuleParticles::ModuleParticles()
 	boss_left_sparkle.anim.speed = 0.8f;
 	boss_left_sparkle.speed.x = -2;
 	boss_left_sparkle.speed.y = 1;
-	boss_left_sparkle.life = 20000;
+	boss_left_sparkle.life = 20022; //acts as an ID
 
 
 	boss_right_shot_apear.anim.PushBack({ 646, 663, 8, 6 });
@@ -438,11 +438,18 @@ ModuleParticles::ModuleParticles()
 	awesome_shot.speed = 3;
 	awesome_shot.life = 9000;
 
-
+	outofenergyanim.anim.PushBack({ 675, 58, 41, 60 });
+	outofenergyanim.anim.PushBack({ 675, 127, 41, 60 });
+	outofenergyanim.anim.PushBack({ 675, 196, 41, 60 });
+	outofenergyanim.anim.PushBack({ 675, 265, 41, 60 });
+	//outofenergyanim.anim.PushBack({ 675, 58, 41, 60 });
+	outofenergyanim.anim.speed = 0.1f;
+	outofenergyanim.anim.loop = false;
+	
 	//Test bullet
 	test.anim.PushBack({ 436, 536, 9, 8});
 	test.life = 4000;
-	test.speed = 4.5f;
+	test.speed = 3.5f;
 
 }
 
@@ -455,12 +462,46 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	particles_texture = App->textures->Load("Animation/particles.png");
 
+	
 	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.ogg");
-	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.ogg");
+	minigun_shot_lv1_down.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_downer_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_downer_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_righter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_upper_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_upper_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_righter.fx = minigun_shot_lv1_up.fx;
 	minigun_shot_lv2_up.fx = minigun_shot_lv1_up.fx;
+
+	minigun_shot_lv2_down.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_downer_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_downer_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_righter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_upper_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_upper_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_righter.fx = minigun_shot_lv1_up.fx;
+
 	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
+
 	normal_explosion.fx = App->audios->LoadFX("Sounds/death_small_enemies.ogg");
 	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.ogg");
+	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.ogg");
 	triple_shot_lv3_center.fx = triple_shot_lv1_center.fx;
 	triple_shot_lv2_center.fx = triple_shot_lv1_center.fx;
 
@@ -517,6 +558,21 @@ update_status ModuleParticles::Update()
 			{
 				p->fx_played = true;
 				App->audios->PlayFx(p->fx);
+			}
+		}
+
+		//Boss overlap fixes
+
+		if (p != nullptr){
+			if (p->life == 20012 && p->position.x > 205){
+				delete active[i];
+				active[i] = nullptr;
+			}
+		}
+		if (p != nullptr){
+			if (p->life == 20021 && p->position.x < 27){
+				delete active[i];
+				active[i] = nullptr;
 			}
 		}
 	}

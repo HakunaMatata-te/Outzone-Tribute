@@ -8,20 +8,20 @@
 
 #include "SDL\include\SDL.h"
 
-Enemy_Boss_R_Laser::Enemy_Boss_R_Laser(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Boss_R_Laser::Enemy_Boss_R_Laser(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
-	idle.PushBack({ 731, 709, 30, 40 });
+	idle.PushBack({ 741, 709, 30, 40 });
 	animation = &idle;
 
-	shooting.PushBack({ 789, 711, 30, 35 });
+	shooting.PushBack({ 824, 711, 30, 35 });
 
-	turn_left.PushBack({ 755, 709, 30, 37 });
-	turn_left.PushBack({ 789, 711, 30, 35 });
+	turn_left.PushBack({ 782, 709, 30, 37 });
+	turn_left.PushBack({ 824, 711, 30, 35 });
 	turn_left.speed = 0.07f;
 
 
-	turn_idle.PushBack({ 755, 709, 30, 37 });
-	turn_idle.PushBack({ 731, 709, 30, 40 });
+	turn_idle.PushBack({ 782, 709, 30, 37 });
+	turn_idle.PushBack({ 741, 709, 30, 40 });
 	turn_idle.speed = 0.05f;
 
 	life = 10000;
@@ -111,6 +111,14 @@ void Enemy_Boss_R_Laser::Move(){
 		}
 
 		if (stage == LMOVEMENT::TURN_IDLE){
+			for (uint i = 0; i < MAX_ACTIVE_PARTICLES; i++){
+				if (App->particles->active[i] != nullptr){
+					if (App->particles->active[i]->life == 20011 || App->particles->active[i]->life == 20012){
+						delete App->particles->active[i];
+						App->particles->active[i] = nullptr;
+					}
+				}
+			}
 			if (SDL_GetTicks() - Timer > 200){
 				stage = LMOVEMENT::RETREAT;
 				animation = &idle;

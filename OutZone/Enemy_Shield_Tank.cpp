@@ -6,7 +6,7 @@
 #include "SDL\include\SDL.h"
 
 
-Enemy_Shield_Tank::Enemy_Shield_Tank(int x, int y, uint typemove, ENEMY_TYPES type) : Enemy(x, y, typemove, type)
+Enemy_Shield_Tank::Enemy_Shield_Tank(int x, int y, uint typemove, ENEMY_TYPES type, bool boss) : Enemy(x, y, typemove, type, boss)
 {
 	Shield.PushBack({ 828, 67, 64, 56 });
 	Shield.PushBack({ 760, 67, 64, 56 });
@@ -34,7 +34,7 @@ void Enemy_Shield_Tank::Move()
 
 	if (anim.x == 828 && nude == true)
 	{
-		if (SDL_GetTicks() - lastShot > 200)
+		if (SDL_GetTicks() - lastShot > 700)
 		{
 			App->particles->AddParticle(App->particles->blue_shot_left, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->blue_shot_center, position.x + (anim.w / 2) - 2, position.y + (anim.h / 2) + 4, COLLIDER_ENEMY_SHOT);
@@ -67,4 +67,9 @@ void Enemy_Shield_Tank::Move()
 		animation = &Nude;
 		nude = false;
 	}
+
+
+
+
+	if (typemove == 1 || typemove == 2 || typemove == 3) MoveToPlayer(position.x, position.y, anim.h, anim.w, angle);
 }

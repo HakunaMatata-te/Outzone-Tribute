@@ -157,6 +157,8 @@ public:
 	Particle Minigunshot_coll;
 	Animation shot_explosion;
 	Animation triple_gun_shot_explosion;
+
+	Particle outofenergyanim;
 	
 
 	Particle_Bullet test;

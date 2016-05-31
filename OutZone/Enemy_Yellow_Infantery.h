@@ -32,7 +32,7 @@ private:
 
 public:
 
-	Enemy_Yellow_Infantery(int x, int y, uint typemove, ENEMY_TYPES type);
+	Enemy_Yellow_Infantery(int x, int y, uint typemove, ENEMY_TYPES type, bool boss);
 	void death();
 	void Move();
 
