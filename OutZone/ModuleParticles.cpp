@@ -432,7 +432,15 @@ ModuleParticles::ModuleParticles()
 	awesome_shot.anim.PushBack({ 785, 586, 31, 31 });
 	awesome_shot.anim.PushBack({ 838, 586, 31, 31 });
 	awesome_shot.anim.PushBack({ 895, 586, 31, 31 });
-
+	awesome_shot.anim.PushBack({ 785, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 838, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 895, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 785, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 838, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 895, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 785, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 838, 586, 31, 31 });
+	awesome_shot.anim.PushBack({ 895, 586, 31, 31 });
 	awesome_shot.anim.speed = 0.2f;
 	awesome_shot.speed = 3;
 	awesome_shot.life = 9000;

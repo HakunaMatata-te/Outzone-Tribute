@@ -66,11 +66,11 @@ void Enemy_Boss_L_Laser::Move(){
 
 		if (stage == LMOVEMENT::LASER_CREATION){
 			if (SDL_GetTicks() - sTimer > 25){
-				App->particles->AddParticle(App->particles->boss_left_shot_apear, position.x + 25, position.y + 29, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->boss_left_shot_apear, position.x + 25, position.y + 29, COLLIDER_LASER_LEFT);
 				sTimer = SDL_GetTicks();
 			}
 			if (SDL_GetTicks() - Timer > 1620){
-				App->particles->AddParticle(App->particles->boss_left_sparkle, 226, App->collision->returny(416, App->level_3->background.h), COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->boss_left_sparkle, 226, App->collision->returny(416, App->level_3->background.h), COLLIDER_LASER_LEFT);
 				Timer = SDL_GetTicks();
 				stage = LASER_MOVE;
 			}
@@ -81,7 +81,7 @@ void Enemy_Boss_L_Laser::Move(){
 				if (App->particles->active[i] != nullptr){
 					if (App->particles->active[i]->life == 13026){ //only long shot particles should have this life.
 						//replaces all particles for another ones that use the same sprite but have doferent movement
-						App->particles->AddParticle(App->particles->boss_left_long_shot, App->particles->active[i]->position.x, App->particles->active[i]->position.y, COLLIDER_ENEMY_SHOT);
+						App->particles->AddParticle(App->particles->boss_left_long_shot, App->particles->active[i]->position.x, App->particles->active[i]->position.y, COLLIDER_LASER_LEFT);
 
 						delete App->particles->active[i];
 						App->particles->active[i] = nullptr;

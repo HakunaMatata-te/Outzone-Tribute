@@ -150,8 +150,8 @@ bool ModuleLevel_3::Start()
 
 	App->collision->AddCollider({ 32, App->collision->returny(1760, background.h), 32, 96 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 0, App->collision->returny(1728, background.h), 32, 96 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 64, App->collision->returny(1760, background.h), 64, 32 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 192, App->collision->returny(1696, background.h), 48, 65 }, COLLIDER_WALL);
+	App->collision->AddCollider({ 33, App->collision->returny(1712, background.h), 96, 80 }, COLLIDER_WALL);		 //Down
+	App->collision->AddCollider({ 192, App->collision->returny(1696, background.h), 48, 65 }, COLLIDER_WALL);      
 
 	//Enemys base
 	App->collision->AddCollider({ 0, App->collision->returny(2576, background.h), 32, 143 }, COLLIDER_WALL);
@@ -172,7 +172,7 @@ bool ModuleLevel_3::Start()
 	
 	App->collision->AddCollider({ 160, App->collision->returny(1808, background.h), 80, 79 }, COLLIDER_WALL);
 	
-	App->collision->AddCollider({ 32, App->collision->returny(1712, background.h), 96, 47 }, COLLIDER_WALL);
+	//App->collision->AddCollider({ 32, App->collision->returny(1712, background.h), 96, 47 }, COLLIDER_WALL);
 	
 	// Gate 
 	App->collision->AddCollider({ 0, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
