@@ -666,7 +666,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		destroyed = true;
 	}
+	/*
 	if (destroyed == true)
 		App->enemies->Disable();
+		*/
 	//Win Condition
 }

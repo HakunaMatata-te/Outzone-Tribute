@@ -462,12 +462,46 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	particles_texture = App->textures->Load("Animation/particles.png");
 
+	
 	minigun_shot_lv1_up.fx = App->audios->LoadFX("Sounds/minigun_shot.ogg");
-	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.ogg");
+	minigun_shot_lv1_down.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_downer_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_downer_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_down_righter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_upper_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_upper_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv1_up_righter.fx = minigun_shot_lv1_up.fx;
 	minigun_shot_lv2_up.fx = minigun_shot_lv1_up.fx;
+
+	minigun_shot_lv2_down.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_downer_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_downer_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_down_righter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_upper_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_upper_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_left.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_lefter.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_right.fx = minigun_shot_lv1_up.fx;
+	minigun_shot_lv2_up_righter.fx = minigun_shot_lv1_up.fx;
+
 	minigun_shot_lv3.fx = minigun_shot_lv1_up.fx;
+
 	normal_explosion.fx = App->audios->LoadFX("Sounds/death_small_enemies.ogg");
 	normal_explosion.fx = App->audios->LoadFX("Sounds/player_die.ogg");
+	triple_shot_lv1_center.fx = App->audios->LoadFX("Sounds/triple_shot.ogg");
 	triple_shot_lv3_center.fx = triple_shot_lv1_center.fx;
 	triple_shot_lv2_center.fx = triple_shot_lv1_center.fx;
 

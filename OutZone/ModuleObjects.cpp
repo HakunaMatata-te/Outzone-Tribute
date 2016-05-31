@@ -85,6 +85,12 @@ bool ModuleObjects::CleanUp()
 			delete Items[i];
 			Items[i] = nullptr;
 		}
+
+		if (object[i].type != OBJECTS_TYPES::NO_OBJECT_TYPE)
+		{
+			object[i].type = OBJECTS_TYPES::NO_OBJECT_TYPE;
+		}
+
 	}
 
 	return true;
