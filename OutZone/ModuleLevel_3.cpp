@@ -183,7 +183,7 @@ bool ModuleLevel_3::Start()
 
 
 	//Boss Colliders
-	App->collision->AddCollider({ 0, App->collision->returny(191, background.h), 240, 80 }, COLLIDER_ENEMY);
+	App->collision->AddCollider({ 0, App->collision->returny(191, background.h), 240, 75 }, COLLIDER_ENEMY);
 
 	//Enemies -----------------------------------------------------------------------------------------------------------------------
 

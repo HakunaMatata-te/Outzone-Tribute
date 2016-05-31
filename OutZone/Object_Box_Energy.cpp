@@ -8,7 +8,7 @@ Energy_Box::Energy_Box(int x, int y) : Object(x, y)
 
 	animation = &energy_box;
 
-	collider = App->collision->AddCollider({ -2, 0, 36, 42 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
+	collider = App->collision->AddCollider({ -2, 0, 33, 30 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
 };
 
 void Energy_Box::drop()

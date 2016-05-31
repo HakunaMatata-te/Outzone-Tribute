@@ -45,7 +45,7 @@ update_status ModuleGameOver::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE]==KEY_DOWN)
 	{
-		App->fade->FadeToBlack((Module*)App->gameover, (Module*)App->leaderboard, 1);
+		App->fade->FadeToBlack((Module*)App->gameover, (Module*)App->intro, 1);
 	}
 
 	return UPDATE_CONTINUE;

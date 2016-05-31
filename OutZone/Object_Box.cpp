@@ -8,7 +8,7 @@ Box::Box(int x, int y) : Object(x,y)
 
 	animation = &box;
 
-	collider = App->collision->AddCollider({ -2, 0, 36, 39 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
+	collider = App->collision->AddCollider({ -2, 0, 28, 28 }, COLLIDER_TYPE::COLLIDER_BOX, (Module*)App->objects);
 };
 
 void Box::drop()

@@ -43,7 +43,7 @@ update_status ModuleEndlevel::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE])
 	{
-		App->fade->FadeToBlack((Module*)App->end, (Module*)App->leaderboard, 1);
+		App->fade->FadeToBlack((Module*)App->end, (Module*)App->intro, 1);
 	}
 
 	return UPDATE_CONTINUE;
