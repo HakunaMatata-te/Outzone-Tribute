@@ -183,6 +183,10 @@ bool ModuleLevel_3::Start()
 	App->collision->AddCollider({ 216, App->collision->returny(1312, background.h), 24, 32 }, COLLIDER_WALL);
 	App->collision->AddCollider({ 176, App->collision->returny(1344, background.h), 64, 78 }, COLLIDER_WALL);
 
+
+	//Boss Colliders
+	App->collision->AddCollider({ 0, App->collision->returny(191, background.h), 240, 80 }, COLLIDER_ENEMY);
+
 	//Enemies -----------------------------------------------------------------------------------------------------------------------
 
 	//Laser turrets
