@@ -381,11 +381,11 @@ bool Collider::CheckCollisionDown(const SDL_Rect& r) const
 }
 bool Collider::CheckCollisionRight(const SDL_Rect& r) const
 {
-	return (rect.x + rect.w > r.x && rect.x + rect.w -(PLAYER_SPEED + 1) < r.x);
+	return (rect.x + rect.w > r.x && rect.x + rect.w - (PLAYER_SPEED + 1) < r.x && rect.y + rect.h - (PLAYER_SPEED + 1)> r.y && rect.y + (PLAYER_SPEED + 1) < r.y + r.h);
 }
 bool Collider::CheckCollisionLeft(const SDL_Rect& r) const
 {
-	return (rect.x < r.x + r.w && rect.x + (PLAYER_SPEED + 1) > r.x + r.w);
+	return (rect.x < r.x + r.w && rect.x + (PLAYER_SPEED + 1) > r.x + r.w && rect.y + rect.h - (PLAYER_SPEED + 1)> r.y && rect.y + (PLAYER_SPEED + 1) < r.y + r.h);
 }
 
 bool Collider::CheckCollisionUpEnemy(const SDL_Rect& r) const
