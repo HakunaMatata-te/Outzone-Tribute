@@ -329,7 +329,6 @@ bool ModuleLevel_3::Start()
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(3621, background.h));
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 1, App->collision->returny(3590, background.h));
 
-	App->enemies->AddEnemy(YELLOW_INFANTERY, 210, App->collision->returny(3555, background.h));
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 70, App->collision->returny(3465, background.h));
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 195, App->collision->returny(3430, background.h));
 
@@ -414,7 +413,7 @@ bool ModuleLevel_3::Start()
 
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 105, App->collision->returny(675, background.h), 1);
 
-	App->enemies->AddEnemy(YELLOW_INFANTERY, 70, App->collision->returny(640, background.h), 1);
+	App->enemies->AddEnemy(RED_INFANTERY, 70, App->collision->returny(640, background.h), 1);
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 125, App->collision->returny(625, background.h), 1);
 	App->enemies->AddEnemy(YELLOW_INFANTERY, 185, App->collision->returny(640, background.h), 1);
 
