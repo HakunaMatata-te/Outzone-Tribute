@@ -27,6 +27,9 @@ Arrow keys: to move arround.
 
  
 ###Changelog
+v1.0-Release   
+ * Fixed some bugs
+
 v1.0-Beta
  * All enemies and objects in place
  * Enemies drop items
