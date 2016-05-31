@@ -89,11 +89,11 @@ bool ModuleLevel_3::Start()
 
 	//Walls colliders first yellow
 	App->collision->AddCollider({ 0, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 224, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 224, App->collision->returny(4224, background.h), 16, 576 }, COLLIDER_TURRET_WALL_2);
 	App->collision->AddCollider({ 16, App->collision->returny(4224, background.h), 48, 96 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 192, App->collision->returny(4224, background.h), 32, 96 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(4224, background.h), 32, 96 }, COLLIDER_TURRET_WALL_2);
 	App->collision->AddCollider({ 16, App->collision->returny(4705, background.h), 48, 95 }, COLLIDER_TURRET_WALL);
-	App->collision->AddCollider({ 192, App->collision->returny(4705, background.h), 32, 95 }, COLLIDER_TURRET_WALL);
+	App->collision->AddCollider({ 192, App->collision->returny(4705, background.h), 32, 95 }, COLLIDER_TURRET_WALL_2);
 	
 	//Walls colliders second
 	App->collision->AddCollider({ 32, App->collision->returny(3873, background.h), 96, 63 }, COLLIDER_WALL);
