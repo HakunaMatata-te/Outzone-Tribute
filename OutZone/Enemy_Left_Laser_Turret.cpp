@@ -29,7 +29,7 @@ void Enemy_Left_Laser_Turret::Move()
 
 	if ((SDL_GetTicks() - lastShot) > 25 && (SDL_GetTicks() - shotdelay) < 400){
 		//shoot
-		App->particles->AddParticle(App->particles->left_laser_turret_shot, position.x, position.y + 19, COLLIDER_ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->left_laser_turret_shot, position.x, position.y + 19, COLLIDER_LASER_LEFT);
 
 		lastShot = SDL_GetTicks();
 	}
